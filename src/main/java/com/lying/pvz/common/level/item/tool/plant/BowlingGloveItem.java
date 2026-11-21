@@ -48,6 +48,8 @@ public class BowlingGloveItem extends Item {
 
 	static {
 		registerBowling(PVZPlants.WALL_NUT, PvZEntityRegister.WALL_NUT_BOWLING::get, 1.0F);
+		registerBowling(PVZPlants.EXPLODE_O_NUT, PvZEntityRegister.EXPLOSION_BOWLING::get, 1.0F);
+		registerBowling(PVZPlants.GIANT_NUT, PvZEntityRegister.GIANT_NUT_BOWLING::get, 1.2F);
 	}
 
 	public BowlingGloveItem(Properties properties) {
@@ -96,7 +98,10 @@ public class BowlingGloveItem extends Item {
 				PvZMod.LOGGER.error("BowlingGloveItem Error : bowling entity create error !");
 				return InteractionResult.FAIL;
 			}
-			entity.snapTo(spawnPos.getX() + 0.5, spawnPos.getY(), spawnPos.getZ() + 0.5,
+			// 让球底恰好贴在支撑面顶面（spawnPos 是空方块，球站在其下方方块上）。
+			// 支撑面顶面 = spawnPos.getY()，球中心应在顶面 + 半高，避免生成瞬间半埋或悬空。
+			final double halfHeight = entity.getBbHeight() / 2.0D;
+			entity.snapTo(spawnPos.getX() + 0.5, spawnPos.getY() + halfHeight, spawnPos.getZ() + 0.5,
 					player.getYRot(), 0.0F);
 
 			PvZMod.LOGGER.info("[BowlingGlove] A player={} survival={} bowlingType={} face={} clickedPos={} clickedBlock={} aboveBlock={} spawnPos={} spawnEqualsClicked={} entityType={} movedTo=({},{},{}) isBowling={}",

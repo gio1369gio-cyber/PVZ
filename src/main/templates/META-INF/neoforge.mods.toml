@@ -12,7 +12,9 @@ version="${mod_version}" #mandatory
 displayName="${mod_name}" #mandatory
 
 
-authors="_HungTeen_, Wolf__Crystal, Grass_Carp,Lying"
+authors="_HungTeen_, Wolf__Crystal, Grass_Carp, ZhiliZhan, SuSen36,Lying"
+
+iconFile="logo.png"
 
 
 description='''
@@ -44,5 +46,15 @@ config="${mod_id}.mixins.json"
 
     versionRange="${minecraft_version_range}"
     ordering="NONE"
+    side="BOTH"
+
+# Modonomicon is an optional (soft) dependency: the PVZ guide book is only
+# generated/available when Modonomicon is installed.
+[[dependencies.${mod_id}]]
+    modId="modonomicon"
+    type="optional"
+
+    versionRange="[2.20.1,)"
+    ordering="AFTER"
     side="BOTH"
 

@@ -8,9 +8,11 @@ import com.lying.pvz.common.init.PvZTriggers;
 import com.lying.pvz.utils.PlayerUtil;
 import com.lying.pvz.utils.enums.Resources;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.biome.Biome;
 import net.neoforged.neoforge.common.NeoForge;
 
 /**
@@ -155,6 +157,32 @@ public final class PlayerDataManager {
     }
 
     /* ============================================================ */
+    /* ====================== 群系解锁 ============================= */
+    /* ============================================================ */
+
+    public boolean isBiomeUnlocked(ResourceKey<Biome> biome) {
+        return biomeUnlock().isUnlocked(biome);
+    }
+
+    public boolean isEdgarDollGiven() {
+        return biomeUnlock().isEdgarDollGiven();
+    }
+
+    /** 标记已发放埃德加玩偶（只发一次）。 */
+    public void setEdgarDollGiven(boolean given) {
+        biomeUnlock().setEdgarDollGiven(given);
+    }
+
+    /** 服务端解锁群系并同步。返回本次是否为新解锁。 */
+    public boolean unlockBiome(ResourceKey<Biome> biome) {
+        final boolean changed = biomeUnlock().unlock(biome);
+        if (changed) {
+            syncBiomeUnlock();
+        }
+        return changed;
+    }
+
+    /* ============================================================ */
     /* ========================== PAZ CD ============================ */
     /* ============================================================ */
 
@@ -233,6 +261,9 @@ public final class PlayerDataManager {
     public int getLastSafeDaysNotified() { return meta().lastSafeDaysNotified; }
     public void setLastSafeDaysNotified(int days) { meta().lastSafeDaysNotified = days; }
 
+    public String getLockedBiomeNotified() { return meta().lockedBiomeNotified; }
+    public void setLockedBiomeNotified(String biomeId) { meta().lockedBiomeNotified = biomeId; }
+
     /* ============================================================ */
     /* ========================= accessor ========================== */
     /* ============================================================ */
@@ -243,6 +274,10 @@ public final class PlayerDataManager {
 
     private PazState paz() {
         return player.getData(PvZAttachments.PLAYER_PAZ);
+    }
+
+    private BiomeUnlockState biomeUnlock() {
+        return player.getData(PvZAttachments.PLAYER_BIOME_UNLOCK);
     }
 
     private PazCooldown cooldown() {
@@ -262,6 +297,12 @@ public final class PlayerDataManager {
     private void syncPaz() {
         if (player instanceof ServerPlayer sp) {
             sp.syncData(PvZAttachments.PLAYER_PAZ);
+        }
+    }
+
+    private void syncBiomeUnlock() {
+        if (player instanceof ServerPlayer sp) {
+            sp.syncData(PvZAttachments.PLAYER_BIOME_UNLOCK);
         }
     }
 }

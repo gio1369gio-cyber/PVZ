@@ -58,6 +58,29 @@ public final class SweptHitResolver {
         final float margin = Math.max(0.0F,
                 bullet.kind().hitbox(bullet.variant()).width() * 0.5F);
 
+        // 贴脸：起点已在某可命中实体碰撞盒内时，ProjectileUtil 的扫掠会漏判，
+        // 这里直接按「起点命中」返回该实体，避免贴脸时子弹穿透无伤害。
+        {
+            Entity closest = null;
+            double closestSq = Double.MAX_VALUE;
+            for (Entity candidate : level.getEntities(self, search, c -> canHit(bullet, c))) {
+                if (!candidate.getBoundingBox().inflate(margin).contains(from)) {
+                    continue;
+                }
+                final double d = candidate.distanceToSqr(self);
+                if (d < closestSq) {
+                    closestSq = d;
+                    closest = candidate;
+                }
+            }
+            if (closest != null) {
+                final Entity host = resolveOwnerEntity(closest);
+                if (host != null && canHit(bullet, host)) {
+                    return BulletImpact.Hit.entity(closest, from);
+                }
+            }
+        }
+
         final EntityHitResult entityHit = ProjectileUtil.getEntityHitResult(
                 level, self, from, end, search,
                 candidate -> canHit(bullet, candidate), margin);
@@ -66,12 +89,10 @@ public final class SweptHitResolver {
             final Entity hitEntity = entityHit.getEntity();
             final Entity host = resolveOwnerEntity(hitEntity);
             if (host != null && canHit(bullet, host)) {
-                // 命中防具部件（MultiPartEntity）时保留部件作为 target，
-                // 让伤害先打到部件（PVZHealthPartEntity.hurtServer 标记 defended 并转发宿主），
-                // 否则会把防具短接、子弹直接穿防具打本体。
                 return BulletImpact.Hit.entity(hitEntity, entityHit.getLocation());
             }
         }
+
 
         if (!ignoreBlock && blockHit.getType() == HitResult.Type.BLOCK) {
             final BlockState state = level.getBlockState(blockHit.getBlockPos());
@@ -100,6 +121,9 @@ public final class SweptHitResolver {
             return false;
         }
         if (!bullet.kind().stats().canHitAirborne() && isAirborne(bullet, target)) {
+            return false;
+        }
+        if (EntityUtil.isFogHiddenTo(bullet.self(), living)) {
             return false;
         }
         return !(living instanceof IPAZEntity paz) || paz.canBeHitBy(bullet.self());

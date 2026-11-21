@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "potion1",
+  "item": {
+    "id": "pvz:chocolate"
+  },
+  "sort_number": 0,
+  "text": "book.pvz.pvz_guide.start.potion.potion1.text",
+  "title": "book.pvz.pvz_guide.start.potion.potion1.title"
+}

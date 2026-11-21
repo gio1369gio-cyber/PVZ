@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "enchant6",
+  "item": {
+    "id": "pvz:squash_card"
+  },
+  "sort_number": 5,
+  "text": "book.pvz.pvz_guide.start.enchant.enchant6.text",
+  "title": "book.pvz.pvz_guide.start.enchant.enchant6.title"
+}

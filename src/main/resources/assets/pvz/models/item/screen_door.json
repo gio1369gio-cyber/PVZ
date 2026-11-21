@@ -147,12 +147,12 @@
 			"translation": [3, -9, -2]
 		},
 		"firstperson_righthand": {
-			"rotation": [30, -90, 0],
-			"translation": [3, -9, -2]
+				"rotation": [0, -90, 0],
+				"translation": [0, -8, 0]
 		},
 		"firstperson_lefthand": {
-			"rotation": [30, 90, 0],
-			"translation": [3, -9, -2]
+				"rotation": [0, 90, 0],
+				"translation": [0, -8, 0]
 		},
 		"ground": {
 			"scale": [0.5, 0.5, 0.5]
@@ -173,13 +173,5 @@
 			"origin": [8, 8, 8],
 			"children": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 		}
-	],
-	"overrides": [
-        {
-            "predicate": {
-                "pvz:blocking": 1
-            },
-            "model": "pvz:item/screen_door_blocking"
-        }
-    ]
+	]
 }

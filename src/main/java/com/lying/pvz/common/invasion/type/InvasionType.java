@@ -72,7 +72,7 @@ public final class InvasionType implements IInvasionType {
 
     @Override
     public IInvasionFog getFog() {
-        return null;
+        return data.fog().orElse(null);
     }
 
     @Override

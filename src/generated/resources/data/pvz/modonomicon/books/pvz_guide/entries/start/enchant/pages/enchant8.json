@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "enchant8",
+  "item": {
+    "id": "pvz:cabbage_pult_card"
+  },
+  "sort_number": 7,
+  "text": "book.pvz.pvz_guide.start.enchant.enchant8.text",
+  "title": "book.pvz.pvz_guide.start.enchant.enchant8.title"
+}

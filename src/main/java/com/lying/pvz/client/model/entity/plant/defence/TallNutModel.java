@@ -20,7 +20,8 @@ import net.minecraft.client.model.geom.builders.PartDefinition;
 
 public class TallNutModel extends PvZPlantModel {
 
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(StringUtil.id("tall_nut"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION =
+			new ModelLayerLocation(StringUtil.id("tall_nut"), "main");
 
 	private final ModelPart body;
 

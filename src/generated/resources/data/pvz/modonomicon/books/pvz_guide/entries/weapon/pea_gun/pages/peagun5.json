@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "peagun5",
+  "item": {
+    "id": "pvz:pea_shooter_card"
+  },
+  "sort_number": 4,
+  "text": "book.pvz.pvz_guide.weapon.pea_gun.peagun5.text",
+  "title": "book.pvz.pvz_guide.weapon.pea_gun.peagun5.title"
+}

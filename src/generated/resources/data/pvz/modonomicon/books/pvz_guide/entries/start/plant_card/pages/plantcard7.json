@@ -1,0 +1,11 @@
+{
+  "type": "modonomicon:crafting_recipe",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "plantcard7",
+  "recipe_id_1": "pvz:card/pea_shooter_card",
+  "sort_number": 6,
+  "text": "book.pvz.pvz_guide.start.plant_card.plantcard7.text",
+  "title1": "book.pvz.pvz_guide.start.plant_card.plantcard7.title"
+}

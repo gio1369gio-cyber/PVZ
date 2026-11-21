@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "card4",
+  "item": {
+    "id": "pvz:jalapeno_enjoy_card"
+  },
+  "sort_number": 3,
+  "text": "book.pvz.pvz_guide.intro.card.card4.text",
+  "title": "book.pvz.pvz_guide.intro.card.card4.title"
+}

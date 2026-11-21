@@ -1,0 +1,24 @@
+{
+  "type": "modonomicon:content",
+  "background": {
+    "height": 26,
+    "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+    "width": 26
+  },
+  "category": "pvz:boss",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "description": "book.pvz.pvz_guide.boss.edgar.description",
+  "icon": {
+    "id": "pvz:edgar_doll"
+  },
+  "id": "pvz:boss/edgar",
+  "marker_condition": {
+    "type": "modonomicon:none"
+  },
+  "name": "book.pvz.pvz_guide.boss.edgar.name",
+  "sort_number": 0,
+  "x": 0,
+  "y": 0
+}

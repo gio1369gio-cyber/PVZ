@@ -1,0 +1,11 @@
+{
+  "type": "modonomicon:crafting_recipe",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "peagun4",
+  "recipe_id_1": "pvz:pea_gun",
+  "sort_number": 3,
+  "text": "book.pvz.pvz_guide.weapon.pea_gun.peagun4.text",
+  "title1": "book.pvz.pvz_guide.weapon.pea_gun.peagun4.title"
+}

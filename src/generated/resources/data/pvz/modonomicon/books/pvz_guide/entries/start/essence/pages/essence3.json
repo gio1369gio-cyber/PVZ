@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "essence3",
+  "item": {
+    "id": "pvz:origin_essence"
+  },
+  "sort_number": 2,
+  "text": "book.pvz.pvz_guide.start.essence.essence3.text",
+  "title": "book.pvz.pvz_guide.start.essence.essence3.title"
+}

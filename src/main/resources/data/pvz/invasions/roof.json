@@ -3,6 +3,7 @@
   "trigger_chance": 80,
   "bonus": "pvz:roof",
   "display_color": "#FFAA00",
+  "fog": { "strength": 0.85, "near_distance": 8, "far_distance": 32, "fade_ticks": 200, "hide_raiders": true, "hide_plants": false },
   "spawns": [
     { "entity_type": "pvz:normal_zombie", "invasion_level": 1, "spawn_weight": 100 },
     { "entity_type": "pvz:conehead_zombie", "invasion_level": 4, "spawn_weight": 40 },

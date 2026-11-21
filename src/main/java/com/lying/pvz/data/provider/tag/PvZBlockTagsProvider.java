@@ -39,7 +39,8 @@ public class PvZBlockTagsProvider extends BlockTagsProvider {
 
         this.tag(PvZBlockTags.ZOMBIE_BREAKABLE)
                 .add(PvZBlockRegister.FLOWER_POT.key())
-                .add(PvZBlockRegister.LILY_PAD.key());
+                .add(PvZBlockRegister.LILY_PAD.key())
+                .add(PvZBlockRegister.WATER_POT.key());
 
         // ---- 通用 / 兼容标签 ----
         this.tag(PvZBlockTags.AMETHYST_ORES).add(PvZBlockRegister.AMETHYST_ORE.key());
@@ -55,7 +56,8 @@ public class PvZBlockTagsProvider extends BlockTagsProvider {
                 .addTag(PvZBlockTags.GOLD_TILES)
                 .add(keyOf(Blocks.GRASS_BLOCK))
                 .add(PvZBlockRegister.FLOWER_POT.key())
-                .add(PvZBlockRegister.LILY_PAD.key());
+                .add(PvZBlockRegister.LILY_PAD.key())
+                .add(PvZBlockRegister.WATER_POT.key());
 
         // ---- 工具等级 ----
         this.tag(BlockTags.NEEDS_IRON_TOOL)

@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "seed6",
+  "item": {
+    "id": "pvz:cabbage"
+  },
+  "sort_number": 5,
+  "text": "book.pvz.pvz_guide.start.seed.seed6.text",
+  "title": "book.pvz.pvz_guide.start.seed.seed6.title"
+}

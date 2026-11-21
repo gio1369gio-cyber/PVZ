@@ -2,6 +2,7 @@ package com.lying.pvz.data.provider.recipe;
 
 import com.lying.pvz.common.init.PvZBlockRegister;
 import com.lying.pvz.common.init.PvZItemRegister;
+import com.lying.pvz.compat.modonomicon.ModonomiconCompat;
 import com.lying.pvz.utils.StringUtil;
 import net.minecraft.advancements.triggers.Criterion;
 import net.minecraft.core.HolderGetter;
@@ -14,6 +15,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
@@ -41,7 +43,7 @@ public final class PvZManualRecipes {
                                 Function<ItemLike, Criterion<?>> has) {
         registerShapeless(output, items, has);
         registerShaped(output, items, has);
-        // registerGuideBook(output);
+        registerGuideBook(output, items, has);
     }
 
     private static ResourceKey<Recipe<?>> key(String path) {
@@ -424,19 +426,29 @@ public final class PvZManualRecipes {
     }
 
 
-//    private static void registerGuideBook(RecipeOutput output) {
-//        ItemStack result = ItemModBook.forBook(StringUtil.id("pvz_guide"));
-//
-//        NonNullList<Ingredient> ingredients = NonNullList.create();
-//        ingredients.add(Ingredient.of(Items.BOOK));
-//        ingredients.add(Ingredient.of(ItemTags.SAPLINGS));
-//        ingredients.add(Ingredient.of(ItemTags.SAPLINGS));
-//        ingredients.add(Ingredient.of(ItemTags.SAPLINGS));
-//        ingredients.add(Ingredient.of(ItemTags.SAPLINGS));
-//
-//        ShapelessRecipe recipe = new ShapelessRecipe(
-//                "", CraftingBookCategory.MISC, result, ingredients);
-//
-//        output.accept(StringUtil.id("pvz_guide"), recipe, null);
-//    }
+    /**
+     * PVZ 指南书（Modonomicon）的合成配方：1 本书 + 4 个树苗 → 指南书。
+     * 产物是带有 BOOK_ID 数据组件的 Modonomicon 书，打开即为 pvz_guide。
+     * <p>Modonomicon 是软依赖：未安装时跳过本配方，避免硬引用触发类加载崩溃。
+     */
+    private static void registerGuideBook(RecipeOutput output, HolderGetter<Item> items,
+                                          Function<ItemLike, Criterion<?>> has) {
+        // 直接构造带 BOOK_ID 数据组件的结果模板，保证合成出的书指向 pvz_guide。
+        // 注意：datagen 阶段数据组件尚未绑定，不能用 new ItemStack(...)，
+        // 必须用 DataComponentPatch + ItemStackTemplate 的方式。
+        // 所有 Modonomicon 类引用都收拢在 ModonomiconCompat 内部；未安装时返回 null。
+        ItemStackTemplate resultTemplate = ModonomiconCompat.getGuideBookTemplate();
+        if (resultTemplate == null) {
+            return;
+        }
+
+        ShapelessRecipeBuilder.shapeless(items, RecipeCategory.MISC, resultTemplate)
+                .requires(Items.BOOK)
+                .requires(ItemTags.SAPLINGS)
+                .requires(ItemTags.SAPLINGS)
+                .requires(ItemTags.SAPLINGS)
+                .requires(ItemTags.SAPLINGS)
+                .unlockedBy("has_book", has.apply(Items.BOOK))
+                .save(output, key("pvz_guide"));
+    }
 }

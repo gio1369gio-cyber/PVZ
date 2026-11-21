@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "seed5",
+  "item": {
+    "id": "pvz:pepper"
+  },
+  "sort_number": 4,
+  "text": "book.pvz.pvz_guide.start.seed.seed5.text",
+  "title": "book.pvz.pvz_guide.start.seed.seed5.title"
+}

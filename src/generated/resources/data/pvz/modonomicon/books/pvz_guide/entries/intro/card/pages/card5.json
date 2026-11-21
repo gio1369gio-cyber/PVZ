@@ -1,0 +1,11 @@
+{
+  "type": "modonomicon:text",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "card5",
+  "show_title_separator": true,
+  "sort_number": 4,
+  "text": "book.pvz.pvz_guide.intro.card.card5.text",
+  "title": "book.pvz.pvz_guide.intro.card.card5.title"
+}

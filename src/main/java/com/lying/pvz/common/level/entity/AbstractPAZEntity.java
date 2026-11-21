@@ -218,13 +218,15 @@ public abstract class AbstractPAZEntity extends PathfinderMob implements IPAZEnt
 
     @Override
     public void checkDespawn() {
-        if (!this.canDespawn) {
-            return;
-        }
+        // 和平模式清除不依赖 canDespawn：入侵等场景生成的僵尸 canDespawn 可能为 false，
+        // 但和平模式下仍应被清除（对齐原版 Mob.checkDespawn 的和平清除语义）。
         if (this.level().getDifficulty() == Difficulty.PEACEFUL) {
             if (EntityGroupHander.isMonsterGroup(this.getEntityGroupType())) {
                 this.discard();
             }
+            return;
+        }
+        if (!this.canDespawn) {
             return;
         }
         super.checkDespawn();

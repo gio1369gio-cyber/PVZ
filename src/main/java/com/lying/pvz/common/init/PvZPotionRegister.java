@@ -21,7 +21,7 @@ public class PvZPotionRegister {
                     new MobEffectInstance(PvZEffectRegister.EXCITE_EFFECT, 1800, 1)));
     public static final DeferredHolder<Potion, Potion> EXCITE_POTION_3 =
             POTIONS.register("excite_potion_3", () -> new Potion("excite_potion_3",
-                    new MobEffectInstance(PvZEffectRegister.EXCITE_EFFECT, 3600, 0)));
+                    new MobEffectInstance(PvZEffectRegister.EXCITE_EFFECT, 3600, 2)));
     public static final DeferredHolder<Potion, Potion> LIGHT_EYE_POTION_1 =
             POTIONS.register("light_eye_potion_1", () -> new Potion("light_eye_potion_1",
                     new MobEffectInstance(PvZEffectRegister.LIGHT_EYE_EFFECT, 1200, 0)));

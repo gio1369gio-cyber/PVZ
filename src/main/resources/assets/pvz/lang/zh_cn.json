@@ -67,7 +67,6 @@
   "advancement.pvz.yeti.desc": "击杀一只雪人僵尸。",
   "advancement.pvz.zen_garden": "禅境花园",
   "advancement.pvz.zen_garden.desc": "找到宁静的禅境花园生物群系。",
-
   "almanac.pvz.again_chance": "重试几率",
   "almanac.pvz.armor": "护甲",
   "almanac.pvz.armor_toughness": "护甲韧性",
@@ -98,12 +97,9 @@
   "almanac.pvz.work_cd": "工作间隔",
   "almanac.pvz.work_range": "工作范围",
   "almanac.pvz.work_time": "工作时间",
-
   "attribute.name.pvz.inner_defence_hp": "内部防御生命值",
   "attribute.name.pvz.outer_defence_hp": "外部防御生命值",
-
   "biome.pvz.zen_garden": "禅境花园",
-
   "block.pvz.amethyst_block": "紫水晶块",
   "block.pvz.amethyst_ore": "紫水晶矿",
   "block.pvz.appease_ore": "喷射精华矿",
@@ -151,7 +147,6 @@
   "block.pvz.sun_converter": "阳光转换器",
   "block.pvz.toxic_ore": "剧毒精华矿",
   "block.pvz.toxic_shroom": "孢子",
-
   "challenge.pvz.brain_eating_movement.msg1": "《今夜新闻》",
   "challenge.pvz.brain_eating_movement.msg2": "我深渊王朝王都昨夜爆发僵民起义，",
   "challenge.pvz.brain_eating_movement.msg3": "意图争取普通僵民前往地表之权力。",
@@ -347,12 +342,10 @@
   "challenge.pvz.zombie_is_coming.msg5": "让我们祝福亲王一行一切顺利。",
   "challenge.pvz.zombie_is_coming.msg6": "--深渊日报--",
   "challenge.pvz.zombie_is_coming.name": "报纸（头条：亲王运抵）",
-
   "config.jade.plugin_pvz.entity_provider": "实体提供者",
   "config.jade.plugin_pvz.show_defence_health": "显示防御生命",
   "config.jade.plugin_pvz.show_owner": "显示所有者",
   "config.jade.plugin_pvz.show_skills": "显示技能",
-
   "config.pvz.block.amethyst_anger_chance": "紫水晶激怒几率",
   "config.pvz.block.amethyst_anger_chance.tooltip": "破坏紫水晶矿石时激怒附近末影人的几率\n 默认：0.4\n 范围：0.0 ~ 1.0",
   "config.pvz.block.break.title": "破坏方块设置",
@@ -409,6 +402,8 @@
   "config.pvz.invasion.show_message.tooltip": "若为 true，发生僵尸入侵时会收到每个事件的详细信息。",
   "config.pvz.invasion.spawn_count": "最大生成数量",
   "config.pvz.invasion.spawn_count.tooltip": "每次向玩家生成多少实体。\n 默认：30\n 范围：1 ~ 1000",
+  "config.pvz.invasion.overtime_grace": "超时宽限（天）",
+  "config.pvz.invasion.overtime_grace.tooltip": "最后一波刷完后，若仍有僵尸未清，强制结束入侵。单位为游戏天数（0.5 = 半天）。设为 0 可关闭。\n 默认：0.5\n 范围：0 ~ 10",
   "config.pvz.invasion.spawn_range": "最大生成范围",
   "config.pvz.invasion.spawn_range.tooltip": "入侵时实体能生成的最大距离。\n 默认：50\n 范围：1 ~ 100",
   "config.pvz.invasion.title": "入侵设置",
@@ -435,6 +430,10 @@
   "config.pvz.overlay.sun_bar.tooltip": "设为 false 可取消阳光条的显示。",
   "config.pvz.overlay.title": "覆盖层设置",
   "config.pvz.overlay.title.tooltip": "覆盖层设置",
+  "config.pvz.overlay.position": "资源条位置",
+  "config.pvz.overlay.position.tooltip": "拖拽以调整资源条的显示位置",
+  "config.pvz.overlay.position.button": "调整位置",
+  "config.pvz.overlay.position.hint": "拖动矩形以调整资源条位置，按 ESC 保存",
   "config.pvz.plant.plant_bullet_merge": "植物子弹合并",
   "config.pvz.plant.plant_bullet_merge.tooltip": "两颗相同的子弹重合时是否合并为一颗。",
   "config.pvz.plant.plant_minimum_live_tick": "植物最短存活刻数",
@@ -497,7 +496,6 @@
   "config.pvz.zombie.super_chance.tooltip": "携带植物能量的僵尸生成几率（数值越大越常见）。\n 默认：1\n 范围：0 ~ 40",
   "config.pvz.zombie.title": "僵尸设置",
   "config.pvz.zombie.title.tooltip": "与僵尸相关的设置。",
-
   "death.attack.pvz.ball": "%1$s被%2$s的球击中了",
   "death.attack.pvz.ball.item": "%1$s被%2$s用%3$s的球击中了",
   "death.attack.pvz.ball.player": "%1$s被%2$s的球击中了",
@@ -570,7 +568,6 @@
   "death.attack.pvz.winter_melon": "%1$s被%2$s的冰瓜冻死了",
   "death.attack.pvz.winter_melon.item": "%1$s被%2$s用%3$s的冰瓜冻死了",
   "death.attack.pvz.winter_melon.player": "%1$s被%2$s的冰瓜冻死了",
-
   "effect.pvz.butter": "黄油",
   "effect.pvz.cold": "寒冷",
   "effect.pvz.energetic": "精力充沛",
@@ -579,7 +576,6 @@
   "effect.pvz.goo_poison": "粘毒",
   "effect.pvz.halitosis": "口臭",
   "effect.pvz.light_eye": "光眼",
-
   "enchantment.pvz.bandage": "绷带",
   "enchantment.pvz.bandage.desc": "用召唤卡来治疗已召唤的生物",
   "enchantment.pvz.break_out": "能力觉醒",
@@ -600,7 +596,6 @@
   "enchantment.pvz.sun_mending.desc": "收集阳光来修补装备耐久",
   "enchantment.pvz.sun_shovel": "阳光铲",
   "enchantment.pvz.sun_shovel.desc": "铲除植物时会根据其种植消耗返还阳光",
-
   "entity.pvz.airborne_zombie": "空降僵尸",
   "entity.pvz.angel_star_fruit": "天使星星果",
   "entity.pvz.backup_dancer": "伴舞僵尸",
@@ -779,7 +774,6 @@
   "entity.pvz.zombie_hand": "僵尸手",
   "entity.pvz.zombie_part": "僵尸防具",
   "entity.pvz.zomboni": "造雪车僵尸",
-
   "gui.pvz.almanac.show": "图鉴",
   "gui.pvz.card_fusion": "卡片融合",
   "gui.pvz.card_fusion_table.tip1": "融合台需要精华和阳光的双重力量来运行",
@@ -817,7 +811,6 @@
   "gui.pvz.sun_converter.tip1": "收集附近的阳光至容器中",
   "gui.pvz.sun_converter.tip2": "可接受阳光储存树苗和受损物品",
   "gui.pvz.sun_shop.title": "阳光商店",
-
   "help.pvz.bowling_glove.empty": "未装载保龄球植物",
   "help.pvz.bowling_glove.fail": "目标不是保龄球植物",
   "help.pvz.broken": "物品已损坏",
@@ -841,14 +834,13 @@
   "help.pvz.upgrade_wrong_plant": "此卡片无法升级该植物",
   "help.pvz.water": "此植物需要水",
   "help.pvz.wrong_challenge": "无法在此处开始挑战",
-
   "invasion.pvz.mission.collect_sun.name": "收集阳光",
   "invasion.pvz.mission.finish": "任务阶段 %s 完成",
   "invasion.pvz.mission.instant_kill.name": "多杀",
   "invasion.pvz.mission.kill.name": "击杀僵尸",
   "invasion.pvz.safe_days": "安全天数%s",
   "invasion.pvz.start": "僵尸入侵即将来临！",
-
+  "invasion.pvz.timeout": "入侵超时结束，残留僵尸已清除，恢复%s天安全期。",
   "item.minecraft.lingering_potion.effect.excite_potion_1": "滞留型兴奋药水",
   "item.minecraft.lingering_potion.effect.excite_potion_2": "滞留型强化兴奋药水",
   "item.minecraft.lingering_potion.effect.excite_potion_3": "滞留型长效兴奋药水",
@@ -1190,19 +1182,16 @@
   "item.pvz.zombie_flag": "僵尸旗帜",
   "item.pvz.zombie_on_your_lawn": "音乐唱片 - 僵尸在你的草坪上",
   "item.pvz.zomboni_spawn_egg": "造雪车僵尸刷怪蛋",
-
   "itemGroup.pvz.pvz_blocks": "PVZ 方块",
   "itemGroup.pvz.pvz_envelope": "PVZ 挑战",
   "itemGroup.pvz.pvz_food": "PVZ 食物",
   "itemGroup.pvz.pvz_misc": "PVZ 杂项",
   "itemGroup.pvz.pvz_plant_card": "PVZ 植物卡片",
   "itemGroup.pvz.pvz_useful": "PVZ 实用物品",
-
   "key.categories.pvz.pvz": "植物大战僵尸",
   "key.pvz.left_toggle": "切换左侧卡片槽",
   "key.pvz.right_toggle": "切换右侧卡片槽",
   "key.pvz.show_overlay": "显示 PVZ 覆盖层",
-
   "misc.pvz.cd.default": "默认",
   "misc.pvz.cd.fast": "快速",
   "misc.pvz.cd.huge_fast": "极快",
@@ -1239,12 +1228,10 @@
   "misc.pvz.rank.purple": "紫色",
   "misc.pvz.rank.red": "红色",
   "misc.pvz.rank.white": "白色",
-
   "pvz.card.slot_locked": "卡片已移出 - 该槽位被智慧树等级锁定",
   "pvz.category.all": "全部",
   "pvz.category.plants": "植物",
   "pvz.category.zombies": "僵尸",
-
   "resource.pvz.energy_num": "能量豆数",
   "resource.pvz.gem_num": "宝石数",
   "resource.pvz.group_type": "阵营",
@@ -1257,7 +1244,6 @@
   "resource.pvz.sun_num": "阳光数",
   "resource.pvz.tree_lvl": "智慧树等级",
   "resource.pvz.tree_xp": "智慧树经验",
-
   "skill.pvz.advance_gold": "金砖",
   "skill.pvz.advance_gold.desc": "提高黄金瓷砖的等级",
   "skill.pvz.blow_strength": "狂风",
@@ -1346,7 +1332,6 @@
   "skill.pvz.wood_more_life.desc": "增加生命值",
   "skill.pvz.zombie_fast_move": "快速移动",
   "skill.pvz.zombie_fast_move.desc": "增加僵尸的移动速度",
-
   "sound.pvz.bowling_music": "保龄球音乐",
   "sound.pvz.buzzer": "蜂鸣器",
   "sound.pvz.pool": "泳池",
@@ -1445,7 +1430,6 @@
   "sound.pvz.zombie_angry": "僵尸愤怒",
   "sound.pvz.zombie_groan": "僵尸呻吟",
   "sound.pvz.zombie_siren": "僵尸警报",
-
   "tooltip.pvz.balloon": "给予缓降效果",
   "tooltip.pvz.bowling_glove.empty": "空 - 右键保龄球植物装载",
   "tooltip.pvz.bowling_glove.full": "已装载：%s",
@@ -1493,5 +1477,34 @@
   "challenge.pvz.coffin.msg4": "",
   "challenge.pvz.coffin.msg5": "",
   "challenge.pvz.coffin.msg6": "------安息",
-  "challenge.pvz.coffin.name": "抬走"
+  "challenge.pvz.coffin.name": "抬走",
+  "tooltip.pvz.zombie_doll": "持有这个娃娃可以防止被蹦极僵尸偷走。",
+  "command.pvz.invasion_active": "该玩家已在入侵中",
+  "command.pvz.invasion_cancelled": "已取消当前入侵",
+  "command.pvz.invasion_scheduled": "已预定入侵 %1$s，%2$s tick 后开始",
+  "command.pvz.no_invasion": "当前没有进行中的入侵",
+  "command.pvz.player_offline": "玩家不在线：%1$s",
+  "command.pvz.resource_modified": "已将 %1$s 的 %2$s 调整为 %3$s",
+  "command.pvz.unknown_invasion": "未知入侵：%1$s",
+  "entity.pvz.explode_o_nut": "爆炸坚果",
+  "entity.pvz.giant_nut": "大坚果",
+  "item.pvz.explode_o_nut_card": "爆炸坚果卡",
+  "item.pvz.explode_o_nut_enjoy_card": "爆炸坚果体验卡",
+  "item.pvz.giant_nut_card": "大坚果卡",
+  "item.pvz.giant_nut_enjoy_card": "大坚果体验卡",
+  "invasion.pvz.huge_wave": "一大波僵尸正在接近",
+  "msg.pvz.biome_unlock.success": "解锁新区域：%s",
+  "msg.pvz.time_key.no_target": "没有可用的已解锁区域",
+  "msg.pvz.time_key.dimension_missing": "PVZ 维度尚不可用",
+  "msg.pvz.time_key.locate_fail": "未能定位该区域，请靠近维度中心重试",
+  "tooltip.pvz.edgar_doll": "在 PVZ 群系中使用以召唤 BOSS，可重复使用",
+  "msg.pvz.edgar_doll.wrong_biome": "只能在 PVZ 群系中召唤 BOSS",
+  "msg.pvz.edgar_doll.already": "附近已有 BOSS，请勿重复召唤",
+  "msg.pvz.edgar_doll.success": "BOSS 已召唤！击败它推进解锁",
+  "msg.pvz.time_key.got_doll": "获得埃德加玩偶——在群系中使用以召唤 BOSS",
+  "msg.pvz.biome_locked": "该区域尚未解锁——离开或解锁它以解除诅咒",
+  "tooltip.pvz.time_key_use": "开发中：在已解锁的 PVZ 群系右键传送；在主世界点击 Penny 进入新维度",
+  "msg.pvz.time_key.biome_locked": "该群系尚未解锁——只能在已解锁群系右键传送",
+  "entity.pvz.sphinx_terminator": "狮身终结者",
+  "entity.pvz.sphinx_missile": "狮身导弹"
 }

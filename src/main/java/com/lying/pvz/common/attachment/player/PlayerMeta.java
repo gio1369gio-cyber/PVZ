@@ -21,12 +21,18 @@ public final class PlayerMeta implements ValueIOSerializable {
     /** 客户端音效节流计时。 */
     public int playSoundTick = 0;
 
+    /** 已提示过"锁定惩罚"的群系 id（进入时提示一次，离开清空）；null 表示不在锁定区。 */
+    public String lockedBiomeNotified = null;
+
     @Override
     public void serialize(ValueOutput out) {
         out.putInt("safe_days", safeDays);
         out.putInt("sound_tick", playSoundTick);
         out.putBoolean("starter_gift", starterGiftGiven);
         out.putInt("last_safe_days", lastSafeDaysNotified);
+        if (lockedBiomeNotified != null) {
+            out.putString("locked_biome_notified", lockedBiomeNotified);
+        }
     }
 
     @Override
@@ -36,5 +42,6 @@ public final class PlayerMeta implements ValueIOSerializable {
         playSoundTick = in.getIntOr("sound_tick", 0);
         starterGiftGiven = in.getBooleanOr("starter_gift", false);
         lastSafeDaysNotified = in.getIntOr("last_safe_days", -1);
+        lockedBiomeNotified = in.getString("locked_biome_notified").orElse(null);
     }
 }

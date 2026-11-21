@@ -12,6 +12,7 @@ import com.lying.pvz.common.init.PvZSoundRegister;
 import com.lying.pvz.common.level.block.plants.PvZLilyPadBlock;
 import com.lying.pvz.common.level.entity.plant.PlantEntity;
 import com.lying.pvz.common.level.entity.plant.magic.ImitaterEntity;
+import com.lying.pvz.utils.ConfigUtil;
 import com.lying.pvz.utils.PlayerUtil;
 import com.lying.pvz.utils.enums.Resources;
 import net.minecraft.core.BlockPos;
@@ -32,11 +33,13 @@ import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 
 import javax.annotation.Nullable;
 import java.util.Optional;
+import java.util.UUID;
 
 /**
  * 卡片放置/召唤统一执行器。
@@ -153,6 +156,78 @@ public final class CardPlacementService {
                 || level.getBlockState(pos).is(PvZBlockRegister.WATER_POT);
     }
 
+    /** 种植数量限制的扫描半径（格）：以放置玩家为中心。 */
+    private static final double PLANT_LIMIT_RADIUS = 30.0D;
+
+    /**
+     * 统计玩家附近 {@link #PLANT_LIMIT_RADIUS} 格内、同主人（owner UUID 匹配）的存活植物数量。
+     * 所有由卡片种下的植物在 {@code onSpawnedByPlayer} 中写入 owner UUID，故可据此过滤。
+     */
+    private static int countOwnedPlantsNear(Player player) {
+        final Level level = player.level();
+        final AABB aabb = new AABB(
+                player.getX() - PLANT_LIMIT_RADIUS, player.getY() - PLANT_LIMIT_RADIUS, player.getZ() - PLANT_LIMIT_RADIUS,
+                player.getX() + PLANT_LIMIT_RADIUS, player.getY() + PLANT_LIMIT_RADIUS, player.getZ() + PLANT_LIMIT_RADIUS);
+        final UUID ownerId = player.getUUID();
+        int count = 0;
+        for (PlantEntity plant : level.getEntitiesOfClass(PlantEntity.class, aabb)) {
+            if (!plant.isRemoved() && plant.getOwnerUUID().filter(ownerId::equals).isPresent()) {
+                ++count;
+            }
+        }
+        return count;
+    }
+
+    /**
+     * 种植数量上限 = 配置值 {@code LimitPlantCount} + 密集种植附魔加成（{@code getExtraPlantNum}）。
+     * 附魔读自卡片有效 stack，与阳光/技能计算口径一致。
+     */
+    public static int getPlantCountLimit(CardContent content) {
+        return ConfigUtil.getLimitPlantCount()
+                + EnchantmentUtil.getExtraPlantNum(content.effectiveStack());
+    }
+
+    /**
+     * 当前放置是否超出种植数量上限（附近同主人植物数 &gt;= 上限）。
+     */
+    public static boolean isOverPlantLimit(Player player, CardContent content) {
+        if (player.isCreative()) return false;
+        return countOwnedPlantsNear(player) >= getPlantCountLimit(content);
+    }
+
+    /**
+     * 计算本次<strong>种植</strong>实际消耗的阳光：超出种植数量上限时翻倍（软限制，不拒绝放置）。
+     * <p>检查（{@link #checkCommonForPlanting}）与扣费（{@code doPlace}）必须共用本方法，
+     * 否则会出现"按翻倍价检查、按原价扣费"的不一致。
+     */
+    public static int getEffectiveSunCost(Player player, CardContent content, ItemStack heldStack) {
+        final int base = (heldStack.getItem() instanceof AbstractCardItem card)
+                ? card.getBasisSunCost(heldStack) : 0;
+        return isOverPlantLimit(player, content) ? base * 2 : base;
+    }
+
+    /**
+     * 种植专用前置检查：在通用检查之上追加"种植数量超限翻倍阳光"的校验。
+     * 仅由 {@code AbstractCardItem.use/useOn} 的真实种植路径调用；
+     * 与植物交互（治疗 / 升级 / 咖啡豆 / 墓碑吞噬者）互不影响。
+     */
+    public static boolean checkCommonForPlanting(Player player, ItemStack heldStack, CardContent content) {
+        if (!checkCommon(player, heldStack, content)) return false;
+        if (player.isCreative()) return true;
+
+        final int base = (heldStack.getItem() instanceof AbstractCardItem card)
+                ? card.getBasisSunCost(heldStack) : 0;
+        if (isOverPlantLimit(player, content)) {
+            final int doubled = base * 2;
+            if (PlayerUtil.getResource(player, Resources.SUN_NUM) < doubled) {
+                // 专用提示，避免玩家误解为何阳光消耗变高。
+                notify(player, heldStack, CardErrors.MULTIPLE_SUN_ERROR, doubled);
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static boolean checkCommon(Player player, ItemStack heldStack, CardContent content) {
         if (!(heldStack.getItem() instanceof AbstractCardItem card)) return false;
         if (content.isEmpty()) {
@@ -182,6 +257,9 @@ public final class CardPlacementService {
                                              ItemStack heldStack, CardContent content,
                                              IPlantType plantType, BlockPos pos) {
         final Level level = player.level();
+        // 必须在生成植物之前锁定阳光成本：否则新植物的 owner 会被计入统计，
+        // 导致"检查时未超限、扣费时已超限"的前后不一致。
+        final int sunCost = getEffectiveSunCost(player, content, heldStack);
 
         if (plantType.getPlantBlock().isPresent()) {
             final BlockState state = getBlockStateForPlacement(player, plantType);
@@ -198,7 +276,8 @@ public final class CardPlacementService {
         }
 
         if (!player.isCreative()) {
-            PlayerUtil.addResource(player, Resources.SUN_NUM, -card.getBasisSunCost(heldStack));
+            // 与 checkCommon 同一口径：超出种植数量上限时阳光消耗翻倍（成本在生成前已锁定）。
+            PlayerUtil.addResource(player, Resources.SUN_NUM, -sunCost);
         }
         card.onUsedSuccessfully(player, heldStack, content);
         card.fireSummonCardUseEvent(player, heldStack, content);

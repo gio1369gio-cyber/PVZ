@@ -25,6 +25,9 @@ public class WallNutModel extends PvZPlantModel {
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
 			StringUtil.id("wall_nut"), "main");
 
+	public static final ModelLayerLocation LAYER_LOCATION_2 = new ModelLayerLocation(
+			StringUtil.id("explode_nut"), "main");
+
 	/** 组件（盔甲）模型独立层定义 */
 	public static final ModelLayerLocation ARMOR_LAYER_LOCATION = new ModelLayerLocation(
 			StringUtil.id( "wall_nut_armor"), "main");

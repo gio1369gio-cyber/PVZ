@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "peagun11",
+  "item": {
+    "id": "pvz:star_fruit_card"
+  },
+  "sort_number": 10,
+  "text": "book.pvz.pvz_guide.weapon.pea_gun.peagun11.text",
+  "title": "book.pvz.pvz_guide.weapon.pea_gun.peagun11.title"
+}

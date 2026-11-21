@@ -395,6 +395,10 @@ public class PvZItemRegister {
     public static final DeferredHolder<Item, PlantCardItem> CHERRY_BOMB_ENJOY_CARD = registerCard(PVZPlants.CHERRY_BOMB, true);
     public static final DeferredHolder<Item, PlantCardItem> WALL_NUT_CARD = registerCard(PVZPlants.WALL_NUT, false);
     public static final DeferredHolder<Item, PlantCardItem> WALL_NUT_ENJOY_CARD = registerCard(PVZPlants.WALL_NUT, true);
+    public static final DeferredHolder<Item, PlantCardItem> EXPLODE_O_NUT_CARD = registerCard(PVZPlants.EXPLODE_O_NUT, false);
+    public static final DeferredHolder<Item, PlantCardItem> EXPLODE_O_NUT_ENJOY_CARD = registerCard(PVZPlants.EXPLODE_O_NUT, true);
+    public static final DeferredHolder<Item, PlantCardItem> GIANT_NUT_CARD = registerCard(PVZPlants.GIANT_NUT, false);
+    public static final DeferredHolder<Item, PlantCardItem> GIANT_NUT_ENJOY_CARD = registerCard(PVZPlants.GIANT_NUT, true);
     public static final DeferredHolder<Item, PlantCardItem> POTATO_MINE_CARD = registerCard(PVZPlants.POTATO_MINE, false);
     public static final DeferredHolder<Item, PlantCardItem> POTATO_MINE_ENJOY_CARD = registerCard(PVZPlants.POTATO_MINE, true);
     public static final DeferredHolder<Item, PlantCardItem> SNOW_PEA_CARD = registerCard(PVZPlants.SNOW_PEA, false);

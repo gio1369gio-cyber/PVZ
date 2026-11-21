@@ -1,0 +1,11 @@
+{
+  "type": "modonomicon:crafting_recipe",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "sunstorage4",
+  "recipe_id_1": "pvz:food/large_sun_storage_sapling",
+  "sort_number": 3,
+  "text": "book.pvz.pvz_guide.start.sun_storage.sunstorage4.text",
+  "title1": "book.pvz.pvz_guide.start.sun_storage.sunstorage4.title"
+}

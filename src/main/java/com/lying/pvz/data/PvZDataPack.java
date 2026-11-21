@@ -3,6 +3,8 @@ package com.lying.pvz.data;
 import com.lying.pvz.PvZMod;
 import com.lying.pvz.data.bootstrap.worldgen.biome.PvZBiome;
 import com.lying.pvz.data.bootstrap.worldgen.biome.PvZBiomeModifiers;
+import com.lying.pvz.data.bootstrap.worldgen.dimension.PvZDimension;
+import com.lying.pvz.data.bootstrap.worldgen.dimension.PvZDimensionType;
 import com.lying.pvz.data.bootstrap.worldgen.feature.PvZFeatures;
 import com.lying.pvz.data.bootstrap.worldgen.feature.PvZPlaceFeature;
 import com.lying.pvz.data.bootstrap.misc.PvZDamageType;
@@ -41,7 +43,9 @@ public class PvZDataPack {
                 .add(Registries.STRUCTURE_SET, PvZStructureSets::bootstrap)
                 .add(Registries.TEMPLATE_POOL, PvZTemplatePools::bootstrap)
                 .add(Registries.DAMAGE_TYPE, PvZDamageType::bootstrap)
-                .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, PvZBiomeModifiers::bootstrap);
+                .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, PvZBiomeModifiers::bootstrap)
+                .add(Registries.DIMENSION_TYPE, PvZDimensionType::bootstrap)
+                .add(Registries.LEVEL_STEM, PvZDimension::bootstrap);
 
         return DatapackBuiltinEntriesProvider.forWorldLayer(output, "pvz_worldgen",
                 worldLookup, builder, Set.of(PvZMod.MOD_ID));

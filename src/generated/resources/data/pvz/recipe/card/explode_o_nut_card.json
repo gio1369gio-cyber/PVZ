@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:explosion_essence",
+    "B": "#c:crops/nut",
+    "C": "#pvz:card/gold_cards"
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "ACA"
+  ],
+  "result": {
+    "id": "pvz:explode_o_nut_card"
+  }
+}

@@ -66,7 +66,7 @@ import java.util.function.Supplier;
  * 通过 {@link #onBossSummon} 生成并附带 Bungee 投放。
  *
  * <p><b>死亡演出</b>：{@link #tickDeath()} 每 20 tick 在客户端生成两次
- * {@code EXPLOSION_EMITTER}；{@link #onFallBody} 一次性抛出全部 6 种部件。
+ * {@code EXPLOSION_EMITTER}； 一次性抛出全部 6 种部件。
  *
  * <p><b>NBT</b>：状态与三种冷却 tick 均持久化；写入方法改为
  * {@link ValueOutput} / {@link ValueInput}。

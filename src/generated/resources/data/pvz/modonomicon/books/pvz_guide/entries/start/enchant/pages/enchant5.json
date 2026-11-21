@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "enchant5",
+  "item": {
+    "id": "minecraft:golden_axe"
+  },
+  "sort_number": 4,
+  "text": "book.pvz.pvz_guide.start.enchant.enchant5.text",
+  "title": "book.pvz.pvz_guide.start.enchant.enchant5.title"
+}

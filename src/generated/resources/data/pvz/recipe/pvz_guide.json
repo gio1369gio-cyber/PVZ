@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:book",
+    "#minecraft:saplings",
+    "#minecraft:saplings",
+    "#minecraft:saplings",
+    "#minecraft:saplings"
+  ],
+  "result": {
+    "components": {
+      "modonomicon:book_id": "pvz:pvz_guide"
+    },
+    "id": "modonomicon:modonomicon"
+  }
+}

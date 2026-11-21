@@ -11,11 +11,8 @@ import com.lying.pvz.common.level.item.PvZEggTint;
 import com.lying.pvz.utils.StringUtil;
 import net.minecraft.client.color.item.ItemTintSource;
 import net.minecraft.client.data.models.ItemModelGenerators;
-import net.minecraft.client.data.models.model.ItemModelUtils;
-import net.minecraft.client.data.models.model.ModelTemplate;
-import net.minecraft.client.data.models.model.ModelTemplates;
-import net.minecraft.client.data.models.model.TextureMapping;
-import net.minecraft.client.data.models.model.TextureSlot;
+import net.minecraft.client.data.models.model.*;
+import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.client.renderer.item.SpecialModelWrapper;
 import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -67,7 +64,7 @@ public final class PvZItemModelRules {
      * 32 帧指针模型 {@code item/garden_compass/00~31}。角度×32 后按阈值选择帧，
      * 顺序与 1.21.1 的 overrides 表一致（16 为起点，向 17…31→00…15 循环）。
      */
-    private static net.minecraft.client.renderer.item.ItemModel.Unbaked gardenCompassModel() {
+    private static ItemModel.Unbaked gardenCompassModel() {
         // 帧序号按角度 0~1 循环：从 16 开始
         int[] frames = new int[32];
         for (int i = 0; i < 32; i++) {
@@ -94,6 +91,17 @@ public final class PvZItemModelRules {
                         new BowlingGloveRenderer.Unbaked()));
     }
 
+    public static void registerScreenDoorItem(ItemModelGenerators itemModels) {
+        Item item = PvZItemRegister.SCREEN_DOOR.get();
+        Identifier normal = ModelLocationUtils.getModelLocation(item);
+        Identifier blocking = ModelLocationUtils.getModelLocation(item,"_blocking");
+        itemModels.itemModelOutput.accept(item,
+                ItemModelUtils.conditional(
+                        ItemModelUtils.isUsingItem(),
+                        ItemModelUtils.plainModel(blocking),
+                        ItemModelUtils.plainModel(normal)));
+    }
+
     public static void registerImitaterItems(ItemModelGenerators itemModels) {
         Material base    = new Material(pvz("item/misc/gold_card"));
         Material overlay = new Material(pvz("screenshot/plant/imitater"));
@@ -116,10 +124,6 @@ public final class PvZItemModelRules {
      */
     private static final Set<String> ONLY_IN_JSON = Set.of(
             "blue_flame_pea",
-            "explode_o_nut_card",
-            "explode_o_nut_enjoy_card",
-            "giant_wall_nut_card",
-            "giant_wall_nut_enjoy_card",
             "guild_book",
             "plant_enjoy_card",
             "steel_axe",
@@ -434,6 +438,10 @@ public final class PvZItemModelRules {
         plantCard(itemModels,PvZItemRegister.UMBRELLA_LEAF_ENJOY_CARD, "mega", "umbrella_leaf");
         plantCard(itemModels,PvZItemRegister.WALL_NUT_CARD, "white", "wall_nut");
         plantCard(itemModels,PvZItemRegister.WALL_NUT_ENJOY_CARD, "mega", "wall_nut");
+        plantCard(itemModels,PvZItemRegister.EXPLODE_O_NUT_CARD, "red", "explode_o_nut");
+        plantCard(itemModels,PvZItemRegister.EXPLODE_O_NUT_ENJOY_CARD, "mega", "explode_o_nut");
+        plantCard(itemModels,PvZItemRegister.GIANT_NUT_CARD, "blue", "giant_nut");
+        plantCard(itemModels,PvZItemRegister.GIANT_NUT_ENJOY_CARD, "mega", "giant_nut");
         plantCard(itemModels,PvZItemRegister.WATER_GUARD_CARD, "gray", "water_guard");
         plantCard(itemModels,PvZItemRegister.WATER_GUARD_ENJOY_CARD, "mega", "water_guard");
         plantCard(itemModels,PvZItemRegister.WINTER_MELON_CARD, "red", "winter_melon");

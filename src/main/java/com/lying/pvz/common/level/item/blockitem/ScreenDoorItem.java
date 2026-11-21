@@ -39,8 +39,6 @@ public class ScreenDoorItem extends BlockItem {
         return USE_DURATION;
     }
 
-
-
 	@Override
 	public InteractionResult useOn(UseOnContext context) {
 		Level level = context.getLevel();

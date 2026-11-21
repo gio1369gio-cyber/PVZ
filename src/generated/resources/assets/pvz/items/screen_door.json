@@ -1,6 +1,14 @@
 {
   "model": {
-    "type": "minecraft:model",
-    "model": "pvz:item/screen_door"
+    "type": "minecraft:condition",
+    "on_false": {
+      "type": "minecraft:model",
+      "model": "pvz:item/screen_door"
+    },
+    "on_true": {
+      "type": "minecraft:model",
+      "model": "pvz:item/screen_door_blocking"
+    },
+    "property": "minecraft:using_item"
   }
 }

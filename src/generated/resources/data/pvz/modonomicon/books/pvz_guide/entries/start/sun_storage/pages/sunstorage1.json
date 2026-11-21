@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "sunstorage1",
+  "item": {
+    "id": "pvz:sun_storage_sapling"
+  },
+  "sort_number": 0,
+  "text": "book.pvz.pvz_guide.start.sun_storage.sunstorage1.text",
+  "title": "book.pvz.pvz_guide.start.sun_storage.sunstorage1.title"
+}

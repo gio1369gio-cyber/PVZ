@@ -59,6 +59,8 @@ public class PvZZombieRenderState extends LivingEntityRenderState {
 
     public int innerDefenceStage;
     public int summonTime;
+    /** SphinxTerminator：冲刺朝向（度），驱动模型冲刺转向动画。 */
+    public float dashYaw;
     public boolean isAngry;
     public int poleJumpCD;
     public boolean hasPole;

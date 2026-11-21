@@ -1,0 +1,11 @@
+{
+  "type": "modonomicon:text",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "essence7",
+  "show_title_separator": true,
+  "sort_number": 6,
+  "text": "book.pvz.pvz_guide.start.essence.essence7.text",
+  "title": "book.pvz.pvz_guide.start.essence.essence7.title"
+}

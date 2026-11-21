@@ -30,6 +30,9 @@ public class PvZPlayerEvents {
         Player player = event.getEntity();
         if (!player.level().isClientSide()) {
             PeaGunItem.checkHeadShoot(player);
+            if (player instanceof ServerPlayer sp) {
+                com.lying.pvz.event.common.handler.BiomeLockPenaltyHandler.onPlayerTick(sp);
+            }
         }
     }
 

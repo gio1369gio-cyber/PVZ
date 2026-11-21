@@ -28,29 +28,6 @@ import net.minecraft.world.phys.Vec3;
 /**
  * 保龄球类弹药基类。
  *
- * <p>与普通 {@link AbstractPAZProjectile} 的差异：
- * <ul>
- *   <li>移动方向由 {@link #getDirection()} + {@link #getBowlingFacing()} 决定，
- *       不靠 {@code deltaMovement} 的自然物理；</li>
- *   <li>撞实体：造成伤害后换向，不消失；</li>
- *   <li>撞方块：第一次换向并给 15 tick 冷却，冷却内再撞墙才 {@code discard}；</li>
- *   <li>生命周期、owner、group、技能/附魔快照仍走 {@link AbstractPAZProjectile}。</li>
- * </ul>
- *
- * <p>具体伤害与特殊行为由子类实现 {@link #dealDamageTo(Entity)}，
- * 需要爆炸等特殊换向时覆写 {@link #changeDirection()}。
- *
- * <p><b>移动与命中检测的分离</b>：
- * <ul>
- *   <li>{@link #applyBowlingMotion()}：按朝向算 {@code deltaMovement}，不移动；</li>
- *   <li>{@link #tickBowlingRayTrace()}：<b>射线</b>检测前方 1 帧距离内的实体，命中就伤害 + 换向；</li>
- *   <li>{@link #tickBowlingMove()}：<b>预判</b>本帧 {@code pos → pos+delta} 是否穿墙，
- *       命中就不移动、让 {@link #handleBlockHit()} 处理；否则 {@code setPos}；</li>
- *   <li>{@link #tickCollision()}：AABB 兜底，拾取与已占据包围盒重叠的实体。</li>
- * </ul>
- *
- * <p><b>客户端</b>：只跑 {@link #tickBowlingMove()} 的移动部分，不跑射线、不跑伤害。
- * 撞墙时客户端也停下，等服务端同步新朝向——比"客户端穿墙、服务端事后拉回"更平滑。
  */
 public abstract class AbstractBowlingProjectile extends AbstractPAZProjectile {
 
@@ -71,13 +48,6 @@ public abstract class AbstractBowlingProjectile extends AbstractPAZProjectile {
     protected AbstractBowlingProjectile(EntityType<?> type, Level level) {
         super(type, level);
         this.setNoGravity(true);
-    }
-
-    @Override
-    public net.minecraft.world.entity.EntityDimensions getDimensions(net.minecraft.world.entity.Pose pose) {
-        // 保龄球是贴地滚动的"球"，用约 1 格的方形尺寸（默认 Entity 尺寸 0.6×1.8 过高，
-        // 导致球悬空/碰撞盒与视觉不匹配）。GiantNut 等大球子类可覆写为更大尺寸。
-        return net.minecraft.world.entity.EntityDimensions.scalable(1.0F, 1.0F);
     }
 
     /* ================================================================== */
@@ -280,6 +250,10 @@ public abstract class AbstractBowlingProjectile extends AbstractPAZProjectile {
     /**
      * 查找球体水平投影下方最近的固体支撑面顶面 Y（世界坐标，即球底应贴合的高度）。
      * 从球底向下逐层扫描，找不到（虚空 / 高空）返回 {@link Double#NEGATIVE_INFINITY}。
+     *
+     * <p><b>注意</b>：返回的是碰撞形状的<b>真实顶面高度</b>（{@code shape.max(Y)}），
+     * 而非整格 {@code y + 1}。这样半砖、台阶、雪层等非整格高度的支撑面也能精确贴合，
+     * 避免"球底被无脑抬到 y+1 导致微小悬空"。
      */
     private double findGroundY() {
         final double halfHeight = this.getBbHeight() / 2.0D;
@@ -292,22 +266,24 @@ public abstract class AbstractBowlingProjectile extends AbstractPAZProjectile {
 
         // 从球底所在层向下扫描（最多 32 层），找第一层有碰撞的水平投影。
         final int startY = Mth.floor(this.getY() - halfHeight);
+        double bestTop = Double.NEGATIVE_INFINITY;
         for (int y = startY; y >= startY - 32; --y) {
-            boolean solid = false;
-            for (int x = minX; x <= maxX && !solid; ++x) {
-                for (int z = minZ; z <= maxZ && !solid; ++z) {
+            double layerTop = Double.NEGATIVE_INFINITY;
+            for (int x = minX; x <= maxX; ++x) {
+                for (int z = minZ; z <= maxZ; ++z) {
                     mpos.set(x, y, z);
-                    if (!this.level().getBlockState(mpos)
-                            .getCollisionShape(this.level(), mpos).isEmpty()) {
-                        solid = true;
+                    var shape = this.level().getBlockState(mpos)
+                            .getCollisionShape(this.level(), mpos);
+                    if (!shape.isEmpty()) {
+                        layerTop = Math.max(layerTop, shape.max(Direction.Axis.Y) + y);
                     }
                 }
             }
-            if (solid) {
-                return y + 1.0D;
+            if (layerTop > Double.NEGATIVE_INFINITY) {
+                return layerTop;
             }
         }
-        return Double.NEGATIVE_INFINITY;
+        return bestTop;
     }
 
     /**

@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "seed8",
+  "item": {
+    "id": "pvz:spore"
+  },
+  "sort_number": 7,
+  "text": "book.pvz.pvz_guide.start.seed.seed8.text",
+  "title": "book.pvz.pvz_guide.start.seed.seed8.title"
+}

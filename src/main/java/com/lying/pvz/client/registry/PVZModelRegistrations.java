@@ -16,6 +16,7 @@ import com.lying.pvz.client.model.entity.plant.light.*;
 import com.lying.pvz.client.model.entity.plant.magic.*;
 import com.lying.pvz.client.model.entity.plant.spear.*;
 import com.lying.pvz.client.model.entity.plant.toxic.*;
+import com.lying.pvz.client.model.entity.zombie.boss.SphinxTerminatorModel;
 import com.lying.pvz.client.model.entity.zombie.custom.LavaZombieModel;
 import com.lying.pvz.client.model.entity.zombie.custom.MCZombieModel;
 import com.lying.pvz.client.model.entity.zombie.custom.RedEdgeZombieModel;
@@ -116,11 +117,14 @@ public final class PVZModelRegistrations {
         // ---- defence ----------------------------------------------------
         ClientModelRegistry.registerPlant(PVZPlants.WALL_NUT.get().getID(), 1.0F,
                 texture("plant/defence/wall_nut"), WallNutModel::new);
+        ClientModelRegistry.registerPlant(PVZPlants.EXPLODE_O_NUT.get().getID(), 1.0F,
+                texture("plant/defence/explode_nut"), WallNutModel::new);
+
+        ClientModelRegistry.registerPlant(PVZPlants.GIANT_NUT.get().getID(), 0.55F,
+                texture("plant/defence/tall_nut"), TallNutModel::new);
+
         ClientModelRegistry.registerPlant(PVZPlants.GARLIC.get().getID(), 0.9F,
                 texture("plant/defence/garlic"), GarlicModel::new);
-        // ⚠ 旧版 PVZPlants.PUMPKIN 的 .plantModel(...).scale(1F) 整行被注释掉（"removed by GrassCarp
-        //   when remodeling Pumpkin"），renderScale 落到 PlantFeatures 默认值 0.5F，且无 plantModel。
-        //   新版此处注册了 PumpkinModel，属于架构改动，暂保持 1.0F，请确认南瓜是独立实体还是 outerPlant 驱动。
         ClientModelRegistry.registerPlant(PVZPlants.PUMPKIN.get().getID(), 1.0F,
                 texture("plant/defence/pumpkin"), PumpkinModel::new);
         ClientModelRegistry.registerPlant(PVZPlants.TALL_NUT.get().getID(), 0.4F,
@@ -405,6 +409,11 @@ public final class PVZModelRegistrations {
         ClientModelRegistry.registerZombie(RoofZombies.EDGAR_090517.get().getID(), 2.0F,
                 texture("zombie/roof/edgar_090517"),
                 set -> new EdgarRobotModel(set.bakeLayer(EdgarRobotModel.LAYER_LOCATION)));
+        
+        ClientModelRegistry.registerZombie(RoofZombies.SPHINX_TERMINATOR.get().getID(), 2.2F,
+                texture("zombie/boss/sphinx_terminator"),
+                set -> new SphinxTerminatorModel(set.bakeLayer(SphinxTerminatorModel.LAYER_LOCATION)));
+
         ClientModelRegistry.registerZombie(RoofZombies.GARGANTUAR.get().getID(), 0.75F,
                 texture("zombie/roof/gargantuar"),
                 set -> new GargantuarModel(set.bakeLayer(GargantuarModel.LAYER_LOCATION)));

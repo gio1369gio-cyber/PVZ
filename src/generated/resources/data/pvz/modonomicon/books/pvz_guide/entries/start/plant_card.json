@@ -1,0 +1,24 @@
+{
+  "type": "modonomicon:content",
+  "background": {
+    "height": 26,
+    "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+    "width": 26
+  },
+  "category": "pvz:start",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "description": "book.pvz.pvz_guide.start.plant_card.description",
+  "icon": {
+    "id": "pvz:pea_shooter_card"
+  },
+  "id": "pvz:start/plant_card",
+  "marker_condition": {
+    "type": "modonomicon:none"
+  },
+  "name": "book.pvz.pvz_guide.start.plant_card.name",
+  "sort_number": 1,
+  "x": -3,
+  "y": -1
+}

@@ -5,6 +5,7 @@ import com.lying.pvz.api.content.IRankType;
 import com.lying.pvz.api.content.paz.IPlantType;
 import com.lying.pvz.common.init.PvZBlockRegister;
 import com.lying.pvz.common.init.PvZItemRegister;
+import com.lying.pvz.common.init.PvZPotionRegister;
 import com.lying.pvz.common.level.item.card.PlantCardItem;
 import com.lying.pvz.common.tag.PvZItemTags;
 import com.lying.pvz.utils.StringUtil;
@@ -19,6 +20,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
@@ -47,6 +49,7 @@ public class PvZRecipeProvider extends RecipeProvider {
 		registerCommonCard(PvZItemRegister.PEA_SHOOTER_CARD.get(), PvZItemTags.PEAS);
 		registerCommonCard(PvZItemRegister.SUN_FLOWER_CARD.get(), Items.SUNFLOWER);
 		registerCommonCard(PvZItemRegister.WALL_NUT_CARD.get(), PvZItemTags.NUTS);
+		registerCommonCard(PvZItemRegister.EXPLODE_O_NUT_CARD.get(), PvZItemTags.NUTS);
 		registerCommonCard(PvZItemRegister.POTATO_MINE_CARD.get(), Items.POTATO);
 		registerCommonCard(PvZItemRegister.SNOW_PEA_CARD.get(), PvZItemRegister.SNOW_PEA.get());
 		registerCommonCard(PvZItemRegister.CHOMPER_CARD.get(), PvZBlockRegister.CHOMPER.get().asItem());
@@ -166,7 +169,31 @@ public class PvZRecipeProvider extends RecipeProvider {
 
 		PvZManualRecipes.register(this.output, this.items, this::has);
 
+		registerBrewingRecipes();
 
+
+	}
+
+	/**
+	 * 酿造配方（26.3 起为数据驱动，位于 data/pvz/recipe/brewing/）。
+	 * 沿用旧项目的配方链：
+	 * 尴尬药水 + 巧克力 → 兴奋 I；兴奋 I + 萤石粉 → 兴奋 II；兴奋 I + 红石 → 兴奋 III。
+	 */
+	private void registerBrewingRecipes() {
+		BrewingRecipeBuilder
+				.brewingMix(Items.POTION, Potions.AWKWARD,
+						PvZItemRegister.CHOCOLATE.get(), PvZPotionRegister.EXCITE_POTION_1)
+				.save(this.output, key("brewing/excite_potion_1"));
+
+		BrewingRecipeBuilder
+				.brewingMix(Items.POTION, PvZPotionRegister.EXCITE_POTION_1,
+						Items.GLOWSTONE_DUST, PvZPotionRegister.EXCITE_POTION_2)
+				.save(this.output, key("brewing/excite_potion_2_glowstone"));
+
+		BrewingRecipeBuilder
+				.brewingMix(Items.POTION, PvZPotionRegister.EXCITE_POTION_1,
+						Items.REDSTONE, PvZPotionRegister.EXCITE_POTION_3)
+				.save(this.output, key("brewing/excite_potion_3_redstone"));
 	}
 
 	private HolderGetter<Recipe<?>> recipeLookup() {

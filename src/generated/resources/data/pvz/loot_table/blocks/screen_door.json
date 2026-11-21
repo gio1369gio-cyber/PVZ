@@ -2,9 +2,19 @@
   "type": "minecraft:block",
   "pools": [
     {
+      "condition": {
+        "type": "minecraft:survives_explosion"
+      },
       "entries": [
         {
           "type": "minecraft:item",
+          "condition": {
+            "type": "minecraft:match_block",
+            "blocks": "pvz:screen_door",
+            "state": {
+              "half": "lower"
+            }
+          },
           "name": "pvz:screen_door"
         }
       ],

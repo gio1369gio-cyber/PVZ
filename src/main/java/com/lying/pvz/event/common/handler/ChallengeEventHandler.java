@@ -21,6 +21,7 @@ public final class ChallengeEventHandler {
         ChallengeManager.tickChallenges(level);
         if (level.dimension() != Level.OVERWORLD) return;
         InvasionManager.tickActive();
+        InvasionManager.tickScheduled();
         SafePeriod.tick(level);
 
     }

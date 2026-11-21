@@ -356,18 +356,26 @@ public class BungeeZombieEntity extends ZombieEntity implements ICanPushBack {
 		if (!EntityUtil.isEntityValid(this.getStealTarget())) {
 			return;
 		}
-		Vec3 vec = this.getStealTarget().position().subtract(this.position()).normalize();
+		Vec3 vec = this.getStealTarget().position().subtract(this.position());
+		if (vec.lengthSqr() < 1.0E-4D) {
+			this.setDeltaMovement(Vec3.ZERO);
+			return;
+		}
 		final double speed = 0.55D;
-		this.setDeltaMovement(vec.scale(speed));
+		this.setDeltaMovement(vec.normalize().scale(speed));
 	}
 
 	private void moveBackToOrigin() {
 		Vec3 vec = new Vec3(
 				this.getOriginPos().getX() - this.getX(),
 				this.getOriginPos().getY() - this.getY(),
-				this.getOriginPos().getZ() - this.getZ()).normalize();
+				this.getOriginPos().getZ() - this.getZ());
+		if (vec.lengthSqr() < 1.0E-4D) {
+			this.setDeltaMovement(Vec3.ZERO);
+			return;
+		}
 		final double speed = 0.4D;
-		this.setDeltaMovement(vec.scale(speed));
+		this.setDeltaMovement(vec.normalize().scale(speed));
 	}
 
 	private boolean isNearToTarget() {

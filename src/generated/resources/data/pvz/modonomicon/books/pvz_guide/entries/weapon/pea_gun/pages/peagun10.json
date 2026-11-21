@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "peagun10",
+  "item": {
+    "id": "pvz:gatling_pea_card"
+  },
+  "sort_number": 9,
+  "text": "book.pvz.pvz_guide.weapon.pea_gun.peagun10.text",
+  "title": "book.pvz.pvz_guide.weapon.pea_gun.peagun10.title"
+}

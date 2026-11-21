@@ -151,7 +151,7 @@ public class PvZEntityDamageSource extends DamageSource {
     }
 
     public static PvZEntityDamageSource causeThornDamage(Entity projectile, Entity shooter) {
-        return new PvZEntityDamageSource("thorn", projectile, shooter).setThornDamage();
+        return new PvZEntityDamageSource("thorn", projectile, shooter).setThornDamage().setThroughDamage();
     }
     public static PvZEntityDamageSource causeThornDamage(Entity attacker) {
         return causeThornDamage(attacker, attacker);

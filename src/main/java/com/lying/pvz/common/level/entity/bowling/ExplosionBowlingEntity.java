@@ -53,9 +53,10 @@ public class ExplosionBowlingEntity extends AbstractBowlingProjectile {
 	}
 
 	private void bomb() {
-		if (this.level().isClientSide()) {
-			this.level().addParticle(PvZParticleRegister.RED_BOMB.get(),
-					this.getX(), this.getY(), this.getZ(), 0, 0, 0);
+		// 爆炸粒子在服务端一次性生成多个（带随机偏移）并广播，避免只画 1 个几乎不可见。
+		if (this.level() instanceof ServerLevel serverLevel) {
+			serverLevel.sendParticles(PvZParticleRegister.RED_BOMB.get(),
+					this.getX(), this.getY(), this.getZ(), 40, 0.6D, 0.6D, 0.6D, 0.2D);
 		}
 	}
 
@@ -67,8 +68,11 @@ public class ExplosionBowlingEntity extends AbstractBowlingProjectile {
 		final float len = 2.5F;
 		final AABB aabb = EntityUtil.getEntityAABB(this, len, len);
 		final LivingEntity owner = this.resolveOwner();
-		EntityUtil.getTargetableEntities(owner == null ? this : owner, aabb).forEach(target ->
-				target.hurtServer(serverLevel, PvZEntityDamageSource.explode(this), 180));
+		// 爆炸是无差别范围伤害：不再按阵营过滤目标，范围内的所有生物（含动物、玩家）都会受伤，
+		// 仅排除投掷者本人（owner）。
+		serverLevel.getEntitiesOfClass(LivingEntity.class, aabb).stream()
+				.filter(target -> target != owner && !target.is(this))
+				.forEach(target -> target.hurtServer(serverLevel, PvZEntityDamageSource.explode(this), 180));
 		EntityUtil.playSound(this, PvZSoundRegister.CHERRY_BOMB.get());
 		this.setBowlingFacing(BowlingFacing.BOMB);
 	}

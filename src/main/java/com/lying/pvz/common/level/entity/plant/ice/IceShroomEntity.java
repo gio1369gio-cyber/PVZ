@@ -49,7 +49,7 @@ public class IceShroomEntity extends PlantBomberEntity implements IIceEffect {
 			final float len = this.getExplodeRange();
 			final AABB aabb = EntityUtil.getEntityAABB(this, len, len);
 			int cnt = 0;
-			for (LivingEntity entity : EntityUtil.getTargetableLivings(this, aabb)) {
+			for (LivingEntity entity : EntityUtil.getTargetableLivingsIgnoreFog(this, aabb)) {
 				final PvZEntityDamageSource source = PvZEntityDamageSource.causeIceDamage(this, this);
 				this.getColdEffect().ifPresent(source::addEffect);
 				this.getFrozenEffect().ifPresent(source::addEffect);

@@ -2,6 +2,7 @@ package com.lying.pvz.event.client.handler;
 
 import com.lying.pvz.api.invasion.IMissionType;
 import com.lying.pvz.client.ClientUtil;
+import com.lying.pvz.client.OverlayPositionStore;
 import com.lying.pvz.common.init.PvZAttachments;
 import com.lying.pvz.common.invasion.InvasionSnapshot;
 import com.lying.pvz.common.invasion.type.MissionTypes;
@@ -25,7 +26,6 @@ import java.util.Optional;
 public class PvZOverlayHandler {
 
 	private static final Identifier RESOURCE = StringUtil.id("textures/gui/overlay/resources.png");
-	private static final Identifier FOG = StringUtil.id("textures/gui/overlay/fog.png");
 	private static final Identifier INVASION = StringUtil.id("textures/gui/overlay/invasion.png");
 	private static final Identifier TARGET = StringUtil.id("textures/gui/overlay/target.png");
 	private static final int SUN_BAR_W1 = 157;
@@ -39,6 +39,13 @@ public class PvZOverlayHandler {
 	private static final int TEX_H = 256;
 
 	public static void renderResources(GuiGraphicsExtractor guiGraphics) {
+		// 位置由 OverlayPositionStore 的归一化锚点决定（只动位置，不动大小）。
+		// 各 renderXxxBar 内部会 pushMatrix + scale(0.7) + blit(0,0)，因此外层先按屏幕像素平移即可。
+		final float anchorX = OverlayPositionStore.x();
+		final float anchorY = OverlayPositionStore.y();
+		guiGraphics.pose().pushMatrix();
+		guiGraphics.pose().translate(anchorX * guiGraphics.guiWidth(), anchorY * guiGraphics.guiHeight());
+
 		final int pos = PvZInputEvents.CurrentResourcePos;
 		if(pos == 0 && ConfigUtil.renderSunBar()) {
 			renderSunBar(guiGraphics);
@@ -49,6 +56,8 @@ public class PvZOverlayHandler {
 		} else if(pos == 3 && ConfigUtil.renderTreeLevel()) {
 			renderTreeLevel(guiGraphics);
 		}
+
+		guiGraphics.pose().popMatrix();
 	}
 	private static void renderSunBar(GuiGraphicsExtractor  guiGraphics) {
 		final int max = PlayerUtil.getPlayerMaxSunNum(PlayerUtil.getResource(ClientUtil.getClientPlayer(), Resources.TREE_LVL));
@@ -262,8 +271,7 @@ public class PvZOverlayHandler {
 
 	public static void renderFog(GuiGraphicsExtractor guiGraphics, float dep) {
 		if (dep <= 0F) return;
-		guiGraphics.blit(RenderPipelines.GUI_TEXTURED, FOG,
-				0, 0, 0.0F, 0.0F, guiGraphics.guiWidth(), guiGraphics.guiHeight(), 128, 128, ARGB.white(dep));
+		guiGraphics.fill(0, 0, guiGraphics.guiWidth(), guiGraphics.guiHeight(), ARGB.white(dep));;
 	}
 
 

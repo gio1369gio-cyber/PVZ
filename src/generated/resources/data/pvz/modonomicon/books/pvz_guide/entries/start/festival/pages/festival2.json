@@ -1,0 +1,11 @@
+{
+  "type": "modonomicon:crafting_recipe",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "festival2",
+  "recipe_id_1": "pvz:food/chocolate",
+  "sort_number": 1,
+  "text": "book.pvz.pvz_guide.start.festival.festival2.text",
+  "title1": "book.pvz.pvz_guide.start.festival.festival2.title"
+}

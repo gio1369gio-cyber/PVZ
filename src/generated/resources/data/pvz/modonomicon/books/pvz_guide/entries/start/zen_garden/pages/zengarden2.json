@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "zengarden2",
+  "item": {
+    "id": "pvz:chomper"
+  },
+  "sort_number": 1,
+  "text": "book.pvz.pvz_guide.start.zen_garden.zengarden2.text",
+  "title": "book.pvz.pvz_guide.start.zen_garden.zengarden2.title"
+}

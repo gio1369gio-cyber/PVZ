@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "peagun6",
+  "item": {
+    "id": "pvz:snow_pea_card"
+  },
+  "sort_number": 5,
+  "text": "book.pvz.pvz_guide.weapon.pea_gun.peagun6.text",
+  "title": "book.pvz.pvz_guide.weapon.pea_gun.peagun6.title"
+}

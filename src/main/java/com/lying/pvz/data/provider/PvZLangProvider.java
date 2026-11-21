@@ -266,6 +266,17 @@ public class PvZLangProvider extends LanguageProvider {
         addItem(PvZItemRegister.NOBLE_ZOMBIE_SPAWN_EGG, "Noble Zombie Spawn Egg");
         addItem(PvZItemRegister.RA_ZOMBIE_SPAWN_EGG, "Ra Zombie Spawn Egg");
         addItem(PvZItemRegister.GIGA_TOMB_STONE_SPAWN_EGG, "Giga Tomb Stone Spawn Egg");
+        addItem(PvZItemRegister.RED_FLOWER_ZOMBIE_SPAWN_EGG, "Sunflower Zombie Spawn Egg");
+        addItem(PvZItemRegister.CHOMPER_ZOMBIE_SPAWN_EGG, "Chomper Zombie Spawn Egg");
+        addItem(PvZItemRegister.STEEL_PUMPKIN_ZOMBIE_SPAWN_EGG, "Steel Pumpkin Zombie Spawn Egg");
+        addItem(PvZItemRegister.FLOWER_POT_ZOMBIE_SPAWN_EGG, "Flower Pot Zombie Spawn Egg");
+        addItem(PvZItemRegister.EDGAR_090547_SPAWN_EGG, "Edgar 090547 Spawn Egg");
+        addItem(PvZItemRegister.AIRBORNE_ZOMBIE_SPAWN_EGG, "Airborne Zombie Spawn Egg");
+        addItem(PvZItemRegister.MC_ZOMBIE_SPAWN_EGG, "MC Zombie Spawn Egg");
+        addItem(PvZItemRegister.TARGET_ARROW_ZOMBIE_SPAWN_EGG, "Target Arrow Zombie Spawn Egg");
+        addItem(PvZItemRegister.RED_EDGE_ZOMBIE_SPAWN_EGG, "Red Edge Zombie Spawn Egg");
+        addItem(PvZItemRegister.MJ_ZOMBIE_SPAWN_EGG, "MJ Zombie Spawn Egg");
+        addItem(PvZItemRegister.DANCER_BACKUP_ZOMBIE_SPAWN_EGG, "Dancer Backup Zombie Spawn Egg");
 
         /* ==================== 植物卡 ==================== */
         addItem(PvZItemRegister.PEA_SHOOTER_CARD, "Peashooter Card");
@@ -382,6 +393,52 @@ public class PvZLangProvider extends LanguageProvider {
         addItem(PvZItemRegister.BONK_CHOY_ENJOY_CARD, "Bonk Choy (Enjoy) Card");
         addItem(PvZItemRegister.IMITATER_CARD, "Imitater Card");
         addItem(PvZItemRegister.IMITATER_ENJOY_CARD, "Imitater (Enjoy) Card");
+        addItem(PvZItemRegister.EXPLODE_O_NUT_CARD,"Explode Nut Card");
+        addItem(PvZItemRegister.EXPLODE_O_NUT_ENJOY_CARD,"Explode Nut (Enjoy) Card");
+        addItem(PvZItemRegister.GIANT_NUT_CARD,"Giant Nut Card");
+        addItem(PvZItemRegister.GIANT_NUT_ENJOY_CARD,"Giant Nut (Enjoy) Card");
+        addItem(PvZItemRegister.STEEL_PUMPKIN_CARD, "Steel Pumpkin Card");
+        addItem(PvZItemRegister.STEEL_PUMPKIN_ENJOY_CARD, "Steel Pumpkin (Enjoy) Card");
+        addItem(PvZItemRegister.ICE_CABBAGE_PULT_CARD, "Ice Cabbage-pult Card");
+        addItem(PvZItemRegister.ICE_CABBAGE_PULT_ENJOY_CARD, "Ice Cabbage-pult (Enjoy) Card");
+        addItem(PvZItemRegister.FIRE_PEASHOOTER_CARD, "Fire Peashooter Card");
+        addItem(PvZItemRegister.FIRE_PEASHOOTER_ENJOY_CARD, "Fire Peashooter (Enjoy) Card");
+        addItem(PvZItemRegister.CHORUS_FRUIT_PULT_CARD, "Chorus Fruit-pult Card");
+        addItem(PvZItemRegister.CHORUS_FRUIT_PULT_ENJOY_CARD, "Chorus Fruit-pult (Enjoy) Card");
+        addItem(PvZItemRegister.ROTATE_RADISH_CARD, "Rotate Radish Card");
+        addItem(PvZItemRegister.ROTATE_RADISH_ENJOY_CARD, "Rotate Radish (Enjoy) Card");
+        addItem(PvZItemRegister.BURST_KERNEL_PULT_CARD, "Burst Kernel-pult Card");
+        addItem(PvZItemRegister.BURST_KERNEL_PULT_ENJOY_CARD, "Burst Kernel-pult (Enjoy) Card");
+        addItem(PvZItemRegister.BLAZE_WART_CARD, "Blaze Wart Card");
+        addItem(PvZItemRegister.BLAZE_WART_ENJOY_CARD, "Blaze Wart (Enjoy) Card");
+        addItem(PvZItemRegister.GRASS_CARP_CARD, "Grass Carp Card");
+        addItem(PvZItemRegister.GRASS_CARP_ENJOY_CARD, "Grass Carp (Enjoy) Card");
+        addItem(PvZItemRegister.SELF_IMITATER_CARD, "Self Imitater Card");
+        addItem(PvZItemRegister.SELF_IMITATER_ENJOY_CARD, "Self Imitater (Enjoy) Card");
+        addItem(PvZItemRegister.RE_ICEPEA_CARD, "Re-icepea Card");
+        addItem(PvZItemRegister.RE_ICEPEA_ENJOY_CARD, "Re-icepea (Enjoy) Card");
+        addItem(PvZItemRegister.PEAPOD_CARD, "Peapod Card");
+        addItem(PvZItemRegister.PEAPOD_ENJOY_CARD, "Peapod (Enjoy) Card");
+        addItem(PvZItemRegister.SCULK_SHROOM_CARD, "Sculk Shroom Card");
+        addItem(PvZItemRegister.SCULK_SHROOM_ENJOY_CARD, "Sculk Shroom (Enjoy) Card");
+        addItem(PvZItemRegister.ORIGIN_SHROOM_CARD, "Origin Shroom Card");
+        addItem(PvZItemRegister.ORIGIN_SHROOM_ENJOY_CARD, "Origin Shroom (Enjoy) Card");
+        addItem(PvZItemRegister.BEE_SHOOTER_CARD, "Bee Shooter Card");
+        addItem(PvZItemRegister.BEE_SHOOTER_ENJOY_CARD, "Bee Shooter (Enjoy) Card");
+        addItem(PvZItemRegister.FODDER_BUSH_CARD, "Fodder Bush Card");
+        addItem(PvZItemRegister.FODDER_BUSH_ENJOY_CARD, "Fodder Bush (Enjoy) Card");
+        addItem(PvZItemRegister.GOLDEN_MELON_PULT_CARD, "Golden Melon-pult Card");
+        addItem(PvZItemRegister.GOLDEN_MELON_PULT_ENJOY_CARD, "Golden Melon-pult (Enjoy) Card");
+        addItem(PvZItemRegister.PRIMAL_PEA_SHOOTER_CARD, "Primal Peashooter Card");
+        addItem(PvZItemRegister.PRIMAL_PEA_SHOOTER_ENJOY_CARD, "Primal Peashooter (Enjoy) Card");
+        addItem(PvZItemRegister.GOO_PEA_SHOOTER_CARD, "Goo Peashooter Card");
+        addItem(PvZItemRegister.GOO_PEA_SHOOTER_ENJOY_CARD, "Goo Peashooter (Enjoy) Card");
+        addItem(PvZItemRegister.MAGNIFYING_GRASS_CARD, "Magnifying Grass Card");
+        addItem(PvZItemRegister.MAGNIFYING_GRASS_ENJOY_CARD, "Magnifying Grass (Enjoy) Card");
+        addItem(PvZItemRegister.WATER_POT_CARD, "Water Pot Card");
+        addItem(PvZItemRegister.WATER_POT_ENJOY_CARD, "Water Pot (Enjoy) Card");
+        addItem(PvZItemRegister.POT_GRASS_CARD, "Pot Grass Card");
+        addItem(PvZItemRegister.POT_GRASS_ENJOY_CARD, "Pot Grass (Enjoy) Card");
 
         /* ==================== 实体 ==================== */
         addEntityType(PvZEntityRegister.SUN, "Sun");
@@ -471,6 +528,8 @@ public class PvZLangProvider extends LanguageProvider {
         addEntityType(PvZEntityRegister.GIGA_GARGANTUAR, "Giga Gargantuar");
         addEntityType(PvZEntityRegister.EDGAR_090505, "Edgar 090505");
         addEntityType(PvZEntityRegister.EDGAR_090517, "Edgar 090517");
+        addEntityType(PvZEntityRegister.SPHINX_TERMINATOR, "Sphinx Terminator");
+        addEntityType(PvZEntityRegister.SPHINX_MISSILE, "Sphinx Missile");
         addEntityType(PvZEntityRegister.PEASHOOTER_ZOMBIE, "Peashooter Zombie");
         addEntityType(PvZEntityRegister.GATLINGPEA_ZOMBIE, "Gatling Pea Zombie");
         addEntityType(PvZEntityRegister.SQUASH_ZOMBIE, "Squash Zombie");
@@ -483,6 +542,8 @@ public class PvZLangProvider extends LanguageProvider {
         addEntityType(PvZEntityRegister.SUN_FLOWER, "Sunflower");
         addEntityType(PvZEntityRegister.CHERRY_BOMB, "Cherry Bomb");
         addEntityType(PvZEntityRegister.WALL_NUT, "Wall-nut");
+        addEntityType(PvZEntityRegister.EXPLODE_O_NUT, "Explode Nut");
+        addEntityType(PvZEntityRegister.GIANT_NUT, "Giant Nut");
         addEntityType(PvZEntityRegister.POTATO_MINE, "Potato Mine");
         addEntityType(PvZEntityRegister.SNOW_PEA, "Snow Pea");
         addEntityType(PvZEntityRegister.CHOMPER, "Chomper");
@@ -537,7 +598,38 @@ public class PvZLangProvider extends LanguageProvider {
         addEntityType(PvZEntityRegister.IMITATER, "Imitater");
         addEntityType(PvZEntityRegister.COB_CANNON, "Cob Cannon");
         addEntityType(PvZEntityRegister.ORIGIN_SHROOM,"Origin Shroom");
+        addEntityType(PvZEntityRegister.SUN_FLOWER_ZOMBIE, "Sunflower Zombie");
+        addEntityType(PvZEntityRegister.CHOMPER_ZOMBIE, "Chomper Zombie");
+        addEntityType(PvZEntityRegister.STEEL_PUMPKIN_ZOMBIE, "Steel Pumpkin Zombie");
+        addEntityType(PvZEntityRegister.FLOWER_POT_ZOMBIE, "Flower Pot Zombie");
+        addEntityType(PvZEntityRegister.EDGAR_090547, "Edgar 090547");
+        addEntityType(PvZEntityRegister.AIRBORNE_ZOMBIE, "Airborne Zombie");
+        addEntityType(PvZEntityRegister.MC_ZOMBIE, "MC Zombie");
+        addEntityType(PvZEntityRegister.TARGET_ARROW_ZOMBIE, "Target Arrow Zombie");
+        addEntityType(PvZEntityRegister.RED_EDGE_ZOMBIE, "Red Edge Zombie");
+        addEntityType(PvZEntityRegister.MJ_ZOMBIE, "MJ Zombie");
+        addEntityType(PvZEntityRegister.DANCER_BACKUP_ZOMBIE, "Dancer Backup Zombie");
+        addEntityType(PvZEntityRegister.RED_SUN, "Red Sun");
+        addEntityType(PvZEntityRegister.BEE, "Bee");
 
+        addEntityType(PvZEntityRegister.STEEL_PUMPKIN, "Steel Pumpkin");
+        addEntityType(PvZEntityRegister.ICE_CABBAGE_PULT, "Ice Cabbage-pult");
+        addEntityType(PvZEntityRegister.FIRE_PEASHOOTER, "Fire Peashooter");
+        addEntityType(PvZEntityRegister.CHORUS_FRUIT_PULT, "Chorus Fruit-pult");
+        addEntityType(PvZEntityRegister.ROTATE_RADISH, "Rotate Radish");
+        addEntityType(PvZEntityRegister.BURST_KERNEL_PULT, "Burst Kernel-pult");
+        addEntityType(PvZEntityRegister.BLAZE_WART, "Blaze Wart");
+        addEntityType(PvZEntityRegister.GRASS_CARP, "Grass Carp");
+        addEntityType(PvZEntityRegister.SELF_IMITATER, "Self Imitater");
+        addEntityType(PvZEntityRegister.RE_ICEPEA, "Re-icepea");
+        addEntityType(PvZEntityRegister.SCULK_SHROOM, "Sculk Shroom");
+        addEntityType(PvZEntityRegister.BEE_SHOOTER, "Bee Shooter");
+        addEntityType(PvZEntityRegister.FODDER_BUSH, "Fodder Bush");
+        addEntityType(PvZEntityRegister.GOLDEN_MELON_PULT, "Golden Melon-pult");
+        addEntityType(PvZEntityRegister.PRIMAL_PEA_SHOOTER, "Primal Peashooter");
+        addEntityType(PvZEntityRegister.GOO_PEA_SHOOTER, "Goo Peashooter");
+        addEntityType(PvZEntityRegister.MAGNIFYING_GRASS, "Magnifying Grass");
+        addEntityType(PvZEntityRegister.PEA_POD, "Peapod");
         /* ==================== 效果 ==================== */
         addEffect(PvZEffectRegister.COLD_EFFECT, "Cold");
         addEffect(PvZEffectRegister.FROZEN_EFFECT, "Frozen");
@@ -545,10 +637,10 @@ public class PvZLangProvider extends LanguageProvider {
         addEffect(PvZEffectRegister.LIGHT_EYE_EFFECT, "Light Eye");
         addEffect(PvZEffectRegister.BUTTER_EFFECT, "Buttered");
         addEffect(PvZEffectRegister.ENERGETIC_EFFECT, "Energetic");
-
+        addEffect(PvZEffectRegister.HALITOSIS, "Halitosis");
+        addEffect(PvZEffectRegister.GOO_POISON, "Goo Poison");
         /* ==================== 群系 ==================== */
         addBiome(PvZBiome.ZEN_GARDEN,"Zen garden");
-
         /* ==================== 药水 ==================== */
         addPotion("excite_potion_1", "Excitement");
         addPotion("excite_potion_2", "Greater Excitement");
@@ -557,9 +649,10 @@ public class PvZLangProvider extends LanguageProvider {
         addPotion("light_eye_potion_2", "Long Light Eye");
 
 
-        // 自定义 BlockItem 的 item 键，避免部分环境下显示 raw key
         add("item.pvz.lily_pad", "Lily Pad");
         add("item.pvz.slot_machine", "Slot Machine");
+        add("entity.pvz.pot_grass", "Pot Grass");
+        add("entity.pvz.water_pot", "Water Pot");
 
         /* ==================== 按键绑定 ==================== */
         add("key.pvz.show_overlay", "Show PVZ Overlay");
@@ -621,7 +714,19 @@ public class PvZLangProvider extends LanguageProvider {
         add("tooltip.pvz.sun_storage_sapling.amount", "Sun: %s");
         add("tooltip.pvz.sun_storage_sapling.once", "Single-use");
         add("tooltip.pvz.time_source", "A fragment of frozen time");
+        add("tooltip.pvz.time_key_use", "In Development :Right-click in an unlocked PVZ biome to travel; click Penny in the overworld to enter");
         add("tooltip.pvz.wait_for_update", "Content coming soon");
+        add("tooltip.pvz.edgar_doll", "Use in a PVZ biome to summon a boss. Reusable.");
+        add("msg.pvz.edgar_doll.wrong_biome", "The boss can only be summoned in a PVZ biome");
+        add("msg.pvz.edgar_doll.already", "A boss is already present nearby");
+        add("msg.pvz.edgar_doll.success", "The boss has been summoned! Defeat it to advance");
+        add("msg.pvz.biome_unlock.success", "Unlocked next region: %s");
+        add("msg.pvz.biome_locked", "This region is still locked — leave or unlock it to stop the curse");
+        add("msg.pvz.time_key.got_doll", "Received an Edgar Doll — use it in a biome to summon the boss");
+        add("msg.pvz.time_key.no_target", "No unlocked regions available");
+        add("msg.pvz.time_key.biome_locked", "This region is locked — right-click only works in unlocked regions");
+        add("msg.pvz.time_key.dimension_missing", "The PVZ dimension is not available yet");
+        add("msg.pvz.time_key.locate_fail", "Could not locate that region. Try again closer to the center.");
         add("tooltip.pvz.bowling_glove.empty", "Empty - right-click a bowling plant to load");
         add("tooltip.pvz.bowling_glove.full", "Loaded: %s");
         add("tooltip.pvz.pea_gun", "Hold right-click to fire");
@@ -635,8 +740,15 @@ public class PvZLangProvider extends LanguageProvider {
         add("tooltip.pvz.origin_sword","Right click plants to use plant food");
         add("tooltip.pvz.hammer.use","Right hammer zombies or pot");
         add("tooltip.pvz.slot_machine.random","Random");
+        add("tooltip.pvz.zombie_doll","Holding this doll can prevent it from being stolen by bungee zombies.");
 
-
+        add("command.pvz.invasion_active", "This player is already in the invasion");
+        add("command.pvz.invasion_cancelled", "The current invasion has been canceled");
+        add("command.pvz.invasion_scheduled", "Invasion of %1$s scheduled, starting in %2$s ticks");
+        add("command.pvz.no_invasion", "There are currently no ongoing intrusions");
+        add("command.pvz.player_offline", "Player is offline:%1$s");
+        add("command.pvz.resource_modified", "The %2$s of %1$s has been adjusted to %3$s");
+        add("command.pvz.unknown_invasion", "Unknown Intrusion:%1$s");
 
         /* ==================== 提示 ==================== */
         add("help.pvz.ground", "This block cannot hold a plant");
@@ -684,6 +796,8 @@ public class PvZLangProvider extends LanguageProvider {
         add("invasion.pvz.mission.instant_kill.name", "Multi-kill");
         add("invasion.pvz.mission.collect_sun.name", "Collect Sun");
         add("invasion.pvz.safe_days","safe days %s");
+        add("invasion.pvz.huge_wave","A huge wave is coming");
+        add("invasion.pvz.timeout", "Invasion timed out. Remaining zombies cleared. %s safe days restored.");
 
         /* ==================== 死亡信息 ==================== */
         add("death.attack.pvz.plant_wilt", "%1$s withered away");
@@ -940,7 +1054,24 @@ public class PvZLangProvider extends LanguageProvider {
         add("skill.pvz.high_eat_damage.desc", "Increases eating damage.");
         add("skill.pvz.tough_body", "Tough Body");
         add("skill.pvz.tough_body.desc", "Grants armor to the zombie.");
-
+        add("skill.pvz.wart_heal_cd", "Faster Healing");
+        add("skill.pvz.wart_heal_cd.desc", "The Blaze Wart heals faster.");
+        add("skill.pvz.imitater_chance", "Imitate Training");
+        add("skill.pvz.imitater_chance.desc", "The Imitater gains more imitation chances.");
+        add("skill.pvz.light_beam_damage", "Shoot Training");
+        add("skill.pvz.light_beam_damage.desc", "Higher light beam damage.");
+        add("skill.pvz.magnifying_grass_damage", "Light Focus");
+        add("skill.pvz.magnifying_grass_damage.desc", "Increases the Magnifying Grass's super damage.");
+        add("skill.pvz.grass_carp_damage", "More Healing");
+        add("skill.pvz.grass_carp_damage.desc", "The plant heals more.");
+        add("skill.pvz.grass_carp_heal_rage", "Wider Range");
+        add("skill.pvz.grass_carp_heal_rage.desc", "The plant heals in a wider range.");
+        add("skill.pvz.more_chorus_fruit_damage", "Pult Training");
+        add("skill.pvz.more_chorus_fruit_damage.desc", "The plant deals higher damage.");
+        add("skill.pvz.more_stone_pea_damage", "Shoot Training");
+        add("skill.pvz.more_stone_pea_damage.desc", "The plant deals higher damage.");
+        add("skill.pvz.more_golden_melon_damage", "Pult Training");
+        add("skill.pvz.more_golden_melon_damage.desc", "The plant deals higher damage.");
         /* ==================== 配置：分组标题（level，无 ConfigValue，手写） ==================== */
         add("config.pvz.invasion.title", "Invasion Settings");
         add("config.pvz.invasion.title.tooltip", "Settings about invasion.");
@@ -976,6 +1107,10 @@ public class PvZLangProvider extends LanguageProvider {
         add("config.pvz.item.title.tooltip", "Settings about items.");
         add("config.pvz.overlay.title", "Overlay Settings");
         add("config.pvz.overlay.title.tooltip", "Overlay Settings");
+        add("config.pvz.overlay.position", "Resource Bar Position");
+        add("config.pvz.overlay.position.tooltip", "Drag to adjust the resource bar position");
+        add("config.pvz.overlay.position.button", "Adjust Position");
+        add("config.pvz.overlay.position.hint", "Drag the rectangle to reposition the resource bar. Press ESC to save");
         add("config.pvz.client.other.title", "Other Render Settings");
         add("config.pvz.client.other.title.tooltip", "Other Render Settings");
         /* ==================== 配置：值（label + tooltip 由 addConfigValue 自动生成） ==================== */
@@ -989,6 +1124,7 @@ public class PvZLangProvider extends LanguageProvider {
         addConfigValue(local.InvasionSettings.EnableHugeWave, "Enable Huge Wave");
         addConfigValue(local.InvasionSettings.MaxSpawnEachPlayer, "Max Spawn Count");
         addConfigValue(local.InvasionSettings.MaxSpawnRange, "Max Spawn Range");
+        addConfigValue(local.InvasionSettings.OvertimeGraceDays, "Overtime Grace");
 
         /* Challenge */
         addConfigValue(local.ChallengeSettings.EnableChallenge, "Enable Challenge");
@@ -1265,125 +1401,6 @@ public class PvZLangProvider extends LanguageProvider {
         add("config.jade.plugin_pvz.entity_provider", "Entity Provider");
         add("config.jade.plugin_pvz.show_defence_health", "Show Defence Health");
         add("config.jade.plugin_pvz.show_skills", "Show Skills");
-
-        /* ==================== 新植物卡（addon） ==================== */
-        addItem(PvZItemRegister.STEEL_PUMPKIN_CARD, "Steel Pumpkin Card");
-        addItem(PvZItemRegister.STEEL_PUMPKIN_ENJOY_CARD, "Steel Pumpkin (Enjoy) Card");
-        addItem(PvZItemRegister.ICE_CABBAGE_PULT_CARD, "Ice Cabbage-pult Card");
-        addItem(PvZItemRegister.ICE_CABBAGE_PULT_ENJOY_CARD, "Ice Cabbage-pult (Enjoy) Card");
-        addItem(PvZItemRegister.FIRE_PEASHOOTER_CARD, "Fire Peashooter Card");
-        addItem(PvZItemRegister.FIRE_PEASHOOTER_ENJOY_CARD, "Fire Peashooter (Enjoy) Card");
-        addItem(PvZItemRegister.CHORUS_FRUIT_PULT_CARD, "Chorus Fruit-pult Card");
-        addItem(PvZItemRegister.CHORUS_FRUIT_PULT_ENJOY_CARD, "Chorus Fruit-pult (Enjoy) Card");
-        addItem(PvZItemRegister.ROTATE_RADISH_CARD, "Rotate Radish Card");
-        addItem(PvZItemRegister.ROTATE_RADISH_ENJOY_CARD, "Rotate Radish (Enjoy) Card");
-        addItem(PvZItemRegister.BURST_KERNEL_PULT_CARD, "Burst Kernel-pult Card");
-        addItem(PvZItemRegister.BURST_KERNEL_PULT_ENJOY_CARD, "Burst Kernel-pult (Enjoy) Card");
-        addItem(PvZItemRegister.BLAZE_WART_CARD, "Blaze Wart Card");
-        addItem(PvZItemRegister.BLAZE_WART_ENJOY_CARD, "Blaze Wart (Enjoy) Card");
-        addItem(PvZItemRegister.GRASS_CARP_CARD, "Grass Carp Card");
-        addItem(PvZItemRegister.GRASS_CARP_ENJOY_CARD, "Grass Carp (Enjoy) Card");
-        addItem(PvZItemRegister.SELF_IMITATER_CARD, "Self Imitater Card");
-        addItem(PvZItemRegister.SELF_IMITATER_ENJOY_CARD, "Self Imitater (Enjoy) Card");
-        addItem(PvZItemRegister.RE_ICEPEA_CARD, "Re-icepea Card");
-        addItem(PvZItemRegister.RE_ICEPEA_ENJOY_CARD, "Re-icepea (Enjoy) Card");
-        addItem(PvZItemRegister.PEAPOD_CARD, "Peapod Card");
-        addItem(PvZItemRegister.PEAPOD_ENJOY_CARD, "Peapod (Enjoy) Card");
-        addItem(PvZItemRegister.SCULK_SHROOM_CARD, "Sculk Shroom Card");
-        addItem(PvZItemRegister.SCULK_SHROOM_ENJOY_CARD, "Sculk Shroom (Enjoy) Card");
-        addItem(PvZItemRegister.ORIGIN_SHROOM_CARD, "Origin Shroom Card");
-        addItem(PvZItemRegister.ORIGIN_SHROOM_ENJOY_CARD, "Origin Shroom (Enjoy) Card");
-        addItem(PvZItemRegister.BEE_SHOOTER_CARD, "Bee Shooter Card");
-        addItem(PvZItemRegister.BEE_SHOOTER_ENJOY_CARD, "Bee Shooter (Enjoy) Card");
-        addItem(PvZItemRegister.FODDER_BUSH_CARD, "Fodder Bush Card");
-        addItem(PvZItemRegister.FODDER_BUSH_ENJOY_CARD, "Fodder Bush (Enjoy) Card");
-        addItem(PvZItemRegister.GOLDEN_MELON_PULT_CARD, "Golden Melon-pult Card");
-        addItem(PvZItemRegister.GOLDEN_MELON_PULT_ENJOY_CARD, "Golden Melon-pult (Enjoy) Card");
-        addItem(PvZItemRegister.PRIMAL_PEA_SHOOTER_CARD, "Primal Peashooter Card");
-        addItem(PvZItemRegister.PRIMAL_PEA_SHOOTER_ENJOY_CARD, "Primal Peashooter (Enjoy) Card");
-        addItem(PvZItemRegister.GOO_PEA_SHOOTER_CARD, "Goo Peashooter Card");
-        addItem(PvZItemRegister.GOO_PEA_SHOOTER_ENJOY_CARD, "Goo Peashooter (Enjoy) Card");
-        addItem(PvZItemRegister.MAGNIFYING_GRASS_CARD, "Magnifying Grass Card");
-        addItem(PvZItemRegister.MAGNIFYING_GRASS_ENJOY_CARD, "Magnifying Grass (Enjoy) Card");
-        addItem(PvZItemRegister.WATER_POT_CARD, "Water Pot Card");
-        addItem(PvZItemRegister.WATER_POT_ENJOY_CARD, "Water Pot (Enjoy) Card");
-        addItem(PvZItemRegister.POT_GRASS_CARD, "Pot Grass Card");
-        addItem(PvZItemRegister.POT_GRASS_ENJOY_CARD, "Pot Grass (Enjoy) Card");
-
-        /* ==================== 新僵尸实体（addon） ==================== */
-        addEntityType(PvZEntityRegister.SUN_FLOWER_ZOMBIE, "Sunflower Zombie");
-        addEntityType(PvZEntityRegister.CHOMPER_ZOMBIE, "Chomper Zombie");
-        addEntityType(PvZEntityRegister.STEEL_PUMPKIN_ZOMBIE, "Steel Pumpkin Zombie");
-        addEntityType(PvZEntityRegister.FLOWER_POT_ZOMBIE, "Flower Pot Zombie");
-        addEntityType(PvZEntityRegister.EDGAR_090547, "Edgar 090547");
-        addEntityType(PvZEntityRegister.AIRBORNE_ZOMBIE, "Airborne Zombie");
-        addEntityType(PvZEntityRegister.MC_ZOMBIE, "MC Zombie");
-        addEntityType(PvZEntityRegister.TARGET_ARROW_ZOMBIE, "Target Arrow Zombie");
-        addEntityType(PvZEntityRegister.RED_EDGE_ZOMBIE, "Red Edge Zombie");
-        addEntityType(PvZEntityRegister.MJ_ZOMBIE, "MJ Zombie");
-        addEntityType(PvZEntityRegister.DANCER_BACKUP_ZOMBIE, "Dancer Backup Zombie");
-        addEntityType(PvZEntityRegister.RED_SUN, "Red Sun");
-        addEntityType(PvZEntityRegister.BEE, "Bee");
-
-        /* ==================== 新植物实体（addon） ==================== */
-        addEntityType(PvZEntityRegister.STEEL_PUMPKIN, "Steel Pumpkin");
-        addEntityType(PvZEntityRegister.ICE_CABBAGE_PULT, "Ice Cabbage-pult");
-        addEntityType(PvZEntityRegister.FIRE_PEASHOOTER, "Fire Peashooter");
-        addEntityType(PvZEntityRegister.CHORUS_FRUIT_PULT, "Chorus Fruit-pult");
-        addEntityType(PvZEntityRegister.ROTATE_RADISH, "Rotate Radish");
-        addEntityType(PvZEntityRegister.BURST_KERNEL_PULT, "Burst Kernel-pult");
-        addEntityType(PvZEntityRegister.BLAZE_WART, "Blaze Wart");
-        addEntityType(PvZEntityRegister.GRASS_CARP, "Grass Carp");
-        addEntityType(PvZEntityRegister.SELF_IMITATER, "Self Imitater");
-        addEntityType(PvZEntityRegister.RE_ICEPEA, "Re-icepea");
-        addEntityType(PvZEntityRegister.SCULK_SHROOM, "Sculk Shroom");
-        addEntityType(PvZEntityRegister.BEE_SHOOTER, "Bee Shooter");
-        addEntityType(PvZEntityRegister.FODDER_BUSH, "Fodder Bush");
-        addEntityType(PvZEntityRegister.GOLDEN_MELON_PULT, "Golden Melon-pult");
-        addEntityType(PvZEntityRegister.PRIMAL_PEA_SHOOTER, "Primal Peashooter");
-        addEntityType(PvZEntityRegister.GOO_PEA_SHOOTER, "Goo Peashooter");
-        addEntityType(PvZEntityRegister.MAGNIFYING_GRASS, "Magnifying Grass");
-        addEntityType(PvZEntityRegister.PEA_POD, "Peapod");
-        // 这两株是方块植物，PvZEntityRegister 中无对应字段，按 zh_cn 的 entity 键手写
-        add("entity.pvz.pot_grass", "Pot Grass");
-        add("entity.pvz.water_pot", "Water Pot");
-
-        /* ==================== 新僵尸刷怪蛋（addon） ==================== */
-        addItem(PvZItemRegister.RED_FLOWER_ZOMBIE_SPAWN_EGG, "Sunflower Zombie Spawn Egg");
-        addItem(PvZItemRegister.CHOMPER_ZOMBIE_SPAWN_EGG, "Chomper Zombie Spawn Egg");
-        addItem(PvZItemRegister.STEEL_PUMPKIN_ZOMBIE_SPAWN_EGG, "Steel Pumpkin Zombie Spawn Egg");
-        addItem(PvZItemRegister.FLOWER_POT_ZOMBIE_SPAWN_EGG, "Flower Pot Zombie Spawn Egg");
-        addItem(PvZItemRegister.EDGAR_090547_SPAWN_EGG, "Edgar 090547 Spawn Egg");
-        addItem(PvZItemRegister.AIRBORNE_ZOMBIE_SPAWN_EGG, "Airborne Zombie Spawn Egg");
-        addItem(PvZItemRegister.MC_ZOMBIE_SPAWN_EGG, "MC Zombie Spawn Egg");
-        addItem(PvZItemRegister.TARGET_ARROW_ZOMBIE_SPAWN_EGG, "Target Arrow Zombie Spawn Egg");
-        addItem(PvZItemRegister.RED_EDGE_ZOMBIE_SPAWN_EGG, "Red Edge Zombie Spawn Egg");
-        addItem(PvZItemRegister.MJ_ZOMBIE_SPAWN_EGG, "MJ Zombie Spawn Egg");
-        addItem(PvZItemRegister.DANCER_BACKUP_ZOMBIE_SPAWN_EGG, "Dancer Backup Zombie Spawn Egg");
-
-        /* ==================== 新效果（addon） ==================== */
-        addEffect(PvZEffectRegister.HALITOSIS, "Halitosis");
-        addEffect(PvZEffectRegister.GOO_POISON, "Goo Poison");
-
-        /* ==================== 新技能（addon） ==================== */
-        add("skill.pvz.wart_heal_cd", "Faster Healing");
-        add("skill.pvz.wart_heal_cd.desc", "The Blaze Wart heals faster.");
-        add("skill.pvz.imitater_chance", "Imitate Training");
-        add("skill.pvz.imitater_chance.desc", "The Imitater gains more imitation chances.");
-        add("skill.pvz.light_beam_damage", "Shoot Training");
-        add("skill.pvz.light_beam_damage.desc", "Higher light beam damage.");
-        add("skill.pvz.magnifying_grass_damage", "Light Focus");
-        add("skill.pvz.magnifying_grass_damage.desc", "Increases the Magnifying Grass's super damage.");
-        add("skill.pvz.grass_carp_damage", "More Healing");
-        add("skill.pvz.grass_carp_damage.desc", "The plant heals more.");
-        add("skill.pvz.grass_carp_heal_rage", "Wider Range");
-        add("skill.pvz.grass_carp_heal_rage.desc", "The plant heals in a wider range.");
-        add("skill.pvz.more_chorus_fruit_damage", "Pult Training");
-        add("skill.pvz.more_chorus_fruit_damage.desc", "The plant deals higher damage.");
-        add("skill.pvz.more_stone_pea_damage", "Shoot Training");
-        add("skill.pvz.more_stone_pea_damage.desc", "The plant deals higher damage.");
-        add("skill.pvz.more_golden_melon_damage", "Pult Training");
-        add("skill.pvz.more_golden_melon_damage.desc", "The plant deals higher damage.");
 
         /* ==================== 挑战：名称 + 信件文本 ==================== */
         addChallenge("strange_help", "Strange Help",

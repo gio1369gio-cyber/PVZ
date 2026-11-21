@@ -1,0 +1,16 @@
+{
+  "allow_open_book_with_invalid_links": false,
+  "creative_tab": "pvz:pvz_useful",
+  "default_allow_page_split": false,
+  "default_auto_scale": true,
+  "description": "",
+  "display_mode": "node",
+  "font": "modonomicon:default",
+  "generate_book_item": false,
+  "model": "modonomicon:modonomicon_purple",
+  "name": "book.pvz.pvz_guide.name",
+  "page_display_mode": "double_page",
+  "show_recently_unlocked": true,
+  "tooltip": "book.pvz.pvz_guide.tooltip",
+  "turn_page_sound": "modonomicon:turn_page"
+}

@@ -3,6 +3,7 @@ package com.lying.pvz.event.common.gamebus;
 import com.lying.pvz.PvZMod;
 import com.lying.pvz.common.challenge.ChallengeTicker;
 import com.lying.pvz.common.damage.PvZEntityDamageSource;
+import com.lying.pvz.event.common.handler.BiomeUnlockHandler;
 import com.lying.pvz.common.level.entity.AbstractPAZEntity;
 import com.lying.pvz.common.level.entity.plant.magic.StrangeCatEntity;
 import com.lying.pvz.event.common.handler.LivingEventHandler;
@@ -24,6 +25,9 @@ public class PvZLivingEvents {
 
     @SubscribeEvent
     public static void onLivingDeath(LivingDeathEvent ev) {
+        // BOSS 击杀 → 群系解锁推进（在击杀者判定之前，独立处理）
+        BiomeUnlockHandler.onBossDeath(ev.getEntity(), ev.getSource().getEntity());
+
         if (ev.getEntity() instanceof ServerPlayer sp) {
             ChallengeTicker.onPlayerDeath(sp);
         }

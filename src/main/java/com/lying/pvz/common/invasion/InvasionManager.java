@@ -21,6 +21,9 @@ public class InvasionManager implements IInvasionAPI {
 
     private static final Map<UUID, Invasion> ACTIVE = new HashMap<>();
 
+    /** 命令预定的延迟入侵。键为玩家 UUID，值为待触发的入侵。 */
+    private static final Map<UUID, PendingInvasion> PENDING = new HashMap<>();
+
     /** 通过 API 注册的类型。跨数据包 reload 存活。 */
     private static final Map<Identifier, IInvasionType> REGISTERED = new HashMap<>();
 
@@ -114,17 +117,55 @@ public class InvasionManager implements IInvasionAPI {
     public void forceEnable(ServerPlayer player, Identifier invasionID) {
         IInvasionType type = merged().get(invasionID);
         if (type == null) return;
+        startInvasion(player, type);
+    }
 
-        Invasion existing = ACTIVE.remove(player.getUUID());
-        if (existing != null && existing.isRunning()) {
-            existing.disableWith(InvasionEndEvent.Reason.COMMAND);
-        }
+    /** 是否已有进行中的入侵。 */
+    public static boolean hasActive(ServerPlayer player) {
+        Invasion inv = ACTIVE.get(player.getUUID());
+        return inv != null && inv.isRunning();
+    }
+
+    /**
+     * 立即触发入侵。已有运行中的入侵（自然或命令）时失败返回 {@code false}，
+     * 不覆盖——同一玩家同一时刻只允许一个入侵。
+     */
+    private static boolean startInvasion(ServerPlayer player, IInvasionType type) {
+        if (hasActive(player)) return false;
 
         Invasion inv = new Invasion(player);
         inv.forceEnableWith(type);
 
         if (!inv.isRunning()) {
             ACTIVE.remove(player.getUUID());
+            return false;
+        }
+        return true;
+    }
+
+    /** 预定一个入侵，在 {@code delayTicks} tick 后触发。 */
+    public static void scheduleInvasion(ServerPlayer player, IInvasionType type, int delayTicks) {
+        if (type == null) return;
+        PENDING.put(player.getUUID(), new PendingInvasion(player, type, Math.max(0, delayTicks)));
+    }
+
+    /** 每 tick 推进预定队列；到点后触发。 */
+    public static void tickScheduled() {
+        if (PENDING.isEmpty()) return;
+        for (Iterator<Map.Entry<UUID, PendingInvasion>> it = PENDING.entrySet().iterator(); it.hasNext();) {
+            Map.Entry<UUID, PendingInvasion> entry = it.next();
+            PendingInvasion pending = entry.getValue();
+            ServerPlayer player = pending.player();
+            if (player.isRemoved() || player.level().getServer() == null) {
+                it.remove();
+                continue;
+            }
+            if (pending.delay() <= 0) {
+                startInvasion(player, pending.type());
+                it.remove();
+            } else {
+                entry.setValue(new PendingInvasion(player, pending.type(), pending.delay() - 1));
+            }
         }
     }
 
@@ -163,6 +204,7 @@ public class InvasionManager implements IInvasionAPI {
         for (IInvasionType t : pool.values()) {
             if (!t.isAssist()) continue;
             if (t.getRequireLevel() > level) continue;
+            if (!fogAllowed(t, level)) continue;
             if (rand.nextInt(Math.max(1, t.getTriggerChance())) == 0) result.add(t);
         }
         return result;
@@ -176,6 +218,7 @@ public class InvasionManager implements IInvasionAPI {
         for (IInvasionType t : pool.values()) {
             if (t.isAssist() != assist) continue;
             if (t.getRequireLevel() > level) continue;
+            if (!fogAllowed(t, level)) continue;
             candidates.add(t);
             total += Math.max(1, t.getTriggerChance());
         }
@@ -186,6 +229,11 @@ public class InvasionManager implements IInvasionAPI {
             if (pick < 0) return t;
         }
         return candidates.get(0);
+    }
+
+    /** 迷雾入侵需要玩家树等级 > 5（路灯花已解锁）。 */
+    private static boolean fogAllowed(IInvasionType t, int level) {
+        return t.getFog() == null || level > 5;
     }
 
     /* ---------- 生命周期 ---------- */
@@ -248,6 +296,15 @@ public class InvasionManager implements IInvasionAPI {
         }
     }
 
+    /** 波次刷完后的超时宽限（单位：游戏天数）。0 表示禁用兜底。 */
+    public static double configOvertimeGraceDays() {
+        try {
+            return Math.max(0D, PvZConfig.LOCAL_CONFIG.InvasionSettings.OvertimeGraceDays.get());
+        } catch (Throwable t) {
+            return 0.5D;
+        }
+    }
+
     public static void tickActive() {
         if (ACTIVE.isEmpty()) return;
         for (Invasion inv : new ArrayList<>(ACTIVE.values())) {
@@ -256,4 +313,7 @@ public class InvasionManager implements IInvasionAPI {
             }
         }
     }
+
+    /** 待触发的入侵：目标玩家 + 入侵类型 + 剩余 tick。 */
+    private record PendingInvasion(ServerPlayer player, IInvasionType type, int delay) {}
 }

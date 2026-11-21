@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "seed3",
+  "item": {
+    "id": "pvz:nut"
+  },
+  "sort_number": 2,
+  "text": "book.pvz.pvz_guide.start.seed.seed3.text",
+  "title": "book.pvz.pvz_guide.start.seed.seed3.title"
+}

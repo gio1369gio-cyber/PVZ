@@ -115,9 +115,9 @@ public class PvZBlockLootTables extends BlockLootSubProvider {
 		this.dropOther(PvZBlockRegister.GOLD_TILE3.get(), Blocks.GOLD_BLOCK);
 
 
-		this.add(PvZBlockRegister.SCREEN_DOOR.get(),
-				block -> LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ContextIntProviders.exactly(1))
-						.add(LootItem.lootTableItem(PvZItemRegister.SCREEN_DOOR.get()))));
+
+		// 与原版门一致：仅下半格掉落，且爆炸时不掉落
+		this.add(PvZBlockRegister.SCREEN_DOOR.get(), this::createDoorTable);
 
 
 		BuiltInRegistries.BLOCK.forEach(block -> {

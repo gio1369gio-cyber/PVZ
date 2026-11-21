@@ -32,6 +32,7 @@ import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElementType;
@@ -53,7 +54,8 @@ import java.util.function.Function;
  *   <li>支持可选 {@code structure_name} 字段，按结构名选择刷怪笼类型 / 战利品表 / 特殊逻辑</li>
  *   <li>data marker：先清空位置（BlockIgnoreProcessor 只跳过结构方块、不清空地形），再放实体 / 箱子 / 刷怪笼</li>
  *   <li>实体走 {@code WorldGenRegion.addFreshEntity}，不传入真实世界</li>
- *   <li>dave_villa：每个 piece 只填自己模板底面（与当前 chunk 求交），不留空气/花草</li>
+ *   <li>dave_villa：每个 piece 平整自己模板底面（与当前 chunk 求交）——放置前削高、
+ *       放置后填实，让建筑按足迹中位高度贴地且不被地形侵入</li>
  * </ul>
  */
 public class PvZSinglePoolElement extends SinglePoolElement {
@@ -101,9 +103,15 @@ public class PvZSinglePoolElement extends SinglePoolElement {
                 .map(structureTemplateManager::getOrCreate, Function.identity());
         StructurePlaceSettings settings = this.getSettings(rotation, box, liquidSettings, keepJigsaws);
 
+        // ── DaveVilla 平整地基：放置前先削平本 piece 底面 footprint 上突出的地形 ──
+        // 必须在 placeInWorld 之前，否则模板放置后被高处地形包裹/掩埋。
+        if ("dave_villa".equals(this.structureName) && level instanceof WorldGenRegion region) {
+            clearTemplateFootprint(region, template, settings, offset, box);
+        }
+
         boolean placed = template.placeInWorld(level, offset, pos, settings, random, 18);
 
-        // ── DaveVilla 填坑：每个 piece 只填自己模板底面 ──
+        // ── DaveVilla 填坑：每个 piece 只填自己模板底面（向下填至实心） ──
         if ("dave_villa".equals(this.structureName) && level instanceof WorldGenRegion region) {
             fillTemplateFootprint(region, template, settings, offset, box);
         }
@@ -120,6 +128,38 @@ public class PvZSinglePoolElement extends SinglePoolElement {
             }
         }
         return placed;
+    }
+
+    // ════════════════════════════════════════════════════════
+    // 削高：本 piece 模板底面 ∩ 当前 chunk，铲掉高于地板层的地形
+    // （中位数高度放建筑时，个别高出的山包会侵入房间，放置前必须清掉）
+    // ════════════════════════════════════════════════════════
+    private static void clearTemplateFootprint(WorldGenRegion region, StructureTemplate template,
+                                               StructurePlaceSettings settings, BlockPos offset,
+                                               BoundingBox chunkBB) {
+        final int floorY = offset.getY();                          // 模板地板层；其下为地基
+        BoundingBox templateBB = template.getBoundingBox(settings, offset);
+
+        int minX = Math.max(templateBB.minX(), chunkBB.minX());
+        int maxX = Math.min(templateBB.maxX(), chunkBB.maxX());
+        int minZ = Math.max(templateBB.minZ(), chunkBB.minZ());
+        int maxZ = Math.min(templateBB.maxZ(), chunkBB.maxZ());
+        if (minX > maxX || minZ > maxZ) {
+            return;
+        }
+
+        for (int x = minX; x <= maxX; x++) {
+            for (int z = minZ; z <= maxZ; z++) {
+                // WORLD_SURFACE 返回最高方块之上的第一个 Y（含树叶）；只清地板层及以上
+                int colTop = region.getHeight(Heightmap.Types.WORLD_SURFACE, x, z);
+                for (int y = floorY; y < colTop; y++) {
+                    BlockPos p = new BlockPos(x, y, z);
+                    if (!canWriteInRegion(region, p)) break;
+                    if (region.getBlockState(p).isAir()) continue;
+                    setBlockSafe(region, p, Blocks.AIR.defaultBlockState());
+                }
+            }
+        }
     }
 
     // ════════════════════════════════════════════════════════

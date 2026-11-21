@@ -2,6 +2,7 @@ package com.lying.pvz.utils;
 
 import com.lying.pvz.PvZMod;
 import com.lying.pvz.api.entity.ability.*;
+import com.lying.pvz.api.projectile.IBullet;
 import com.lying.pvz.common.init.PvZAttributes;
 import com.lying.pvz.common.init.PvZEffectRegister;
 import com.lying.pvz.common.level.entity.AbstractPAZEntity;
@@ -53,6 +54,10 @@ public class EntityUtil {
         final double dx = b.getX() - a.getX();
         final double dz = b.getZ() - a.getZ();
         final double dis = Math.sqrt(dx * dx + dz * dz);
+        // 贴脸/完全重叠时水平距离为 0，避免 0/0 产生 NaN 污染后续计算。
+        if (dis < 1.0E-4D) {
+            return new Vec3(1.0D, 0, 0);
+        }
         return new Vec3(dx / dis, 0, dz / dis);
     }
 
@@ -219,6 +224,28 @@ public class EntityUtil {
         return uuid == null ? null : world.getPlayerByUUID(uuid);
     }
 
+    /** 目标被迷雾隐藏（FOG_HIDDEN）且攻击者及其 owner 玩家没有光眼时，返回 true（不可选中/攻击）。 */
+    public static boolean isFogHiddenTo(@Nullable Entity attacker, Entity target) {
+        if (!(target instanceof LivingEntity living) || !living.hasEffect(PvZEffectRegister.FOG_HIDDEN)) {
+            return false;
+        }
+        return !hasLightEye(attacker);
+    }
+
+    private static boolean hasLightEye(@Nullable Entity attacker) {
+        if (attacker instanceof IBullet bullet) {
+            attacker = bullet.ownerEntity();
+        }
+        if (attacker == null) {
+            return false;
+        }
+        if (attacker instanceof Player player) {
+            return player.hasEffect(PvZEffectRegister.LIGHT_EYE_EFFECT);
+        }
+        final Player owner = getEntityOwner(attacker.level(), attacker);
+        return owner != null && owner.hasEffect(PvZEffectRegister.LIGHT_EYE_EFFECT);
+    }
+
     public static boolean canTargetEntity(Entity attacker, Entity target) {
         if(attacker instanceof AbstractPAZEntity paz) {
             return paz.checkCanPAZTarget(target);
@@ -234,11 +261,22 @@ public class EntityUtil {
     }
 
     public static boolean checkCanEntityBeTarget(Entity attacker, Entity target) {
+        return checkCanEntityBeTarget(attacker, target, false);
+    }
+
+    /**
+     * 目标是否可被选中。{@code ignoreFog} 为 true 时跳过迷雾隐怪检查，
+     * 供范围伤害（爆炸/火焰/冰冻/溅射）这类"不依赖视野锁定"的攻击使用。
+     */
+    public static boolean checkCanEntityBeTarget(Entity attacker, Entity target, boolean ignoreFog) {
         if(attacker == null || target == null || EntityUtil.isOpEntity(target)) {
             return false;
         }
+        if(!ignoreFog && isFogHiddenTo(attacker, target)) {
+            return false;
+        }
         if(target instanceof MultiPartEntity part) {
-            return checkCanEntityBeTarget(attacker, part.getOwner());
+            return checkCanEntityBeTarget(attacker, part.getOwner(), ignoreFog);
         }
         if(ConfigUtil.isTeamAttackEnable()) {
             final var team1 = getEntityTeam(attacker.level(), attacker);
@@ -261,6 +299,9 @@ public class EntityUtil {
 
     public static boolean checkCanEntityBeAttack(Entity attacker, Entity target) {
         if(attacker == null || target == null) {
+            return false;
+        }
+        if(isFogHiddenTo(attacker, target)) {
             return false;
         }
         if(target instanceof MultiPartEntity part) {
@@ -316,13 +357,31 @@ public class EntityUtil {
         return getPredicateEntities(attacker, aabb, LivingEntity.class, target -> canTargetEntity(attacker, target));
     }
 
+    /** 同 {@link #getTargetableLivings}，但无视迷雾隐怪（范围伤害用）。 */
+    public static List<LivingEntity> getTargetableLivingsIgnoreFog(@NonNull Entity attacker, AABB aabb){
+        return getPredicateEntities(attacker, aabb, LivingEntity.class,
+                target -> checkCanEntityBeTarget(attacker, target, true));
+    }
+
     public static List<LivingEntity> getViewableTargetableEntity(@NonNull Entity attacker, AABB aabb){
         return getTargetableLivings(attacker, aabb).stream()
                 .filter(target -> canSeeEntity(attacker, target)).collect(Collectors.toList());
     }
 
+    /** 同 {@link #getViewableTargetableEntity}，但无视迷雾隐怪（范围伤害用）。 */
+    public static List<LivingEntity> getViewableTargetableEntityIgnoreFog(@NonNull Entity attacker, AABB aabb){
+        return getTargetableLivingsIgnoreFog(attacker, aabb).stream()
+                .filter(target -> canSeeEntity(attacker, target)).collect(Collectors.toList());
+    }
+
     public static List<Entity> getTargetableEntities(@NonNull Entity attacker, AABB aabb){
         return getPredicateEntities(attacker, aabb, Entity.class, target -> canTargetEntity(attacker, target));
+    }
+
+    /** 同 {@link #getTargetableEntities}，但无视迷雾隐怪（范围伤害用）。 */
+    public static List<Entity> getTargetableEntitiesIgnoreFog(@NonNull Entity attacker, AABB aabb){
+        return getPredicateEntities(attacker, aabb, Entity.class,
+                target -> checkCanEntityBeTarget(attacker, target, true));
     }
 
     public static List<LivingEntity> getFriendlyLivings(@NonNull Entity attacker, AABB aabb){
@@ -370,6 +429,37 @@ public class EntityUtil {
         return list;
     }
 
+
+    /** 同 {@link #getWholeTargetableEntities}，但无视迷雾隐怪（范围伤害用）。 */
+    public static List<Entity> getWholeTargetableEntitiesIgnoreFog(@NonNull Entity attacker, AABB aabb) {
+        List<Entity> list = new ArrayList<>();
+        if (attacker == null) return list;
+
+        final List<Entity> targets = getPredicateEntities(attacker, aabb, Entity.class,
+                target -> checkCanEntityBeTarget(attacker, target, true));
+        final IntOpenHashSet seen = new IntOpenHashSet();
+
+        for (Entity target : targets) {
+            if (target instanceof MultiPartEntity) continue;
+            if (!seen.add(target.getId())) continue;
+            list.add(target);
+        }
+        for (Entity target : targets) {
+            if (!(target instanceof MultiPartEntity part)) continue;
+
+            final LivingEntity owner = part.getOwner();
+            if (owner == null) {
+                if (!seen.add(target.getId())) continue;
+                list.add(target);
+                continue;
+            }
+
+            if (!seen.add(owner.getId())) continue;
+            list.add(owner);
+        }
+
+        return list;
+    }
 
     public static void addPotionEffect(Entity entity, MobEffectInstance effect) {
         if (entity instanceof MultiPartEntity part) {

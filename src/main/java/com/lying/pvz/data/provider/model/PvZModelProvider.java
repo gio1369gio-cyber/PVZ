@@ -43,6 +43,7 @@ public class PvZModelProvider extends ModelProvider {
 		PvZItemModelRules.registerHandwrittenItems(itemModels);
 		PvZItemModelRules.registerBowingItems(itemModels);
 		PvZItemModelRules.registerImitaterItems(itemModels);
+		PvZItemModelRules.registerScreenDoorItem(itemModels);
 	}
 
 

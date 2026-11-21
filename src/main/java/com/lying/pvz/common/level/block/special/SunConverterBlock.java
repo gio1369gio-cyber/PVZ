@@ -39,21 +39,22 @@ public class SunConverterBlock extends Block implements EntityBlock {
 	}
 
 	@Override
-	protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
-										  Player player, InteractionHand hand, BlockHitResult hitResult) {
+	public InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
+									   Player player, InteractionHand hand, BlockHitResult hitResult) {
 		if (hand != InteractionHand.MAIN_HAND) {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
 		}
-		if (level.getBlockEntity(pos) instanceof SunConverterBlockEntity te && player instanceof ServerPlayer sp) {
-			sp.openMenu(te, buf -> buf.writeBlockPos(pos));
-			return InteractionResult.SUCCESS;
-		}
-		return InteractionResult.PASS;
+		return openMenuIfPossible(level, pos, player);
 	}
 
 	@Override
 	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos,
 											   Player player, BlockHitResult hitResult) {
+		return openMenuIfPossible(level, pos, player);
+	}
+
+	/** 尝试打开转换器菜单。供物品侧复用，避免进食流程抢占方块交互。 */
+	public static InteractionResult openMenuIfPossible(Level level, BlockPos pos, Player player) {
 		if (level.getBlockEntity(pos) instanceof SunConverterBlockEntity te && player instanceof ServerPlayer sp) {
 			sp.openMenu(te, buf -> buf.writeBlockPos(pos));
 			return InteractionResult.SUCCESS;

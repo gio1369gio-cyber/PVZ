@@ -1,5 +1,6 @@
 package com.lying.pvz.common.invasion;
 
+import com.lying.pvz.common.invasion.type.InvasionFog;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -29,13 +30,14 @@ public record InvasionSnapshot(
         Optional<Identifier> missionTypeId,
         int missionStage,
         int missionValue,
-        int currentTick
+        int currentTick,
+        Optional<InvasionFog> fog
 ) {
 
     /** 空闲态：入侵未运行。 */
     public static final InvasionSnapshot IDLE = new InvasionSnapshot(
             false, Optional.empty(), List.of(), 0,
-            List.of(), List.of(), Optional.empty(), 0, 0,0);
+            List.of(), List.of(), Optional.empty(), 0, 0, 0, Optional.empty());
 
     /* ---------------- Codec（持久化） ---------------- */
 
@@ -49,7 +51,8 @@ public record InvasionSnapshot(
             Identifier.CODEC.optionalFieldOf("mission_type").forGetter(InvasionSnapshot::missionTypeId),
             Codec.INT.optionalFieldOf("mission_stage", 0).forGetter(InvasionSnapshot::missionStage),
             Codec.INT.optionalFieldOf("mission_value", 0).forGetter(InvasionSnapshot::missionValue),
-            Codec.INT.optionalFieldOf("current_tick", 0).forGetter(InvasionSnapshot::currentTick)
+            Codec.INT.optionalFieldOf("current_tick", 0).forGetter(InvasionSnapshot::currentTick),
+            InvasionFog.CODEC.optionalFieldOf("fog").forGetter(InvasionSnapshot::fog)
     ).apply(i, InvasionSnapshot::new));
 
     /* ---------------- StreamCodec（网络同步） ---------------- */
@@ -76,8 +79,9 @@ public record InvasionSnapshot(
                     int missionStage = buf.readVarInt();
                     int missionValue = buf.readVarInt();
                     int currentTick = buf.readVarInt();
+                    Optional<InvasionFog> fog = readOptionalFog(buf);
                     return new InvasionSnapshot(running, primaryId, assistIds, waveIndex,
-                            waveTimes, waveCounts, missionTypeId, missionStage, missionValue,currentTick);
+                            waveTimes, waveCounts, missionTypeId, missionStage, missionValue, currentTick, fog);
                 }
 
                 @Override
@@ -95,6 +99,7 @@ public record InvasionSnapshot(
                     buf.writeVarInt(s.missionStage);
                     buf.writeVarInt(s.missionValue);
                     buf.writeVarInt(s.currentTick);
+                    writeOptionalFog(buf, s.fog);
                 }
 
                 private void writeOptionalId(RegistryFriendlyByteBuf buf, Optional<Identifier> id) {
@@ -108,6 +113,15 @@ public record InvasionSnapshot(
 
                 private Optional<Identifier> readOptionalId(RegistryFriendlyByteBuf buf) {
                     return buf.readBoolean() ? Optional.of(Identifier.parse(buf.readUtf())) : Optional.empty();
+                }
+
+                private void writeOptionalFog(RegistryFriendlyByteBuf buf, Optional<InvasionFog> fog) {
+                    buf.writeBoolean(fog.isPresent());
+                    fog.ifPresent(f -> InvasionFog.STREAM_CODEC.encode(buf, f));
+                }
+
+                private Optional<InvasionFog> readOptionalFog(RegistryFriendlyByteBuf buf) {
+                    return buf.readBoolean() ? Optional.of(InvasionFog.STREAM_CODEC.decode(buf)) : Optional.empty();
                 }
             };
 }

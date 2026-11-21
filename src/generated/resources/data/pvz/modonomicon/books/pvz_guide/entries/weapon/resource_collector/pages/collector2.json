@@ -1,0 +1,10 @@
+{
+  "type": "modonomicon:crafting_recipe",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "collector2",
+  "recipe_id_1": "pvz:resource_collector",
+  "sort_number": 1,
+  "title1": "book.pvz.pvz_guide.weapon.resource_collector.collector2.title"
+}

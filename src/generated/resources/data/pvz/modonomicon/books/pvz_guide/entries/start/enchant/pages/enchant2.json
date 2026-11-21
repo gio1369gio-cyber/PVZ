@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "enchant2",
+  "item": {
+    "id": "minecraft:diamond_sword"
+  },
+  "sort_number": 1,
+  "text": "book.pvz.pvz_guide.start.enchant.enchant2.text",
+  "title": "book.pvz.pvz_guide.start.enchant.enchant2.title"
+}

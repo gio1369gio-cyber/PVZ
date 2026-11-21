@@ -1,0 +1,11 @@
+{
+  "type": "modonomicon:crafting_recipe",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "seed2",
+  "recipe_id_1": "pvz:snow_pea",
+  "recipe_id_2": "pvz:flame_pea",
+  "sort_number": 1,
+  "title1": "book.pvz.pvz_guide.start.seed.seed2.title"
+}

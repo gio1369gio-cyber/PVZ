@@ -167,7 +167,7 @@ public class CobCannonEntity extends PlantEntity {
 			return;
 		}
 		final float range = 45F;
-		final List<LivingEntity> list = EntityUtil.getViewableTargetableEntity(this,
+		final List<LivingEntity> list = EntityUtil.getViewableTargetableEntityIgnoreFog(this,
 				EntityUtil.getEntityAABB(this, range, range));
 		final int num = this.isPlantInSuperMode() ? this.getSuperCornNum() : 1;
 		for (int i = 0; i < num; ++i) {

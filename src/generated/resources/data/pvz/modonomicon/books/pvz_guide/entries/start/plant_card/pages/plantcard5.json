@@ -1,0 +1,11 @@
+{
+  "type": "modonomicon:crafting_recipe",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "plantcard5",
+  "recipe_id_1": "pvz:card/template/purple_card",
+  "recipe_id_2": "pvz:card/template/gold_card",
+  "sort_number": 4,
+  "title1": "book.pvz.pvz_guide.start.plant_card.plantcard5.title"
+}

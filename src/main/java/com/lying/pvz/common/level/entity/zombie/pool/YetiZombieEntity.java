@@ -74,14 +74,15 @@ public class YetiZombieEntity extends ZombieEntity {
 		super.normalZombieTick();
 		if (!this.level().isClientSide()) {
 			++this.live_tick;
-			if (this.live_tick > this.getYetiMaxLiveTick() / 2) {
+			int maxLiveTick = this.getYetiMaxLiveTick();
+			if (this.live_tick >= maxLiveTick) {
+				this.discard();
+			} else if (this.live_tick > maxLiveTick / 2) {
 				if (!this.hasInvis) {
 					this.hasInvis = true;
 					this.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 2000, 2, false, true));
 				}
 				this.heal(0.5f);
-			} else if (this.live_tick >= this.getYetiMaxLiveTick()) {
-				this.discard();
 			}
 		}
 	}

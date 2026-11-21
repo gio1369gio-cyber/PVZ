@@ -1,0 +1,24 @@
+{
+  "type": "modonomicon:content",
+  "background": {
+    "height": 26,
+    "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+    "width": 26
+  },
+  "category": "pvz:intro",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "description": "book.pvz.pvz_guide.intro.invade.description",
+  "icon": {
+    "id": "pvz:zombie_flag"
+  },
+  "id": "pvz:intro/invade",
+  "marker_condition": {
+    "type": "modonomicon:none"
+  },
+  "name": "book.pvz.pvz_guide.intro.invade.name",
+  "sort_number": 5,
+  "x": 0,
+  "y": 1
+}

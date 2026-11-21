@@ -89,9 +89,12 @@ public class JackBoxItem extends Item {
                     }
                     int idx = player.getRandom().nextInt(slotCount);
                     SlotEntry entry = lottery.getSlotType(idx);
+                    if (entry == null) {
+                        return;
+                    }
                     ItemStack entryStack = entry.createStack();
-                    if (entryStack != null) {
-                        entryStack.copy();
+                    if (entryStack != null && !entryStack.isEmpty()) {
+                        player.addItem(entryStack);
                     }
                 });
             }

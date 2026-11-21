@@ -47,6 +47,11 @@ public class PvZConfig {
                         .translation("config.pvz.invasion.spawn_range")
                         .comment("how far can entity spawn in invasion.")
                         .defineInRange("MaxSpawnRange", 50, 1, 100);
+
+                InvasionSettings.OvertimeGraceDays = builder
+                        .translation("config.pvz.invasion.overtime_grace")
+                        .comment("After the final wave, force-end the invasion if zombies remain. Value is in game days (0.5 = half a day). Set to 0 to disable.")
+                        .defineInRange("OvertimeGraceDays", 0.5D, 0.0D, 10.0D);
             }
             builder.pop();
 
@@ -327,6 +332,7 @@ public class PvZConfig {
             public ModConfigSpec.BooleanValue EnableHugeWave;
             public ModConfigSpec.IntValue MaxSpawnEachPlayer;
             public ModConfigSpec.IntValue MaxSpawnRange;
+            public ModConfigSpec.DoubleValue OvertimeGraceDays;
         }
 
         public static class ChallengeSettings {

@@ -3,7 +3,9 @@ package com.lying.pvz.event.client.gamebus;
 import com.google.common.reflect.TypeToken;
 import com.lying.pvz.PvZConfig;
 import com.lying.pvz.PvZMod;
+import com.lying.pvz.client.ClientUtil;
 import com.lying.pvz.client.gui.screen.PvZMainMenuScreen;
+import com.lying.pvz.common.init.PvZEffectRegister;
 import com.lying.pvz.common.level.entity.plant.PlantEntity;
 import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
 import com.lying.pvz.common.level.entity.zombie.roof.BungeeZombieEntity;
@@ -56,7 +58,15 @@ public class PVZClientEvents {
 				(LivingEntity entity, LivingEntityRenderState rs) -> {
 					// 1) entity 塞进 extensions，供 RenderLivingEvent.Pre 里读
 					rs.setRenderData(ENTITY, entity);
-					// 2) 蹦极僵尸倒立（替代旧的 checkBungeeHandStand）
+					// 2) 迷雾隐怪：雾隐标记 + 本地玩家无光眼 → 渲染态置为不可见（仅客户端，不影响服务端 AI）
+					if (entity.hasEffect(PvZEffectRegister.FOG_HIDDEN)) {
+						var local = ClientUtil.getClientPlayer();
+						if (local == null || !local.hasEffect(PvZEffectRegister.LIGHT_EYE_EFFECT)) {
+							rs.isInvisible = true;
+							rs.isInvisibleToPlayer = true;
+						}
+					}
+					// 3) 蹦极僵尸倒立（替代旧的 checkBungeeHandStand）
 					if (entity instanceof PlantEntity || entity instanceof ZombieEntity) return;
 					if (entity.getVehicle() instanceof BungeeZombieEntity && !rs.isUpsideDown) {
 						rs.isUpsideDown = true;

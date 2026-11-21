@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "enchant1",
+  "item": {
+    "id": "pvz:sun_flower_card"
+  },
+  "sort_number": 0,
+  "text": "book.pvz.pvz_guide.start.enchant.enchant1.text",
+  "title": "book.pvz.pvz_guide.start.enchant.enchant1.title"
+}

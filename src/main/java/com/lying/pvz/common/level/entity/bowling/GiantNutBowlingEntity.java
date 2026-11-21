@@ -5,9 +5,7 @@ import com.lying.pvz.common.init.PvZSoundRegister;
 import com.lying.pvz.utils.EntityUtil;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
@@ -50,12 +48,6 @@ public class GiantNutBowlingEntity extends AbstractBowlingProjectile {
 		entity.hurtServer(serverLevel, PvZEntityDamageSource.normal(this, this.resolveOwner()), 200);
 		this.hitEntities.add(entity.getId());
 		EntityUtil.playSound(this, PvZSoundRegister.BOWLING_HIT.get());
-	}
-
-
-	@Override
-	public EntityDimensions getDimensions(Pose pose) {
-		return EntityDimensions.scalable(2.5F, 2.5F);
 	}
 
 

@@ -22,6 +22,7 @@ import com.lying.pvz.common.impl.plant.PVZPlants;
 import com.lying.pvz.common.level.entity.plant.PlantEntity;
 import com.lying.pvz.common.level.entity.plant.magic.CoffeeBeanEntity;
 import com.lying.pvz.common.level.entity.plant.magic.ImitaterEntity;
+import com.lying.pvz.common.misc.potion.ExciteEffect;
 import com.lying.pvz.common.tag.PvZEnchantmentTags;
 import com.lying.pvz.utils.PlayerUtil;
 import com.lying.pvz.utils.enums.Resources;
@@ -246,7 +247,7 @@ public abstract class AbstractCardItem extends Item implements ICardType {
                 heldStack.shrink(1);
             }
         } else {
-            int cd = this.computeCoolDown(heldStack);
+            int cd = this.computeCoolDown(player, heldStack);
             if (EnchantmentUtil.canImmediateCD(heldStack, player.getRandom())) {
                 cd = 20;
             }
@@ -257,7 +258,7 @@ public abstract class AbstractCardItem extends Item implements ICardType {
         player.awardStat(Stats.ITEM_USED.get(this));
     }
 
-    protected int computeCoolDown(ItemStack heldStack) {
+    protected int computeCoolDown(Player player, ItemStack heldStack) {
         final CardContent content = this.content(heldStack);
         if (content.isEmpty()) {
             return 20;
@@ -266,7 +267,13 @@ public abstract class AbstractCardItem extends Item implements ICardType {
         final int fastCdLevel = effective.getOrDefault(
                         PvZCardComponents.CARD_SKILLS.get(), SkillLevels.EMPTY)
                 .getLevel(SkillTypes.FAST_CD.get());
-        return this.getCoolDown(heldStack).getCD(fastCdLevel);
+        int cd = this.getCoolDown(heldStack).getCD(fastCdLevel);
+        // 兴奋药水：按效果等级缩短卡片 CD（每级 -10%，10 级归零）。
+        final int exciteAmp = ExciteEffect.getAmplifier(player);
+        if (exciteAmp >= 0) {
+            cd = ExciteEffect.getCooldownTicks(cd, exciteAmp);
+        }
+        return cd;
     }
 
     protected void fireSummonCardUseEvent(Player player, ItemStack heldStack, CardContent content) {
@@ -298,7 +305,7 @@ public abstract class AbstractCardItem extends Item implements ICardType {
             this.notifyError(player, heldStack, CardErrors.EMPTY_CONTENT, 0);
             return InteractionResult.FAIL;
         }
-        if (!CardPlacementService.checkCommon(player, heldStack, content)) {
+        if (!CardPlacementService.checkCommonForPlanting(player, heldStack, content)) {
             return InteractionResult.FAIL;
         }
         return CardPlacementService.executeWaterRaycast(player, this, heldStack, content);
@@ -315,7 +322,7 @@ public abstract class AbstractCardItem extends Item implements ICardType {
             this.notifyError(player, heldStack, CardErrors.EMPTY_CONTENT, 0);
             return InteractionResult.FAIL;
         }
-        if (!CardPlacementService.checkCommon(player, heldStack, content)) {
+        if (!CardPlacementService.checkCommonForPlanting(player, heldStack, content)) {
             return InteractionResult.FAIL;
         }
         return CardPlacementService.executeOnBlock(player, this, heldStack, content, context);

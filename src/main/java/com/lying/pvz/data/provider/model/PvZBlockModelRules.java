@@ -305,9 +305,6 @@ public final class PvZBlockModelRules {
                                 })
                         )
         );
-
-        generators.registerSimpleItemModel(PvZItemRegister.SCREEN_DOOR.get(),
-                ModelLocationUtils.getModelLocation(PvZItemRegister.SCREEN_DOOR.get()));
     }
 
     private static MultiVariant rotateY(MultiVariant base, int degrees) {

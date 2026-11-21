@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "enchant4",
+  "item": {
+    "id": "minecraft:iron_shovel"
+  },
+  "sort_number": 3,
+  "text": "book.pvz.pvz_guide.start.enchant.enchant4.text",
+  "title": "book.pvz.pvz_guide.start.enchant.enchant4.title"
+}

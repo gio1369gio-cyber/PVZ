@@ -70,7 +70,7 @@ public class DoomShroomEntity extends PlantBomberEntity {
 		if (server) {
 			final float range = this.getExplodeRange();
 			final AABB aabb = EntityUtil.getEntityAABB(this, range, range);
-			EntityUtil.getWholeTargetableEntities(this, aabb).forEach(target -> {
+			EntityUtil.getWholeTargetableEntitiesIgnoreFog(this, aabb).forEach(target -> {
 				if (target instanceof EnderDragon dragon) {
 					dragon.hurt(this.damageSources().explosion(this, this),
 							this.getExplodeDamage() * 2);

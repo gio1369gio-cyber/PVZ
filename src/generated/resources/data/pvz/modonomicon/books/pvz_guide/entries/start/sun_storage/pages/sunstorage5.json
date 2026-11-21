@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "sunstorage5",
+  "item": {
+    "id": "pvz:sun_converter"
+  },
+  "sort_number": 4,
+  "text": "book.pvz.pvz_guide.start.sun_storage.sunstorage5.text",
+  "title": "book.pvz.pvz_guide.start.sun_storage.sunstorage5.title"
+}

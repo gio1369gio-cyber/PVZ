@@ -133,12 +133,10 @@ public abstract class AbstractBowlingRender<T extends AbstractBowlingProjectile,
 
 	/**
 	 * 滚动旋转的 pivot 高度（相对实体脚底，单位格）。
-	 * 默认用模型几何中心（WallNut 模型脚底 1.5 格、几何中心距脚底约 0.53125 格）；
-	 * 所有保龄球类型均复用 WallNut 模型，故统一用此值。
 	 * 模型几何中心与包围盒中心不一致时子类可覆盖。
 	 */
 	protected float getRenderPivotY(T entity) {
-		return 0.53125F;
+		return 1.0F;
 	}
 
 	/* ------------------------------------------------------------------ */

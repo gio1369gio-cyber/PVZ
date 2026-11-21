@@ -4,12 +4,13 @@ package com.lying.pvz.event.client.gamebus;
 import com.lying.pvz.PvZConfig;
 import com.lying.pvz.PvZMod;
 import com.lying.pvz.client.ClientUtil;
+import com.lying.pvz.common.init.PvZAttachments;
+import com.lying.pvz.common.init.PvZEffectRegister;
+import com.lying.pvz.common.invasion.InvasionSnapshot;
 import com.lying.pvz.common.level.entity.plant.explosion.CobCannonEntity;
 import com.lying.pvz.event.client.handler.PvZOverlayHandler;
 import com.lying.pvz.utils.ConfigUtil;
-import com.lying.pvz.utils.PlayerUtil;
 import com.lying.pvz.utils.StringUtil;
-import com.lying.pvz.utils.enums.Resources;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.neoforged.api.distmarker.Dist;
@@ -38,15 +39,21 @@ public class PvZOverlayEvents {
         }
 
         // ==========================================
-        // 1. 迷雾渲染 (放在 HUD 之前渲染，或者单独放外面)
+        // 1. 迷雾渲染（视觉雾）：由入侵快照携带的 fog.strength 驱动
         // ==========================================
         if (ConfigUtil.get(PvZConfig.CLIENT_CONFIG.OverlaySettings.RenderFog)) {
-            int fogTick = PlayerUtil.getResource(ClientUtil.getClientPlayer(), Resources.NO_FOG_TICK);
-            if (fogTick > 0) {
-                // 计算透明度：如果 fogTick 大于 FOG_MAX_TICK，则保持 1.0F（完全遮蔽）
-                // 如果小于 FOG_MAX_TICK，则按比例逐渐变淡
-                float alpha = Math.min((float) fogTick / FOG_MAX_TICK, 1.0F);
-                PvZOverlayHandler.renderFog(guiGraphics, alpha);
+            // 光眼（路灯花光眼）驱雾：玩家有光眼时不渲染迷雾
+            var player = ClientUtil.getClientPlayer();
+            if (player != null && !player.hasEffect(PvZEffectRegister.LIGHT_EYE_EFFECT)) {
+                final InvasionSnapshot snap = player.getData(PvZAttachments.INVASION_SNAPSHOT);
+                if (snap.running()) {
+                    snap.fog().ifPresent(fog -> {
+                        float alpha = Math.max(0F, Math.min(fog.strength(), 1F));
+                        if (alpha > 0F) {
+                            PvZOverlayHandler.renderFog(guiGraphics, alpha);
+                        }
+                    });
+                }
             }
         }
 

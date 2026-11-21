@@ -1,0 +1,123 @@
+{
+  "attributes": {
+    "minecraft:audio/background_music": {
+      "creative": {
+        "max_delay": 24000,
+        "min_delay": 12000,
+        "sound": "minecraft:music.creative"
+      },
+      "default": {
+        "max_delay": 24000,
+        "min_delay": 12000,
+        "sound": "minecraft:music.game"
+      }
+    },
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "creature": [
+            {
+              "type": "minecraft:sheep",
+              "count": 4,
+              "weight": 12
+            },
+            {
+              "type": "minecraft:pig",
+              "count": 4,
+              "weight": 10
+            },
+            {
+              "type": "minecraft:chicken",
+              "count": 4,
+              "weight": 10
+            },
+            {
+              "type": "minecraft:cow",
+              "count": 4,
+              "weight": 8
+            }
+          ],
+          "pvz:zombie": [
+            {
+              "type": "pvz:mj_zombie",
+              "count": 1,
+              "weight": 5
+            },
+            {
+              "type": "pvz:red_edge_zombie",
+              "count": 1,
+              "weight": 5
+            }
+          ]
+        }
+      },
+      "modifier": "overlay"
+    },
+    "minecraft:visual/ambient_particles": [
+      {
+        "particle": {
+          "type": "pvz:spore"
+        },
+        "probability": 0.0025
+      }
+    ],
+    "minecraft:visual/fog_color": "#8fafa0",
+    "minecraft:visual/fog_end_distance": 160.0,
+    "minecraft:visual/fog_start_distance": 30.0,
+    "minecraft:visual/sky_color": "#a8c4b8",
+    "minecraft:visual/water_fog_color": "#4a6b5c"
+  },
+  "carvers": [
+    "minecraft:cave",
+    "minecraft:cave_extra_underground",
+    "minecraft:canyon"
+  ],
+  "downfall": 0.85,
+  "effects": {
+    "dry_foliage_color": "#6a8f52",
+    "foliage_color": "#4e8b4a",
+    "grass_color": "#5fa052",
+    "water_color": "#3a6b5a"
+  },
+  "features": [
+    [],
+    [
+      "minecraft:lake_lava_underground",
+      "minecraft:lake_lava_surface"
+    ],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:ore_coal_upper",
+      "minecraft:ore_coal_lower",
+      "minecraft:ore_iron_upper",
+      "minecraft:ore_iron_middle",
+      "minecraft:ore_iron_small",
+      "minecraft:ore_gold",
+      "minecraft:ore_gold_lower",
+      "minecraft:ore_redstone",
+      "minecraft:ore_redstone_lower",
+      "minecraft:ore_diamond",
+      "minecraft:ore_diamond_medium",
+      "minecraft:ore_diamond_large",
+      "minecraft:ore_diamond_buried",
+      "minecraft:ore_lapis",
+      "minecraft:ore_lapis_buried",
+      "minecraft:ore_copper",
+      "minecraft:underwater_magma"
+    ],
+    [],
+    [],
+    [
+      "minecraft:bamboo",
+      "minecraft:bamboo_vegetation",
+      "minecraft:trees_windswept_hills",
+      "minecraft:patch_grass_badlands"
+    ]
+  ],
+  "has_precipitation": true,
+  "temperature": 0.75
+}

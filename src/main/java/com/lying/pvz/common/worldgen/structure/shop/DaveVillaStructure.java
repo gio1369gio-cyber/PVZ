@@ -16,6 +16,8 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class DaveVillaStructure extends PvZStructureBase {
@@ -23,12 +25,16 @@ public class DaveVillaStructure extends PvZStructureBase {
 	public static final MapCodec<DaveVillaStructure> CODEC = RecordCodecBuilder.mapCodec(instance ->
 			instance.group(settingsCodec(instance)).apply(instance, DaveVillaStructure::new));
 
-	private static final int SAMPLE_RADIUS = 50;
+	/** 高度采样半径：覆盖四块拼成的 49×58 足迹（含旋转），留出余量 */
+	private static final int SAMPLE_RADIUS = 60;
+	/** 足迹高度采样步长（越小越精确，越大越省算力） */
+	private static final int SAMPLE_STEP = 3;
 	/** 单个 piece 的边长，用于四象限偏移（2×2 布局，每个 32 方块 = 2×2 区块） */
 	private static final int PIECE_SPAN = 32;
 	/**
-	 * groundLevelDelta：本建筑靠 PvZSinglePoolElement.fillTemplateFootprint 填坑，
-	 * 该填坑以 {@code offset.getY() - 1} 为基准，要求 delta = 0。
+	 * groundLevelDelta：本建筑靠 PvZSinglePoolElement 平整地基（削高 + 填坑），
+	 * 二者均以 {@code offset.getY()} 为模板地板层、{@code offset.getY() - 1} 为地基顶面，
+	 * 要求 delta = 0。
 	 */
 	private static final int GROUND_DELTA = 0;
 
@@ -42,7 +48,7 @@ public class DaveVillaStructure extends PvZStructureBase {
 		return biome.is(PvZBiomeTags.HAS_DAVE_VILLA);
 	}
 
-	// ── ② 位置：区块最小角 + 四角最高点（大结构防埋） ──
+	// ── ② 位置：区块最小角 + 足迹地形中位数（尽量贴地） ──
 	@Override
 	protected Optional<GenerationStub> findGenerationPoint(GenerationContext context) {
 		ChunkPos chunkPos = context.chunkPos();
@@ -60,10 +66,8 @@ public class DaveVillaStructure extends PvZStructureBase {
 			default:                  { dx += SAMPLE_RADIUS; dz += SAMPLE_RADIUS; break; }
 		}
 
-		// 四角最高点，让整个建筑悬于最高地面之上，杜绝埋土
-		int h = Math.max(
-				Math.max(solidFloorY(context, x, z), solidFloorY(context, x, z + dz)),
-				Math.max(solidFloorY(context, x + dx, z), solidFloorY(context, x + dx, z + dz)));
+		// 足迹网格采样的中位高度：反映地形"一般水平"，避免个别高山把整栋抬高十几格
+		int h = medianFloorY(context, x, z, dx, dz);
 
 		BlockPos anchor = new BlockPos(x, h, z);
 
@@ -109,6 +113,31 @@ public class DaveVillaStructure extends PvZStructureBase {
 			addPoolPiece(context, builder, pool3, pos3, rotation, GROUND_DELTA);
 			addPoolPiece(context, builder, pool4, pos4, rotation, GROUND_DELTA);
 		}));
+	}
+
+	/**
+	 * 在锚点沿 (dx,dz) 张成的足迹内按 {@link #SAMPLE_STEP} 网格采样地表高度，取中位数。
+	 * <p>中位数代表地形"一般水平"：既不会被单个突起山峰抬高十几格，也不会像取最低那样
+	 * 让大片地形高于地板而侵入房间。超高/超低的个别格由填坑层削高 + 填实处理。
+	 */
+	private static int medianFloorY(GenerationContext context, int anchorX, int anchorZ, int dx, int dz) {
+		final int minX = Math.min(anchorX, anchorX + dx);
+		final int maxX = Math.max(anchorX, anchorX + dx);
+		final int minZ = Math.min(anchorZ, anchorZ + dz);
+		final int maxZ = Math.max(anchorZ, anchorZ + dz);
+
+		final List<Integer> heights = new ArrayList<>();
+		for (int sx = minX; sx <= maxX; sx += SAMPLE_STEP) {
+			for (int sz = minZ; sz <= maxZ; sz += SAMPLE_STEP) {
+				heights.add(solidFloorY(context, sx, sz));
+			}
+		}
+		// 保底：至少把锚点自身算进去，避免空集合
+		if (heights.isEmpty()) {
+			heights.add(solidFloorY(context, anchorX, anchorZ));
+		}
+		heights.sort(Integer::compareTo);
+		return heights.get(heights.size() / 2);
 	}
 
 	@Override

@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "enchant3",
+  "item": {
+    "id": "pvz:wall_nut_card"
+  },
+  "sort_number": 2,
+  "text": "book.pvz.pvz_guide.start.enchant.enchant3.text",
+  "title": "book.pvz.pvz_guide.start.enchant.enchant3.title"
+}

@@ -1,0 +1,18 @@
+{
+  "type": "pvz:fragment_splice",
+  "key": {
+    "A": "pvz:explode_o_nut_enjoy_card",
+    "B": "pvz:explosion_essence",
+    "C": "#pvz:card/gold_cards"
+  },
+  "pattern": [
+    "AAAAA",
+    "ABBBA",
+    "ABCBA",
+    "ABBBA",
+    "AAAAA"
+  ],
+  "result": {
+    "id": "pvz:explode_o_nut_card"
+  }
+}

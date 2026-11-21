@@ -33,6 +33,7 @@ import com.lying.pvz.client.model.entity.zombie.grass.*;
 import com.lying.pvz.client.model.entity.zombie.other.*;
 import com.lying.pvz.client.model.entity.zombie.pool.*;
 import com.lying.pvz.client.model.entity.zombie.roof.*;
+import com.lying.pvz.client.model.entity.zombie.boss.*;
 import com.lying.pvz.client.model.entity.zombie.zombotany.*;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
@@ -79,6 +80,7 @@ public class PvZModelLayer {
         event.registerLayerDefinition(SunFlowerModel.LAYER_LOCATION, SunFlowerModel::createBodyLayer);
         event.registerLayerDefinition(CherryBombModel.LAYER_LOCATION, CherryBombModel::createBodyLayer);
         event.registerLayerDefinition(WallNutModel.LAYER_LOCATION, WallNutModel::createBodyLayer);
+        event.registerLayerDefinition(WallNutModel.LAYER_LOCATION_2,WallNutModel::createBodyLayer);
         event.registerLayerDefinition(PotatoMineModel.LAYER_LOCATION, PotatoMineModel::createBodyLayer);
         event.registerLayerDefinition(SnowPeaModel.LAYER_LOCATION, SnowPeaModel::createBodyLayer);
         event.registerLayerDefinition(ChomperModel.LAYER_LOCATION, ChomperModel::createBodyLayer);
@@ -202,6 +204,7 @@ public class PvZModelLayer {
         event.registerLayerDefinition(SteelPumpkinZombieModel.LAYER_LOCATION, SteelPumpkinZombieModel::createBodyLayer);
         event.registerLayerDefinition(AirborneZombieModel.LAYER_LOCATION, AirborneZombieModel::createBodyLayer);
         event.registerLayerDefinition(Edgar090547Model.LAYER_LOCATION, Edgar090547Model::createBodyLayer);
+        event.registerLayerDefinition(SphinxTerminatorModel.LAYER_LOCATION, SphinxTerminatorModel::createBodyLayer);
         event.registerLayerDefinition(MJZombieModel.LAYER_LOCATION, MJZombieModel::createBodyLayer);
         event.registerLayerDefinition(MCZombieModel.LAYER_LOCATION,MCZombieModel::createBodyLayer);
         event.registerLayerDefinition(DancerBackupModel.LAYER_LOCATION, DancerBackupModel::createBodyLayer);

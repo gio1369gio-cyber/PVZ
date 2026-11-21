@@ -95,6 +95,14 @@ public final class RoofZombies {
 
     /* ---- EDGAR 系列 ---- */
 
+    public static final DeferredHolder<IZombieType, IZombieType> SPHINX_TERMINATOR = zombie("sphinx_terminator", b -> b
+            .rank(RankTypes.MEGA).xp(1500)
+            .coolDown(CoolDowns.DEFAULT).essence(EssenceTypes.ORIGIN)
+            .entityType(PvZEntityRegister.SPHINX_TERMINATOR::get)
+            .skills(SkillTypes.MOVE_COMMON_SKILLS)
+            .group(CATEGORY, PRIORITY)
+            );
+
     public static final DeferredHolder<IZombieType, IZombieType> EDGAR_090505 = zombie("edgar_090505", b -> b
             .rank(RankTypes.MEGA).xp(1000)
             .coolDown(CoolDowns.DEFAULT).essence(EssenceTypes.ORIGIN)

@@ -2,7 +2,6 @@ package com.lying.pvz.client.gui;
 
 public class GuiHandler {
 
-	public static final int PLAYER_INVENTORY = 1;
 	public static final int SHOP = 2;
 	public static final int FRAGMENT_SPLICE = 5;
 	public static final int SLOT_MACHINE = 6;

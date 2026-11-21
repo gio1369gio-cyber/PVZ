@@ -1,0 +1,24 @@
+{
+  "type": "modonomicon:content",
+  "background": {
+    "height": 26,
+    "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+    "width": 26
+  },
+  "category": "pvz:intro",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "description": "book.pvz.pvz_guide.intro.group.description",
+  "icon": {
+    "id": "minecraft:iron_sword"
+  },
+  "id": "pvz:intro/group",
+  "marker_condition": {
+    "type": "modonomicon:none"
+  },
+  "name": "book.pvz.pvz_guide.intro.group.name",
+  "sort_number": 3,
+  "x": -4,
+  "y": 1
+}

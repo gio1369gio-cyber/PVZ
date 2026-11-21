@@ -1,0 +1,11 @@
+{
+  "type": "modonomicon:text",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "res6",
+  "show_title_separator": true,
+  "sort_number": 5,
+  "text": "book.pvz.pvz_guide.intro.player_resource.res6.text",
+  "title": "book.pvz.pvz_guide.intro.player_resource.res6.title"
+}

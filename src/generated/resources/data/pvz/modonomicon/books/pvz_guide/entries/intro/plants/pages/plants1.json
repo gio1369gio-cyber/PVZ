@@ -1,0 +1,11 @@
+{
+  "type": "modonomicon:text",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "plants1",
+  "show_title_separator": true,
+  "sort_number": 0,
+  "text": "book.pvz.pvz_guide.intro.plants.plants1.text",
+  "title": "book.pvz.pvz_guide.intro.plants.plants1.title"
+}

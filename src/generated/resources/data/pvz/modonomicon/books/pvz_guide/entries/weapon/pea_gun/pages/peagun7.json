@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "peagun7",
+  "item": {
+    "id": "pvz:repeater_card"
+  },
+  "sort_number": 6,
+  "text": "book.pvz.pvz_guide.weapon.pea_gun.peagun7.text",
+  "title": "book.pvz.pvz_guide.weapon.pea_gun.peagun7.title"
+}

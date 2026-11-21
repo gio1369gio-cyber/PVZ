@@ -2,6 +2,7 @@ package com.lying.pvz.common.init;
 
 
 import com.lying.pvz.PvZMod;
+import com.lying.pvz.common.misc.potion.ExciteEffect;
 import com.lying.pvz.common.misc.potion.PvZEffect;
 import com.lying.pvz.utils.StringUtil;
 import com.lying.pvz.utils.enums.Colors;
@@ -30,7 +31,7 @@ public class PvZEffectRegister {
                             AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 
     public static final DeferredHolder<MobEffect, MobEffect> EXCITE_EFFECT =
-            EFFECTS.register("excite", () -> new PvZEffect(MobEffectCategory.BENEFICIAL, Colors.GOLD_YELLOW));
+            EFFECTS.register("excite", () -> new ExciteEffect(MobEffectCategory.BENEFICIAL, Colors.GOLD_YELLOW));
 
     public static final DeferredHolder<MobEffect, MobEffect> LIGHT_EYE_EFFECT =
             EFFECTS.register("light_eye", () -> new PvZEffect(MobEffectCategory.BENEFICIAL, Colors.LITTLE_YELLOW1));
@@ -49,6 +50,11 @@ public class PvZEffectRegister {
     public static final DeferredHolder<MobEffect, MobEffect> GOO_POISON = EFFECTS.register("goo_poison", () ->
             new PvZEffect(MobEffectCategory.HARMFUL, 15350204).addAttributeModifier(Attributes.MOVEMENT_SPEED,
                     name("goo"), -0.01f, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+
+    /** 迷雾隐怪标记：纯客户端渲染用，不产生粒子/图标，不影响服务端 AI。 */
+    public static final DeferredHolder<MobEffect, MobEffect> FOG_HIDDEN =
+            EFFECTS.register("fog_hidden", () -> new PvZEffect(MobEffectCategory.BENEFICIAL, Colors.LITTLE_YELLOW1));
+
 
     private static Identifier name(String path) {
         return StringUtil.id(path);

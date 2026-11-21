@@ -111,9 +111,9 @@ public class PvZEntityRegister {
     public static final DeferredHolder<EntityType<?>, EntityType<BobsleCarEntity>> BOBSLE_CAR = registerEntityType(BobsleCarEntity::new, "bobsle_car", MobCategory.MISC);
     public static final DeferredHolder<EntityType<?>, EntityType<PVZZombiePartEntity>> ZOMBIE_PART = registerEntityType(PVZZombiePartEntity::new, "zombie_part", MobCategory.MISC);
     public static final DeferredHolder<EntityType<?>, EntityType<ZombieHandEntity>> ZOMBIE_HAND = registerEntityType(ZombieHandEntity::new, "zombie_hand", MobCategory.MISC);
-    public static final DeferredHolder<EntityType<?>, EntityType<WallNutBowlingEntity>> WALL_NUT_BOWLING = registerEntityType(WallNutBowlingEntity::new, "wall_nut_bowling", MobCategory.MISC);
-    public static final DeferredHolder<EntityType<?>, EntityType<ExplosionBowlingEntity>> EXPLOSION_BOWLING = registerEntityType(ExplosionBowlingEntity::new, "explosion_bowling", MobCategory.MISC);
-    public static final DeferredHolder<EntityType<?>, EntityType<GiantNutBowlingEntity>> GIANT_NUT_BOWLING = registerEntityType(GiantNutBowlingEntity::new, "giant_nut_bowling", MobCategory.MISC);
+    public static final DeferredHolder<EntityType<?>, EntityType<WallNutBowlingEntity>> WALL_NUT_BOWLING = registerEntityType(WallNutBowlingEntity::new, "wall_nut_bowling", MobCategory.MISC, 1.0F, 1.0F);
+    public static final DeferredHolder<EntityType<?>, EntityType<ExplosionBowlingEntity>> EXPLOSION_BOWLING = registerEntityType(ExplosionBowlingEntity::new, "explosion_bowling", MobCategory.MISC, 1.0F, 1.0F);
+    public static final DeferredHolder<EntityType<?>, EntityType<GiantNutBowlingEntity>> GIANT_NUT_BOWLING = registerEntityType(GiantNutBowlingEntity::new, "giant_nut_bowling", MobCategory.MISC, 2.5F, 2.5F);
     public static final DeferredHolder<EntityType<?>, EntityType<LawnMowerEntity>> LAWN_MOWER = registerEntityType(LawnMowerEntity::new, "lawn_mower", MobCategory.MISC);
     public static final DeferredHolder<EntityType<?>, EntityType<FireCrackersEntity>> FIRE_CRACKERS = registerEntityType(FireCrackersEntity::new, "fire_crackers", MobCategory.MISC);
     public static final DeferredHolder<EntityType<?>, EntityType<ElementBallEntity>> ELEMENT_BALL = registerEntityType(ElementBallEntity::new, "element_ball", MobCategory.MISC);
@@ -170,6 +170,11 @@ public class PvZEntityRegister {
     public static final DeferredHolder<EntityType<?>, EntityType<ImpEntity>> IMP = registerZombieEntityType(ImpEntity::new, "imp");
     public static final DeferredHolder<EntityType<?>, EntityType<GigaGargantuarEntity>> GIGA_GARGANTUAR = registerZombieEntityType(GigaGargantuarEntity::new, "giga_gargantuar");
     public static final DeferredHolder<EntityType<?>, EntityType<Edgar090505Entity>> EDGAR_090505 = registerZombieEntityType(Edgar090505Entity::new, "edgar_090505");
+
+    public static final DeferredHolder<EntityType<?>, EntityType<com.lying.pvz.common.level.entity.zombie.boss.SphinxTerminatorEntity>> SPHINX_TERMINATOR =
+            registerZombieEntityType(com.lying.pvz.common.level.entity.zombie.boss.SphinxTerminatorEntity::new, "sphinx_terminator");
+    public static final DeferredHolder<EntityType<?>, EntityType<com.lying.pvz.common.level.entity.zombie.boss.SphinxMissileEntity>> SPHINX_MISSILE =
+            registerProjectileEntityType(com.lying.pvz.common.level.entity.zombie.boss.SphinxMissileEntity::new, "sphinx_missile", 0.6F, 0.6F);
     public static final DeferredHolder<EntityType<?>, EntityType<Edgar090517Entity>> EDGAR_090517 = registerZombieEntityType(Edgar090517Entity::new, "edgar_090517");
     public static final DeferredHolder<EntityType<?>, EntityType<PeaShooterZombieEntity>> PEASHOOTER_ZOMBIE = registerZombieEntityType(PeaShooterZombieEntity::new, "peashooter_zombie");
     public static final DeferredHolder<EntityType<?>, EntityType<GatlingPeaZombieEntity>> GATLINGPEA_ZOMBIE = registerZombieEntityType(GatlingPeaZombieEntity::new, "gatlingpea_zombie");
@@ -196,6 +201,8 @@ public class PvZEntityRegister {
     public static final DeferredHolder<EntityType<?>, EntityType<SunFlowerEntity>> SUN_FLOWER = registerPlantEntityType(SunFlowerEntity::new, "sun_flower");
     public static final DeferredHolder<EntityType<?>, EntityType<CherryBombEntity>> CHERRY_BOMB = registerPlantEntityType(CherryBombEntity::new, "cherry_bomb");
     public static final DeferredHolder<EntityType<?>, EntityType<WallNutEntity>> WALL_NUT = registerPlantEntityType(WallNutEntity::new, "wall_nut");
+    public static final DeferredHolder<EntityType<?>, EntityType<ExplodeONutEntity>> EXPLODE_O_NUT = registerPlantEntityType(ExplodeONutEntity::new, "explode_o_nut");
+    public static final DeferredHolder<EntityType<?>, EntityType<GiantNutEntity>> GIANT_NUT = registerPlantEntityType(GiantNutEntity::new, "giant_nut");
     public static final DeferredHolder<EntityType<?>, EntityType<PotatoMineEntity>> POTATO_MINE = registerPlantEntityType(PotatoMineEntity::new, "potato_mine");
     public static final DeferredHolder<EntityType<?>, EntityType<SnowPeaEntity>> SNOW_PEA = registerPlantEntityType(SnowPeaEntity::new, "snow_pea");
     public static final DeferredHolder<EntityType<?>, EntityType<ChomperEntity>> CHOMPER = registerPlantEntityType(ChomperEntity::new, "chomper");

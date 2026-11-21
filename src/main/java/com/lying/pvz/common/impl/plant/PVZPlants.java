@@ -68,6 +68,24 @@ public final class PVZPlants {
             .skill(SkillTypes.FAST_CD, SkillTypes.NUT_MORE_LIFE)
             );
 
+    public static final DeferredHolder<IPlantType, IPlantType> EXPLODE_O_NUT = plant("explode_o_nut", b -> b
+            .sunCost(125).requiredLevel(20)
+            .coolDown(CoolDowns.HUGE_SLOW).rank(RankTypes.GOLD).essence(EssenceTypes.EXPLOSION)
+            .entityType(PvZEntityRegister.EXPLODE_O_NUT::get)
+            .summonCard(PvZItemRegister.EXPLODE_O_NUT_CARD)
+            .enjoyCard(PvZItemRegister.EXPLODE_O_NUT_ENJOY_CARD)
+            .skill(SkillTypes.FAST_CD, SkillTypes.NUT_MORE_LIFE)
+    );
+
+    public static final DeferredHolder<IPlantType, IPlantType> GIANT_NUT = plant("giant_nut", b -> b
+            .sunCost(75).requiredLevel(10)
+            .coolDown(CoolDowns.VERY_SLOW).rank(RankTypes.BLUE).essence(EssenceTypes.DEFENCE)
+            .entityType(PvZEntityRegister.GIANT_NUT::get)
+            .summonCard(PvZItemRegister.GIANT_NUT_CARD)
+            .enjoyCard(PvZItemRegister.GIANT_NUT_ENJOY_CARD)
+            .skill(SkillTypes.FAST_CD, SkillTypes.NUT_MORE_LIFE)
+    );
+
     public static final DeferredHolder<IPlantType, IPlantType> POTATO_MINE = plant("potato_mine", b -> b
             .sunCost(25).requiredLevel(1)
             .coolDown(CoolDowns.LITTLE_SLOW).rank(RankTypes.WHITE).essence(EssenceTypes.EXPLOSION)

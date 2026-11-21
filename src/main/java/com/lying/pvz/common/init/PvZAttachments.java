@@ -39,6 +39,14 @@ public final class PvZAttachments {
                             .sync(PazState.STREAM_CODEC)
                             .build());
 
+    /** 玩家群系解锁状态（玩家 NBT）。sync 全量，新玩家默认解锁远古埃及。 */
+    public static final DeferredHolder<AttachmentType<?>, AttachmentType<BiomeUnlockState>> PLAYER_BIOME_UNLOCK =
+            ATTACHMENT_TYPES.register("player_biome_unlock",
+                    () -> AttachmentType.serializable(BiomeUnlockState::new)
+                            .copyOnDeath()
+                            .sync(BiomeUnlockState.STREAM_CODEC)
+                            .build());
+
     /** PAZ 冷却账本。权威走 vanilla {@code ItemCooldowns}，此附件登出保存、登录恢复。不 sync。 */
     public static final DeferredHolder<AttachmentType<?>, AttachmentType<PazCooldown>> PAZ_COOLDOWN =
             ATTACHMENT_TYPES.register("paz_cooldown",

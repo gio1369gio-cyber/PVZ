@@ -62,8 +62,8 @@ public record BowlingGloveItemModel(ItemQuads gloveQuads, ModelRenderProperties 
             boolean rotate;
             if (firstPerson) {
                 wnX = left ? 0.2F : 0.8F;
-                wnY = 0.1F;
-                wnZ = 0.0F;
+                wnY = 0.5F;
+                wnZ = -0.2F;
                 rotate = true;
             } else if (thirdPerson) {
                 wnX = 0.5F;
@@ -71,8 +71,8 @@ public record BowlingGloveItemModel(ItemQuads gloveQuads, ModelRenderProperties 
                 wnZ = 0.1F;
                 rotate = true;
             } else {
-                wnX = 0.8F;
-                wnY = 0.1F;
+                wnX = 0.35F;
+                wnY = 0.3F;
                 wnZ = 0.0F;
                 rotate = false;
             }

@@ -3,6 +3,7 @@
   "trigger_chance": 90,
   "bonus": "pvz:pool_day",
   "display_color": "#0000AA",
+  "fog": { "strength": 0.9, "near_distance": 6, "far_distance": 28, "fade_ticks": 200, "hide_raiders": true, "hide_plants": false },
   "spawns": [
     { "entity_type": "pvz:normal_zombie", "invasion_level": 1, "spawn_weight": 100, "placement": "water" },
     { "entity_type": "pvz:snorkel_zombie", "invasion_level": 5, "spawn_weight": 40, "placement": "water" },

@@ -1,0 +1,11 @@
+{
+  "type": "modonomicon:crafting_recipe",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "essence4",
+  "recipe_id_1": "pvz:origin_block",
+  "sort_number": 3,
+  "text": "book.pvz.pvz_guide.start.essence.essence4.text",
+  "title1": "book.pvz.pvz_guide.start.essence.essence4.title"
+}

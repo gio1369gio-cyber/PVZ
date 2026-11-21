@@ -204,6 +204,8 @@ public class PvZItemGroups {
 								PvZItemRegister.SUN_FLOWER_CARD, PvZItemRegister.SUN_FLOWER_ENJOY_CARD,
 								PvZItemRegister.CHERRY_BOMB_CARD, PvZItemRegister.CHERRY_BOMB_ENJOY_CARD,
 								PvZItemRegister.WALL_NUT_CARD, PvZItemRegister.WALL_NUT_ENJOY_CARD,
+								PvZItemRegister.EXPLODE_O_NUT_CARD,PvZItemRegister.EXPLODE_O_NUT_ENJOY_CARD,
+								PvZItemRegister.GIANT_NUT_CARD,PvZItemRegister.GIANT_NUT_ENJOY_CARD,
 								PvZItemRegister.POTATO_MINE_CARD, PvZItemRegister.POTATO_MINE_ENJOY_CARD,
 								PvZItemRegister.SNOW_PEA_CARD, PvZItemRegister.SNOW_PEA_ENJOY_CARD,
 								PvZItemRegister.CHOMPER_CARD, PvZItemRegister.CHOMPER_ENJOY_CARD,

@@ -54,7 +54,7 @@ public class JalapenoEntity extends PlantBomberEntity {
 		final AABB aabb = new AABB(
 				entity.position().add(dx, 1, dz),
 				entity.position().add(-dx, -1, -dz));
-		for (Entity target : EntityUtil.getWholeTargetableEntities(entity, aabb)) {
+		for (Entity target : EntityUtil.getWholeTargetableEntitiesIgnoreFog(entity, aabb)) {
 			float damage = 0;
 			if (entity instanceof JalapenoEntity jalapeno) {
 				damage = jalapeno.getExplodeDamage();

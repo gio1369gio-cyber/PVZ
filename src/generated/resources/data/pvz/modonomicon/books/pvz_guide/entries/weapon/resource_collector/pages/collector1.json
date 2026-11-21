@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "collector1",
+  "item": {
+    "id": "pvz:resource_collector"
+  },
+  "sort_number": 0,
+  "text": "book.pvz.pvz_guide.weapon.resource_collector.collector1.text",
+  "title": "book.pvz.pvz_guide.weapon.resource_collector.collector1.title"
+}

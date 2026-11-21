@@ -1,0 +1,11 @@
+{
+  "type": "modonomicon:text",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "invade3",
+  "show_title_separator": true,
+  "sort_number": 2,
+  "text": "book.pvz.pvz_guide.intro.invade.invade3.text",
+  "title": "book.pvz.pvz_guide.intro.invade.invade3.title"
+}

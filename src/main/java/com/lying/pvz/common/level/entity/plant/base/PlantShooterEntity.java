@@ -120,10 +120,17 @@ public abstract class PlantShooterEntity extends PlantEntity implements IShooter
 				final ShotSpec spec = new ShotSpec();
 				this.configureShot(spec);
 
-				final Vec3 dir = this.applyAngleOffset(new Vec3(
+				Vec3 dir = new Vec3(
 						target.getX() - pos.x,
 						target.getY() + target.getBbHeight() * 0.5 - pos.y,
-						target.getZ() - pos.z).normalize(), angleOffset);
+						target.getZ() - pos.z);
+
+				// 贴脸：子弹起点已落入目标碰撞盒内时，朝「目标中心」的方向会因水平分量趋近 0
+				// 而退化为垂直（子弹朝天飞）。此时改为水平朝目标射击，保证扫掠命中。
+				if (target.getBoundingBox().contains(pos)) {
+					dir = new Vec3(vec.x, 0.0D, vec.z);
+				}
+				dir = this.applyAngleOffset(dir.normalize(), angleOffset);
 
 				final BulletEntity bullet = BulletLauncher.launch(serverLevel, this.getBulletType(), this,
 						this.getEntityGroupType(), kind, spec, pos, target, dir);

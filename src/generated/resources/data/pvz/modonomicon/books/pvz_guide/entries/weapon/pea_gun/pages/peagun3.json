@@ -1,0 +1,11 @@
+{
+  "type": "modonomicon:text",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "peagun3",
+  "show_title_separator": true,
+  "sort_number": 2,
+  "text": "book.pvz.pvz_guide.weapon.pea_gun.peagun3.text",
+  "title": "book.pvz.pvz_guide.weapon.pea_gun.peagun3.title"
+}

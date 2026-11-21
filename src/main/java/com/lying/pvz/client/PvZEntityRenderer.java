@@ -43,7 +43,6 @@ import com.lying.pvz.client.render.renderer.entity.zombie.roof.*;
 import com.lying.pvz.client.render.renderer.entity.zombie.zombotany.*;
 import com.lying.pvz.common.init.PvZBlockEntityRegister;
 import com.lying.pvz.common.init.PvZEntityRegister;
-import com.lying.pvz.common.level.entity.plant.ice.ReIcePeaEntity;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 public class PvZEntityRenderer {
@@ -184,6 +183,8 @@ public class PvZEntityRenderer {
         event.registerEntityRenderer(PvZEntityRegister.EDGAR_090517.get(), EdgarRobotRender::new);
         event.registerEntityRenderer(PvZEntityRegister.AIRBORNE_ZOMBIE.get(), AirborneZombieRender::new);
         event.registerEntityRenderer(PvZEntityRegister.EDGAR_090547.get(), Edgar090547Render::new);
+        event.registerEntityRenderer(PvZEntityRegister.SPHINX_TERMINATOR.get(), com.lying.pvz.client.render.renderer.entity.zombie.boss.SphinxTerminatorRender::new);
+        event.registerEntityRenderer(PvZEntityRegister.SPHINX_MISSILE.get(), com.lying.pvz.client.render.renderer.entity.zombie.boss.SphinxMissileRender::new);
         event.registerEntityRenderer(PvZEntityRegister.RED_EDGE_ZOMBIE.get(), RedEdgeZombieRender::new);
         event.registerEntityRenderer(PvZEntityRegister.DANCER_BACKUP_ZOMBIE.get(), DancerBackupRender::new);
         event.registerEntityRenderer(PvZEntityRegister.MJ_ZOMBIE.get(), MJZombieRender::new);
@@ -200,6 +201,8 @@ public class PvZEntityRenderer {
         event.registerEntityRenderer(PvZEntityRegister.SUN_FLOWER.get(), SunFlowerRender::new);
         event.registerEntityRenderer(PvZEntityRegister.CHERRY_BOMB.get(), CherryBombRender::new);
         event.registerEntityRenderer(PvZEntityRegister.WALL_NUT.get(), WallNutRender::new);
+        event.registerEntityRenderer(PvZEntityRegister.EXPLODE_O_NUT.get(), ExplodeNutRender::new);
+        event.registerEntityRenderer(PvZEntityRegister.GIANT_NUT.get(),TallNutRender::new);
         event.registerEntityRenderer(PvZEntityRegister.POTATO_MINE.get(), PotatoMineRender::new);
         event.registerEntityRenderer(PvZEntityRegister.SNOW_PEA.get(), SnowPeaRender::new);
         event.registerEntityRenderer(PvZEntityRegister.CHOMPER.get(), ChomperRender::new);

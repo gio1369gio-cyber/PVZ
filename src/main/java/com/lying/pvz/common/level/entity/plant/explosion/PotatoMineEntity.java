@@ -83,7 +83,7 @@ public class PotatoMineEntity extends PlantCloserEntity {
 		}
 		final float range = 1.6F;
 		final AABB aabb = EntityUtil.getEntityAABB(this, range, range);
-		EntityUtil.getWholeTargetableEntities(this, aabb).forEach(target ->
+		EntityUtil.getWholeTargetableEntitiesIgnoreFog(this, aabb).forEach(target ->
 				target.hurt(PvZEntityDamageSource.explode(this), this.getExplodeDamage()));
 		PlantEntity.clearLadders(this, aabb);
 		EntityUtil.playSound(this, PvZSoundRegister.POTATO_MINE.get());

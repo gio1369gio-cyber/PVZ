@@ -2,12 +2,15 @@ package com.lying.pvz.common.level.entity.npc;
 
 import com.lying.pvz.common.init.PvZItemRegister;
 import com.lying.pvz.common.init.PvZSoundRegister;
+import com.lying.pvz.common.level.item.tool.TimeKeyTeleport;
 import com.lying.pvz.common.menu.shop.PennyShopMenu;
 import com.lying.pvz.utils.StringUtil;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityDimensions;
@@ -28,6 +31,18 @@ public class PennyEntity extends AbstractDaveEntity {
 		super(type, worldIn);
 		this.setPermanentlyInvulnerable(true);
 		this.restoreTransaction(StringUtil.id("penny"));
+	}
+
+	@Override
+	public InteractionResult interact(Player player, net.minecraft.world.InteractionHand hand, net.minecraft.world.phys.Vec3 location) {
+		// 手持时空之钥：触发群系传送（优先于商店）
+		if (hand == net.minecraft.world.InteractionHand.MAIN_HAND
+				&& player.getItemInHand(hand).getItem().equals(PvZItemRegister.TIME_KEY_TO_DEEP.get())
+				&& !this.level().isClientSide() && player instanceof ServerPlayer sp) {
+			TimeKeyTeleport.onKeyUsed(sp, (ServerLevel) this.level());
+			return InteractionResult.SUCCESS;
+		}
+		return super.interact(player, hand, location);
 	}
 
 	@Override

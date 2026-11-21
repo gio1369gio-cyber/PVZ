@@ -1,0 +1,11 @@
+{
+  "type": "modonomicon:text",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "group2",
+  "show_title_separator": true,
+  "sort_number": 1,
+  "text": "book.pvz.pvz_guide.intro.group.group2.text",
+  "title": "book.pvz.pvz_guide.intro.group.group2.title"
+}

@@ -1,0 +1,11 @@
+{
+  "type": "modonomicon:text",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "shop4",
+  "show_title_separator": true,
+  "sort_number": 3,
+  "text": "book.pvz.pvz_guide.start.shop.shop4.text",
+  "title": "book.pvz.pvz_guide.start.shop.shop4.title"
+}

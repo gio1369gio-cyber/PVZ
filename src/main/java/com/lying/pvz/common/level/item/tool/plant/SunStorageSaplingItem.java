@@ -3,6 +3,7 @@ package com.lying.pvz.common.level.item.tool.plant;
 import com.lying.pvz.common.attachment.player.PlayerDataManager;
 import com.lying.pvz.common.init.PvZDataComponents;
 import com.lying.pvz.common.init.PvZSoundRegister;
+import com.lying.pvz.common.level.block.special.SunConverterBlock;
 import com.lying.pvz.common.level.item.component.SunStorage;
 import com.lying.pvz.common.level.item.consume.SunReleaseEffect;
 import com.lying.pvz.utils.PlayerUtil;
@@ -14,6 +15,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -22,7 +24,9 @@ import net.minecraft.world.item.ItemUseAnimation;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.TooltipDisplay;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.function.Consumer;
 
@@ -103,6 +107,21 @@ public class SunStorageSaplingItem extends Item {
 	}
 
 	// ============================ 使用行为 ============================
+
+	/**
+	 * 对着太阳转换器右键时，直接打开 GUI，避免被本物品的进食（EAT）流程抢占。
+	 */
+	@Override
+	public InteractionResult useOn(UseOnContext context) {
+		Level level = context.getLevel();
+		BlockState state = level.getBlockState(context.getClickedPos());
+		if (state.getBlock() instanceof SunConverterBlock) {
+			InteractionResult result = SunConverterBlock.openMenuIfPossible(
+					level, context.getClickedPos(), context.getPlayer());
+			return result == InteractionResult.PASS ? super.useOn(context) : result;
+		}
+		return super.useOn(context);
+	}
 
 	@Override
 	public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entity) {

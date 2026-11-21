@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "enchant7",
+  "item": {
+    "id": "pvz:cabbage_pult_card"
+  },
+  "sort_number": 6,
+  "text": "book.pvz.pvz_guide.start.enchant.enchant7.text",
+  "title": "book.pvz.pvz_guide.start.enchant.enchant7.title"
+}

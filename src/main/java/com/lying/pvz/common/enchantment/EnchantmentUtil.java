@@ -12,10 +12,6 @@ public class EnchantmentUtil {
 
 	// ===== 等级读取 =====
 
-	/**
-	 * 1.21.1 中 EnchantmentHelper#getItemEnchantmentLevel 需要 Holder<Enchantment>；
-	 * 无 Level/RegistryAccess 上下文时用本方法遍历 ItemEnchantments 组件。
-	 */
 	public static int getLevel(ItemStack stack, ResourceKey<Enchantment> key) {
 		ItemEnchantments enchants = stack.getEnchantments();
 		for (var entry : enchants.entrySet()) {

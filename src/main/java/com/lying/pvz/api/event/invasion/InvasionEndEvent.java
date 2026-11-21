@@ -33,7 +33,11 @@ public class InvasionEndEvent extends Event {
         /**
          * 维度切换离开主世界。
          */
-        DIMENSION
+        DIMENSION,
+        /**
+         * 波次刷完后残留怪长时间未清，系统兜底强制结束。
+         */
+        TIMEOUT
     }
 
     private final ServerPlayer player;

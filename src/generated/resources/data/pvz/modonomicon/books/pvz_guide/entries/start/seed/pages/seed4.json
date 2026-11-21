@@ -1,0 +1,13 @@
+{
+  "type": "modonomicon:spotlight",
+  "condition": {
+    "type": "modonomicon:none"
+  },
+  "id": "seed4",
+  "item": {
+    "id": "pvz:chomper"
+  },
+  "sort_number": 3,
+  "text": "book.pvz.pvz_guide.start.seed.seed4.text",
+  "title": "book.pvz.pvz_guide.start.seed.seed4.title"
+}

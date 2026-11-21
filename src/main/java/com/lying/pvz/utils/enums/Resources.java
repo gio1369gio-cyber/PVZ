@@ -14,7 +14,7 @@ import net.minecraft.network.chat.MutableComponent;
  */
 public enum Resources {
 
-    /** 树等级。 */
+    /** 智慧树等级。 */
     TREE_LVL(1, 200),
     /** 树经验。溢出逻辑在 facade 层处理。 */
     TREE_XP(0, Integer.MAX_VALUE),
@@ -35,9 +35,7 @@ public enum Resources {
     /** 可放卡片的热键栏槽位数（1~9）。等级提升时自动解锁。 */
     SLOT_NUM(1, 9),
     /** 任务完成累计次数（历史）。 */
-    MISSION_FINISH_TIME(0, 9999999),
-    /** 迷雾倒计时。迷雾系统暂不实现，字段保留。 */
-    NO_FOG_TICK(0, 9999999);
+    MISSION_FINISH_TIME(0, 9999999);
 
     public static final int INF = 9999999;
 

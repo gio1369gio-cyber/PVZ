@@ -9,12 +9,6 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 /**
  * TallNut 渲染器。
  *
- * <p><b>注释代码说明</b>：下方 1.16.5 的 {@code getTextureLocation(TallNutEntity)}
- * 覆写为 <b>逻辑存档</b>，按迁移原则原样保留（签名/API 名均不修正）。
- * 注意新基类的钩子是 {@code getTextureLocation(PvZPlantRenderState)}，
- * 若日后恢复该逻辑，需改为读 {@code state} 上的字段（健康 / 防御 / 超级生命
- * 均需在 {@link PvZPlantRenderState}
- * 新增并在 {@code extractRenderState} 填充）。
  */
 public class TallNutRender extends PvZPlantRender<TallNutEntity, TallNutModel> {
 

@@ -1,7 +1,9 @@
 package com.lying.pvz.client.render.renderer.itemstack;
 
 import com.lying.pvz.api.PVZAPI;
+import com.lying.pvz.client.model.entity.plant.defence.TallNutModel;
 import com.lying.pvz.client.model.entity.plant.defence.WallNutModel;
+import com.lying.pvz.common.impl.plant.PVZPlants;
 import com.lying.pvz.common.level.item.tool.plant.BowlingGloveItem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
@@ -23,11 +25,11 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public record BowlingGloveRenderer(ModelPart root, Function<Identifier, RenderType> renderType,
+public record BowlingGloveRenderer(Function<Identifier, RenderType> renderType,
                                    Map<Identifier, Entry> entriesByType)
         implements SpecialModelRenderer<BowlingGloveRenderer.Argument> {
 
-    public record Entry(Identifier texture, float scale) {}
+    public record Entry(Identifier texture, float scale, float size, ModelPart model) {}
 
     public record Argument(Identifier typeId, float angle, boolean rotate, Vector3f position) {}
 
@@ -47,7 +49,7 @@ public record BowlingGloveRenderer(ModelPart root, Function<Identifier, RenderTy
 
         poseStack.pushPose();
         poseStack.translate(arg.position().x(), arg.position().y(), arg.position().z());
-        float scale = 0.4F * entry.scale();
+        float scale = 0.4F * entry.scale() * entry.size();
         poseStack.scale(scale, scale, scale);
         poseStack.scale(1F, -1F, 1F);
         poseStack.translate(0F, -0.6F, 0F);
@@ -57,7 +59,7 @@ public record BowlingGloveRenderer(ModelPart root, Function<Identifier, RenderTy
         poseStack.translate(0F, -1F, 0F);
 
         collector.submitModelPart(
-                this.root, poseStack, this.renderType.apply(entry.texture()),
+                entry.model(), poseStack, this.renderType.apply(entry.texture()),
                 lightCoords, overlayCoords, null, -1, outlineColor);
         poseStack.popPose();
     }
@@ -65,7 +67,11 @@ public record BowlingGloveRenderer(ModelPart root, Function<Identifier, RenderTy
     @Override
     public void getExtents(Consumer<Vector3fc> output) {
         PoseStack poseStack = new PoseStack();
-        this.root.getExtentsForGui(poseStack, output);
+        // 用默认坚果模型计算 GUI 缩放范围即可，各类型差异不大。
+        for (Entry entry : this.entriesByType.values()) {
+            entry.model().getExtentsForGui(poseStack, output);
+            break;
+        }
     }
 
     public static float computeAngle() {
@@ -81,18 +87,30 @@ public record BowlingGloveRenderer(ModelPart root, Function<Identifier, RenderTy
 
         @Override
         public SpecialModelRenderer<Argument> bake(SpecialModelRenderer.BakingContext ctx) {
-            ModelPart root = ctx.entityModelSet().bakeLayer(WallNutModel.LAYER_LOCATION);
             Function<Identifier, RenderType> renderType = RenderTypes::entityCutout;
 
             Map<Identifier, Entry> entries = new HashMap<>();
 
             for (BowlingGloveItem.BowlingType type : BowlingGloveItem.allBowlingTypes()) {
-                PVZAPI.client().paz(type.getType().getID()).ifPresent(info ->
-                        entries.put(type.getType().getID(),
-                                new Entry(info.getTexture(), info.getRenderScale())));
+                PVZAPI.client().paz(type.getType().getID()).ifPresent(info -> {
+                    ModelPart model = bakeModel(ctx, type.getType().getID());
+                    entries.put(type.getType().getID(),
+                            new Entry(info.getTexture(), info.getRenderScale(), type.getSize(), model));
+                });
             }
 
-            return new BowlingGloveRenderer(root, renderType, Map.copyOf(entries));
+            return new BowlingGloveRenderer(renderType, Map.copyOf(entries));
+        }
+
+        /** 根据保龄球类型选择正确的植物模型层。巨型坚果用高坚果模型，其余用坚果模型。 */
+        private ModelPart bakeModel(SpecialModelRenderer.BakingContext ctx, Identifier typeId) {
+            if (PVZPlants.GIANT_NUT.getId().equals(typeId)) {
+                return ctx.entityModelSet().bakeLayer(TallNutModel.LAYER_LOCATION);
+            }
+            if (PVZPlants.EXPLODE_O_NUT.getId().equals(typeId)) {
+                return ctx.entityModelSet().bakeLayer(WallNutModel.LAYER_LOCATION_2);
+            }
+            return ctx.entityModelSet().bakeLayer(WallNutModel.LAYER_LOCATION);
         }
 
         @Override

@@ -1,6 +1,7 @@
 package com.lying.pvz.data;
 
 import com.lying.pvz.PvZMod;
+import com.lying.pvz.compat.modonomicon.datagen.ModonomiconDataGen;
 import com.lying.pvz.data.provider.PvZDataMapProvider;
 import com.lying.pvz.data.provider.PvZLangProvider;
 import com.lying.pvz.data.provider.PvZParticleProvider;
@@ -14,6 +15,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
@@ -45,6 +47,11 @@ public class DataGen {
         gen.addProvider(true, new PvZEntityTypeTagsProvider(output, reloadLookup));
 
         gen.addProvider(true,new PvZBiomeTagsProvider(output,reloadLookup));
+
+        // Modonomicon 是软依赖：仅在已安装时注册指南书的 datagen provider。
+        if (ModList.get().isLoaded("modonomicon")) {
+            ModonomiconDataGen.register(event);
+        }
 
         DatapackBuiltinEntriesProvider worldGen =  PvZDataPack.worldGen(output,worldLookup);
 
