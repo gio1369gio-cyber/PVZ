@@ -1,0 +1,11 @@
+{
+  "type": "pvz:card_fusion",
+  "ingredients": [
+    "pvz:snow_pea_card",
+    "pvz:repeater_card",
+    "#pvz:card/blue_cards"
+  ],
+  "result": {
+    "id": "pvz:re_icepea_card"
+  }
+}

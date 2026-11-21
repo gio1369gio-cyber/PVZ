@@ -1,0 +1,18 @@
+{
+  "type": "pvz:fragment_splice",
+  "key": {
+    "A": "pvz:scaredy_shroom_enjoy_card",
+    "B": "pvz:toxic_essence",
+    "C": "#pvz:card/white_cards"
+  },
+  "pattern": [
+    "AAAAA",
+    "ABBBA",
+    "ABCBA",
+    "ABBBA",
+    "AAAAA"
+  ],
+  "result": {
+    "id": "pvz:scaredy_shroom_card"
+  }
+}

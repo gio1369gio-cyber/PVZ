@@ -1,0 +1,30 @@
+{
+  "parent": "pvz:adventure/origin",
+  "criteria": {
+    "get_origin": {
+      "conditions": {
+        "place_type": "plant"
+      },
+      "trigger": "pvz:player_place_paz"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.first_plant.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "pvz:sun_flower_enjoy_card"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancement.pvz.first_plant"
+    }
+  },
+  "requirements": [
+    [
+      "get_origin"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

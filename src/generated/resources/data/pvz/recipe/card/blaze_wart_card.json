@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:flame_essence",
+    "B": "minecraft:nether_wart",
+    "C": "#pvz:card/green_cards"
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "ACA"
+  ],
+  "result": {
+    "id": "pvz:blaze_wart_card"
+  }
+}

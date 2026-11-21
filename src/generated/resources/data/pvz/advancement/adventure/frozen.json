@@ -1,0 +1,57 @@
+{
+  "parent": "pvz:adventure/first_plant",
+  "criteria": {
+    "frozen1": {
+      "conditions": {
+        "amount": {
+          "amount": {
+            "min": 25
+          }
+        },
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "pvz:ice_shroom"
+          }
+        }
+      },
+      "trigger": "pvz:entity_effect_amount"
+    },
+    "frozen2": {
+      "conditions": {
+        "amount": {
+          "amount": {
+            "min": 20
+          }
+        },
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "pvz:iceberg_lettuce"
+          }
+        }
+      },
+      "trigger": "pvz:entity_effect_amount"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.frozen.desc"
+    },
+    "icon": {
+      "id": "pvz:ice_shroom_enjoy_card"
+    },
+    "title": {
+      "translate": "advancement.pvz.frozen"
+    }
+  },
+  "requirements": [
+    [
+      "frozen1",
+      "frozen2"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

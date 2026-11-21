@@ -1,0 +1,37 @@
+{
+  "type": "default",
+  "authors": ["hungteen"],
+  "tags": ["overworld"],
+  "bar_color": "green",
+  "can_trade": false,
+  "recommend_level": 1,
+  "placement": { "type": "outer", "min": 5, "max": 10, "ground": true },
+  "waves": [
+    {
+      "type": "default",
+      "duration": 1000,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:normal_zombie", "spawn_tick": 20, "spawn_amount": { "type": "count", "count": 2 } },
+        { "type": "default", "entity_type": "pvz:normal_zombie", "spawn_tick": 200, "spawn_amount": { "type": "count", "count": 3 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 1000,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:normal_zombie", "spawn_tick": 30, "spawn_amount": { "type": "count", "count": 4 } },
+        { "type": "default", "entity_type": "pvz:normal_zombie", "spawn_tick": 350, "spawn_amount": { "type": "count", "count": 4 } }
+      ]
+    }
+  ],
+  "rewards": [
+    { "type": "advancements", "experience": 1 },
+    {
+      "type": "items",
+      "items": [
+        { "item": "pvz:pea_shooter_enjoy_card", "amount": { "type": "random", "min": 1, "max": 2 } },
+        { "item": "pvz:sun_flower_enjoy_card", "amount": { "type": "random", "min": 1, "max": 3 } }
+      ]
+    }
+  ]
+}

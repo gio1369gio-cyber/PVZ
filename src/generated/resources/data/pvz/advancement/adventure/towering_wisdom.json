@@ -1,0 +1,33 @@
+{
+  "parent": "pvz:adventure/origin",
+  "criteria": {
+    "shot_arrow": {
+      "conditions": {
+        "amount": {
+          "amount": {
+            "min": 100
+          }
+        }
+      },
+      "trigger": "pvz:tree_level"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.towering_wisdom.desc"
+    },
+    "frame": "challenge",
+    "icon": {
+      "id": "minecraft:oak_sapling"
+    },
+    "title": {
+      "translate": "advancement.pvz.towering_wisdom"
+    }
+  },
+  "requirements": [
+    [
+      "shot_arrow"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

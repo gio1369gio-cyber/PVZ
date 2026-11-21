@@ -1,0 +1,31 @@
+{
+  "parent": "pvz:adventure/strange_help",
+  "criteria": {
+    "in_world": {
+      "conditions": {
+        "type": "roof_night"
+      },
+      "trigger": "pvz:challenge"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.edgar_090505.desc"
+    },
+    "icon": {
+      "id": "pvz:challenge_envelope"
+    },
+    "title": {
+      "translate": "advancement.pvz.edgar_090505"
+    }
+  },
+  "requirements": [
+    [
+      "in_world"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

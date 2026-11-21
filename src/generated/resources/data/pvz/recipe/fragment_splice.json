@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "minecraft:crafting_table",
+    "B": "minecraft:iron_ingot",
+    "P": "pvz:light_essence",
+    "Q": "pvz:origin_essence"
+  },
+  "pattern": [
+    "AAA",
+    "PQP",
+    "BBB"
+  ],
+  "result": {
+    "id": "pvz:fragment_splice"
+  }
+}

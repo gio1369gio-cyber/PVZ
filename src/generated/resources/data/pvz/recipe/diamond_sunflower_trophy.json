@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": "minecraft:diamond",
+    "X": "pvz:gold_sunflower_trophy"
+  },
+  "pattern": [
+    " X ",
+    "XBX",
+    " X "
+  ],
+  "result": {
+    "id": "pvz:diamond_sunflower_trophy"
+  }
+}

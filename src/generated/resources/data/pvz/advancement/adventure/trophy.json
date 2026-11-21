@@ -1,0 +1,34 @@
+{
+  "parent": "pvz:adventure/edgar_090505",
+  "criteria": {
+    "get_origin": {
+      "conditions": {
+        "items": [
+          {
+            "items": "pvz:diamond_sunflower_trophy"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.trophy.desc"
+    },
+    "frame": "challenge",
+    "icon": {
+      "id": "pvz:diamond_sunflower_trophy"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancement.pvz.trophy"
+    }
+  },
+  "requirements": [
+    [
+      "get_origin"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

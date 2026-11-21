@@ -1,0 +1,94 @@
+{
+  "entries": [
+    {
+      "enum": "net/minecraft/world/entity/MobCategory",
+      "name": "PVZ_PLANT",
+      "constructor": "(Ljava/lang/String;Ljava/lang/String;IZZI)V",
+      "parameters": {
+        "class": "com/lying/pvz/common/misc/PvZEnumProxy",
+        "field": "PVZ_PLANT_PROXY"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/entity/MobCategory",
+      "name": "PVZ_ZOMBIE",
+      "constructor": "(Ljava/lang/String;Ljava/lang/String;IZZI)V",
+      "parameters": {
+        "class": "com/lying/pvz/common/misc/PvZEnumProxy",
+        "field": "PVZ_ZOMBIE_PROXY"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "PVZ_GRAY",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/lying/pvz/common/misc/PvZEnumProxy",
+        "field": "GRAY"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "PVZ_WHITE",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/lying/pvz/common/misc/PvZEnumProxy",
+        "field": "WHITE"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "PVZ_GREEN",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/lying/pvz/common/misc/PvZEnumProxy",
+        "field": "GREEN"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "PVZ_BLUE",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/lying/pvz/common/misc/PvZEnumProxy",
+        "field": "BLUE"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "PVZ_PURPLE",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/lying/pvz/common/misc/PvZEnumProxy",
+        "field": "PURPLE"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "PVZ_GOLD",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/lying/pvz/common/misc/PvZEnumProxy",
+        "field": "GOLD"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "PVZ_RED",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/lying/pvz/common/misc/PvZEnumProxy",
+        "field": "RED"
+      }
+    },
+    {
+      "enum": "net/minecraft/world/item/Rarity",
+      "name": "PVZ_BLACK",
+      "constructor": "(ILjava/lang/String;Ljava/util/function/UnaryOperator;)V",
+      "parameters": {
+        "class": "com/lying/pvz/common/misc/PvZEnumProxy",
+        "field": "BLACK"
+      }
+    }
+  ]
+}

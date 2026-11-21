@@ -1,0 +1,11 @@
+{
+  "type": "pvz:card_fusion",
+  "ingredients": [
+    "pvz:wall_nut_card",
+    "pvz:wall_nut_card",
+    "#pvz:card/blue_cards"
+  ],
+  "result": {
+    "id": "pvz:tall_nut_card"
+  }
+}

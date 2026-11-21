@@ -1,0 +1,33 @@
+{
+  "parent": "pvz:adventure/mission_expert",
+  "criteria": {
+    "shot_arrow": {
+      "conditions": {
+        "amount": {
+          "amount": {
+            "min": 50
+          }
+        }
+      },
+      "trigger": "pvz:invasion_mission"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.mission_master.desc"
+    },
+    "frame": "challenge",
+    "icon": {
+      "id": "minecraft:diamond_sword"
+    },
+    "title": {
+      "translate": "advancement.pvz.mission_master"
+    }
+  },
+  "requirements": [
+    [
+      "shot_arrow"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

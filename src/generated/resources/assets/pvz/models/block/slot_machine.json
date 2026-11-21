@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "pvz:block/slot_machine_down",
+    "east": "pvz:block/slot_machine_side",
+    "north": "pvz:block/slot_machine_side",
+    "particle": "pvz:block/slot_machine_side",
+    "south": "pvz:block/slot_machine_side",
+    "up": "pvz:block/slot_machine_top",
+    "west": "pvz:block/slot_machine_side"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": "pvz:small_meat"
+  },
+  "pattern": [
+    "XXX",
+    "XXX",
+    "  X"
+  ],
+  "result": {
+    "id": "pvz:fake_brain"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:light_essence",
+    "B": "pvz:lantern",
+    "C": "#pvz:card/white_cards"
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "ACA"
+  ],
+  "result": {
+    "id": "pvz:plantern_card"
+  }
+}

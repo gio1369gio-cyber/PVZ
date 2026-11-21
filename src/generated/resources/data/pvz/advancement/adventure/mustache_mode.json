@@ -1,0 +1,83 @@
+{
+  "parent": "pvz:adventure/invasion",
+  "criteria": {
+    "zombie1": {
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "pvz:normal_zombie",
+            "minecraft:nbt": "{zombie_type:2}"
+          }
+        }
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "zombie2": {
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "pvz:conehead_zombie",
+            "minecraft:nbt": "{zombie_type:2}"
+          }
+        }
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "zombie3": {
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "pvz:flag_zombie",
+            "minecraft:nbt": "{zombie_type:2}"
+          }
+        }
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "zombie4": {
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "pvz:buckethead_zombie",
+            "minecraft:nbt": "{zombie_type:2}"
+          }
+        }
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.mustache_mode.desc"
+    },
+    "icon": {
+      "id": "pvz:zombie_doll"
+    },
+    "title": {
+      "translate": "advancement.pvz.mustache_mode"
+    }
+  },
+  "requirements": [
+    [
+      "zombie1"
+    ],
+    [
+      "zombie2"
+    ],
+    [
+      "zombie3"
+    ],
+    [
+      "zombie4"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

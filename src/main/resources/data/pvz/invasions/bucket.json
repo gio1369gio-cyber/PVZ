@@ -1,0 +1,12 @@
+{
+  "is_assist": false,
+  "trigger_chance": 100,
+  "bonus": "pvz:grass_day",
+  "display_color": "#AAAAAA",
+  "spawns": [
+    { "entity_type": "pvz:normal_zombie", "invasion_level": 1, "spawn_weight": 100 },
+    { "entity_type": "pvz:conehead_zombie", "invasion_level": 5, "spawn_weight": 60 },
+    { "entity_type": "pvz:pole_zombie", "invasion_level": 18, "spawn_weight": 40 },
+    { "entity_type": "pvz:buckethead_zombie", "invasion_level": 20, "spawn_weight": 30 }
+  ]
+}

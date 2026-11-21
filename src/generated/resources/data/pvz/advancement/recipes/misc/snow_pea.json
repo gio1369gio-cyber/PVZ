@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ice_essence": {
+      "conditions": {
+        "items": [
+          {
+            "items": "pvz:ice_essence"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "pvz:snow_pea"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ice_essence"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "pvz:snow_pea"
+    ]
+  }
+}

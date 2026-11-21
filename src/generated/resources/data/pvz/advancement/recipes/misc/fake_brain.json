@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_small_meat": {
+      "conditions": {
+        "items": [
+          {
+            "items": "pvz:small_meat"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "pvz:fake_brain"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_small_meat"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "pvz:fake_brain"
+    ]
+  }
+}

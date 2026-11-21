@@ -1,0 +1,28 @@
+{
+  "is_assist": false,
+  "trigger_chance": 80,
+  "bonus": "pvz:grass_night",
+  "display_color": "#FF0000",
+  "spawns": [
+    {
+      "entity_type": "pvz:mc_zombie",
+      "invasion_level": 1,
+      "spawn_weight": 100
+    },
+    {
+      "entity_type": "pvz:red_edge_zombie",
+      "invasion_level": 10,
+      "spawn_weight": 5
+    },
+    {
+      "entity_type": "pvz:mj_zombie",
+      "invasion_level": 10,
+      "spawn_weight": 20
+    },
+    {
+      "entity_type": "pvz:sun_flower_zombie",
+      "invasion_level": 10,
+      "spawn_weight": 50
+    }
+  ]
+}

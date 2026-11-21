@@ -1,0 +1,47 @@
+{
+  "parent": "pvz:adventure/invasion",
+  "criteria": {
+    "zombie1": {
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "pvz:gargantuar"
+          }
+        }
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "zombie2": {
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "pvz:giga_gargantuar"
+          }
+        }
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.kill_gargantuar.desc"
+    },
+    "icon": {
+      "id": "pvz:pole"
+    },
+    "title": {
+      "translate": "advancement.pvz.kill_gargantuar"
+    }
+  },
+  "requirements": [
+    [
+      "zombie1",
+      "zombie2"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

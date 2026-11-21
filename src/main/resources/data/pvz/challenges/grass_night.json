@@ -1,0 +1,82 @@
+{
+  "type": "default",
+  "authors": ["hungteen"],
+  "tags": ["overworld"],
+  "bar_color": "green",
+  "trade_price": 60,
+  "trade_weight": 100,
+  "recommend_level": 20,
+  "placement": { "type": "outer", "min": 2, "max": 10, "ground": true },
+  "waves": [
+    {
+      "type": "default",
+      "duration": 540,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:normal_zombie", "spawn_tick": 40, "spawn_amount": { "type": "random", "min": 10, "max": 14 } },
+        { "type": "default", "entity_type": "pvz:newspaper_zombie", "spawn_tick": 80, "spawn_amount": { "type": "random", "min": 4, "max": 6 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 800,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:screendoor_zombie", "spawn_tick": 60, "spawn_amount": { "type": "random", "min": 8, "max": 12 } },
+        { "type": "default", "entity_type": "pvz:conehead_zombie", "spawn_tick": 100, "spawn_amount": { "type": "random", "min": 3, "max": 5 } },
+        { "type": "default", "entity_type": "pvz:newspaper_zombie", "spawn_tick": 200, "spawn_amount": { "type": "random", "min": 4, "max": 6 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 800,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:newspaper_zombie", "spawn_tick": 30, "spawn_amount": { "type": "random", "min": 6, "max": 10 } },
+        { "type": "default", "entity_type": "pvz:screendoor_zombie", "spawn_tick": 50, "spawn_amount": { "type": "random", "min": 4, "max": 8 } },
+        { "type": "default", "entity_type": "pvz:buckethead_zombie", "spawn_tick": 100, "spawn_amount": { "type": "random", "min": 3, "max": 5 } },
+        { "type": "default", "entity_type": "pvz:dancing_zombie", "spawn_tick": 120, "spawn_amount": { "type": "random", "min": 2, "max": 4 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 800,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:normal_zombie", "spawn_tick": 20, "spawn_amount": { "type": "random", "min": 10, "max": 15 } },
+        { "type": "default", "entity_type": "pvz:newspaper_zombie", "spawn_tick": 40, "spawn_amount": { "type": "random", "min": 3, "max": 6 } },
+        { "type": "default", "entity_type": "pvz:football_zombie", "spawn_tick": 100, "spawn_amount": { "type": "random", "min": 6, "max": 8 } },
+        { "type": "default", "entity_type": "pvz:screendoor_zombie", "spawn_tick": 120, "spawn_amount": { "type": "random", "min": 6, "max": 8 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 800,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:normal_zombie", "spawn_tick": 20, "spawn_amount": { "type": "random", "min": 10, "max": 14 } },
+        { "type": "default", "entity_type": "pvz:newspaper_zombie", "spawn_tick": 40, "spawn_amount": { "type": "random", "min": 3, "max": 5 } },
+        { "type": "default", "entity_type": "pvz:football_zombie", "spawn_tick": 100, "spawn_amount": { "type": "random", "min": 6, "max": 10 } },
+        { "type": "default", "entity_type": "pvz:screendoor_zombie", "spawn_tick": 120, "spawn_amount": { "type": "random", "min": 6, "max": 8 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 1800,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:screendoor_zombie", "spawn_tick": 20, "spawn_amount": { "type": "random", "min": 11, "max": 15 } },
+        { "type": "default", "entity_type": "pvz:football_zombie", "spawn_tick": 100, "spawn_amount": { "type": "random", "min": 8, "max": 11 } },
+        { "type": "default", "entity_type": "pvz:dancing_zombie", "spawn_tick": 200, "spawn_amount": { "type": "random", "min": 6, "max": 8 } },
+        { "type": "default", "entity_type": "pvz:newspaper_zombie", "spawn_tick": 320, "spawn_amount": { "type": "random", "min": 6, "max": 9 } },
+        { "type": "default", "entity_type": "pvz:football_zombie", "spawn_tick": 400, "spawn_amount": { "type": "random", "min": 3, "max": 5 } },
+        { "type": "default", "entity_type": "pvz:normal_zombie", "spawn_tick": 420, "spawn_amount": { "type": "random", "min": 5, "max": 7 } }
+      ]
+    }
+  ],
+  "rewards": [
+    { "type": "unlocks", "unlocks": ["pvz:ice_shroom"] },
+    {
+      "type": "items",
+      "items": [
+        { "item": "pvz:doom_shroom_enjoy_card", "amount": { "type": "count", "count": 1 } },
+        { "item": "pvz:ice_shroom_enjoy_card", "amount": { "type": "count", "count": 1 } },
+        { "item": "pvz:puff_shroom_enjoy_card", "amount": { "type": "random", "min": 1, "max": 3 } }
+      ]
+    }
+  ]
+}

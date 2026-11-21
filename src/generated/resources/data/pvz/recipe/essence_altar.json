@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:origin_block",
+    "B": "minecraft:obsidian",
+    "C": "minecraft:gold_block",
+    "X": "pvz:origin_ingot"
+  },
+  "pattern": [
+    " A ",
+    "XCX",
+    "BBB"
+  ],
+  "result": {
+    "id": "pvz:essence_altar"
+  }
+}

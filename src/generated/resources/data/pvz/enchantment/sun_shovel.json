@@ -1,0 +1,21 @@
+{
+  "anvil_cost": 3,
+  "description": {
+    "color": "gray",
+    "translate": "enchantment.pvz.sun_shovel"
+  },
+  "max_cost": {
+    "base": 40,
+    "per_level_above_first": 10
+  },
+  "max_level": 5,
+  "min_cost": {
+    "base": 30,
+    "per_level_above_first": 10
+  },
+  "slots": [
+    "hand"
+  ],
+  "supported_items": "#minecraft:shovels",
+  "weight": 2
+}

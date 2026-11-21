@@ -1,0 +1,40 @@
+{
+  "type": "default",
+  "authors": ["hungteen"],
+  "tags": ["overworld"],
+  "bar_color": "red",
+  "trade_price": 300,
+  "trade_weight": 70,
+  "recommend_level": 45,
+  "placement": { "type": "center", "radius": 10, "ground": true },
+  "waves": [
+    {
+      "type": "default",
+      "duration": 600,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:giga_football_zombie", "spawn_tick": 20, "spawn_amount": { "type": "random", "min": 4, "max": 5 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 9000,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:edgar_090505", "spawn_tick": 20, "placement": { "type": "center", "radius": 1, "ground": true }, "spawn_amount": { "type": "count", "count": 1 } }
+      ]
+    }
+  ],
+  "rewards": [
+    {
+      "type": "items",
+      "items": [
+        { "item": "pvz:amethyst_ingot", "amount": { "type": "count", "count": 3 } },
+        { "item": "pvz:repeater_enjoy_card", "amount": { "type": "count", "count": 2 } },
+        { "item": "pvz:gatling_pea_enjoy_card", "amount": { "type": "random", "min": 1, "max": 3 } },
+        { "item": "pvz:winter_melon_enjoy_card", "amount": { "type": "random", "min": 1, "max": 3 } },
+        { "item": "pvz:gloom_shroom_enjoy_card", "amount": { "type": "random", "min": 0, "max": 1 } },
+        { "item": "pvz:chomper_enjoy_card", "amount": { "type": "random", "min": 0, "max": 2 } },
+        { "item": "pvz:cactus_enjoy_card", "amount": { "type": "random", "min": 3, "max": 5 } }
+      ]
+    }
+  ]
+}

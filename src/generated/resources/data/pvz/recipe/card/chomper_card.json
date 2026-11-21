@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:enforce_essence",
+    "B": "pvz:chomper",
+    "C": "#pvz:card/gold_cards"
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "ACA"
+  ],
+  "result": {
+    "id": "pvz:chomper_card"
+  }
+}

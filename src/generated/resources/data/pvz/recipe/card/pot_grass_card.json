@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:assist_essence",
+    "B": "pvz:pot_grass",
+    "C": "#pvz:card/green_cards"
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "ACA"
+  ],
+  "result": {
+    "id": "pvz:pot_grass_card"
+  }
+}

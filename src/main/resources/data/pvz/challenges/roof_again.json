@@ -1,0 +1,41 @@
+{
+  "type": "default",
+  "authors": ["hungteen"],
+  "tags": ["overworld"],
+  "bar_color": "red",
+  "trade_price": 400,
+  "trade_weight": 65,
+  "recommend_level": 60,
+  "placement": { "type": "center", "radius": 10, "ground": true },
+  "waves": [
+    {
+      "type": "default",
+      "duration": 800,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:giga_gargantuar", "spawn_tick": 20, "spawn_amount": { "type": "random", "min": 4, "max": 5 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 14000,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:edgar_090517", "spawn_tick": 20, "placement": { "type": "center", "radius": 1, "ground": true }, "spawn_amount": { "type": "count", "count": 1 } }
+      ]
+    }
+  ],
+  "rewards": [
+    {
+      "type": "items",
+      "items": [
+        { "item": "pvz:torch_wood_enjoy_card", "amount": { "type": "count", "count": 1 } },
+        { "item": "pvz:cat_tail_enjoy_card", "amount": { "type": "random", "min": 0, "max": 2 } },
+        { "item": "pvz:cob_cannon_enjoy_card", "amount": { "type": "random", "min": 0, "max": 1 } },
+        { "item": "pvz:spike_rock_enjoy_card", "amount": { "type": "count", "count": 1 } },
+        { "item": "pvz:winter_melon_enjoy_card", "amount": { "type": "random", "min": 0, "max": 1 } },
+        { "item": "pvz:gold_magnet_enjoy_card", "amount": { "type": "random", "min": 0, "max": 1 } },
+        { "item": "pvz:pea_shooter_enjoy_card", "amount": { "type": "count", "count": 1 } },
+        { "item": "pvz:sun_flower_enjoy_card", "amount": { "type": "count", "count": 1 } }
+      ]
+    }
+  ]
+}

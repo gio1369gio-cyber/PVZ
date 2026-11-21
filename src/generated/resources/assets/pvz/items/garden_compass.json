@@ -1,0 +1,233 @@
+{
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "entries": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/16"
+        },
+        "threshold": 0.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/17"
+        },
+        "threshold": 1.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/18"
+        },
+        "threshold": 2.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/19"
+        },
+        "threshold": 3.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/20"
+        },
+        "threshold": 4.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/21"
+        },
+        "threshold": 5.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/22"
+        },
+        "threshold": 6.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/23"
+        },
+        "threshold": 7.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/24"
+        },
+        "threshold": 8.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/25"
+        },
+        "threshold": 9.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/26"
+        },
+        "threshold": 10.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/27"
+        },
+        "threshold": 11.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/28"
+        },
+        "threshold": 12.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/29"
+        },
+        "threshold": 13.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/30"
+        },
+        "threshold": 14.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/31"
+        },
+        "threshold": 15.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/00"
+        },
+        "threshold": 16.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/01"
+        },
+        "threshold": 17.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/02"
+        },
+        "threshold": 18.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/03"
+        },
+        "threshold": 19.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/04"
+        },
+        "threshold": 20.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/05"
+        },
+        "threshold": 21.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/06"
+        },
+        "threshold": 22.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/07"
+        },
+        "threshold": 23.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/08"
+        },
+        "threshold": 24.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/09"
+        },
+        "threshold": 25.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/10"
+        },
+        "threshold": 26.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/11"
+        },
+        "threshold": 27.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/12"
+        },
+        "threshold": 28.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/13"
+        },
+        "threshold": 29.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/14"
+        },
+        "threshold": 30.0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "pvz:item/garden_compass/15"
+        },
+        "threshold": 31.0
+      }
+    ],
+    "property": "pvz:garden_compass_angle",
+    "scale": 32.0
+  }
+}

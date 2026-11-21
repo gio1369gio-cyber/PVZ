@@ -1,0 +1,21 @@
+{
+  "anvil_cost": 4,
+  "description": {
+    "color": "gray",
+    "translate": "enchantment.pvz.break_out"
+  },
+  "max_cost": {
+    "base": 35,
+    "per_level_above_first": 25
+  },
+  "max_level": 4,
+  "min_cost": {
+    "base": 25,
+    "per_level_above_first": 25
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#pvz:enchantable/plant_or_outer_card",
+  "weight": 1
+}

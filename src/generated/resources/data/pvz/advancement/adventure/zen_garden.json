@@ -1,0 +1,38 @@
+{
+  "parent": "pvz:adventure/root",
+  "criteria": {
+    "reach": {
+      "conditions": {
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:location": {
+              "biomes": "pvz:zen_garden",
+              "dimension": "minecraft:overworld"
+            }
+          }
+        }
+      },
+      "trigger": "minecraft:location"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.zen_garden.desc"
+    },
+    "icon": {
+      "id": "pvz:nut_sapling"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancement.pvz.zen_garden"
+    }
+  },
+  "requirements": [
+    [
+      "reach"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

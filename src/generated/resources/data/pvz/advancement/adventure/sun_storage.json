@@ -1,0 +1,48 @@
+{
+  "parent": "pvz:adventure/origin",
+  "criteria": {
+    "get_almanac": {
+      "conditions": {
+        "items": [
+          {
+            "components": {
+              "pvz:sun_storage": {
+                "amount": 100000,
+                "max": 100000,
+                "once": false
+              }
+            },
+            "items": "pvz:sun_storage_sapling3"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.sun_storage.desc"
+    },
+    "frame": "challenge",
+    "icon": {
+      "components": {
+        "pvz:sun_storage": {
+          "amount": 100000,
+          "max": 100000,
+          "once": false
+        }
+      },
+      "id": "pvz:sun_storage_sapling3"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancement.pvz.sun_storage"
+    }
+  },
+  "requirements": [
+    [
+      "get_almanac"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

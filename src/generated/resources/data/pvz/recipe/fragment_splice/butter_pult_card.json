@@ -1,0 +1,18 @@
+{
+  "type": "pvz:fragment_splice",
+  "key": {
+    "A": "pvz:butter_pult_enjoy_card",
+    "B": "pvz:arma_essence",
+    "C": "#pvz:card/black_cards"
+  },
+  "pattern": [
+    "AAAAA",
+    "ABBBA",
+    "ABCBA",
+    "ABBBA",
+    "AAAAA"
+  ],
+  "result": {
+    "id": "pvz:butter_pult_card"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "pvz:zen_garden",
+  "features": "pvz:nut_tree",
+  "step": "vegetal_decoration"
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "pvz:adventure/origin",
+  "criteria": {
+    "shot_arrow": {
+      "conditions": {
+        "damage": {
+          "type": {
+            "direct_entity": {
+              "minecraft:entity_type": "pvz:pea"
+            }
+          }
+        }
+      },
+      "trigger": "minecraft:player_hurt_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.pea_holiday.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "pvz:pea_gun"
+    },
+    "title": {
+      "translate": "advancement.pvz.pea_holiday"
+    }
+  },
+  "requirements": [
+    [
+      "shot_arrow"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,18 @@
+{
+  "type": "pvz:fragment_splice",
+  "key": {
+    "A": "pvz:self_imitater_enjoy_card",
+    "B": "pvz:defence_essence",
+    "C": "#pvz:card/purple_cards"
+  },
+  "pattern": [
+    "AAAAA",
+    "ABBBA",
+    "ABCBA",
+    "ABBBA",
+    "AAAAA"
+  ],
+  "result": {
+    "id": "pvz:self_imitater_card"
+  }
+}

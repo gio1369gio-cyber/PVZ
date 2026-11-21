@@ -1,0 +1,18 @@
+{
+  "type": "pvz:fragment_splice",
+  "key": {
+    "A": "pvz:rotate_radish_enjoy_card",
+    "B": "pvz:enforce_essence",
+    "C": "#pvz:card/blue_cards"
+  },
+  "pattern": [
+    "AAAAA",
+    "ABBBA",
+    "ABCBA",
+    "ABBBA",
+    "AAAAA"
+  ],
+  "result": {
+    "id": "pvz:rotate_radish_card"
+  }
+}

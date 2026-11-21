@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "pvz:zen_garden",
+  "features": "pvz:ore_double_origin",
+  "step": "underground_ores"
+}

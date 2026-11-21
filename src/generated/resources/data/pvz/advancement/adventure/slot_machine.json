@@ -1,0 +1,33 @@
+{
+  "parent": "pvz:adventure/essence",
+  "criteria": {
+    "shot_arrow": {
+      "conditions": {
+        "amount": {
+          "amount": {
+            "min": 1
+          }
+        }
+      },
+      "trigger": "pvz:slot_machine"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.slot_machine.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "pvz:slot_machine"
+    },
+    "title": {
+      "translate": "advancement.pvz.slot_machine"
+    }
+  },
+  "requirements": [
+    [
+      "shot_arrow"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

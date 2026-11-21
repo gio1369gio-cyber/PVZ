@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sun_storage_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": "pvz:sun_storage_sapling"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "pvz:food/large_sun_storage_sapling"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sun_storage_sapling"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "pvz:food/large_sun_storage_sapling"
+    ]
+  }
+}

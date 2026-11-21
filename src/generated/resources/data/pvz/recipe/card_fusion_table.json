@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "minecraft:crafting_table",
+    "B": "minecraft:iron_ingot",
+    "C": "pvz:origin_ingot",
+    "X": "pvz:origin_essence",
+    "Y": "pvz:light_essence"
+  },
+  "pattern": [
+    "CCC",
+    "XAY",
+    "BBB"
+  ],
+  "result": {
+    "id": "pvz:card_fusion_table"
+  }
+}

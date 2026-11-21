@@ -1,0 +1,15 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "pvz:pvz_single",
+        "location": "pvz:zombie_house/dolphin_house",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "structure_name": "dolphin_house"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

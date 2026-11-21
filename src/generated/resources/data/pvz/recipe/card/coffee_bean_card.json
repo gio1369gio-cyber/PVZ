@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:magic_essence",
+    "B": "minecraft:cocoa_beans",
+    "C": "#pvz:card/green_cards"
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "ACA"
+  ],
+  "result": {
+    "id": "pvz:coffee_bean_card"
+  }
+}

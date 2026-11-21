@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:defence_essence",
+    "B": "minecraft:pumpkin",
+    "C": "#pvz:card/gold_cards"
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "ACA"
+  ],
+  "result": {
+    "id": "pvz:pumpkin_card"
+  }
+}

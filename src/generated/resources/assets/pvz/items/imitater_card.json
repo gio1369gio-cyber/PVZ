@@ -1,0 +1,18 @@
+{
+  "model": {
+    "type": "minecraft:condition",
+    "component": "pvz:imitated_card",
+    "on_false": {
+      "type": "minecraft:model",
+      "model": "pvz:item/imitater_card"
+    },
+    "on_true": {
+      "type": "minecraft:special",
+      "base": "pvz:item/imitater_card",
+      "model": {
+        "type": "pvz:imitater_card"
+      }
+    },
+    "property": "minecraft:has_component"
+  }
+}

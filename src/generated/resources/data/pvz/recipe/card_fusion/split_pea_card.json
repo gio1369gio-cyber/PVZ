@@ -1,0 +1,11 @@
+{
+  "type": "pvz:card_fusion",
+  "ingredients": [
+    "pvz:pea_shooter_card",
+    "pvz:repeater_card",
+    "#pvz:card/green_cards"
+  ],
+  "result": {
+    "id": "pvz:split_pea_card"
+  }
+}

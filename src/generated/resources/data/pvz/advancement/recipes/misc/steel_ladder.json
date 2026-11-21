@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_assist_essence": {
+      "conditions": {
+        "items": [
+          {
+            "items": "pvz:assist_essence"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "pvz:steel_ladder"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_assist_essence"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "pvz:steel_ladder"
+    ]
+  }
+}

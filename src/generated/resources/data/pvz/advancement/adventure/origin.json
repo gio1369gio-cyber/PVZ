@@ -1,0 +1,33 @@
+{
+  "parent": "pvz:adventure/essence",
+  "criteria": {
+    "get_origin": {
+      "conditions": {
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "pvz:origin_block"
+        }
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.origin.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "pvz:origin_block"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancement.pvz.origin"
+    }
+  },
+  "requirements": [
+    [
+      "get_origin"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

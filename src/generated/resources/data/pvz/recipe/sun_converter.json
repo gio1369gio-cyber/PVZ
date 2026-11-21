@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:light_essence",
+    "B": "minecraft:hopper",
+    "C": "pvz:resource_collector",
+    "X": "minecraft:iron_block"
+  },
+  "pattern": [
+    "ACA",
+    "ABA",
+    "XXX"
+  ],
+  "result": {
+    "id": "pvz:sun_converter"
+  }
+}

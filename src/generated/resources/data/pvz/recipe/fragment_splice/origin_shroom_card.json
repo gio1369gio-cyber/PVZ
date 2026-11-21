@@ -1,0 +1,18 @@
+{
+  "type": "pvz:fragment_splice",
+  "key": {
+    "A": "pvz:origin_shroom_enjoy_card",
+    "B": "pvz:toxic_essence",
+    "C": "#pvz:card/green_cards"
+  },
+  "pattern": [
+    "AAAAA",
+    "ABBBA",
+    "ABCBA",
+    "ABBBA",
+    "AAAAA"
+  ],
+  "result": {
+    "id": "pvz:origin_shroom_card"
+  }
+}

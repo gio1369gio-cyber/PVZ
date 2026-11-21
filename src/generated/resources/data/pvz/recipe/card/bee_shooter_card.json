@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:appease_essence",
+    "B": "minecraft:honeycomb",
+    "C": "#pvz:card/green_cards"
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "ACA"
+  ],
+  "result": {
+    "id": "pvz:bee_shooter_card"
+  }
+}

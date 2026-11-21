@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:magic_essence",
+    "B": "minecraft:red_mushroom",
+    "C": "#pvz:card/gold_cards"
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "ACA"
+  ],
+  "result": {
+    "id": "pvz:hypno_shroom_card"
+  }
+}

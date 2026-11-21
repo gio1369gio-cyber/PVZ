@@ -1,0 +1,39 @@
+{
+  "parent": "pvz:adventure/first_plant",
+  "criteria": {
+    "shot_arrow": {
+      "conditions": {
+        "amount": {
+          "amount": {
+            "min": 15
+          }
+        },
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "pvz:cherry_bomb"
+          }
+        }
+      },
+      "trigger": "pvz:entity_effect_amount"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.explodonator.desc"
+    },
+    "icon": {
+      "id": "pvz:cherry_bomb_enjoy_card"
+    },
+    "title": {
+      "translate": "advancement.pvz.explodonator"
+    }
+  },
+  "requirements": [
+    [
+      "shot_arrow"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

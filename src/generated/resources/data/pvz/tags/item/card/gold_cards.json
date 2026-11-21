@@ -1,0 +1,26 @@
+{
+  "values": [
+    "pvz:mega_card",
+    "pvz:gold_card",
+    "pvz:cherry_bomb_card",
+    "pvz:cherry_bomb_enjoy_card",
+    "pvz:chomper_card",
+    "pvz:chomper_enjoy_card",
+    "pvz:sun_shroom_card",
+    "pvz:sun_shroom_enjoy_card",
+    "pvz:hypno_shroom_card",
+    "pvz:hypno_shroom_enjoy_card",
+    "pvz:repeater_card",
+    "pvz:repeater_enjoy_card",
+    "pvz:fume_shroom_card",
+    "pvz:fume_shroom_enjoy_card",
+    "pvz:pumpkin_card",
+    "pvz:pumpkin_enjoy_card",
+    "pvz:magnet_shroom_card",
+    "pvz:magnet_shroom_enjoy_card",
+    "pvz:kernel_pult_card",
+    "pvz:kernel_pult_enjoy_card",
+    "pvz:golden_melon_pult_card",
+    "pvz:golden_melon_pult_enjoy_card"
+  ]
+}

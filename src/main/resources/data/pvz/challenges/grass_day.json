@@ -1,0 +1,78 @@
+{
+  "type": "default",
+  "authors": ["hungteen"],
+  "tags": ["overworld"],
+  "bar_color": "green",
+  "trade_price": 50,
+  "trade_weight": 100,
+  "recommend_level": 10,
+  "placement": { "type": "outer", "min": 5, "max": 10, "ground": true },
+  "waves": [
+    {
+      "type": "default",
+      "duration": 400,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:normal_zombie", "spawn_tick": 20, "spawn_amount": { "type": "random", "min": 8, "max": 12 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 800,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:normal_zombie", "spawn_tick": 60, "spawn_amount": { "type": "random", "min": 5, "max": 7 } },
+        { "type": "default", "entity_type": "pvz:conehead_zombie", "spawn_tick": 20, "spawn_amount": { "type": "random", "min": 7, "max": 8 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 800,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:normal_zombie", "spawn_tick": 20, "spawn_amount": { "type": "random", "min": 3, "max": 5 } },
+        { "type": "default", "entity_type": "pvz:pole_zombie", "spawn_tick": 100, "spawn_amount": { "type": "random", "min": 6, "max": 10 } },
+        { "type": "default", "entity_type": "pvz:conehead_zombie", "spawn_tick": 200, "spawn_amount": { "type": "random", "min": 3, "max": 5 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 800,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:pole_zombie", "spawn_tick": 20, "spawn_amount": { "type": "random", "min": 3, "max": 6 } },
+        { "type": "default", "entity_type": "pvz:conehead_zombie", "spawn_tick": 40, "spawn_amount": { "type": "random", "min": 10, "max": 15 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 1000,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:normal_zombie", "spawn_tick": 20, "spawn_amount": { "type": "random", "min": 5, "max": 10 } },
+        { "type": "default", "entity_type": "pvz:buckethead_zombie", "spawn_tick": 100, "spawn_amount": { "type": "random", "min": 4, "max": 8 } },
+        { "type": "default", "entity_type": "pvz:conehead_zombie", "spawn_tick": 200, "spawn_amount": { "type": "random", "min": 6, "max": 8 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 2200,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:normal_zombie", "spawn_tick": 20, "spawn_amount": { "type": "random", "min": 14, "max": 18 } },
+        { "type": "default", "entity_type": "pvz:pole_zombie", "spawn_tick": 100, "spawn_amount": { "type": "random", "min": 9, "max": 11 } },
+        { "type": "default", "entity_type": "pvz:conehead_zombie", "spawn_tick": 200, "spawn_amount": { "type": "random", "min": 11, "max": 14 } },
+        { "type": "default", "entity_type": "pvz:buckethead_zombie", "spawn_tick": 400, "spawn_amount": { "type": "random", "min": 6, "max": 8 } },
+        { "type": "default", "entity_type": "pvz:normal_zombie", "spawn_tick": 500, "spawn_amount": { "type": "random", "min": 6, "max": 9 } },
+        { "type": "default", "entity_type": "pvz:pole_zombie", "spawn_tick": 600, "spawn_amount": { "type": "random", "min": 3, "max": 5 } },
+        { "type": "default", "entity_type": "pvz:conehead_zombie", "spawn_tick": 620, "spawn_amount": { "type": "random", "min": 5, "max": 7 } },
+        { "type": "default", "entity_type": "pvz:buckethead_zombie", "spawn_tick": 650, "spawn_amount": { "type": "random", "min": 4, "max": 6 } }
+      ]
+    }
+  ],
+  "rewards": [
+    { "type": "unlocks", "unlocks": ["pvz:cherry_bomb", "pvz:chomper"] },
+    {
+      "type": "items",
+      "items": [
+        { "item": "pvz:chomper_enjoy_card", "amount": { "type": "random", "min": 0, "max": 1 } },
+        { "item": "pvz:wall_nut_enjoy_card", "amount": { "type": "random", "min": 0, "max": 1 } },
+        { "item": "pvz:pea_shooter_enjoy_card", "amount": { "type": "count", "count": 1 } }
+      ]
+    }
+  ]
+}

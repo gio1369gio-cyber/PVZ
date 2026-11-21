@@ -1,0 +1,18 @@
+{
+  "type": "pvz:fragment_splice",
+  "key": {
+    "A": "pvz:fire_peashooter_enjoy_card",
+    "B": "pvz:flame_essence",
+    "C": "#pvz:card/green_cards"
+  },
+  "pattern": [
+    "AAAAA",
+    "ABBBA",
+    "ABCBA",
+    "ABBBA",
+    "AAAAA"
+  ],
+  "result": {
+    "id": "pvz:fire_peashooter_card"
+  }
+}

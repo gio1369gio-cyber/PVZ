@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:assist_essence",
+    "B": "minecraft:vine",
+    "C": "#pvz:card/white_cards"
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "ACA"
+  ],
+  "result": {
+    "id": "pvz:grave_buster_card"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:ice_essence",
+    "B": "minecraft:brown_mushroom",
+    "C": "#pvz:card/blue_cards"
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "ACA"
+  ],
+  "result": {
+    "id": "pvz:ice_shroom_card"
+  }
+}

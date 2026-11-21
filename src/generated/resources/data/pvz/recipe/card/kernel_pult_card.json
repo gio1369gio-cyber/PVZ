@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:arma_essence",
+    "B": "#c:crops/corn",
+    "C": "#pvz:card/gold_cards"
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "ACA"
+  ],
+  "result": {
+    "id": "pvz:kernel_pult_card"
+  }
+}

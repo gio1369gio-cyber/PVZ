@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": "pvz:ice_essence",
+    "X": "#c:crops/pea"
+  },
+  "pattern": [
+    "XXX",
+    "XBX",
+    "XXX"
+  ],
+  "result": {
+    "count": 8,
+    "id": "pvz:snow_pea"
+  }
+}

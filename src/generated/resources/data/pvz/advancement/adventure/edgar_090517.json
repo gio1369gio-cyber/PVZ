@@ -1,0 +1,32 @@
+{
+  "parent": "pvz:adventure/edgar_090505",
+  "criteria": {
+    "in_world": {
+      "conditions": {
+        "type": "roof_again"
+      },
+      "trigger": "pvz:challenge"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.edgar_090517.desc"
+    },
+    "frame": "challenge",
+    "icon": {
+      "id": "pvz:challenge_envelope"
+    },
+    "title": {
+      "translate": "advancement.pvz.edgar_090517"
+    }
+  },
+  "requirements": [
+    [
+      "in_world"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  },
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:explosion_essence",
+    "B": "pvz:spore",
+    "C": "#pvz:card/black_cards"
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "ACA"
+  ],
+  "result": {
+    "id": "pvz:doom_shroom_card"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "type": "default",
+  "authors": ["susen36"],
+  "tags": ["overworld"],
+  "bar_color": "red",
+  "trade_price": 450,
+  "can_trade": true,
+  "trade_weight": 100,
+  "recommend_level": 60,
+  "placement": {
+    "type": "outer",
+    "min": 1,
+    "max": 9,
+    "ground": true
+  },
+  "waves": [
+    {
+      "type": "default",
+      "duration": 2000,
+      "spawns": [
+        {"type": "default", "entity_type": "pvz:newspaper_zombie", "spawn_tick": 30, "spawn_amount": {"type": "random", "min": 13, "max": 14}},
+        {"type": "default", "entity_type": "pvz:conehead_zombie", "spawn_tick": 40, "spawn_amount": {"type": "random", "min": 13, "max": 14}},
+        {"type": "default", "entity_type": "pvz:buckethead_zombie", "spawn_tick": 90, "spawn_amount": {"type": "random", "min": 11, "max": 14}},
+        {"type": "default", "entity_type": "pvz:mc_zombie", "spawn_tick": 90, "spawn_amount": {"type": "random", "min": 11, "max": 16}},
+        {"type": "default", "entity_type": "pvz:sunday_edition_zombie", "spawn_tick": 120, "nbt": "{sharp_edge:true}", "spawn_amount": {"type": "random", "min": 10, "max": 12}}
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 3000,
+      "spawns": [
+        {"type": "default", "entity_type": "pvz:dancing_zombie", "spawn_tick": 30, "spawn_amount": {"type": "random", "min": 7, "max": 8}},
+        {"type": "default", "entity_type": "pvz:pogo_zombie", "spawn_tick": 30, "spawn_amount": {"type": "random", "min": 5, "max": 6}},
+        {"type": "default", "entity_type": "pvz:mj_zombie", "spawn_tick": 40, "spawn_amount": {"type": "random", "min": 7, "max": 8}},
+        {"type": "default", "entity_type": "pvz:football_zombie", "spawn_tick": 40, "spawn_amount": {"type": "random", "min": 7, "max": 8}},
+        {"type": "default", "entity_type": "pvz:red_edge_zombie", "spawn_tick": 50, "nbt": "{steel_and_fire:true}", "spawn_amount": {"type": "random", "min": 3, "max": 3}}
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 5500,
+      "spawns": [
+        {"type": "default", "entity_type": "pvz:gargantuar", "spawn_tick": 20, "spawn_amount": {"type": "random", "min": 4, "max": 5}},
+        {"type": "default", "entity_type": "pvz:giga_gargantuar", "spawn_tick": 30, "spawn_amount": {"type": "random", "min": 4, "max": 5}},
+        {"type": "default", "entity_type": "pvz:buckethead_zombie", "spawn_tick": 30, "spawn_amount": {"type": "random", "min": 8, "max": 10}},
+        {"type": "default", "entity_type": "pvz:edgar_090547", "spawn_tick": 30, "spawn_amount": {"type": "random", "min": 4, "max": 5}},
+        {"type": "default", "entity_type": "pvz:red_edge_zombie", "spawn_tick": 50, "nbt": "{sharp_edge:true}", "spawn_amount": {"type": "random", "min": 3, "max": 3}}
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 6000,
+      "spawns": [
+        {"type": "default", "entity_type": "pvz:football_zombie", "spawn_tick": 60, "spawn_amount": {"type": "random", "min": 11, "max": 12}},
+        {"type": "default", "entity_type": "pvz:giga_football_zombie", "spawn_tick": 60, "spawn_amount": {"type": "random", "min": 10, "max": 11}},
+        {"type": "default", "entity_type": "pvz:catapult_zombie", "spawn_tick": 120, "spawn_amount": {"type": "random", "min": 6, "max": 7}},
+        {"type": "default", "entity_type": "pvz:red_edge_zombie", "spawn_tick": 50, "nbt": "{steel_and_fire:true}", "spawn_amount": {"type": "random", "min": 2, "max": 2}},
+        {"type": "default", "entity_type": "pvz:red_edge_zombie", "spawn_tick": 50, "nbt": "{sharp_edge:true}", "spawn_amount": {"type": "random", "min": 2, "max": 2}}
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 3000,
+      "spawns": [
+        {"type": "default", "entity_type": "pvz:mc_zombie", "spawn_tick": 20, "spawn_amount": {"type": "random", "min": 27, "max": 30}},
+        {"type": "default", "entity_type": "pvz:buckethead_zombie", "spawn_tick": 220, "spawn_amount": {"type": "random", "min": 17, "max": 22}},
+        {"type": "default", "entity_type": "pvz:giga_football_zombie", "spawn_tick": 80, "spawn_amount": {"type": "random", "min": 11, "max": 15}},
+        {"type": "default", "entity_type": "pvz:digger_zombie", "spawn_tick": 220, "spawn_amount": {"type": "random", "min": 9, "max": 10}},
+        {"type": "default", "entity_type": "pvz:bungee_zombie", "spawn_tick": 380, "spawn_amount": {"type": "random", "min": 9, "max": 10}},
+        {"type": "default", "entity_type": "pvz:chomper_zombie", "spawn_tick": 160, "spawn_amount": {"type": "random", "min": 3, "max": 4}},
+        {"type": "default", "entity_type": "pvz:airborne_zombie", "spawn_tick": 200, "spawn_amount": {"type": "random", "min": 5, "max": 6}},
+        {"type": "default", "entity_type": "pvz:red_edge_zombie", "spawn_tick": 520, "nbt": "{steel_and_fire:true,sharp_edge:true,is_origin:true}", "spawn_amount": {"type": "random", "min": 1, "max": 1}}
+      ]
+    }
+  ],
+  "rewards": [
+    {
+      "type": "unlocks",
+      "unlocks": ["pvz:sculk_shroom", "pvz:peapod"]
+    },
+    {
+      "type": "items",
+      "items": [
+        {"item": "pvz:spore", "amount": {"type": "random", "min": 28, "max": 29}},
+        {"item": "pvz:electric_essence", "amount": {"type": "random", "min": 13, "max": 16}},
+        {"item": "pvz:fire_cracker", "amount": {"type": "random", "min": 32, "max": 54}},
+        {"item": "pvz:grass_carp_enjoy_card", "amount": {"type": "random", "min": 5, "max": 6}}
+      ]
+    }
+  ]
+}

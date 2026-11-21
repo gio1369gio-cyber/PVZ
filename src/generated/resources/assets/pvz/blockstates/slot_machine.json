@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "pvz:block/slot_machine",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "pvz:block/slot_machine"
+    },
+    "facing=south": {
+      "model": "pvz:block/slot_machine",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "pvz:block/slot_machine",
+      "y": 270
+    }
+  }
+}

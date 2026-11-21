@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:arma_essence",
+    "B": "minecraft:chorus_fruit",
+    "C": "#pvz:card/purple_cards"
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "ACA"
+  ],
+  "result": {
+    "id": "pvz:chorus_fruit_pult_card"
+  }
+}

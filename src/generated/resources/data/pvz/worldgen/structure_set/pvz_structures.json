@@ -1,0 +1,34 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 998244353,
+    "separation": 50,
+    "spacing": 100
+  },
+  "structures": [
+    {
+      "structure": "pvz:bucket_house",
+      "weight": 1
+    },
+    {
+      "structure": "pvz:dolphin_house",
+      "weight": 1
+    },
+    {
+      "structure": "pvz:grave_house",
+      "weight": 1
+    },
+    {
+      "structure": "pvz:yeti_house",
+      "weight": 1
+    },
+    {
+      "structure": "pvz:dave_villa",
+      "weight": 1
+    },
+    {
+      "structure": "pvz:sun_temple",
+      "weight": 1
+    }
+  ]
+}

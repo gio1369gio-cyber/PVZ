@@ -1,0 +1,84 @@
+{
+  "type": "default",
+  "authors": ["susen36"],
+  "tags": ["overworld"],
+  "bar_color": "green",
+  "trade_price": 215,
+  "trade_weight": 100,
+  "recommend_level": 30,
+  "placement": {
+    "type": "center",
+    "radius": 10,
+    "ground": true
+  },
+  "waves": [
+    {
+      "type": "default",
+      "duration": 4000,
+      "spawns": [
+        {
+          "type": "default",
+          "entity_type": "pvz:trick_zombie",
+          "spawn_tick": 20,
+          "spawn_amount": {"type": "random", "min": 20, "max": 21}
+        }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 8000,
+      "spawns": [
+        {
+          "type": "default",
+          "entity_type": "pvz:pumpkin_zombie",
+          "spawn_tick": 60,
+          "spawn_amount": {"type": "random", "min": 20, "max": 21}
+        },
+        {
+          "type": "default",
+          "entity_type": "pvz:trick_zombie",
+          "spawn_tick": 20,
+          "spawn_amount": {"type": "random", "min": 15, "max": 23}
+        }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 8000,
+      "spawns": [
+        {
+          "type": "default",
+          "entity_type": "pvz:steel_pumpkin_zombie",
+          "spawn_tick": 20,
+          "spawn_amount": {"type": "random", "min": 17, "max": 25}
+        },
+        {
+          "type": "default",
+          "entity_type": "pvz:trick_zombie",
+          "spawn_tick": 100,
+          "spawn_amount": {"type": "random", "min": 20, "max": 26}
+        },
+        {
+          "type": "default",
+          "entity_type": "pvz:pumpkin_zombie",
+          "spawn_tick": 200,
+          "spawn_amount": {"type": "random", "min": 15, "max": 25}
+        }
+      ]
+    }
+  ],
+  "rewards": [
+    {
+      "type": "unlocks",
+      "unlocks": ["pvz:butter_pult", "pvz:bonk_choy"]
+    },
+    {
+      "type": "items",
+      "items": [
+        {"item": "pvz:butter_pult_enjoy_card", "amount": {"type": "random", "min": 2, "max": 4}},
+        {"item": "pvz:bonk_choy_enjoy_card", "amount": {"type": "random", "min": 1, "max": 2}},
+        {"item": "pvz:bamboo_lord_enjoy_card", "amount": {"type": "count", "count": 1}}
+      ]
+    }
+  ]
+}

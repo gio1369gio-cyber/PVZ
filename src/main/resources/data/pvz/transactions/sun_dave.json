@@ -1,0 +1,74 @@
+{
+  "good_count": { "type": "random", "min": 4, "max": 6 },
+  "injectors": ["pvz:slot_machine"],
+  "goods": [
+    {
+      "type": "item",
+      "item": "minecraft:potion",
+      "components": { "minecraft:potion_contents": { "potion": "pvz:light_eye_potion_1" } },
+      "price": 100, "must": true
+    },
+    { "type": "item", "item": "pvz:lantern", "price": 500, "must": true },
+    {
+      "type": "item",
+      "item": "minecraft:potion",
+      "components": { "minecraft:potion_contents": { "potion": "pvz:light_eye_potion_2" } },
+      "price": 1000, "must": true
+    },
+    {
+      "type": "item",
+      "item": "pvz:sun_storage_sapling4",
+      "components": { "minecraft:custom_data": { "sun_storage_amount": 1000 } },
+      "price": 1200, "weight": 100, "limit": 3
+    },
+    {
+      "type": "item",
+      "item": "pvz:sun_storage_sapling4",
+      "components": { "minecraft:custom_data": { "sun_storage_amount": 2000 } },
+      "price": 2500, "weight": 90, "limit": 3
+    },
+    {
+      "type": "item",
+      "item": "pvz:sun_storage_sapling4",
+      "components": { "minecraft:custom_data": { "sun_storage_amount": 5000 } },
+      "price": 6000, "weight": 80, "limit": 2
+    },
+    {
+      "type": "item",
+      "item": "minecraft:enchanted_book",
+      "components": { "minecraft:stored_enchantments": { "pvz:sun_shovel": 1 }  },
+      "price": 3500, "weight": 100, "limit": 3
+    },
+    {
+      "type": "item",
+      "item": "minecraft:enchanted_book",
+      "components": { "minecraft:stored_enchantments": {  "pvz:sun_shovel": 2 }  },
+      "price": 4000, "weight": 70, "limit": 2
+    },
+    {
+      "type": "item",
+      "item": "minecraft:enchanted_book",
+      "components": { "minecraft:stored_enchantments": {  "pvz:sun_shovel": 3 }  },
+      "price": 6000, "weight": 30, "limit": 1
+    },
+    {
+      "type": "item",
+      "item": "minecraft:enchanted_book",
+      "components": { "minecraft:stored_enchantments": {  "pvz:sun_mending": 1  } },
+      "price": 5000, "weight": 100, "limit": 3
+    },
+    {
+      "type": "item",
+      "item": "minecraft:enchanted_book",
+      "components": { "minecraft:stored_enchantments": {"pvz:sun_mending": 2 }  },
+      "price": 6000, "weight": 60, "limit": 2
+    },
+    {
+      "type": "item",
+      "item": "minecraft:enchanted_book",
+      "components": { "minecraft:stored_enchantments": { "pvz:sun_mending": 3 }  },
+      "price": 7500, "weight": 20, "limit": 1
+    },
+    { "type": "item", "item": "pvz:gold_leaf_card", "price": 8000, "weight": 60, "limit": 3 }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "parent": "pvz:adventure/origin",
+  "criteria": {
+    "get_almanac": {
+      "conditions": {
+        "items": [
+          {
+            "items": "pvz:almanac"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.almanac.desc"
+    },
+    "icon": {
+      "id": "pvz:almanac"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancement.pvz.almanac"
+    }
+  },
+  "requirements": [
+    [
+      "get_almanac"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

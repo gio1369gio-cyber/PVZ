@@ -1,0 +1,75 @@
+{
+  "type": "default",
+  "authors": ["hungteen"],
+  "tags": ["overworld"],
+  "bar_color": "green",
+  "trade_price": 200,
+  "trade_weight": 90,
+  "recommend_level": 30,
+  "placement": { "type": "outer", "min": 10, "max": 20, "ground": true },
+  "waves": [
+    {
+      "type": "default",
+      "duration": 450,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:pogo_zombie", "spawn_tick": 60, "spawn_amount": { "type": "random", "min": 8, "max": 10 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 450,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:pole_zombie", "spawn_tick": 60, "spawn_amount": { "type": "random", "min": 12, "max": 14 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 600,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:pogo_zombie", "spawn_tick": 40, "spawn_amount": { "type": "random", "min": 16, "max": 18 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 600,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:pole_zombie", "spawn_tick": 40, "spawn_amount": { "type": "random", "min": 21, "max": 23 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 450,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:squash_zombie", "spawn_tick": 20, "spawn_amount": { "type": "random", "min": 10, "max": 12 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 840,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:pole_zombie", "spawn_tick": 20, "spawn_amount": { "type": "random", "min": 16, "max": 18 } },
+        { "type": "default", "entity_type": "pvz:pogo_zombie", "spawn_tick": 120, "spawn_amount": { "type": "random", "min": 12, "max": 14 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 1800,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:pogo_zombie", "spawn_tick": 20, "spawn_amount": { "type": "random", "min": 10, "max": 12 } },
+        { "type": "default", "entity_type": "pvz:pole_zombie", "spawn_tick": 100, "spawn_amount": { "type": "random", "min": 10, "max": 12 } },
+        { "type": "default", "entity_type": "pvz:squash_zombie", "spawn_tick": 250, "spawn_amount": { "type": "random", "min": 8, "max": 10 } },
+        { "type": "default", "entity_type": "pvz:pole_zombie", "spawn_tick": 400, "spawn_amount": { "type": "random", "min": 12, "max": 15 } },
+        { "type": "default", "entity_type": "pvz:pogo_zombie", "spawn_tick": 600, "spawn_amount": { "type": "random", "min": 12, "max": 14 } }
+      ]
+    }
+  ],
+  "rewards": [
+    { "type": "unlocks", "unlocks": ["pvz:squash"] },
+    {
+      "type": "items",
+      "items": [
+        { "item": "pvz:squash_enjoy_card", "amount": { "type": "random", "min": 2, "max": 4 } }
+      ]
+    }
+  ]
+}

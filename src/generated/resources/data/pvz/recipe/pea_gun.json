@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:appease_essence",
+    "B": "minecraft:dispenser",
+    "C": "pvz:origin_ingot",
+    "X": "#c:crops/pea"
+  },
+  "pattern": [
+    "AXA",
+    "CBC",
+    "ACA"
+  ],
+  "result": {
+    "id": "pvz:pea_gun"
+  }
+}

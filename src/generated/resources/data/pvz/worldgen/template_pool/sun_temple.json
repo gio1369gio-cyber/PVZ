@@ -1,0 +1,15 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "pvz:pvz_single",
+        "location": "pvz:shop/sun_temple",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "structure_name": "sun_temple"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

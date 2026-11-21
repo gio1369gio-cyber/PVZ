@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:defence_essence",
+    "B": "minecraft:baked_potato",
+    "C": "#pvz:card/purple_cards"
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "ACA"
+  ],
+  "result": {
+    "id": "pvz:self_imitater_card"
+  }
+}

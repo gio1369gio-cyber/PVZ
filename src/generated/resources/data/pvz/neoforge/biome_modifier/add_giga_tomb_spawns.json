@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#pvz:is_land",
+  "spawners": {
+    "type": "pvz:giga_tomb_stone",
+    "count": 1,
+    "weight": 5
+  }
+}

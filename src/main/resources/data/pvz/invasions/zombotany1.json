@@ -1,0 +1,10 @@
+{
+  "is_assist": false,
+  "trigger_chance": 60,
+  "bonus": "pvz:all_plants",
+  "display_color": "#00AA00",
+  "spawns": [
+    { "entity_type": "pvz:peashooter_zombie", "invasion_level": 20, "spawn_weight": 100 },
+    { "entity_type": "pvz:wallnut_zombie", "invasion_level": 15, "spawn_weight": 100 }
+  ]
+}

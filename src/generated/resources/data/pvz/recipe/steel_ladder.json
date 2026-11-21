@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": "#c:ingots/iron",
+    "Y": "pvz:assist_essence"
+  },
+  "pattern": [
+    "X X",
+    "XYX",
+    "X X"
+  ],
+  "result": {
+    "count": 8,
+    "id": "pvz:steel_ladder"
+  }
+}

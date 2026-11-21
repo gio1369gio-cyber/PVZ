@@ -1,0 +1,35 @@
+{
+  "parent": "pvz:adventure/origin",
+  "criteria": {
+    "shot_arrow": {
+      "conditions": {
+        "damage": {
+          "type": {
+            "direct_entity": {
+              "minecraft:entity_type": "pvz:target_arrow"
+            }
+          }
+        }
+      },
+      "trigger": "minecraft:player_hurt_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.tooth.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "pvz:target_arrow"
+    },
+    "title": {
+      "translate": "advancement.pvz.tooth"
+    }
+  },
+  "requirements": [
+    [
+      "shot_arrow"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

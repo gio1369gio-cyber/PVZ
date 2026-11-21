@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.4,
+  "ingredient": "pvz:fake_brain",
+  "result": {
+    "id": "pvz:cooked_brain"
+  }
+}

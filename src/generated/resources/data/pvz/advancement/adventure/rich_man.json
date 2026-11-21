@@ -1,0 +1,33 @@
+{
+  "parent": "pvz:adventure/essence",
+  "criteria": {
+    "shot_arrow": {
+      "conditions": {
+        "amount": {
+          "amount": {
+            "min": 100000
+          }
+        }
+      },
+      "trigger": "pvz:money"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.rich_man.desc"
+    },
+    "frame": "challenge",
+    "icon": {
+      "id": "minecraft:gold_block"
+    },
+    "title": {
+      "translate": "advancement.pvz.rich_man"
+    }
+  },
+  "requirements": [
+    [
+      "shot_arrow"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

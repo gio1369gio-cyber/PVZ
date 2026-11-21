@@ -1,0 +1,65 @@
+{
+  "type": "default",
+  "authors": ["hungteen"],
+  "tags": ["overworld"],
+  "bar_color": "green",
+  "trade_price": 200,
+  "trade_weight": 85,
+  "recommend_level": 20,
+  "placement": { "type": "outer", "min": 20, "max": 30, "ground": true },
+  "waves": [
+    {
+      "type": "default",
+      "duration": 700,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:normal_zombie", "spawn_tick": 60, "spawn_amount": { "type": "random", "min": 60, "max": 80 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 900,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:normal_zombie", "spawn_tick": 40, "spawn_amount": { "type": "random", "min": 80, "max": 100 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 800,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:conehead_zombie", "spawn_tick": 40, "spawn_amount": { "type": "random", "min": 30, "max": 40 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 1000,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:imp", "spawn_tick": 40, "spawn_amount": { "type": "random", "min": 80, "max": 100 } },
+        { "type": "default", "entity_type": "pvz:normal_zombie", "spawn_tick": 300, "spawn_amount": { "type": "random", "min": 70, "max": 80 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 1000,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:screendoor_zombie", "spawn_tick": 50, "spawn_amount": { "type": "random", "min": 90, "max": 100 } }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 1000,
+      "spawns": [
+        { "type": "default", "entity_type": "pvz:normal_zombie", "spawn_tick": 50, "spawn_amount": { "type": "random", "min": 110, "max": 120 } }
+      ]
+    }
+  ],
+  "rewards": [
+    { "type": "unlocks", "unlocks": ["pvz:angel_star_fruit"] },
+    {
+      "type": "items",
+      "items": [
+        { "item": "pvz:star_fruit_enjoy_card", "amount": { "type": "random", "min": 2, "max": 4 } },
+        { "item": "pvz:angel_star_fruit_enjoy_card", "amount": { "type": "random", "min": 3, "max": 5 } }
+      ]
+    }
+  ]
+}

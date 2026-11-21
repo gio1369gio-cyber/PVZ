@@ -1,0 +1,31 @@
+{
+  "parent": "pvz:adventure/essence",
+  "criteria": {
+    "get_almanac": {
+      "conditions": {
+        "item": {
+          "items": "pvz:fake_brain"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.taste_brain.desc"
+    },
+    "icon": {
+      "id": "pvz:fake_brain"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancement.pvz.taste_brain"
+    }
+  },
+  "requirements": [
+    [
+      "get_almanac"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

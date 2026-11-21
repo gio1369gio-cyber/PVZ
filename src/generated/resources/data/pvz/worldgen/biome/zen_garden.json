@@ -1,0 +1,84 @@
+{
+  "attributes": {
+    "minecraft:audio/ambient_sounds": {
+      "mood": {
+        "block_search_extent": 8,
+        "offset": 2.0,
+        "sound": "pvz:plant_grow",
+        "tick_delay": 6000
+      }
+    },
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "ambient": [
+            {
+              "type": "pvz:sun",
+              "count": 1,
+              "weight": 100
+            }
+          ],
+          "creature": [
+            {
+              "type": "minecraft:sheep",
+              "count": 4,
+              "weight": 12
+            },
+            {
+              "type": "minecraft:pig",
+              "count": 4,
+              "weight": 10
+            },
+            {
+              "type": "minecraft:chicken",
+              "count": 4,
+              "weight": 10
+            },
+            {
+              "type": "minecraft:cow",
+              "count": 4,
+              "weight": 8
+            }
+          ]
+        }
+      },
+      "modifier": "overlay"
+    },
+    "minecraft:visual/ambient_particles": [
+      {
+        "particle": {
+          "type": "pvz:spore"
+        },
+        "probability": 0.0025
+      }
+    ],
+    "minecraft:visual/fog_color": "#e6dcc8",
+    "minecraft:visual/sky_color": "#9ecfef",
+    "minecraft:visual/water_fog_color": "#55b8ac"
+  },
+  "carvers": "minecraft:cave",
+  "downfall": 0.35,
+  "effects": {
+    "dry_foliage_color": "#c2a266",
+    "foliage_color": "#9cbb4e",
+    "grass_color": "#afc75c",
+    "water_color": "#52c4b2"
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "pvz:patch_chomper_plant"
+    ]
+  ],
+  "has_precipitation": true,
+  "temperature": 0.8
+}

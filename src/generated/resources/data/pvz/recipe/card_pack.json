@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "#c:ingots/amethyst",
+    "B": "minecraft:leather",
+    "X": "pvz:origin_ingot"
+  },
+  "pattern": [
+    "BBB",
+    "XAX",
+    "BBB"
+  ],
+  "result": {
+    "id": "pvz:card_pack"
+  }
+}

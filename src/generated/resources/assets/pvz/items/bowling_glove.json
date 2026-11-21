@@ -1,0 +1,9 @@
+{
+  "model": {
+    "type": "pvz:bowling_glove",
+    "glove_model": "pvz:item/bowling_glove",
+    "wall_nut": {
+      "type": "pvz:bowling_glove_wall_nut"
+    }
+  }
+}

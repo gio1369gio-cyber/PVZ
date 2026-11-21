@@ -1,0 +1,33 @@
+{
+  "parent": "pvz:adventure/origin",
+  "criteria": {
+    "shot_arrow": {
+      "conditions": {
+        "amount": {
+          "amount": {
+            "min": 8000
+          }
+        }
+      },
+      "trigger": "pvz:sun_amount"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.sunny_days.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "pvz:sun_storage_sapling"
+    },
+    "title": {
+      "translate": "advancement.pvz.sunny_days"
+    }
+  },
+  "requirements": [
+    [
+      "shot_arrow"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

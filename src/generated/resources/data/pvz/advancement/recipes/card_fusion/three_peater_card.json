@@ -1,0 +1,20 @@
+{
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "pvz:card_fusion/three_peater_card"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "pvz:card_fusion/three_peater_card"
+    ]
+  }
+}

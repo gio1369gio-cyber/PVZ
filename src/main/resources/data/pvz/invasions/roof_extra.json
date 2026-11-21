@@ -1,0 +1,28 @@
+{
+  "is_assist": false,
+  "trigger_chance": 80,
+  "bonus": "pvz:roof",
+  "display_color": "#FF0000",
+  "spawns": [
+    {
+      "entity_type": "pvz:mc_zombie",
+      "invasion_level": 1,
+      "spawn_weight": 100
+    },
+    {
+      "entity_type": "pvz:edgar_090547",
+      "invasion_level": 25,
+      "spawn_weight": 5
+    },
+    {
+      "entity_type": "pvz:airborne_zombie",
+      "invasion_level": 10,
+      "spawn_weight": 20
+    },
+    {
+      "entity_type": "pvz:flower_pot_zombie",
+      "invasion_level": 10,
+      "spawn_weight": 25
+    }
+  ]
+}

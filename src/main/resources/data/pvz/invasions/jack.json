@@ -1,0 +1,13 @@
+{
+  "is_assist": false,
+  "trigger_chance": 80,
+  "bonus": "pvz:pool_night",
+  "display_color": "#FF5555",
+  "spawns": [
+    { "entity_type": "pvz:normal_zombie", "invasion_level": 1, "spawn_weight": 100 },
+    { "entity_type": "pvz:jack_in_box_zombie", "invasion_level": 23, "spawn_weight": 40 },
+    { "entity_type": "pvz:pogo_zombie", "invasion_level": 15, "spawn_weight": 40 },
+    { "entity_type": "pvz:balloon_zombie", "invasion_level": 25, "spawn_weight": 40 },
+    { "entity_type": "pvz:digger_zombie", "invasion_level": 35, "spawn_weight": 30 }
+  ]
+}

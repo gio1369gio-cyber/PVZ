@@ -1,0 +1,31 @@
+{
+  "parent": "pvz:adventure/root",
+  "criteria": {
+    "in_world": {
+      "conditions": {
+        "type": "strange_help"
+      },
+      "trigger": "pvz:challenge"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.strange_help.desc"
+    },
+    "icon": {
+      "id": "pvz:challenge_envelope"
+    },
+    "title": {
+      "translate": "advancement.pvz.strange_help"
+    }
+  },
+  "requirements": [
+    [
+      "in_world"
+    ]
+  ],
+  "rewards": {
+    "experience": 100
+  },
+  "sends_telemetry_event": true
+}

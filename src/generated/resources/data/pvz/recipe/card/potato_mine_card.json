@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:explosion_essence",
+    "B": "minecraft:potato",
+    "C": "#pvz:card/white_cards"
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "ACA"
+  ],
+  "result": {
+    "id": "pvz:potato_mine_card"
+  }
+}

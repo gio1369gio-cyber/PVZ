@@ -1,0 +1,33 @@
+{
+  "parent": "pvz:adventure/first_plant",
+  "criteria": {
+    "shot_arrow": {
+      "conditions": {
+        "killing_blow": {
+          "source_entity": {
+            "minecraft:entity_type": "pvz:potato_mine"
+          }
+        }
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.spudow.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "pvz:potato_mine_enjoy_card"
+    },
+    "title": {
+      "translate": "advancement.pvz.spudow"
+    }
+  },
+  "requirements": [
+    [
+      "shot_arrow"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

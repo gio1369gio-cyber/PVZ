@@ -1,0 +1,15 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "pvz:pvz_single",
+        "location": "pvz:dave_villa/davevilla2",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "structure_name": "dave_villa"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

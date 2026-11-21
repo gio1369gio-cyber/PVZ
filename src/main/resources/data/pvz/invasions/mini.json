@@ -1,0 +1,6 @@
+{
+  "is_assist": true,
+  "trigger_chance": 10,
+  "display_color": "#00AAAA",
+  "require_level": 50
+}

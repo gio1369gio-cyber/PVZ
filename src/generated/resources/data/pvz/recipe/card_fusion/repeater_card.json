@@ -1,0 +1,11 @@
+{
+  "type": "pvz:card_fusion",
+  "ingredients": [
+    "pvz:pea_shooter_card",
+    "pvz:pea_shooter_card",
+    "#pvz:card/gold_cards"
+  ],
+  "result": {
+    "id": "pvz:repeater_card"
+  }
+}

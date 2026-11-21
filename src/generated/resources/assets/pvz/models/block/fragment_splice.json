@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "pvz:block/fragment_splice_down",
+    "east": "pvz:block/fragment_splice_side",
+    "north": "pvz:block/fragment_splice_side",
+    "particle": "pvz:block/fragment_splice_side",
+    "south": "pvz:block/fragment_splice_side",
+    "up": "pvz:block/fragment_splice_top",
+    "west": "pvz:block/fragment_splice_side"
+  }
+}

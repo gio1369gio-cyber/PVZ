@@ -1,0 +1,35 @@
+{
+  "parent": "pvz:adventure/essence",
+  "criteria": {
+    "shot_arrow": {
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "pvz:crazy_dave"
+          }
+        }
+      },
+      "trigger": "pvz:trade"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.pvz.crazy_dave.desc"
+    },
+    "frame": "goal",
+    "icon": {
+      "id": "pvz:car_key"
+    },
+    "title": {
+      "translate": "advancement.pvz.crazy_dave"
+    }
+  },
+  "requirements": [
+    [
+      "shot_arrow"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

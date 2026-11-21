@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:toxic_essence",
+    "B": "pvz:spore",
+    "C": "#pvz:card/white_cards"
+  },
+  "pattern": [
+    "AAA",
+    "ABA",
+    "ACA"
+  ],
+  "result": {
+    "id": "pvz:scaredy_shroom_card"
+  }
+}

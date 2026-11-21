@@ -1,0 +1,15 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "pvz:pvz_single",
+        "location": "pvz:zombie_house/graveyard",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "structure_name": "grave_house"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

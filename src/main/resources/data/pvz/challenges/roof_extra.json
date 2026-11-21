@@ -1,0 +1,77 @@
+{
+  "type": "default",
+  "authors": ["susen36"],
+  "tags": ["overworld"],
+  "bar_color": "red",
+  "trade_price": 275,
+  "trade_weight": 70,
+  "recommend_level": 45,
+  "placement": {
+    "type": "center",
+    "radius": 10,
+    "ground": true
+  },
+  "waves": [
+    {
+      "type": "default",
+      "duration": 5000,
+      "spawns": [
+        {"type": "default", "entity_type": "pvz:mc_zombie", "spawn_tick": 50, "spawn_amount": {"type": "random", "min": 15, "max": 20}},
+        {"type": "default", "entity_type": "pvz:normal_zombie", "spawn_tick": 60, "spawn_amount": {"type": "random", "min": 15, "max": 20}}
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 600,
+      "spawns": [
+        {
+          "type": "default",
+          "entity_type": "pvz:flower_pot_zombie",
+          "spawn_tick": 20,
+          "placement": {"type": "center", "radius": 1, "ground": true},
+          "spawn_amount": {"type": "random", "min": 3, "max": 4}
+        },
+        {
+          "type": "default",
+          "entity_type": "pvz:edgar_090547",
+          "spawn_tick": 20,
+          "placement": {"type": "center", "radius": 1, "ground": true},
+          "spawn_amount": {"type": "count", "count": 2}
+        }
+      ]
+    },
+    {
+      "type": "default",
+      "duration": 800,
+      "spawns": [
+        {
+          "type": "default",
+          "entity_type": "pvz:steel_pumpkin_zombie",
+          "spawn_tick": 50,
+          "placement": {"type": "center", "radius": 1, "ground": true},
+          "spawn_amount": {"type": "random", "min": 3, "max": 4}
+        },
+        {
+          "type": "default",
+          "entity_type": "pvz:target_arrow_zombie",
+          "spawn_tick": 30,
+          "spawn_amount": {"type": "random", "min": 2, "max": 4}
+        }
+      ]
+    }
+  ],
+  "rewards": [
+    {
+      "type": "unlocks",
+      "unlocks": ["pvz:steel_pumpkin", "pvz:ice_cabbage_pult"]
+    },
+    {
+      "type": "items",
+      "items": [
+        {"item": "pvz:steel_pumpkin_enjoy_card", "amount": {"type": "count", "count": 2}},
+        {"item": "pvz:ice_cabbage_pult_enjoy_card", "amount": {"type": "random", "min": 2, "max": 5}},
+        {"item": "pvz:cactus_enjoy_card", "amount": {"type": "random", "min": 1, "max": 2}}
+      ]
+    }
+  ]
+}

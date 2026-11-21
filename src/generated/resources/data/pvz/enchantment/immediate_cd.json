@@ -1,0 +1,21 @@
+{
+  "anvil_cost": 2,
+  "description": {
+    "color": "gray",
+    "translate": "enchantment.pvz.immediate_cd"
+  },
+  "max_cost": {
+    "base": 20,
+    "per_level_above_first": 20
+  },
+  "max_level": 3,
+  "min_cost": {
+    "base": 5,
+    "per_level_above_first": 20
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#pvz:enchantable/summon_card",
+  "weight": 5
+}

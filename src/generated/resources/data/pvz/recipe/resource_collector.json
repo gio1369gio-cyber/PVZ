@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "pvz:assist_essence",
+    "B": "minecraft:daylight_detector",
+    "X": "minecraft:gold_ingot"
+  },
+  "pattern": [
+    "AXA",
+    "XBX",
+    "AXA"
+  ],
+  "result": {
+    "id": "pvz:resource_collector"
+  }
+}

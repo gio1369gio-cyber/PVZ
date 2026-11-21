@@ -1,0 +1,7 @@
+{
+  "parent": "pvz:item/card_base",
+  "textures": {
+    "layer0": "pvz:item/misc/gold_card",
+    "layer1": "pvz:screenshot/plant/gatling_pea"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "has_essence": {
+      "conditions": {
+        "items": [
+          {
+            "items": "pvz:ice_essence"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "pvz:fragment_splice/ice_shroom_card"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_essence"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "pvz:fragment_splice/ice_shroom_card"
+    ]
+  }
+}
