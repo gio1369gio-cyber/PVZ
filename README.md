@@ -1,25 +1,32 @@
+[![](http://cf.way2muchnoise.eu/full_411396_downloads.svg)](https://www.curseforge.com/minecraft/mc-mods/hungteens-plants-vs-zombies-mod)
+# HungTeen's Plants vs Zombies mod
 
-Installation information
-=======
+### Current Progress
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+Minecraft 1.12.2-0.7.10: Stop updating.
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+Minecraft 1.15.2-0.5.1: Stop updating.
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+Minecraft 1.16.5-0.6.2: Developing.
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+Minecraft 1.18.x-0.7: Waiting.
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+---
+
+### Related Websites
+
+CurseForge: [Click Here](https://www.curseforge.com/minecraft/mc-mods/hungteens-plants-vs-zombies-mod)
+
+MCMOD: [Click Here](https://www.mcmod.cn/class/2640.html)
+
+MCBBS: [Click Here](https://www.mcbbs.net/thread-1052460-1-1.html)
+
+BiliBili: [Click Here](https://space.bilibili.com/362855464)
+
+---
+
+### Contact Me
+
+Discord: **https://discord.gg/KmnFH4MUGF**
+
+QQ Group: 1057013024
