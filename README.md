@@ -11,6 +11,8 @@ Minecraft 1.16.5-0.6.2: Developing.
 
 Minecraft 1.18.x-0.7: Waiting.
 
+Minecraft 26.3-1.0.0: Refactor.
+
 ---
 
 ### Related Websites
