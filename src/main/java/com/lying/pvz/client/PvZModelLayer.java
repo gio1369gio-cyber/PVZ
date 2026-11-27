@@ -204,7 +204,7 @@ public class PvZModelLayer {
         event.registerLayerDefinition(SteelPumpkinZombieModel.LAYER_LOCATION, SteelPumpkinZombieModel::createBodyLayer);
         event.registerLayerDefinition(AirborneZombieModel.LAYER_LOCATION, AirborneZombieModel::createBodyLayer);
         event.registerLayerDefinition(Edgar090547Model.LAYER_LOCATION, Edgar090547Model::createBodyLayer);
-        event.registerLayerDefinition(SphinxTerminatorModel.LAYER_LOCATION, SphinxTerminatorModel::createBodyLayer);
+        event.registerLayerDefinition(QuadrupedMechModel.LAYER_LOCATION, QuadrupedMechModel::createBodyLayer);
         event.registerLayerDefinition(MJZombieModel.LAYER_LOCATION, MJZombieModel::createBodyLayer);
         event.registerLayerDefinition(MCZombieModel.LAYER_LOCATION,MCZombieModel::createBodyLayer);
         event.registerLayerDefinition(DancerBackupModel.LAYER_LOCATION, DancerBackupModel::createBodyLayer);

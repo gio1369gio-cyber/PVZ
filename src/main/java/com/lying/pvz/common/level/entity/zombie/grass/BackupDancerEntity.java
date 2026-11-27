@@ -2,7 +2,7 @@ package com.lying.pvz.common.level.entity.zombie.grass;
 
 import com.lying.pvz.api.content.paz.IZombieType;
 import com.lying.pvz.common.impl.zombie.GrassZombies;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.EntityUtil;
 import com.lying.pvz.utils.MathUtil;
 import com.lying.pvz.utils.ZombieUtil;
@@ -32,7 +32,7 @@ import java.util.Optional;
  * <p>本体 20 血。移动速度在跳舞时为 0，否则 {@link ZombieUtil#WALK_LITTLE_SLOW}。
  * 与宿主一致，{@code canCollideWithZombie = false}，避免舞群互推。
  */
-public class BackupDancerEntity extends ZombieEntity {
+public class BackupDancerEntity extends PVZZombieEntity {
 
 	public static final int DANCE_CD = DancingZombieEntity.DANCE_CD;
 	protected Optional<DancingZombieEntity> owner = Optional.empty();
@@ -40,7 +40,7 @@ public class BackupDancerEntity extends ZombieEntity {
 	private static final int MAX_REST_CD = 300;
 	private int restTick = 0;
 
-	public BackupDancerEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public BackupDancerEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 		this.canCollideWithZombie = false;
 	}

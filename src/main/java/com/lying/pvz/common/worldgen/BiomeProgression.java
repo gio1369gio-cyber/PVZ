@@ -8,7 +8,7 @@ import net.minecraft.world.level.biome.Biome;
 import java.util.List;
 
 /**
- * PVZ 世界群系的解锁顺序链：远古埃及 → 海盗港湾 → 狂野西部 → 功夫世界。
+ * PVZ 世界群系的解锁顺序链：远古埃及 → 海盗港湾 → 狂野西部 → 未来世界。
  *
  * <p>纯静态定义，无状态。供 BOSS 解锁事件、召唤物品、TimeKeyItem 传送共用。
  * 起始群系（埃及）永远解锁；击败 BOSS 后按此链解锁下一个。
@@ -20,7 +20,7 @@ public final class BiomeProgression {
             PvZBiome.ANCIENT_EGYPT,
             PvZBiome.PIRATE_HARBOR,
             PvZBiome.WILD_WEST,
-            PvZBiome.KUNG_FU_WORLD
+            PvZBiome.FUTURE_WORLD
     );
 
     private BiomeProgression() {}
@@ -61,7 +61,7 @@ public final class BiomeProgression {
         return i >= 0 && i + 1 < ORDER.size() ? ORDER.get(i + 1) : null;
     }
 
-    /** 是否是链的最后一个群系（功夫世界）。 */
+    /** 是否是链的最后一个群系（未来世界）。 */
     public static boolean isLast(ResourceKey<Biome> biome) {
         return indexOf(biome) == ORDER.size() - 1;
     }

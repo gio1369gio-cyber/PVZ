@@ -4,7 +4,7 @@ import com.lying.pvz.api.content.paz.IZombieType;
 import com.lying.pvz.api.entity.ability.IHasMetal;
 import com.lying.pvz.api.entity.ability.MetalTypes;
 import com.lying.pvz.common.impl.zombie.GrassZombies;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.ZombieUtil;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
@@ -23,9 +23,9 @@ import net.minecraft.world.level.Level;
  *
  * <p>碰撞箱：常规 0.8×2.4；迷你僵尸 0.5×0.75。
  */
-public class FootballZombieEntity extends ZombieEntity implements IHasMetal {
+public class FootballZombieEntity extends PVZZombieEntity implements IHasMetal {
 
-	public FootballZombieEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public FootballZombieEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 		this.canLostHand = false;
 		this.increaseMetal();

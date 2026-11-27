@@ -8,7 +8,7 @@ import com.lying.pvz.common.impl.zombie.GrassZombies;
 import com.lying.pvz.common.impl.zombie.PoolZombies;
 import com.lying.pvz.common.impl.zombie.RoofZombies;
 import com.lying.pvz.common.level.entity.PVZBaseEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -28,7 +28,7 @@ import java.util.Optional;
 /**
  * 僵尸掉落身体部件实体。
  *
- * <p>由 {@link ZombieEntity} 在断肢（{@code onLostPart}）、死亡（{@code onFallBody}）
+ * <p>由 {@link PVZZombieEntity} 在断肢（{@code onLostPart}）、死亡（{@code onFallBody}）
  * 时生成，本身不参与 AI：服务端 tick 只处理重力、地面摩擦与存活计时，
  * {@code max_exist_tick} 到后 {@link #discard()}。
  *
@@ -90,7 +90,7 @@ public class ZombieDropBodyEntity extends PVZBaseEntity implements IBodyEntity {
 		}
 	}
 
-	public void droppedByOwner(ZombieEntity zombie, DamageSource source, BodyType type) {
+	public void droppedByOwner(PVZZombieEntity zombie, DamageSource source, BodyType type) {
 		this.updateInfo(zombie, type);
 		switch (type) {
 			case HAND -> {
@@ -110,7 +110,7 @@ public class ZombieDropBodyEntity extends PVZBaseEntity implements IBodyEntity {
 		}
 	}
 
-	public void specialDropBody(ZombieEntity zombie, DamageSource source, BodyType type) {
+	public void specialDropBody(PVZZombieEntity zombie, DamageSource source, BodyType type) {
 		this.updateInfo(zombie, type);
 		final IZombieType zombieType = zombie.getZombieType();
 		if (zombieType == PoolZombies.ZOMBONI.get() || zombieType == RoofZombies.CATAPULT_ZOMBIE.get()) {
@@ -118,11 +118,11 @@ public class ZombieDropBodyEntity extends PVZBaseEntity implements IBodyEntity {
 		}
 	}
 
-	private void hitUp(ZombieEntity zombie, DamageSource source, double speed) {
+	private void hitUp(PVZZombieEntity zombie, DamageSource source, double speed) {
 		this.hitUp(zombie, source, speed, speed, speed);
 	}
 
-	private void hitUp(ZombieEntity zombie, DamageSource source, double speed, double speedH, double speedV) {
+	private void hitUp(PVZZombieEntity zombie, DamageSource source, double speed, double speedH, double speedV) {
 		this.setPos(zombie.position().x, zombie.position().y + zombie.getEyeHeight(), zombie.position().z);
 		final double speedX = (this.random.nextDouble() - 0.5D) * speedH;
 		final double speedZ = (this.random.nextDouble() - 0.5D) * speedH;
@@ -133,7 +133,7 @@ public class ZombieDropBodyEntity extends PVZBaseEntity implements IBodyEntity {
 		});
 	}
 
-	public void updateInfo(ZombieEntity zombie, BodyType type) {
+	public void updateInfo(PVZZombieEntity zombie, BodyType type) {
 		this.setZombieType(zombie.getZombieType());
 		this.setMini(zombie.isMiniZombie());
 		this.setBodyType(type);

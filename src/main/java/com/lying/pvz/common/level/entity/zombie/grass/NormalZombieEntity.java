@@ -2,7 +2,7 @@ package com.lying.pvz.common.level.entity.zombie.grass;
 
 import com.lying.pvz.api.content.paz.IZombieType;
 import com.lying.pvz.common.impl.zombie.GrassZombies;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.ZombieUtil;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -18,9 +18,9 @@ import net.minecraft.world.level.Level;
  *
  * <p>水下减速 0.91，为泳池里最慢的一档。
  */
-public class NormalZombieEntity extends ZombieEntity {
+public class NormalZombieEntity extends PVZZombieEntity {
 
-	public NormalZombieEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public NormalZombieEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 	}
 

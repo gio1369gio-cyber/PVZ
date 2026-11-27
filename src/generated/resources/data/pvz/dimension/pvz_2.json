@@ -3,130 +3,14 @@
   "generator": {
     "type": "minecraft:noise",
     "biome_source": {
-      "type": "minecraft:multi_noise",
+      "type": "pvz:islands",
       "biomes": [
-        {
-          "biome": "pvz:ancient_egypt",
-          "parameters": {
-            "continentalness": [
-              -1.0,
-              1.0
-            ],
-            "depth": [
-              -1.0,
-              1.0
-            ],
-            "erosion": [
-              -1.0,
-              1.0
-            ],
-            "humidity": [
-              -1.0,
-              0.0
-            ],
-            "offset": 0.0,
-            "temperature": [
-              0.0,
-              1.0
-            ],
-            "weirdness": [
-              -1.0,
-              1.0
-            ]
-          }
-        },
-        {
-          "biome": "pvz:wild_west",
-          "parameters": {
-            "continentalness": [
-              -1.0,
-              1.0
-            ],
-            "depth": [
-              -1.0,
-              1.0
-            ],
-            "erosion": [
-              -1.0,
-              1.0
-            ],
-            "humidity": [
-              -1.0,
-              0.0
-            ],
-            "offset": 0.0,
-            "temperature": [
-              -1.0,
-              0.0
-            ],
-            "weirdness": [
-              -1.0,
-              1.0
-            ]
-          }
-        },
-        {
-          "biome": "pvz:pirate_harbor",
-          "parameters": {
-            "continentalness": [
-              -1.0,
-              1.0
-            ],
-            "depth": [
-              -1.0,
-              1.0
-            ],
-            "erosion": [
-              -1.0,
-              1.0
-            ],
-            "humidity": [
-              0.0,
-              1.0
-            ],
-            "offset": 0.0,
-            "temperature": [
-              0.0,
-              1.0
-            ],
-            "weirdness": [
-              -1.0,
-              1.0
-            ]
-          }
-        },
-        {
-          "biome": "pvz:kung_fu_world",
-          "parameters": {
-            "continentalness": [
-              -1.0,
-              1.0
-            ],
-            "depth": [
-              -1.0,
-              1.0
-            ],
-            "erosion": [
-              -1.0,
-              1.0
-            ],
-            "humidity": [
-              0.0,
-              1.0
-            ],
-            "offset": 0.0,
-            "temperature": [
-              -1.0,
-              0.0
-            ],
-            "weirdness": [
-              -1.0,
-              1.0
-            ]
-          }
-        }
+        "pvz:ancient_egypt",
+        "pvz:pirate_harbor",
+        "pvz:wild_west",
+        "pvz:future_world"
       ]
     },
-    "settings": "minecraft:overworld"
+    "settings": "pvz:pvz_noise"
   }
 }

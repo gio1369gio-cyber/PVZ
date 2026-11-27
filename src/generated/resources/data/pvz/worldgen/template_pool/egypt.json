@@ -1,0 +1,15 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "pvz:pvz_single",
+        "location": "pvz:pvz2/egypt",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "structure_name": "egypt"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

@@ -1,0 +1,15 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "pvz:pvz_single",
+        "location": "pvz:pvz2/wild",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "structure_name": "wild"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

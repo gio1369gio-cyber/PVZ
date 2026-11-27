@@ -1,6 +1,8 @@
 package com.lying.pvz.common.attachment.player;
 
 import com.lying.pvz.data.bootstrap.worldgen.biome.PvZBiome;
+import com.mojang.serialization.Codec;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.Identifier;
@@ -10,8 +12,11 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.common.util.ValueIOSerializable;
 
+import javax.annotation.Nullable;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -29,6 +34,12 @@ public final class BiomeUnlockState implements ValueIOSerializable {
     private static final Identifier START_BIOME = PvZBiome.ANCIENT_EGYPT.identifier();
 
     private final Set<Identifier> unlocked = new HashSet<>();
+
+    /**
+     * 每个群系的记忆传送落点（首次到达该群系时定位一次并记录，之后固定复用）。
+     * 目的：避免 TimeKey 误触时因重新随机定位而「乱传」。
+     */
+    private final Map<Identifier, BlockPos> anchors = new HashMap<>();
 
     /** 是否已发放过埃德加玩偶（只发一次，永久持有）。 */
     private boolean edgarDollGiven;
@@ -62,7 +73,29 @@ public final class BiomeUnlockState implements ValueIOSerializable {
         return Collections.unmodifiableSet(unlocked);
     }
 
+    /* ---------------- 群系记忆坐标 ---------------- */
+
+    /** 读取群系的记忆落点；从未到达过则返回 null。 */
+    @Nullable
+    public BlockPos getAnchor(ResourceKey<Biome> biome) {
+        return anchors.get(biome.identifier());
+    }
+
+    /** 是否已记忆该群系落点。 */
+    public boolean hasAnchor(ResourceKey<Biome> biome) {
+        return anchors.containsKey(biome.identifier());
+    }
+
+    /** 记录群系落点（只写一次语义由调用方保证；重复调用会覆盖）。 */
+    public void setAnchor(ResourceKey<Biome> biome, BlockPos pos) {
+        anchors.put(biome.identifier(), pos.immutable());
+    }
+
     /* ---------------- 序列化（玩家 NBT） ---------------- */
+
+    /** 群系 ID → 坐标 的 codec。用 BlockPos.CODEC 存三个整数。 */
+    private static final Codec<Map<Identifier, BlockPos>> ANCHORS_CODEC = Codec.unboundedMap(
+            Codec.STRING.xmap(Identifier::parse, Identifier::toString), BlockPos.CODEC);
 
     @Override
     public void serialize(ValueOutput out) {
@@ -70,6 +103,7 @@ public final class BiomeUnlockState implements ValueIOSerializable {
         for (Identifier id : unlocked) {
             list.add(id);
         }
+        out.store("biome_anchors", ANCHORS_CODEC, anchors);
         out.putBoolean("edgar_doll_given", edgarDollGiven);
     }
 
@@ -81,6 +115,8 @@ public final class BiomeUnlockState implements ValueIOSerializable {
         }
         // 兼容旧存档 / 防止误删起始群系
         unlocked.add(START_BIOME);
+        anchors.clear();
+        in.read("biome_anchors", ANCHORS_CODEC).ifPresent(anchors::putAll);
         this.edgarDollGiven = in.getBooleanOr("edgar_doll_given", false);
     }
 
@@ -96,6 +132,11 @@ public final class BiomeUnlockState implements ValueIOSerializable {
                     for (int i = 0; i < size; i++) {
                         s.unlocked.add(Identifier.parse(buf.readUtf()));
                     }
+                    s.anchors.clear();
+                    final int anchorCount = buf.readVarInt();
+                    for (int i = 0; i < anchorCount; i++) {
+                        s.anchors.put(Identifier.parse(buf.readUtf()), buf.readBlockPos());
+                    }
                     s.edgarDollGiven = buf.readBoolean();
                     return s;
                 }
@@ -106,6 +147,11 @@ public final class BiomeUnlockState implements ValueIOSerializable {
                     for (Identifier id : s.unlocked) {
                         buf.writeUtf(id.toString());
                     }
+                    buf.writeVarInt(s.anchors.size());
+                    s.anchors.forEach((id, pos) -> {
+                        buf.writeUtf(id.toString());
+                        buf.writeBlockPos(pos);
+                    });
                     buf.writeBoolean(s.edgarDollGiven);
                 }
             };

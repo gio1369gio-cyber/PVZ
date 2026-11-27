@@ -4,7 +4,7 @@ import com.lying.pvz.api.content.paz.IZombieType;
 import com.lying.pvz.common.impl.zombie.GrassZombies;
 import com.lying.pvz.common.init.PvZEntityRegister;
 import com.lying.pvz.common.level.entity.plant.assist.GraveBusterEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.common.level.entity.zombie.other.NobleZombieEntity;
 import com.lying.pvz.common.level.entity.zombie.roof.Edgar090505Entity;
 import com.lying.pvz.utils.EntityUtil;
@@ -95,7 +95,7 @@ public class TombStoneEntity extends AbstractTombStoneEntity {
 			if (zombie == null) {
 				return;
 			}
-			if (zombie instanceof ZombieEntity zombieEntity) {
+			if (zombie instanceof PVZZombieEntity zombieEntity) {
 				zombieEntity.setZombieRising();
 				ZombieUtil.copySummonZombieData(this, zombieEntity);
 			}

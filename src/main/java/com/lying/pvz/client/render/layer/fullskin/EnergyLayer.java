@@ -2,7 +2,7 @@ package com.lying.pvz.client.render.layer.fullskin;
 
 import com.lying.pvz.client.render.state.entity.plant.PvZPlantRenderState;
 import com.lying.pvz.client.render.state.entity.zombie.PvZZombieRenderState;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.StringUtil;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
@@ -23,7 +23,7 @@ public class EnergyLayer<S extends LivingEntityRenderState, M extends EntityMode
 			return false;
 		}
 		if (state instanceof PvZZombieRenderState zs) {
-			return zs.variantType == ZombieEntity.VariantType.SUPER;
+			return zs.variantType == PVZZombieEntity.VariantType.SUPER;
 		}
 		if (state instanceof PvZPlantRenderState ps) {
 			return ps.superMode;

@@ -1,0 +1,123 @@
+{
+  "type": "minecraft:cache",
+  "input": {
+    "type": "minecraft:min",
+    "left": {
+      "type": "minecraft:max",
+      "left": {
+        "type": "minecraft:max",
+        "left": {
+          "type": "minecraft:max",
+          "left": {
+            "type": "minecraft:sub",
+            "left": {
+              "type": "minecraft:gradient",
+              "axis": "y",
+              "from_coordinate": 8,
+              "from_value": 0.0,
+              "to_coordinate": 64,
+              "to_value": 80.0
+            },
+            "right": {
+              "type": "minecraft:slice",
+              "axis": "y",
+              "coordinate": 0,
+              "input": {
+                "type": "minecraft:distance_to_point",
+                "metric": "euclidean",
+                "point": [
+                  0,
+                  0,
+                  0
+                ]
+              }
+            }
+          },
+          "right": {
+            "type": "minecraft:sub",
+            "left": {
+              "type": "minecraft:gradient",
+              "axis": "y",
+              "from_coordinate": 8,
+              "from_value": 0.0,
+              "to_coordinate": 64,
+              "to_value": 80.0
+            },
+            "right": {
+              "type": "minecraft:slice",
+              "axis": "y",
+              "coordinate": 0,
+              "input": {
+                "type": "minecraft:distance_to_point",
+                "metric": "euclidean",
+                "point": [
+                  500,
+                  0,
+                  0
+                ]
+              }
+            }
+          }
+        },
+        "right": {
+          "type": "minecraft:sub",
+          "left": {
+            "type": "minecraft:gradient",
+            "axis": "y",
+            "from_coordinate": 8,
+            "from_value": 0.0,
+            "to_coordinate": 64,
+            "to_value": 80.0
+          },
+          "right": {
+            "type": "minecraft:slice",
+            "axis": "y",
+            "coordinate": 0,
+            "input": {
+              "type": "minecraft:distance_to_point",
+              "metric": "euclidean",
+              "point": [
+                0,
+                0,
+                500
+              ]
+            }
+          }
+        }
+      },
+      "right": {
+        "type": "minecraft:sub",
+        "left": {
+          "type": "minecraft:gradient",
+          "axis": "y",
+          "from_coordinate": 8,
+          "from_value": 0.0,
+          "to_coordinate": 64,
+          "to_value": 80.0
+        },
+        "right": {
+          "type": "minecraft:slice",
+          "axis": "y",
+          "coordinate": 0,
+          "input": {
+            "type": "minecraft:distance_to_point",
+            "metric": "euclidean",
+            "point": [
+              -500,
+              0,
+              0
+            ]
+          }
+        }
+      }
+    },
+    "right": {
+      "type": "minecraft:gradient",
+      "axis": "y",
+      "from_coordinate": 64,
+      "from_value": 100.0,
+      "to_coordinate": 65,
+      "to_value": -100.0
+    }
+  }
+}

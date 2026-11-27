@@ -3,7 +3,7 @@ package com.lying.pvz.common.level.entity.zombie.other;
 import com.lying.pvz.api.content.paz.IZombieType;
 import com.lying.pvz.common.impl.zombie.OtherZombies;
 import com.lying.pvz.common.init.PvZEntityRegister;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.EntityUtil;
 import com.lying.pvz.utils.MathUtil;
 import com.lying.pvz.utils.WorldUtil;
@@ -29,7 +29,7 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Optional;
 
-public class MJZombieEntity extends ZombieEntity {
+public class MJZombieEntity extends PVZZombieEntity {
     private static final EntityDataAccessor<Integer> SUMMON_TIME;
 
     private static final float[][] POS_OFFSET;
@@ -38,7 +38,7 @@ public class MJZombieEntity extends ZombieEntity {
     private int summonCnt = 0;
     private int restTick = 0;
 
-    public MJZombieEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+    public MJZombieEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
         super(type, worldIn);
         this.canCollideWithZombie = false;
         this.setRestTick();

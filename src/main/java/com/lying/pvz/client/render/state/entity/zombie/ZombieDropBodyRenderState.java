@@ -13,7 +13,7 @@ import net.minecraft.client.renderer.entity.state.EntityRenderState;
  *
  * <p><b>不复用 {@link PvZZombieRenderState}</b>：
  * <ul>
- *   <li>语义不同：本体 mini 走 {@code ZombieEntity.isMiniZombie()}，
+ *   <li>语义不同：本体 mini 走 {@code PVZZombieEntity.isMiniZombie()}，
  *       掉落肢体 mini 走 {@code ZombieDropBodyEntity.isMini()}——同一僵尸被拆开后
  *       掉落肢体的 mini 可能与本体的 mini 状态不同步（构造时快照）。</li>
  *   <li>本类 {@code extends EntityRenderState}（非 Living），无 walk/pose 字段。</li>

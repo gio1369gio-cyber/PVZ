@@ -40,14 +40,14 @@
           ],
           "pvz:zombie": [
             {
-              "type": "pvz:mj_zombie",
+              "type": "pvz:target_arrow_zombie",
               "count": 1,
               "weight": 5
             },
             {
-              "type": "pvz:red_edge_zombie",
+              "type": "pvz:mc_zombie",
               "count": 1,
-              "weight": 5
+              "weight": 4
             }
           ]
         }
@@ -57,37 +57,33 @@
     "minecraft:visual/ambient_particles": [
       {
         "particle": {
-          "type": "pvz:spore"
+          "type": "pvz:blue_flame"
         },
-        "probability": 0.0025
+        "probability": 0.002
       }
     ],
-    "minecraft:visual/fog_color": "#8fafa0",
-    "minecraft:visual/fog_end_distance": 160.0,
-    "minecraft:visual/fog_start_distance": 30.0,
-    "minecraft:visual/sky_color": "#a8c4b8",
-    "minecraft:visual/water_fog_color": "#4a6b5c"
+    "minecraft:visual/fog_color": "#4a9cb8",
+    "minecraft:visual/fog_end_distance": 140.0,
+    "minecraft:visual/fog_start_distance": 20.0,
+    "minecraft:visual/sky_color": "#3b3a7a",
+    "minecraft:visual/water_fog_color": "#2c5f8a"
   },
-  "carvers": [
-    "minecraft:cave",
-    "minecraft:cave_extra_underground",
-    "minecraft:canyon"
-  ],
-  "downfall": 0.85,
+  "carvers": [],
+  "downfall": 0.35,
   "effects": {
-    "dry_foliage_color": "#6a8f52",
-    "foliage_color": "#4e8b4a",
-    "grass_color": "#5fa052",
-    "water_color": "#3a6b5a"
+    "dry_foliage_color": "#5e7ba0",
+    "foliage_color": "#4a7fa8",
+    "grass_color": "#4e7c93",
+    "water_color": "#2c5f8a"
   },
   "features": [
     [],
+    [],
+    [],
     [
-      "minecraft:lake_lava_underground",
-      "minecraft:lake_lava_surface"
+      "minecraft:fossil_upper",
+      "minecraft:fossil_lower"
     ],
-    [],
-    [],
     [],
     [],
     [
@@ -106,18 +102,15 @@
       "minecraft:ore_diamond_buried",
       "minecraft:ore_lapis",
       "minecraft:ore_lapis_buried",
-      "minecraft:ore_copper",
+      "minecraft:ore_copper_large",
       "minecraft:underwater_magma"
     ],
     [],
     [],
     [
-      "minecraft:bamboo",
-      "minecraft:bamboo_vegetation",
-      "minecraft:trees_windswept_hills",
       "minecraft:patch_grass_badlands"
     ]
   ],
-  "has_precipitation": true,
-  "temperature": 0.75
+  "has_precipitation": false,
+  "temperature": 0.65
 }

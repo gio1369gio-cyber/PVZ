@@ -2,7 +2,7 @@ package com.lying.pvz.common.level.entity.zombie.custom;
 
 import com.lying.pvz.api.content.paz.IZombieType;
 import com.lying.pvz.common.impl.zombie.CustomZombies;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.EntityUtil;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -19,7 +19,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
-public class RedEdgeZombieEntity extends ZombieEntity {
+public class RedEdgeZombieEntity extends PVZZombieEntity {
 
     private final ServerBossEvent bossInfo = new ServerBossEvent(this.uuid,this.getDisplayName(),
             BossEvent.BossBarColor.RED, BossEvent.BossBarOverlay.PROGRESS);
@@ -32,7 +32,7 @@ public class RedEdgeZombieEntity extends ZombieEntity {
             SynchedEntityData.defineId(RedEdgeZombieEntity.class, EntityDataSerializers.BOOLEAN);
     private int noTargetTick;
 
-    public RedEdgeZombieEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+    public RedEdgeZombieEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
         super(type, worldIn);
         this.bossInfo.setDarkenScreen(true);
         this.noTargetTick = 0;

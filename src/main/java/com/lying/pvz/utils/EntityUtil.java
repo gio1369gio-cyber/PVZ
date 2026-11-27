@@ -9,7 +9,7 @@ import com.lying.pvz.common.level.entity.AbstractPAZEntity;
 import com.lying.pvz.common.level.entity.EntityGroupHander;
 import com.lying.pvz.common.level.entity.MultiPartEntity;
 import com.lying.pvz.common.level.entity.plant.PlantEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.common.level.entity.zombie.base.AbstractBossZombieEntity;
 import com.lying.pvz.common.level.entity.zombie.pool.BalloonZombieEntity;
 import com.lying.pvz.common.payload.SpawnParticlePayload;
@@ -62,7 +62,7 @@ public class EntityUtil {
     }
 
     public static boolean canEntityBeRemoved(Entity entity) {
-        if(entity instanceof ZombieEntity zombie) {
+        if(entity instanceof PVZZombieEntity zombie) {
             return zombie.canZombieBeRemoved();
         }
         if(!BuiltInRegistries.ENTITY_TYPE.getKey(entity.getType()).getNamespace().equals(PvZMod.MOD_ID)
@@ -131,7 +131,7 @@ public class EntityUtil {
 
     public static boolean isEntityBoss(@NonNull LivingEntity entity) {
         if(entity instanceof AbstractPAZEntity) {
-            if(entity instanceof ZombieEntity) {
+            if(entity instanceof PVZZombieEntity) {
                 return entity instanceof AbstractBossZombieEntity;
             }
             if(entity instanceof PlantEntity) {
@@ -464,7 +464,7 @@ public class EntityUtil {
     public static void addPotionEffect(Entity entity, MobEffectInstance effect) {
         if (entity instanceof MultiPartEntity part) {
             addPotionEffect(part.getOwner(), effect);
-        } else if (entity instanceof ZombieEntity zombie) {
+        } else if (entity instanceof PVZZombieEntity zombie) {
             zombie.checkAndAddPotionEffect(effect);
         } else if (entity instanceof PlantEntity plant) {
             plant.checkAndAddPotionEffect(effect);

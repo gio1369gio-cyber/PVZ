@@ -6,7 +6,7 @@ import com.lying.pvz.client.ClientUtil;
 import com.lying.pvz.client.render.renderer.entity.PvZCreatureRender;
 import com.lying.pvz.client.render.state.entity.zombie.PvZZombieRenderState;
 import com.lying.pvz.common.init.PvZEffectRegister;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.EntityUtil;
 import com.lying.pvz.utils.StringUtil;
 import net.minecraft.client.model.EntityModel;
@@ -16,7 +16,7 @@ import net.minecraft.world.phys.Vec3;
 
 import java.util.Optional;
 
-public abstract class PvZZombieRender<T extends ZombieEntity,
+public abstract class PvZZombieRender<T extends PVZZombieEntity,
         M extends EntityModel<? super PvZZombieRenderState>>
         extends PvZCreatureRender<T, PvZZombieRenderState, M> {
 

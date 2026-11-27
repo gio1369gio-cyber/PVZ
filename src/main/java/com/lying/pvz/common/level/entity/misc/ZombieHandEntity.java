@@ -4,7 +4,7 @@ import com.lying.pvz.api.entity.ability.GroupType;
 import com.lying.pvz.common.damage.PvZEntityDamageSource;
 import com.lying.pvz.common.init.PvZEntityRegister;
 import com.lying.pvz.common.level.entity.AbstractOwnerEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.EntityUtil;
 import com.lying.pvz.utils.WorldUtil;
 
@@ -45,7 +45,7 @@ public class ZombieHandEntity extends AbstractOwnerEntity {
 		}
 	}
 
-	public static void spawnRangeZombieHands(Level world, ZombieEntity zombie, int range) {
+	public static void spawnRangeZombieHands(Level world, PVZZombieEntity zombie, int range) {
 		for (int i = -range; i <= range; ++i) {
 			for (int j = -range; j <= range; ++j) {
 				final ZombieHandEntity hand = PvZEntityRegister.ZOMBIE_HAND.get()

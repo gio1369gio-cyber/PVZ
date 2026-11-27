@@ -17,7 +17,7 @@ import net.minecraft.world.level.storage.ValueOutput;
  *   <li>无乘客时累计 {@code liveTick}，超过 {@link #getMaxLiveTick()} 后 {@link #discard()}。</li>
  * </ul>
  *
- * <p>不是 {@link ZombieEntity} 的子类：
+ * <p>不是 {@link PVZZombieEntity} 的子类：
  * 工具实体不参与僵尸 AI、不掉落部件、不进 BossBar。子类只需实现
  * 具体工具的行为，无需覆写生命周期逻辑；如需调整存活阈值，覆写
  * {@link #getMaxLiveTick()}。

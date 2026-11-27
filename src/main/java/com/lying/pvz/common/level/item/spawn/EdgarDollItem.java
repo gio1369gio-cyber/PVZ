@@ -1,6 +1,7 @@
 package com.lying.pvz.common.level.item.spawn;
 
 import com.lying.pvz.common.init.PvZEntityRegister;
+import com.lying.pvz.common.level.entity.zombie.base.AbstractBossZombieEntity;
 import com.lying.pvz.common.worldgen.BiomeProgression;
 import com.lying.pvz.data.bootstrap.worldgen.biome.PvZBiome;
 import com.lying.pvz.utils.PlayerUtil;
@@ -33,7 +34,9 @@ import java.util.function.Supplier;
 /**
  * 埃德加玩偶：手持右键，按所在 PVZ 群系召唤对应 BOSS。
  *
- * <p><b>群系→BOSS 映射表</b>：默认所有 PVZ 群系都召唤 {@code Edgar090517}。
+ * <p><b>群系→BOSS 映射表</b>：四个 PVZ2 时空群系分别召唤对应的四足机甲 BOSS：
+ * 远古埃及→狮身终结者、海盗港湾→甲板漫步者、狂野西部→战争马车、未来世界→明日破译者。
+ * 其余未映射群系回退到 {@code Edgar090517}。
  * 以后要给某个群系换 BOSS，调用 {@link #registerBoss(ResourceKey, Supplier)} 覆盖即可。
  *
  * <p>设计要点（对齐需求）：
@@ -67,8 +70,11 @@ public class EdgarDollItem extends Item {
     }
 
     static {
-        // 埃及群系：狮身终结者（PVZ2 埃及僵王）；其余群系仍默认 Edgar090517
-        registerBoss(PvZBiome.ANCIENT_EGYPT, PvZEntityRegister.SPHINX_TERMINATOR::get);
+        // PVZ2 四时空群系 → 对应四足机甲 BOSS
+        registerBoss(PvZBiome.ANCIENT_EGYPT, PvZEntityRegister.SPHINX_INATOR::get);
+        registerBoss(PvZBiome.PIRATE_HARBOR, PvZEntityRegister.PLANK_WALKER::get);
+        registerBoss(PvZBiome.WILD_WEST, PvZEntityRegister.WAR_WAGON::get);
+        registerBoss(PvZBiome.FUTURE_WORLD, PvZEntityRegister.TOMORROW_TRON::get);
     }
 
     private static EntityType<? extends Entity> defaultBoss() {
@@ -94,7 +100,7 @@ public class EdgarDollItem extends Item {
 
         // 防重复召唤：检测任意 BOSS 僵尸（Edgar 系列 / 狮身终结者）
         boolean bossAlive = !serverLevel.getEntitiesOfClass(
-                com.lying.pvz.common.level.entity.zombie.base.AbstractBossZombieEntity.class,
+                AbstractBossZombieEntity.class,
                 player.getBoundingBox().inflate(BOSS_CHECK_RADIUS),
                 e -> !e.isDeadOrDying()
         ).isEmpty();

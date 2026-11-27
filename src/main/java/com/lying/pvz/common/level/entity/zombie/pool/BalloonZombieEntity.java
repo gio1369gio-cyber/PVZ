@@ -6,7 +6,7 @@ import com.lying.pvz.common.damage.PvZEntityDamageSource;
 import com.lying.pvz.common.impl.zombie.PoolZombies;
 import com.lying.pvz.common.init.PvZSoundRegister;
 import com.lying.pvz.common.level.entity.plant.PlantEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.EntityUtil;
 import com.lying.pvz.utils.ZombieUtil;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -48,7 +48,7 @@ import java.util.Optional;
  * （见 {@link #isZombieInvulnerableTo}）。本体 23 血，行走
  * {@link ZombieUtil#WALK_LITTLE_SLOW}。
  */
-public class BalloonZombieEntity extends ZombieEntity {
+public class BalloonZombieEntity extends PVZZombieEntity {
 
 	private static final EntityDataAccessor<Boolean> HAS_BALLOON =
 			SynchedEntityData.defineId(BalloonZombieEntity.class, EntityDataSerializers.BOOLEAN);
@@ -58,7 +58,7 @@ public class BalloonZombieEntity extends ZombieEntity {
 	private PathNavigation flyNavigator;
 	private PathNavigation groundNavigator;
 
-	public BalloonZombieEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public BalloonZombieEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 	}
 

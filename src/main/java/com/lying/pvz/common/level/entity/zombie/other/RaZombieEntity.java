@@ -4,7 +4,7 @@ import com.lying.pvz.api.content.paz.IZombieType;
 import com.lying.pvz.common.impl.zombie.OtherZombies;
 import com.lying.pvz.common.level.entity.drop.DropEntity;
 import com.lying.pvz.common.level.entity.drop.SunEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.common.misc.PvZLoot;
 import com.lying.pvz.utils.EntityUtil;
 import com.lying.pvz.utils.MathUtil;
@@ -39,7 +39,7 @@ import java.util.Set;
  *
  * <p>掉落表沿用 {@link PvZLoot#RA_ZOMBIE}。
  */
-public class RaZombieEntity extends ZombieEntity {
+public class RaZombieEntity extends PVZZombieEntity {
 
 	public static final int ABSORB_TICK = 40;
 	private final Set<SunEntity> sunSet = new HashSet<>();
@@ -49,7 +49,7 @@ public class RaZombieEntity extends ZombieEntity {
 	private int sunAmount = 0;
 	private final double MaxSearchRange = 20;
 
-	public RaZombieEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public RaZombieEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 	}
 

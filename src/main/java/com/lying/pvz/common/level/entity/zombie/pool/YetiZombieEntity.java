@@ -5,7 +5,7 @@ import com.lying.pvz.api.content.paz.IZombieType;
 import com.lying.pvz.common.impl.zombie.PoolZombies;
 import com.lying.pvz.common.init.PvZEntityRegister;
 import com.lying.pvz.common.level.entity.drop.JewelEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.EntityUtil;
 import com.lying.pvz.utils.ZombieUtil;
 import net.minecraft.server.level.ServerLevel;
@@ -39,14 +39,14 @@ import net.minecraft.world.level.storage.ValueOutput;
  * <p>单次伤害 ≥100 时除以 10（防止一击致死）。死亡时在四角生成 4 颗
  * {JewelEntity}，掉落宝石奖励。
  */
-public class YetiZombieEntity extends ZombieEntity {
+public class YetiZombieEntity extends PVZZombieEntity {
 
 	private final int DROP_JEWEL_NUM = 4;
 	private final double[] DD = new double[]{-0.5D, 0.5D, 0.5D, -0.5D};
 	private int live_tick = 0;
 	private boolean hasInvis = false;
 
-	public YetiZombieEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public YetiZombieEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 		this.canBeFrozen = false;
 	}

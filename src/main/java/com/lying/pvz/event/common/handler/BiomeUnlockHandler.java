@@ -74,14 +74,8 @@ public final class BiomeUnlockHandler {
         }
     }
 
-    /** 从群系 key 的路径名生成显示文本（如 ancient_egypt → Ancient Egypt）。 */
-    private static String biomeName(ResourceKey<Biome> key) {
-        String path = key.identifier().getPath();
-        StringBuilder sb = new StringBuilder();
-        for (String part : path.split("_")) {
-            if (sb.length() > 0) sb.append(' ');
-            sb.append(Character.toUpperCase(part.charAt(0))).append(part.substring(1));
-        }
-        return sb.toString();
+    /** 群系显示名走语言文件（biome.&lt;namespace&gt;.&lt;path&gt;），客户端按当前语言自动翻译。 */
+    private static Component biomeName(ResourceKey<Biome> key) {
+        return Component.translatable("biome." + key.identifier().getNamespace() + "." + key.identifier().getPath());
     }
 }

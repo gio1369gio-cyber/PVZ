@@ -56,6 +56,19 @@ public class PeaPodEntity extends PeaShooterEntity {
         return result;
     }
 
+    /**
+     * 满血时用同种豌豆荚卡片交互也能加头：这里在满血情况下直接返回「已处理」，
+     * 让 {@link #mobInteract} 拿到 SUCCESS_SERVER 后执行 {@code addCount()}。
+     * 不走治疗逻辑，因此不会误加再生效果；非同种卡片仍按原逻辑返回 false。
+     */
+    @Override
+    public boolean onHealBy(IPlantType plantType, float percent) {
+        if (plantType == this.getPlantType() && this.getHealth() >= this.getMaxHealth()) {
+            return true;
+        }
+        return super.onHealBy(plantType, percent);
+    }
+
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);

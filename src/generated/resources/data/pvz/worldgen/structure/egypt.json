@@ -1,0 +1,6 @@
+{
+  "type": "pvz:egypt",
+  "biomes": "pvz:ancient_egypt",
+  "spawn_overrides": {},
+  "step": "surface_structures"
+}

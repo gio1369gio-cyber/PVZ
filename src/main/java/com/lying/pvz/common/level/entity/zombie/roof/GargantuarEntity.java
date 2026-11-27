@@ -7,7 +7,7 @@ import com.lying.pvz.common.init.PvZSoundRegister;
 import com.lying.pvz.common.level.entity.ai.goal.attack.PVZZombieAttackGoal;
 import com.lying.pvz.common.impl.zombie.RoofZombies;
 import com.lying.pvz.common.level.entity.plant.spear.SpikeRockEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.common.level.entity.zombie.body.ZombieDropBodyEntity;
 import com.lying.pvz.utils.EntityUtil;
 import com.lying.pvz.utils.ZombieUtil;
@@ -54,7 +54,7 @@ import java.util.EnumSet;
  * <p>不破坏植物方块、击退抗性拉满。掉落时 {@code body.setMaxLiveTick(DEATH_ANIM_CD)}
  * 让尸体持续 100 tick 供观看；{@code isSad} 决定尸体是否保留手部外观。
  */
-public class GargantuarEntity extends ZombieEntity {
+public class GargantuarEntity extends PVZZombieEntity {
 
 	private static final EntityDataAccessor<Boolean> HAS_IMP =
 			SynchedEntityData.defineId(GargantuarEntity.class, EntityDataSerializers.BOOLEAN);
@@ -63,7 +63,7 @@ public class GargantuarEntity extends ZombieEntity {
 	public static final int DEATH_ANIM_CD = 100;
 	public boolean isSad = false;
 
-	public GargantuarEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public GargantuarEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 		this.setIsWholeBody();
 	}

@@ -35,7 +35,7 @@
     "minecraft:visual/sky_color": "#9ecfef",
     "minecraft:visual/water_fog_color": "#55b8ac"
   },
-  "carvers": "minecraft:cave",
+  "carvers": [],
   "downfall": 0.35,
   "effects": {
     "dry_foliage_color": "#c2a266",

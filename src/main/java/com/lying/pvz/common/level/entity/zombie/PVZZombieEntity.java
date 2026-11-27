@@ -81,17 +81,17 @@ import java.util.Optional;
  * 两者互不干扰，解决了旧版单字段下升起被攻击递减压到 0 的问题。
  * 渲染层需同时读取两者，按各自语义偏移。
  */
-public abstract class ZombieEntity extends AbstractPAZEntity
+public abstract class PVZZombieEntity extends AbstractPAZEntity
         implements IZombieEntity, ICanDropBodyParts, ICanClimbWalls, ICanBeMini {
 
     private static final EntityDataAccessor<Integer> ZOMBIE_TYPE =
-            SynchedEntityData.defineId(ZombieEntity.class, EntityDataSerializers.INT);
+            SynchedEntityData.defineId(PVZZombieEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> ATTACK_TIME =
-            SynchedEntityData.defineId(ZombieEntity.class, EntityDataSerializers.INT);
+            SynchedEntityData.defineId(PVZZombieEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> ATTACK_ANIM_TIME =
-            SynchedEntityData.defineId(ZombieEntity.class, EntityDataSerializers.INT);
+            SynchedEntityData.defineId(PVZZombieEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> RISING_ANIM_TIME =
-            SynchedEntityData.defineId(ZombieEntity.class, EntityDataSerializers.INT);
+            SynchedEntityData.defineId(PVZZombieEntity.class, EntityDataSerializers.INT);
 
     public static final int PERFORM_ATTACK_CD = 10;
     public static final int RISING_CD = 30;
@@ -103,7 +103,7 @@ public abstract class ZombieEntity extends AbstractPAZEntity
     protected int climbUpTick = 0;
     protected int maxClimbUpTick = 5;
 
-    public ZombieEntity(EntityType<? extends AbstractPAZEntity> type, Level level) {
+    public PVZZombieEntity(EntityType<? extends AbstractPAZEntity> type, Level level) {
         super(type, level);
         this.xpReward = this.getZombieXp() / 2;
         this.setPathfindingMalus(PathType.FIRE_IN_NEIGHBOR, 6.0F);
@@ -554,7 +554,7 @@ public abstract class ZombieEntity extends AbstractPAZEntity
         if (this.getTarget() == target) {
             return true;
         }
-        if (target instanceof ZombieEntity zombie) {
+        if (target instanceof PVZZombieEntity zombie) {
             return this.canCollideWithZombie && zombie.canCollideWithZombie;
         }
         return false;

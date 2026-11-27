@@ -2,7 +2,7 @@ package com.lying.pvz.common.level.entity.zombie.base;
 
 import com.lying.pvz.api.entity.ability.IHasMultiPart;
 import com.lying.pvz.common.level.entity.MultiPartEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.common.level.entity.zombie.part.PVZHealthPartEntity;
 import com.lying.pvz.utils.EntityUtil;
 import net.minecraft.sounds.SoundEvent;
@@ -31,12 +31,12 @@ import net.minecraft.world.phys.Vec3;
  * <p>部件位置由 {@link #getPartWidthOffset()} / {@link #getPartHeightOffset()} 决定，
  * 迷你僵尸使用更小的偏移。
  */
-public abstract class DefenceZombieEntity extends ZombieEntity implements IHasMultiPart  {
+public abstract class DefenceZombieEntity extends PVZZombieEntity implements IHasMultiPart  {
 
 	protected PVZHealthPartEntity part;
 	public boolean hitDefence = false;
 
-	public DefenceZombieEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public DefenceZombieEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 		this.resetParts();
 	}

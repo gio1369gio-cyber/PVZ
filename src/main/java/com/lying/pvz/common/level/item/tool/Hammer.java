@@ -3,7 +3,7 @@ package com.lying.pvz.common.level.item.tool;
 
 import com.lying.pvz.common.init.PvZItemRegister;
 import com.lying.pvz.common.init.PvZSoundRegister;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
@@ -39,7 +39,7 @@ public class Hammer extends Item {
         if (player.getCooldowns().isOnCooldown(PvZItemRegister.HAMMER.toStack())){
             //如果有CD则结束方法
             return InteractionResult.FAIL;
-        } else if (interactionTarget instanceof ZombieEntity) {
+        } else if (interactionTarget instanceof PVZZombieEntity) {
             //如果没有CD就执行一下语句
             //对PVZ僵尸照成20点伤害
             DamageSource source =  player.level().damageSources().playerAttack(player);

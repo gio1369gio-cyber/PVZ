@@ -3,7 +3,7 @@ package com.lying.pvz.common.level.entity.zombie.grass;
 import com.lying.pvz.api.content.paz.IZombieType;
 import com.lying.pvz.common.impl.zombie.GrassZombies;
 import com.lying.pvz.common.init.PvZEntityRegister;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.EntityUtil;
 import com.lying.pvz.utils.MathUtil;
 import com.lying.pvz.utils.WorldUtil;
@@ -47,7 +47,7 @@ import java.util.Optional;
  * <p>本体 50 血，护甲韧性 10；行走 {@link ZombieUtil#WALK_LITTLE_SLOW}。
  * 同时锁定 {@code canCollideWithZombie = false}，避免与伴舞互相推挤。
  */
-public class DancingZombieEntity extends ZombieEntity {
+public class DancingZombieEntity extends PVZZombieEntity {
 
 	private static final EntityDataAccessor<Integer> SUMMON_TIME =
 			SynchedEntityData.defineId(DancingZombieEntity.class, EntityDataSerializers.INT);
@@ -61,7 +61,7 @@ public class DancingZombieEntity extends ZombieEntity {
 	private int summonCnt = 0;
 	private int restTick = 0;
 
-	public DancingZombieEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public DancingZombieEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 		this.canCollideWithZombie = false;
 		this.setRestTick();

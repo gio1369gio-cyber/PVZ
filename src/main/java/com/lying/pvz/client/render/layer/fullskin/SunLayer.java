@@ -1,7 +1,7 @@
 package com.lying.pvz.client.render.layer.fullskin;
 
 import com.lying.pvz.client.render.state.entity.zombie.PvZZombieRenderState;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.StringUtil;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
@@ -22,7 +22,7 @@ public class SunLayer<S extends LivingEntityRenderState, M extends EntityModel<?
 			return false;
 		}
 		return state instanceof PvZZombieRenderState zs
-				&& zs.variantType == ZombieEntity.VariantType.SUN;
+				&& zs.variantType == PVZZombieEntity.VariantType.SUN;
 	}
 
 	@Override

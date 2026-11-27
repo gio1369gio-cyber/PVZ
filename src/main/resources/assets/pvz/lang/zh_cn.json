@@ -1505,6 +1505,13 @@
   "msg.pvz.biome_locked": "该区域尚未解锁——离开或解锁它以解除诅咒",
   "tooltip.pvz.time_key_use": "开发中：在已解锁的 PVZ 群系右键传送；在主世界点击 Penny 进入新维度",
   "msg.pvz.time_key.biome_locked": "该群系尚未解锁——只能在已解锁群系右键传送",
-  "entity.pvz.sphinx_terminator": "狮身终结者",
-  "entity.pvz.sphinx_missile": "狮身导弹"
+  "entity.pvz.sphinx_inator": "狮身终结者",
+  "entity.pvz.zombot_missile": "僵王导弹",
+  "entity.pvz.plank_walker": "甲板漫步者",
+  "entity.pvz.war_wagon": "战争马车",
+  "entity.pvz.tomorrow_tron": "明日破译者",
+  "biome.pvz.ancient_egypt": "远古埃及",
+  "biome.pvz.pirate_harbor": "海盗港湾",
+  "biome.pvz.wild_west": "狂野西部",
+  "biome.pvz.future_world": "未来世界"
 }

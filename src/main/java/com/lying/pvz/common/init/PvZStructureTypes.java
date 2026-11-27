@@ -2,6 +2,10 @@ package com.lying.pvz.common.init;
 
 
 import com.lying.pvz.PvZMod;
+import com.lying.pvz.common.worldgen.structure.island.EgyptStructure;
+import com.lying.pvz.common.worldgen.structure.island.FutureWorldStructure;
+import com.lying.pvz.common.worldgen.structure.island.HarborStructure;
+import com.lying.pvz.common.worldgen.structure.island.WildWestStructure;
 import com.lying.pvz.common.worldgen.structure.shop.DaveVillaStructure;
 import com.lying.pvz.common.worldgen.structure.shop.SunTempleStructure;
 import com.lying.pvz.common.worldgen.structure.zombie.BucketHouseStructure;
@@ -36,4 +40,17 @@ public class PvZStructureTypes {
 
     public static final DeferredHolder<StructureType<?>, StructureType<SunTempleStructure>> SUN_TEMPLE =
             STRUCTURE_TYPES.register("sun_temple", () -> () -> SunTempleStructure.CODEC);
+
+    // 四主题岛心建筑（固定坐标）
+    public static final DeferredHolder<StructureType<?>, StructureType<EgyptStructure>> EGYPT =
+            STRUCTURE_TYPES.register("egypt", () -> () -> EgyptStructure.CODEC);
+
+    public static final DeferredHolder<StructureType<?>, StructureType<HarborStructure>> HARBOR =
+            STRUCTURE_TYPES.register("harbor", () -> () -> HarborStructure.CODEC);
+
+    public static final DeferredHolder<StructureType<?>, StructureType<WildWestStructure>> WILD_WEST =
+            STRUCTURE_TYPES.register("wild_west", () -> () -> WildWestStructure.CODEC);
+
+    public static final DeferredHolder<StructureType<?>, StructureType<FutureWorldStructure>> FUTURE_WORLD =
+            STRUCTURE_TYPES.register("future_world", () -> () -> FutureWorldStructure.CODEC);
 }

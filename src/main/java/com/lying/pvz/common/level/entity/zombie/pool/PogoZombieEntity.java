@@ -10,7 +10,7 @@ import com.lying.pvz.common.impl.plant.PVZPlants;
 import com.lying.pvz.common.impl.zombie.PoolZombies;
 import com.lying.pvz.common.init.PvZSoundRegister;
 import com.lying.pvz.common.level.entity.plant.PlantEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.EntityUtil;
 import com.lying.pvz.utils.MathUtil;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -36,13 +36,13 @@ import net.minecraft.world.level.storage.ValueOutput;
  * 触发 {@link #attractBy} 时立即丢杆。{@code POGO} 在新 {@link MetalTypes}
  * 不存在，{@link #getMetalType()} 返回 {@link MetalTypes#EMPTY}。
  */
-public class PogoZombieEntity extends ZombieEntity implements IHasMetal {
+public class PogoZombieEntity extends PVZZombieEntity implements IHasMetal {
 
 	private static final EntityDataAccessor<Boolean> HAS_POGO =
 			SynchedEntityData.defineId(PogoZombieEntity.class, EntityDataSerializers.BOOLEAN);
 	private static final int JUMP_CD = 10;
 
-	public PogoZombieEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public PogoZombieEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 	}
 

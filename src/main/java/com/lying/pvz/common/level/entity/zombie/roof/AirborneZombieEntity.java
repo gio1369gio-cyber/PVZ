@@ -3,7 +3,7 @@ package com.lying.pvz.common.level.entity.zombie.roof;
 import com.lying.pvz.api.content.paz.IZombieType;
 import com.lying.pvz.common.damage.PvZEntityDamageSource;
 import com.lying.pvz.common.impl.zombie.RoofZombies;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.EntityUtil;
 import com.lying.pvz.utils.ZombieUtil;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -25,14 +25,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
-public class AirborneZombieEntity extends ZombieEntity {
+public class AirborneZombieEntity extends PVZZombieEntity {
     private static final EntityDataAccessor<Boolean> HAS_LINE = SynchedEntityData.defineId(AirborneZombieEntity.class, EntityDataSerializers.BOOLEAN);
     private final MoveControl<? extends Mob> FlyController = new FlyingMoveControl<>(this, 360, true);
     private final MoveControl<? extends Mob> GroundController = new MoveControl<>(this);
     private PathNavigation FlyNavigator;
     private PathNavigation GroundNavigator;
 
-    public AirborneZombieEntity(EntityType<? extends ZombieEntity> type, Level level) {
+    public AirborneZombieEntity(EntityType<? extends PVZZombieEntity> type, Level level) {
         super(type, level);
     }
 

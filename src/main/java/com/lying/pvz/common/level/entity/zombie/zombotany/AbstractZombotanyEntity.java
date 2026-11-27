@@ -2,7 +2,7 @@ package com.lying.pvz.common.level.entity.zombie.zombotany;
 
 import com.lying.pvz.api.entity.projectile.ICanShoot;
 import com.lying.pvz.api.entity.projectile.IPAZProjectile;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 
@@ -22,9 +22,9 @@ import net.minecraft.world.level.Level;
  * <p>攻击范围 {@link #getAttackRange()} 与间隔 {@link #getAttackInterval()}
  * 给出通用默认值，供 AI goal 使用；需要时子类覆写。
  */
-public abstract class AbstractZombotanyEntity extends ZombieEntity implements ICanShoot {
+public abstract class AbstractZombotanyEntity extends PVZZombieEntity implements ICanShoot {
 
-    public AbstractZombotanyEntity(EntityType<? extends ZombieEntity> type, Level level) {
+    public AbstractZombotanyEntity(EntityType<? extends PVZZombieEntity> type, Level level) {
         super(type, level);
     }
 

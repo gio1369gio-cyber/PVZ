@@ -216,6 +216,12 @@ public class PvZEntityLootTables implements LootTableSubProvider {
 						.when(LootItemRandomChanceWithEnchantedBonusCondition.randomChanceAndLootingBoost(this.enchantments, 0.6F, 0.01F))
 				));
 
+		// ===== PvZ2 四足机甲 BOSS：大量钻石（确定性掉落） =====
+		this.output.accept(PvZLoot.SPHINX_INATOR, getBossDiamondLootTable());
+		this.output.accept(PvZLoot.PLANK_WALKER, getBossDiamondLootTable());
+		this.output.accept(PvZLoot.WAR_WAGON, getBossDiamondLootTable());
+		this.output.accept(PvZLoot.TOMORROW_TRON, getBossDiamondLootTable());
+
 		this.output.accept(PvZLoot.PEASHOOTER_ZOMBIE, getLootTable()
 				.withPool(LootPool.lootPool().setRolls(ContextIntProviders.exactly(1))
 						.add(LootItem.lootTableItem(PvZItemRegister.PEA_SHOOTER_ENJOY_CARD.get()))
@@ -256,6 +262,14 @@ public class PvZEntityLootTables implements LootTableSubProvider {
 
 	private static LootTable.Builder getLootTable() {
 		return LootTable.lootTable();
+	}
+
+	/** BOSS 确定性掉落：64~128 个钻石。 */
+	private static LootTable.Builder getBossDiamondLootTable() {
+		return getLootTable()
+				.withPool(LootPool.lootPool().setRolls(ContextIntProviders.exactly(1))
+						.add(LootItem.lootTableItem(Items.DIAMOND))
+						.apply(SetItemCountFunction.setCount(ContextIntProviders.between(64, 128))));
 	}
 
 	private static LootTable.Builder getRottenFleshLootTable(HolderGetter<Enchantment> enchantments) {

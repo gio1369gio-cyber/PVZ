@@ -1,10 +1,11 @@
 package com.lying.pvz.client.render.state.entity.zombie;
 
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.common.level.entity.zombie.base.EdgarRobotEntity;
+import com.lying.pvz.common.level.entity.zombie.boss.AbstractZombotEntity;
 import com.lying.pvz.common.level.entity.zombie.roof.GargantuarEntity;
 import com.lying.pvz.api.projectile.Mark;
-import it.unimi.dsi.fastutil.bytes.AbstractByte2FloatSortedMap;
+import net.minecraft.client.animation.AnimationDefinition;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
@@ -48,7 +49,7 @@ public class PvZZombieRenderState extends LivingEntityRenderState {
     public double innerDefenceLife;
     public double outerDefenceLife;
 
-    public ZombieEntity.VariantType variantType = ZombieEntity.VariantType.NORMAL;
+    public PVZZombieEntity.VariantType variantType = PVZZombieEntity.VariantType.NORMAL;
     public boolean charmed;
     public boolean cold;
     public boolean frozen;
@@ -59,8 +60,18 @@ public class PvZZombieRenderState extends LivingEntityRenderState {
 
     public int innerDefenceStage;
     public int summonTime;
-    /** SphinxTerminator：冲刺朝向（度），驱动模型冲刺转向动画。 */
+    /** 四足机甲（Zombot）：冲刺朝向（度），驱动模型冲刺转向动画。 */
     public float dashYaw;
+    /** 四足机甲（Zombot）：外观变体，决定共享模型显示哪些装饰部件。 */
+    public AbstractZombotEntity.ZombotVariant zombotVariant = AbstractZombotEntity.ZombotVariant.SPHINX_INATOR;
+    /** 四足机甲（Zombot）：由实体状态 + 血量事件映射出的模型动画（Blockbench AnimationDefinition）。 */
+    public @Nullable AnimationDefinition quadrupedAnim;
+    /** 四足机甲（Zombot）：服务端同步的动画时钟（毫秒），暂停时冻结以定格画面。 */
+    public long quadrupedAnimTime;
+    /** 四足机甲（Zombot）：SUMMON 相位（1 张嘴 / 2 冻结显漩涡 / 3 闭嘴）。 */
+    public int summonPhase;
+    /** 四足机甲（Zombot）：SUMMON 专用动画时钟（毫秒），冻结期间定格 jaw。 */
+    public long summonAnimTime;
     public boolean isAngry;
     public int poleJumpCD;
     public boolean hasPole;

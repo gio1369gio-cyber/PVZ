@@ -11,7 +11,7 @@ import com.lying.pvz.common.level.entity.ai.goal.target.PVZRandomTargetGoal;
 import com.lying.pvz.common.impl.zombie.RoofZombies;
 import com.lying.pvz.common.level.entity.AbstractPAZEntity;
 import com.lying.pvz.common.level.entity.projectile.TargetArrowEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.common.projectile.mark.MarkRegistry;
 import com.lying.pvz.common.tag.PvZEntityTypeTags;
 import com.lying.pvz.utils.ConfigUtil;
@@ -55,7 +55,7 @@ import org.jetbrains.annotations.Nullable;
  * <p>本体 45 血、无重力、可使用碰撞箱之外的空间移动；
  * 禁止迷你、禁止被 Bungee 二次偷取、禁止被吸引。
  */
-public class BungeeZombieEntity extends ZombieEntity implements ICanPushBack {
+public class BungeeZombieEntity extends PVZZombieEntity implements ICanPushBack {
 
 	private static final EntityDataAccessor<Integer> BUNGEE_STATE =
 			SynchedEntityData.defineId(BungeeZombieEntity.class, EntityDataSerializers.INT);
@@ -71,7 +71,7 @@ public class BungeeZombieEntity extends ZombieEntity implements ICanPushBack {
 	/** 本次下降是否已射出目标箭（EdgarRobot 直接进 DOWN 时也需要补射）。 */
 	private boolean arrowShot;
 
-	public BungeeZombieEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public BungeeZombieEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 		this.canBeMini = false;
 		this.canBeStealByBungee = false;

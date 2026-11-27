@@ -528,8 +528,11 @@ public class PvZLangProvider extends LanguageProvider {
         addEntityType(PvZEntityRegister.GIGA_GARGANTUAR, "Giga Gargantuar");
         addEntityType(PvZEntityRegister.EDGAR_090505, "Edgar 090505");
         addEntityType(PvZEntityRegister.EDGAR_090517, "Edgar 090517");
-        addEntityType(PvZEntityRegister.SPHINX_TERMINATOR, "Sphinx Terminator");
-        addEntityType(PvZEntityRegister.SPHINX_MISSILE, "Sphinx Missile");
+        addEntityType(PvZEntityRegister.SPHINX_INATOR, "Sphinx Terminator");
+        addEntityType(PvZEntityRegister.ZOMBOT_MISSILE, "Zombot Missile");
+        addEntityType(PvZEntityRegister.PLANK_WALKER, "Plank Walker");
+        addEntityType(PvZEntityRegister.WAR_WAGON, "War Wagon");
+        addEntityType(PvZEntityRegister.TOMORROW_TRON, "Tomorrow Tron");
         addEntityType(PvZEntityRegister.PEASHOOTER_ZOMBIE, "Peashooter Zombie");
         addEntityType(PvZEntityRegister.GATLINGPEA_ZOMBIE, "Gatling Pea Zombie");
         addEntityType(PvZEntityRegister.SQUASH_ZOMBIE, "Squash Zombie");
@@ -641,6 +644,10 @@ public class PvZLangProvider extends LanguageProvider {
         addEffect(PvZEffectRegister.GOO_POISON, "Goo Poison");
         /* ==================== 群系 ==================== */
         addBiome(PvZBiome.ZEN_GARDEN,"Zen garden");
+        addBiome(PvZBiome.ANCIENT_EGYPT,"Ancient Egypt");
+        addBiome(PvZBiome.PIRATE_HARBOR,"Pirate Harbor");
+        addBiome(PvZBiome.WILD_WEST,"Wild West");
+        addBiome(PvZBiome.FUTURE_WORLD,"Future World");
         /* ==================== 药水 ==================== */
         addPotion("excite_potion_1", "Excitement");
         addPotion("excite_potion_2", "Greater Excitement");

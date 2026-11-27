@@ -16,27 +16,26 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
-import java.util.UUID;
-
 /**
- * 狮身终结者的导弹：TNT 材质，直线追踪带标记的植物。
+ * 四足机甲（Zombot）共享导弹：TNT 材质，直线追踪带标记的植物。
  *
- * <p>命中植物 → 摧毁植物 + 在旁侧空地生成 2~3 个墓碑（{@link TombStoneEntity}）。
+ * <p>由狮身终结者 / 战争马车 / 明日破译者共用（甲板漫步者改用小鬼炮）。
+ * 命中植物 → 摧毁植物 + 在旁侧空地生成 2~3 个墓碑（{@link TombStoneEntity}）。
  * 走 {@link AbstractPAZProjectile} 的标准弹道/命中管线，owner 阵营为僵尸。
  */
-public class SphinxMissileEntity extends AbstractPAZProjectile {
+public class ZombotMissileEntity extends AbstractPAZProjectile {
 
     /** 命中后生成的墓碑数量范围。 */
     private static final int TOMB_MIN = 2;
     private static final int TOMB_MAX = 3;
 
-    public SphinxMissileEntity(EntityType<?> type, Level level) {
+    public ZombotMissileEntity(EntityType<?> type, Level level) {
         super(type, level);
     }
 
     /** BOSS 发射构造：绑定 owner 与追踪目标植物。 */
-    public SphinxMissileEntity(Level level, LivingEntity owner, LivingEntity target) {
-        this(PvZEntityRegister.SPHINX_MISSILE.get(), level);
+    public ZombotMissileEntity(Level level, LivingEntity owner, LivingEntity target) {
+        this(PvZEntityRegister.ZOMBOT_MISSILE.get(), level);
         this.setOwnerUUID(owner.getUUID());
         this.ownerGroup = EntityUtil.getEntityGroup(owner);
         this.setTargetId(target.getUUID());

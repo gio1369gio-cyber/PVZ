@@ -7,7 +7,7 @@ import com.lying.pvz.common.level.entity.AbstractOwnerEntity;
 import com.lying.pvz.common.level.entity.plant.PlantEntity;
 import com.lying.pvz.common.level.entity.plant.fire.JalapenoEntity;
 import com.lying.pvz.common.level.entity.plant.ice.IceShroomEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.common.level.item.card.PlantCardItem;
 import com.lying.pvz.utils.EntityUtil;
 import com.lying.pvz.utils.PlayerUtil;
@@ -153,7 +153,7 @@ public class ElementBallEntity extends AbstractOwnerEntity {
 					}
 					target.hurtServer(serverLevel, this.getAttackSource(),
 							EntityUtil.getCurrentMaxHealth(plant));
-				} else if (target instanceof ZombieEntity zombie) {
+				} else if (target instanceof PVZZombieEntity zombie) {
 					target.hurtServer(serverLevel, this.getAttackSource(),
 							EntityUtil.getCurrentMaxHealth(zombie));
 				} else {

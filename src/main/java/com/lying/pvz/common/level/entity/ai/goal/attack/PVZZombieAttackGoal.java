@@ -1,7 +1,7 @@
 package com.lying.pvz.common.level.entity.ai.goal.attack;
 
 
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.EntityUtil;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
@@ -12,11 +12,11 @@ import net.minecraft.world.phys.Vec3;
 
 public class PVZZombieAttackGoal extends PVZMeleeAttackGoal {
 
-	protected final ZombieEntity zombie;
+	protected final PVZZombieEntity zombie;
 	protected final int LeapCD = 50;
 	protected int leapTick = 0;
 
-	public PVZZombieAttackGoal(ZombieEntity creature, boolean useLongMemory) {
+	public PVZZombieAttackGoal(PVZZombieEntity creature, boolean useLongMemory) {
 		super(creature, 1.0, useLongMemory);
 		this.zombie = creature;
 	}

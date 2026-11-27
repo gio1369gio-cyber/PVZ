@@ -8,7 +8,7 @@ import com.lying.pvz.common.level.entity.ai.goal.target.PVZRandomTargetGoal;
 import com.lying.pvz.common.impl.plant.PVZPlants;
 import com.lying.pvz.common.impl.zombie.GrassZombies;
 import com.lying.pvz.common.level.entity.plant.PlantEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.common.level.entity.zombie.body.ZombieDropBodyEntity;
 import com.lying.pvz.utils.EffectUtil;
 import com.lying.pvz.utils.EntityUtil;
@@ -47,7 +47,7 @@ import java.util.Optional;
  *
  * <p>本体 50 血、行走 {@link ZombieUtil#WALK_FAST}；跳跃冷却 20 tick。
  */
-public class PoleZombieEntity extends ZombieEntity {
+public class PoleZombieEntity extends PVZZombieEntity {
 
 	private static final EntityDataAccessor<Boolean> HAS_POLE =
 			SynchedEntityData.defineId(PoleZombieEntity.class, EntityDataSerializers.BOOLEAN);
@@ -56,7 +56,7 @@ public class PoleZombieEntity extends ZombieEntity {
 	protected Vec3 jumpDstPoint = Vec3.ZERO;
 	protected int pole_jump_cnt;
 
-	public PoleZombieEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public PoleZombieEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 	}
 

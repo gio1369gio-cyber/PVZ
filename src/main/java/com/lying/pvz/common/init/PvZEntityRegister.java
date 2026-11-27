@@ -32,9 +32,10 @@ import com.lying.pvz.common.level.entity.plant.spear.SpikeRockEntity;
 import com.lying.pvz.common.level.entity.plant.spear.SpikeWeedEntity;
 import com.lying.pvz.common.level.entity.plant.toxic.*;
 import com.lying.pvz.common.level.entity.projectile.TargetArrowEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.boss.*;
 import com.lying.pvz.common.level.entity.zombie.custom.*;
 import com.lying.pvz.common.projectile.BulletEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
 import com.lying.pvz.common.level.entity.zombie.body.ZombieDropBodyEntity;
 import com.lying.pvz.common.level.entity.zombie.grass.*;
 import com.lying.pvz.common.level.entity.zombie.other.*;
@@ -137,7 +138,7 @@ public class PvZEntityRegister {
     public static final DeferredHolder<EntityType<?>, EntityType<BucketHeadZombieEntity>> BUCKETHEAD_ZOMBIE = registerZombieEntityType(BucketHeadZombieEntity::new, "buckethead_zombie");
     public static final DeferredHolder<EntityType<?>, EntityType<SnorkelZombieEntity>> SNORKEL_ZOMBIE = registerZombieEntityType(SnorkelZombieEntity::new, "snorkel_zombie");
     public static final DeferredHolder<EntityType<?>, EntityType<ZomboniEntity>> ZOMBONI = registerZombieEntityType(ZomboniEntity::new, "zomboni");
-    public static final DeferredHolder<EntityType<?>, EntityType<BobsleTeamEntity>> BOBSLE_TEAM = registerZombieEntityType(BobsleTeamEntity::new, "bobsle_team");
+    public static final DeferredHolder<EntityType<?>, EntityType<BobsleTeamEntityPVZ>> BOBSLE_TEAM = registerZombieEntityType(BobsleTeamEntityPVZ::new, "bobsle_team");
     public static final DeferredHolder<EntityType<?>, EntityType<BobsleZombieEntity>> BOBSLE_ZOMBIE = registerZombieEntityType(BobsleZombieEntity::new, "bobsle_zombie");
     public static final DeferredHolder<EntityType<?>, EntityType<ZombieDolphinEntity>> ZOMBIE_DOLPHIN = registerZombieEntityType(ZombieDolphinEntity::new, "zombie_dolphin");
     public static final DeferredHolder<EntityType<?>, EntityType<DolphinRiderEntity>> DOLPHIN_RIDER = registerZombieEntityType(DolphinRiderEntity::new, "dolphin_rider");
@@ -171,10 +172,19 @@ public class PvZEntityRegister {
     public static final DeferredHolder<EntityType<?>, EntityType<GigaGargantuarEntity>> GIGA_GARGANTUAR = registerZombieEntityType(GigaGargantuarEntity::new, "giga_gargantuar");
     public static final DeferredHolder<EntityType<?>, EntityType<Edgar090505Entity>> EDGAR_090505 = registerZombieEntityType(Edgar090505Entity::new, "edgar_090505");
 
-    public static final DeferredHolder<EntityType<?>, EntityType<com.lying.pvz.common.level.entity.zombie.boss.SphinxTerminatorEntity>> SPHINX_TERMINATOR =
-            registerZombieEntityType(com.lying.pvz.common.level.entity.zombie.boss.SphinxTerminatorEntity::new, "sphinx_terminator");
-    public static final DeferredHolder<EntityType<?>, EntityType<com.lying.pvz.common.level.entity.zombie.boss.SphinxMissileEntity>> SPHINX_MISSILE =
-            registerProjectileEntityType(com.lying.pvz.common.level.entity.zombie.boss.SphinxMissileEntity::new, "sphinx_missile", 0.6F, 0.6F);
+    public static final DeferredHolder<EntityType<?>, EntityType<SphinxInatorEntity>> SPHINX_INATOR =
+            registerZombieEntityType(SphinxInatorEntity::new, "sphinx_inator");
+    public static final DeferredHolder<EntityType<?>, EntityType<ZombotMissileEntity>> ZOMBOT_MISSILE =
+            registerProjectileEntityType(ZombotMissileEntity::new, "zombot_missile", 0.6F, 0.6F);
+
+    // ===== PvZ2 四足机甲 BOSS =====
+    public static final DeferredHolder<EntityType<?>, EntityType<PlankWalkerEntity>> PLANK_WALKER =
+            registerZombieEntityType(PlankWalkerEntity::new, "plank_walker");
+    public static final DeferredHolder<EntityType<?>, EntityType<WarWagonEntity>> WAR_WAGON =
+            registerZombieEntityType(WarWagonEntity::new, "war_wagon");
+    public static final DeferredHolder<EntityType<?>, EntityType<TomorrowTronEntity>> TOMORROW_TRON =
+            registerZombieEntityType(TomorrowTronEntity::new, "tomorrow_tron");
+
     public static final DeferredHolder<EntityType<?>, EntityType<Edgar090517Entity>> EDGAR_090517 = registerZombieEntityType(Edgar090517Entity::new, "edgar_090517");
     public static final DeferredHolder<EntityType<?>, EntityType<PeaShooterZombieEntity>> PEASHOOTER_ZOMBIE = registerZombieEntityType(PeaShooterZombieEntity::new, "peashooter_zombie");
     public static final DeferredHolder<EntityType<?>, EntityType<GatlingPeaZombieEntity>> GATLINGPEA_ZOMBIE = registerZombieEntityType(GatlingPeaZombieEntity::new, "gatlingpea_zombie");
@@ -309,7 +319,7 @@ public class PvZEntityRegister {
         return ENTITY_TYPES.register(name, () -> EntityType.Builder.of(factory, classification).sized(w, h).build(key));
     }
 
-    private static <T extends ZombieEntity> DeferredHolder<EntityType<?>, EntityType<T>> registerZombieEntityType(
+    private static <T extends PVZZombieEntity> DeferredHolder<EntityType<?>, EntityType<T>> registerZombieEntityType(
             EntityFactory<T> factory, String name) {
         final ResourceKey<EntityType<?>> key = ResourceKey.create(Registries.ENTITY_TYPE, StringUtil.id(name));
         return ENTITY_TYPES.register(name, () ->

@@ -1,28 +1,17 @@
 package com.lying.pvz.event.common.modbus;
 
 import com.lying.pvz.PvZMod;
-import com.lying.pvz.common.damage.PvZDamageTypes;
-import com.lying.pvz.common.datapack.ChallengeTypeLoader;
-import com.lying.pvz.common.datapack.InvasionTypeLoader;
-import com.lying.pvz.common.datapack.LotteryTypeLoader;
-import com.lying.pvz.common.datapack.TransactionTypeLoader;
 import com.lying.pvz.common.impl.PVZRegistryBootstrap;
 import com.lying.pvz.common.init.PvZEntityRegister;
 import com.lying.pvz.common.level.block.cubes.OriginBlock;
 import com.lying.pvz.common.level.entity.plant.PlantEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.common.level.spawn.SpawnPlacementRegistry;
 import com.lying.pvz.common.payload.*;
-import com.lying.pvz.utils.StringUtil;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.item.crafting.ShapedRecipePattern;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
-import net.neoforged.neoforge.event.AddServerReloadListenersEvent;
 import net.neoforged.neoforge.event.TagsUpdatedEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
@@ -83,7 +72,7 @@ public class PvZMiscEvents {
         for (var holder : PVZRegistryBootstrap.ZOMBIES.getEntries()) {
             holder.get().getEntityType()
                     .filter(seen::add)
-                    .ifPresent(entity -> ev.put(entity, ZombieEntity.createZombieAttributes()));
+                    .ifPresent(entity -> ev.put(entity, PVZZombieEntity.createZombieAttributes()));
         }
         List.of(PvZEntityRegister.SUN, PvZEntityRegister.COIN, PvZEntityRegister.JEWEL, PvZEntityRegister.ENERGY,
                         PvZEntityRegister.RED_SUN,

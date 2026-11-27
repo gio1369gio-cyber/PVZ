@@ -1,0 +1,6 @@
+{
+  "type": "pvz:wild_west",
+  "biomes": "pvz:wild_west",
+  "spawn_overrides": {},
+  "step": "surface_structures"
+}

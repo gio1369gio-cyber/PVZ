@@ -1,5 +1,6 @@
 package com.lying.pvz.data.bootstrap.worldgen.dimension;
 
+import com.lying.pvz.common.worldgen.biome.PvZIslandBiomeSource;
 import com.lying.pvz.utils.StringUtil;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
@@ -7,7 +8,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.MultiNoiseBiomeSource;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
@@ -28,9 +28,9 @@ public class PvZDimension {
 
         Holder<DimensionType> typeHolder = dimensionType.getOrThrow(PvZDimensionType.PVZ_2);
 
-        Holder<NoiseGeneratorSettings> noiseOrThrow = noise.getOrThrow(NoiseGeneratorSettings.OVERWORLD);
+        Holder<NoiseGeneratorSettings> noiseOrThrow = noise.getOrThrow(PvZNoiseSettings.PVZ_NOISE);
 
-        MultiNoiseBiomeSource biomeSource = PvZBiomeSource.create(biomes);
+        PvZIslandBiomeSource biomeSource = PvZIslandBiomeSource.create(biomes);
 
         context.register(PVZ_2,new LevelStem(typeHolder, new NoiseBasedChunkGenerator(biomeSource, noiseOrThrow)));
     }

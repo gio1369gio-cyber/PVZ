@@ -1,7 +1,7 @@
 package com.lying.pvz.common.level.block.plants;
 
 import com.lying.pvz.common.level.entity.plant.spear.CatTailEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.common.level.entity.zombie.pool.ZombieDolphinEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -44,8 +44,8 @@ public class PvZLilyPadBlock extends BushBlock {
     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier, boolean isPrecise) {
         super.entityInside(state, level, pos, entity, effectApplier, isPrecise);
         if (level instanceof ServerLevel) {
-            if ((entity instanceof ZombieEntity && !(entity instanceof ZombieDolphinEntity))) {
-                if (entity.isAlive() && ((ZombieEntity) entity).canBreakPlantBlock()) {
+            if ((entity instanceof PVZZombieEntity && !(entity instanceof ZombieDolphinEntity))) {
+                if (entity.isAlive() && ((PVZZombieEntity) entity).canBreakPlantBlock()) {
                     level.destroyBlock(pos, true, entity);
                 }
             } else if (entity instanceof CatTailEntity && !((CatTailEntity) entity).isImmuneToWeak()) {

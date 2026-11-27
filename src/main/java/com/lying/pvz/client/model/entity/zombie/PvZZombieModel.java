@@ -4,7 +4,7 @@ import com.lying.pvz.api.client.model.IZombieModel;
 import com.lying.pvz.api.entity.IBodyEntity;
 import com.lying.pvz.client.model.entity.PvZEntityModel;
 import com.lying.pvz.client.render.state.entity.zombie.PvZZombieRenderState;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.AnimationUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.EntityModel;
@@ -14,8 +14,6 @@ import net.minecraft.client.renderer.entity.state.EntityRenderState;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.util.Mth;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -26,10 +24,10 @@ import java.util.Optional;
 public abstract class PvZZombieModel extends PvZEntityModel<PvZZombieRenderState> implements IZombieModel {
 
     protected static final float HAND_MAX_ANGLE = AnimationUtil.byDegree(-120F);
-    protected static final int MAX_ANIM_CD = ZombieEntity.PERFORM_ATTACK_CD;
+    protected static final int MAX_ANIM_CD = PVZZombieEntity.PERFORM_ATTACK_CD;
 
-    /** 升起动画总时长，与 {@link ZombieEntity#RISING_CD} 保持一致。 */
-    protected static final int MAX_RISING_CD = ZombieEntity.RISING_CD;
+    /** 升起动画总时长，与 {@link PVZZombieEntity#RISING_CD} 保持一致。 */
+    protected static final int MAX_RISING_CD = PVZZombieEntity.RISING_CD;
 
     /**
      * 完全埋入地下时的额外下沉深度（模型单位，1 方块 = 16 单位）。

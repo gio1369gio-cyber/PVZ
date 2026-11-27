@@ -183,8 +183,11 @@ public class PvZEntityRenderer {
         event.registerEntityRenderer(PvZEntityRegister.EDGAR_090517.get(), EdgarRobotRender::new);
         event.registerEntityRenderer(PvZEntityRegister.AIRBORNE_ZOMBIE.get(), AirborneZombieRender::new);
         event.registerEntityRenderer(PvZEntityRegister.EDGAR_090547.get(), Edgar090547Render::new);
-        event.registerEntityRenderer(PvZEntityRegister.SPHINX_TERMINATOR.get(), com.lying.pvz.client.render.renderer.entity.zombie.boss.SphinxTerminatorRender::new);
-        event.registerEntityRenderer(PvZEntityRegister.SPHINX_MISSILE.get(), com.lying.pvz.client.render.renderer.entity.zombie.boss.SphinxMissileRender::new);
+        event.registerEntityRenderer(PvZEntityRegister.SPHINX_INATOR.get(), com.lying.pvz.client.render.renderer.entity.zombie.boss.QuadrupedMechRender::new);
+        event.registerEntityRenderer(PvZEntityRegister.ZOMBOT_MISSILE.get(), com.lying.pvz.client.render.renderer.entity.zombie.boss.ZombotMissileRender::new);
+        event.registerEntityRenderer(PvZEntityRegister.PLANK_WALKER.get(), com.lying.pvz.client.render.renderer.entity.zombie.boss.QuadrupedMechRender::new);
+        event.registerEntityRenderer(PvZEntityRegister.WAR_WAGON.get(), com.lying.pvz.client.render.renderer.entity.zombie.boss.QuadrupedMechRender::new);
+        event.registerEntityRenderer(PvZEntityRegister.TOMORROW_TRON.get(), com.lying.pvz.client.render.renderer.entity.zombie.boss.QuadrupedMechRender::new);
         event.registerEntityRenderer(PvZEntityRegister.RED_EDGE_ZOMBIE.get(), RedEdgeZombieRender::new);
         event.registerEntityRenderer(PvZEntityRegister.DANCER_BACKUP_ZOMBIE.get(), DancerBackupRender::new);
         event.registerEntityRenderer(PvZEntityRegister.MJ_ZOMBIE.get(), MJZombieRender::new);

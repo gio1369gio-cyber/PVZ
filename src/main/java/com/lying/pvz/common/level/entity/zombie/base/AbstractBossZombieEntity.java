@@ -2,7 +2,7 @@ package com.lying.pvz.common.level.entity.zombie.base;
 
 import com.lying.pvz.common.damage.PvZEntityDamageSource;
 import com.lying.pvz.common.level.entity.plant.PlantEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.EntityUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerBossEvent;
@@ -20,7 +20,7 @@ import net.minecraft.world.level.Level;
 /**
  * BOSS 僵尸基类（EDGAR 系列等）。
  *
- * <p>与普通 {@link ZombieEntity} 的差异：
+ * <p>与普通 {@link PVZZombieEntity} 的差异：
  * <ul>
  *   <li><b>BossBar</b>：持有 {@link ServerBossEvent}，血量按
  *       {@code getCurrentHealth / getCurrentMaxHealth} 实时刷新；玩家进出视野用
@@ -39,7 +39,7 @@ import net.minecraft.world.level.Level;
  * <p>子类通过 {@link #onBossSummon} 召唤附属僵尸（复制 {@code ZombieUtil#copySummonZombieData}），
  * 具体召唤逻辑（Bungee/元素球/投车）在 EDGAR 系列子类实现。
  */
-public abstract class AbstractBossZombieEntity extends ZombieEntity {
+public abstract class AbstractBossZombieEntity extends PVZZombieEntity {
 
 	protected final ServerBossEvent bossInfo = new ServerBossEvent(this.uuid,
 			this.getDisplayName(), BossEvent.BossBarColor.RED, BossEvent.BossBarOverlay.PROGRESS);
@@ -52,7 +52,7 @@ public abstract class AbstractBossZombieEntity extends ZombieEntity {
 	protected int nearbyZombieCount = 0;
 	private int noTargetTick = 0;
 
-	public AbstractBossZombieEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public AbstractBossZombieEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 		this.bossInfo.setDarkenScreen(true);
 		this.canCollideWithZombie = false;
@@ -150,7 +150,7 @@ public abstract class AbstractBossZombieEntity extends ZombieEntity {
 		}
 	}
 
-	public void onBossSummon(ZombieEntity zombie, BlockPos pos) {
+	public void onBossSummon(PVZZombieEntity zombie, BlockPos pos) {
 		com.lying.pvz.utils.ZombieUtil.copySummonZombieData(this, zombie);
 		EntityUtil.onEntitySpawn(this.level(), zombie, pos);
 	}
@@ -165,7 +165,7 @@ public abstract class AbstractBossZombieEntity extends ZombieEntity {
 
 	protected int getNearbyZombieCount() {
 		final float range = 40;
-		return this.level().getEntitiesOfClass(ZombieEntity.class,
+		return this.level().getEntitiesOfClass(PVZZombieEntity.class,
 				EntityUtil.getEntityAABB(this, range, range),
 				zombie -> !EntityUtil.canTargetEntity(this, zombie)
 		).size();

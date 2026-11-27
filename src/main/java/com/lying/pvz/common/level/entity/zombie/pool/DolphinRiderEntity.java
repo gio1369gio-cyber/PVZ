@@ -10,7 +10,7 @@ import com.lying.pvz.common.level.entity.ai.navigator.ZombieWaterPathNavigator;
 import com.lying.pvz.common.impl.plant.PVZPlants;
 import com.lying.pvz.common.impl.zombie.PoolZombies;
 import com.lying.pvz.common.level.entity.plant.PlantEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.EntityUtil;
 import com.lying.pvz.utils.MathUtil;
 import com.lying.pvz.utils.ZombieUtil;
@@ -48,7 +48,7 @@ import java.util.Optional;
  *
  * <p>使用 { ZombieWaterPathNavigator} 保证水中寻路；迷你化禁用。
  */
-public class DolphinRiderEntity extends ZombieEntity {
+public class DolphinRiderEntity extends PVZZombieEntity {
 
 	private static final float UP_SPEED = 0.05f;
 	protected final float HorizontalJumpSpeed = 1.5F;
@@ -56,7 +56,7 @@ public class DolphinRiderEntity extends ZombieEntity {
 	protected Vec3 jumpDstPoint = Vec3.ZERO;
 	protected int dolphin_jump_cnt;
 
-	public DolphinRiderEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public DolphinRiderEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 		this.setPathfindingMalus(PathType.WATER, 0);
 		this.setIsWholeBody();

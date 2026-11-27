@@ -2,7 +2,7 @@ package com.lying.pvz.client.render.layer;
 
 import com.lying.pvz.client.render.layer.fullskin.PVZFullSkinLayer;
 import com.lying.pvz.client.render.state.entity.zombie.PvZZombieRenderState;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.StringUtil;
 
 import net.minecraft.client.model.EntityModel;
@@ -24,7 +24,7 @@ public class ZombieBeardLayer<S extends LivingEntityRenderState,
 			return false;
 		}
 		return state instanceof PvZZombieRenderState zs
-				&& zs.variantType == ZombieEntity.VariantType.BEARD;
+				&& zs.variantType == PVZZombieEntity.VariantType.BEARD;
 	}
 
 	@Override

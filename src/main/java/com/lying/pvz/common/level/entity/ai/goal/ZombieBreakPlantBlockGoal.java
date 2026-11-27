@@ -2,7 +2,7 @@ package com.lying.pvz.common.level.entity.ai.goal;
 
 import javax.annotation.Nullable;
 
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
@@ -19,10 +19,10 @@ import net.neoforged.neoforge.common.CommonHooks;
 public class ZombieBreakPlantBlockGoal extends MoveToBlockGoal {
 
 	protected final TagKey<Block> plantBlock;
-	protected final ZombieEntity zombie;
+	protected final PVZZombieEntity zombie;
 	protected int breakingTime;
 
-	public ZombieBreakPlantBlockGoal(TagKey<Block> blockIn, ZombieEntity zombie, double speed, int yMax) {
+	public ZombieBreakPlantBlockGoal(TagKey<Block> blockIn, PVZZombieEntity zombie, double speed, int yMax) {
 		super(zombie, speed, 24, yMax);
 		this.plantBlock = blockIn;
 		this.zombie = zombie;

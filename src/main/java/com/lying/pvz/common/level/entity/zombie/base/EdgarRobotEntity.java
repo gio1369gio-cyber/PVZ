@@ -1,7 +1,6 @@
 package com.lying.pvz.common.level.entity.zombie.base;
 
 import com.lying.pvz.api.content.paz.IZombieType;
-import com.lying.pvz.api.entity.ability.BodyType;
 import com.lying.pvz.common.init.PvZEntityRegister;
 import com.lying.pvz.common.init.PvZSoundRegister;
 import com.lying.pvz.common.level.entity.ai.goal.target.PVZNearestTargetGoal;
@@ -11,8 +10,7 @@ import com.lying.pvz.common.impl.zombie.PoolZombies;
 import com.lying.pvz.common.impl.zombie.RoofZombies;
 import com.lying.pvz.common.level.entity.misc.DestroyCarEntity;
 import com.lying.pvz.common.level.entity.misc.ElementBallEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
-import com.lying.pvz.common.level.entity.zombie.body.ZombieDropBodyEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.common.level.entity.zombie.roof.BungeeZombieEntity;
 import com.lying.pvz.utils.EntityUtil;
 import com.lying.pvz.utils.MathUtil;
@@ -36,7 +34,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
@@ -186,7 +183,7 @@ public abstract class EdgarRobotEntity extends AbstractBossZombieEntity {
             final int count = this.getSpawnCount();
             for (int i = 0; i < count; ++i) {
                 this.getSummonZombie().ifPresent(entity -> {
-                    if (entity instanceof ZombieEntity zombie) {
+                    if (entity instanceof PVZZombieEntity zombie) {
                         this.onBossSummon(zombie, this.blockPosition().above(10));
 
                         BungeeZombieEntity bungee = PvZEntityRegister.BUNGEE_ZOMBIE.get().create(this.level(), EntitySpawnReason.MOB_SUMMONED);

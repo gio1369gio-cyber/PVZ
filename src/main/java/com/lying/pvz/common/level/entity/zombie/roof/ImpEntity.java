@@ -3,7 +3,7 @@ package com.lying.pvz.common.level.entity.zombie.roof;
 import com.lying.pvz.api.content.paz.IZombieType;
 import com.lying.pvz.api.entity.ability.ICanAttract;
 import com.lying.pvz.common.impl.zombie.RoofZombies;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.ZombieUtil;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
@@ -38,12 +38,12 @@ import org.jetbrains.annotations.Nullable;
  *       在 {@code isFalling} 或 {@code protectTick > 0} 时返回 false / true。</li>
  * </ul>
  */
-public class ImpEntity extends ZombieEntity {
+public class ImpEntity extends PVZZombieEntity {
 
 	protected boolean isFalling = false;
 	protected int protectTick = 0;
 
-	public ImpEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public ImpEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 	}
 
@@ -95,6 +95,16 @@ public class ImpEntity extends ZombieEntity {
 	@Override
 	protected boolean isZombieInvulnerableTo(DamageSource source) {
 		return super.isZombieInvulnerableTo(source) || this.protectTick > 0;
+	}
+
+	/**
+	 * 由甲板漫步者的「小鬼僵尸炮」发射：给定初速度做抛物线飞行，
+	 * 落地前 {@code isFalling=true} 禁止更新 AI、{@code protectTick=60} 免疫伤害。
+	 */
+	public void launchByCannon(double vx, double vy, double vz) {
+		this.setDeltaMovement(vx, vy, vz);
+		this.isFalling = true;
+		this.protectTick = 60;
 	}
 
 	public void throwByGargantuar(GargantuarEntity entity, LivingEntity target) {

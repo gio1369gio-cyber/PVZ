@@ -4,7 +4,7 @@ import com.lying.pvz.api.content.paz.IZombieType;
 import com.lying.pvz.common.init.PvZSoundRegister;
 import com.lying.pvz.common.level.entity.ai.goal.attack.PVZZombieAttackGoal;
 import com.lying.pvz.common.impl.zombie.PoolZombies;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.ZombieUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -49,9 +49,9 @@ import net.neoforged.neoforge.fluids.FluidType;
  *   <li>{@link #checkSpawnObstruction} 委托 {@link LevelReader#isUnobstructed}。</li>
  * </ul>
  */
-public class ZombieDolphinEntity extends ZombieEntity {
+public class ZombieDolphinEntity extends PVZZombieEntity {
 
-	public ZombieDolphinEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public ZombieDolphinEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 		this.setPathfindingMalus(PathType.WATER, 0.0F);
 		this.moveControl = new MoveHelperController(this);

@@ -13,7 +13,7 @@ import com.lying.pvz.common.level.entity.plant.PlantEntity;
 import com.lying.pvz.common.level.entity.plant.appease.SplitPeaEntity;
 import com.lying.pvz.common.level.entity.plant.arma.MelonPultEntity;
 import com.lying.pvz.common.level.entity.plant.ice.WinterMelonEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.WorldUtil;
 import com.lying.pvz.utils.ZombieUtil;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -52,13 +52,13 @@ import net.minecraft.world.level.storage.ValueOutput;
  * <p>{@code IRON_PICKAXE} 在新 {@link MetalTypes} 中不存在，按内层携带物处理，
  * {@link #getMetalType()} 返回 {@link MetalTypes#EMPTY}。
  */
-public class DiggerZombieEntity extends ZombieEntity implements IHasMetal {
+public class DiggerZombieEntity extends PVZZombieEntity implements IHasMetal {
 
 	private static final EntityDataAccessor<Boolean> HAS_PICKAXE =
 			SynchedEntityData.defineId(DiggerZombieEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final int MAX_OUT_TIME = 30;
 
-	public DiggerZombieEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public DiggerZombieEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 	}
 

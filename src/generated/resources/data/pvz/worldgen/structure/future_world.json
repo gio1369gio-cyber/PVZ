@@ -1,0 +1,6 @@
+{
+  "type": "pvz:future_world",
+  "biomes": "pvz:future_world",
+  "spawn_overrides": {},
+  "step": "surface_structures"
+}

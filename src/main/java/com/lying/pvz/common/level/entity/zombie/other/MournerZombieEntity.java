@@ -4,7 +4,7 @@ import com.lying.pvz.api.content.paz.IZombieType;
 import com.lying.pvz.common.damage.PvZEntityDamageSource;
 import com.lying.pvz.common.impl.zombie.CustomZombies;
 import com.lying.pvz.common.init.PvZEntityRegister;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.common.level.entity.zombie.grass.TombStoneEntity;
 import com.lying.pvz.utils.EntityUtil;
 import com.lying.pvz.utils.ZombieUtil;
@@ -35,13 +35,13 @@ import net.minecraft.world.level.storage.ValueOutput;
  * <p>死亡时召唤 {@link TombStoneEntity}（波次墓碑），复用 {@code ZombieUtil.onZombieSpawn}
  * 完成宿主数据复制与 rising 标记。
  */
-public class MournerZombieEntity extends ZombieEntity {
+public class MournerZombieEntity extends PVZZombieEntity {
 
 	private static final EntityDataAccessor<Boolean> RIGHT_SHAKE =
 			SynchedEntityData.defineId(MournerZombieEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final int SHAKE_CD = 10;
 
-	public MournerZombieEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public MournerZombieEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 		this.setRightShake(this.getRandom().nextInt(2) == 0);
 		this.canLostHand = false;

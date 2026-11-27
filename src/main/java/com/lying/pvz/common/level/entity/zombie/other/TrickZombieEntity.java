@@ -5,7 +5,7 @@ import com.lying.pvz.common.impl.zombie.CustomZombies;
 import com.lying.pvz.common.init.PvZEffectRegister;
 import com.lying.pvz.common.init.PvZEntityRegister;
 import com.lying.pvz.common.init.PvZItemRegister;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.common.misc.PvZLoot;
 import com.lying.pvz.utils.EntityUtil;
 import com.lying.pvz.utils.ZombieUtil;
@@ -42,14 +42,14 @@ import net.minecraft.world.phys.Vec3;
  * <p>{@link #ignoreExplosion(Explosion)} 恒返回 true：捣蛋僵尸自身免疫爆炸伤害，
  * 避免自爆连锁时互相击杀。掉落表沿用 {@link PvZLoot#TRICK_ZOMBIE}。
  */
-public class TrickZombieEntity extends ZombieEntity {
+public class TrickZombieEntity extends PVZZombieEntity {
 
 	public static final int EXPLOSION_CHANCE = 5;
 	public static final int SUMMON_CHACNE = 5;
 	private int lastSummonTick = 0;
 	private final int summonGap = 40;
 
-	public TrickZombieEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public TrickZombieEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 	}
 

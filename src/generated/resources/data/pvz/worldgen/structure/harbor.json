@@ -1,0 +1,6 @@
+{
+  "type": "pvz:harbor",
+  "biomes": "pvz:pirate_harbor",
+  "spawn_overrides": {},
+  "step": "surface_structures"
+}

@@ -1,7 +1,7 @@
 package com.lying.pvz.common.level.spawn;
 
 import com.lying.pvz.common.level.entity.creature.FoodieZombieEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -16,17 +16,17 @@ import net.minecraft.world.level.ServerLevelAccessor;
 public class SpawnChecker {
 
 
-    public static boolean canZombieSpawn(EntityType<? extends ZombieEntity> zombieType, ServerLevelAccessor level,
+    public static boolean canZombieSpawn(EntityType<? extends PVZZombieEntity> zombieType, ServerLevelAccessor level,
                                          EntitySpawnReason reason, BlockPos pos, RandomSource random) {
         return checkSpawn(zombieType, level, reason, pos, random);
     }
 
-    public static boolean canLavaZombieSpawn(EntityType<? extends ZombieEntity> zombieType, ServerLevelAccessor level,
+    public static boolean canLavaZombieSpawn(EntityType<? extends PVZZombieEntity> zombieType, ServerLevelAccessor level,
                                              EntitySpawnReason reason, BlockPos pos, RandomSource random) {
         return level.getDifficulty() == Difficulty.HARD && checkSpawn(zombieType, level, reason, pos, random);
     }
 
-    public static boolean canYetiSpawn(EntityType<? extends ZombieEntity> zombieType, ServerLevelAccessor level,
+    public static boolean canYetiSpawn(EntityType<? extends PVZZombieEntity> zombieType, ServerLevelAccessor level,
                                        EntitySpawnReason reason, BlockPos pos, RandomSource random) {
 
         if (level instanceof ServerLevel serverLevel

@@ -7,7 +7,7 @@ import com.lying.pvz.common.init.PvZEntityRegister;
 import com.lying.pvz.common.init.PvZSoundRegister;
 import com.lying.pvz.common.level.entity.ai.goal.attack.PVZZombieAttackGoal;
 import com.lying.pvz.common.level.entity.plant.spear.SpikeRockEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.EntityUtil;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
@@ -21,8 +21,8 @@ import net.minecraft.world.level.Level;
 
 import java.util.EnumSet;
 
-public class Edgar090547Entity extends ZombieEntity {
-    public Edgar090547Entity(EntityType<? extends ZombieEntity> type, Level level) {
+public class Edgar090547Entity extends PVZZombieEntity {
+    public Edgar090547Entity(EntityType<? extends PVZZombieEntity> type, Level level) {
         super(type, level);
         this.setIsWholeBody();
     }

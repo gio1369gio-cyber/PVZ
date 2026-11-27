@@ -3,8 +3,11 @@ package com.lying.pvz.data;
 import com.lying.pvz.PvZMod;
 import com.lying.pvz.data.bootstrap.worldgen.biome.PvZBiome;
 import com.lying.pvz.data.bootstrap.worldgen.biome.PvZBiomeModifiers;
+import com.lying.pvz.data.bootstrap.worldgen.dimension.PvZDensityFunctions;
 import com.lying.pvz.data.bootstrap.worldgen.dimension.PvZDimension;
 import com.lying.pvz.data.bootstrap.worldgen.dimension.PvZDimensionType;
+import com.lying.pvz.data.bootstrap.worldgen.dimension.PvZMaterialRules;
+import com.lying.pvz.data.bootstrap.worldgen.dimension.PvZNoiseSettings;
 import com.lying.pvz.data.bootstrap.worldgen.feature.PvZFeatures;
 import com.lying.pvz.data.bootstrap.worldgen.feature.PvZPlaceFeature;
 import com.lying.pvz.data.bootstrap.misc.PvZDamageType;
@@ -44,6 +47,9 @@ public class PvZDataPack {
                 .add(Registries.TEMPLATE_POOL, PvZTemplatePools::bootstrap)
                 .add(Registries.DAMAGE_TYPE, PvZDamageType::bootstrap)
                 .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, PvZBiomeModifiers::bootstrap)
+                .add(Registries.MATERIAL_RULE, PvZMaterialRules::bootstrap)
+                .add(Registries.DENSITY_FUNCTION, PvZDensityFunctions::bootstrap)
+                .add(Registries.NOISE_SETTINGS, PvZNoiseSettings::bootstrap)
                 .add(Registries.DIMENSION_TYPE, PvZDimensionType::bootstrap)
                 .add(Registries.LEVEL_STEM, PvZDimension::bootstrap);
 

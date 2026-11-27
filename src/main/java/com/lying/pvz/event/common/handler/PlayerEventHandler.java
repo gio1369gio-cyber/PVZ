@@ -13,7 +13,7 @@ import com.lying.pvz.common.invasion.InvasionManager;
 import com.lying.pvz.common.level.entity.AbstractPAZEntity;
 import com.lying.pvz.common.level.entity.drop.SunEntity;
 import com.lying.pvz.common.level.entity.plant.PlantEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.common.level.item.display.ChallengeEnvelopeItem;
 import com.lying.pvz.utils.ConfigUtil;
 import com.lying.pvz.utils.EntityUtil;
@@ -166,7 +166,7 @@ public class PlayerEventHandler {
                 removed = !(stack.getItem() == PvZItemRegister.ORIGIN_SHOVEL.get());
                 EntityUtil.playSound(plantEntity, PvZSoundRegister.PLACE_PLANT_GROUND.get());
 
-            } else if (entity instanceof ZombieEntity) {
+            } else if (entity instanceof PVZZombieEntity) {
                 // TODO fast remove zombie.
             }
             if (removed && PlayerUtil.isPlayerSurvival(player)) {

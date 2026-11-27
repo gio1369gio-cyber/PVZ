@@ -1,0 +1,26 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 0,
+    "separation": 0,
+    "spacing": 1
+  },
+  "structures": [
+    {
+      "structure": "pvz:egypt",
+      "weight": 1
+    },
+    {
+      "structure": "pvz:harbor",
+      "weight": 1
+    },
+    {
+      "structure": "pvz:wild_west",
+      "weight": 1
+    },
+    {
+      "structure": "pvz:future_world",
+      "weight": 1
+    }
+  ]
+}

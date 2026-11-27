@@ -55,6 +55,7 @@ public class RegistryHandler {
         PvZItemGroups.TABS.register(bus);
         PvZStructureTypes.STRUCTURE_TYPES.register(bus);
         PvZPoolElementTypes.POOL_ELEMENT_TYPES.register(bus);
+        PvZBiomeSources.SOURCES.register(bus);
         // 客户端专属 setup：仅客户端加载 PVZClientSetup 类，服务端不触发
         if (FMLEnvironment.getDist() == Dist.CLIENT) {
             PVZClientSetup.register(bus);
@@ -77,6 +78,7 @@ public class RegistryHandler {
         OtherZombies.init();
         GrassZombies.init();
         CustomZombies.init();
+        PvZ2BossZombies.init();
         TransactionCodecs.init();
     }
 

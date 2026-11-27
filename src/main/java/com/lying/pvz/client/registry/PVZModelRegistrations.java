@@ -16,7 +16,7 @@ import com.lying.pvz.client.model.entity.plant.light.*;
 import com.lying.pvz.client.model.entity.plant.magic.*;
 import com.lying.pvz.client.model.entity.plant.spear.*;
 import com.lying.pvz.client.model.entity.plant.toxic.*;
-import com.lying.pvz.client.model.entity.zombie.boss.SphinxTerminatorModel;
+import com.lying.pvz.client.model.entity.zombie.boss.QuadrupedMechModel;
 import com.lying.pvz.client.model.entity.zombie.custom.LavaZombieModel;
 import com.lying.pvz.client.model.entity.zombie.custom.MCZombieModel;
 import com.lying.pvz.client.model.entity.zombie.custom.RedEdgeZombieModel;
@@ -34,6 +34,7 @@ import com.lying.pvz.common.impl.zombie.CustomZombies;
 import com.lying.pvz.common.impl.zombie.GrassZombies;
 import com.lying.pvz.common.impl.zombie.OtherZombies;
 import com.lying.pvz.common.impl.zombie.PoolZombies;
+import com.lying.pvz.common.impl.zombie.PvZ2BossZombies;
 import com.lying.pvz.common.impl.zombie.RoofZombies;
 import com.lying.pvz.common.impl.zombie.Zombotanies;
 import com.lying.pvz.utils.StringUtil;
@@ -410,9 +411,18 @@ public final class PVZModelRegistrations {
                 texture("zombie/roof/edgar_090517"),
                 set -> new EdgarRobotModel(set.bakeLayer(EdgarRobotModel.LAYER_LOCATION)));
         
-        ClientModelRegistry.registerZombie(RoofZombies.SPHINX_TERMINATOR.get().getID(), 2.2F,
-                texture("zombie/boss/sphinx_terminator"),
-                set -> new SphinxTerminatorModel(set.bakeLayer(SphinxTerminatorModel.LAYER_LOCATION)));
+        ClientModelRegistry.registerZombie(PvZ2BossZombies.SPHINX_INATOR.get().getID(), 2.2F,
+                texture("zombie/boss/sphinx_inator"),
+                set -> new QuadrupedMechModel(set.bakeLayer(QuadrupedMechModel.LAYER_LOCATION)));
+        ClientModelRegistry.registerZombie(PvZ2BossZombies.PLANK_WALKER.get().getID(), 2.2F,
+                texture("zombie/boss/plank_walker"),
+                set -> new QuadrupedMechModel(set.bakeLayer(QuadrupedMechModel.LAYER_LOCATION)));
+        ClientModelRegistry.registerZombie(PvZ2BossZombies.WAR_WAGON.get().getID(), 2.2F,
+                texture("zombie/boss/war_wagon"),
+                set -> new QuadrupedMechModel(set.bakeLayer(QuadrupedMechModel.LAYER_LOCATION)));
+        ClientModelRegistry.registerZombie(PvZ2BossZombies.TOMORROW_TRON.get().getID(), 2.2F,
+                texture("zombie/boss/tomorrow_tron"),
+                set -> new QuadrupedMechModel(set.bakeLayer(QuadrupedMechModel.LAYER_LOCATION)));
 
         ClientModelRegistry.registerZombie(RoofZombies.GARGANTUAR.get().getID(), 0.75F,
                 texture("zombie/roof/gargantuar"),

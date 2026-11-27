@@ -10,7 +10,7 @@ import com.lying.pvz.common.impl.zombie.PoolZombies;
 import com.lying.pvz.common.init.PvZAttachments;
 import com.lying.pvz.common.init.PvZSoundRegister;
 import com.lying.pvz.common.level.entity.plant.PlantEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.common.level.entity.zombie.body.ZombieDropBodyEntity;
 import com.lying.pvz.common.attachment.player.PlayerDataManager;
 import com.lying.pvz.utils.ConfigUtil;
@@ -52,7 +52,7 @@ import net.minecraft.world.level.storage.ValueOutput;
  * <p>{@code JACK_BOX} 在新 {@link MetalTypes} 中不存在，按内层携带物处理，
  * {@link #getMetalType()} 返回 {@link MetalTypes#EMPTY}。
  */
-public class JackInBoxZombieEntity extends ZombieEntity implements IHasMetal {
+public class JackInBoxZombieEntity extends PVZZombieEntity implements IHasMetal {
 
 	private static final EntityDataAccessor<Boolean> HAS_BOX =
 			SynchedEntityData.defineId(JackInBoxZombieEntity.class, EntityDataSerializers.BOOLEAN);
@@ -60,7 +60,7 @@ public class JackInBoxZombieEntity extends ZombieEntity implements IHasMetal {
 	private final int MinExplodeTime = 300;
 	private final int MaxExplodeTime = 3000;
 
-	public JackInBoxZombieEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public JackInBoxZombieEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 		this.setExplosionTime();
 	}

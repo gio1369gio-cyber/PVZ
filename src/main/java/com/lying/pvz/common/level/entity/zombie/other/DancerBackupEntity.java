@@ -2,7 +2,7 @@ package com.lying.pvz.common.level.entity.zombie.other;
 
 import com.lying.pvz.api.content.paz.IZombieType;
 import com.lying.pvz.common.impl.zombie.OtherZombies;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.EntityUtil;
 import com.lying.pvz.utils.MathUtil;
 import net.minecraft.world.entity.Entity;
@@ -16,13 +16,13 @@ import net.minecraft.world.level.storage.ValueOutput;
 
 import java.util.EnumSet;
 
-public class DancerBackupEntity extends ZombieEntity {
+public class DancerBackupEntity extends PVZZombieEntity {
 
     protected MJZombieEntity owner;
 
     private int restTick = 0;
 
-    public DancerBackupEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+    public DancerBackupEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
         super(type, worldIn);
         this.canCollideWithZombie = false;
     }

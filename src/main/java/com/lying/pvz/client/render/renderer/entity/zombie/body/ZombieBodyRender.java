@@ -41,7 +41,7 @@ import java.util.function.Function;
  * {@code part} 走两个 factory。
  *
  * <p><b>mini 契约</b>：{@code state.mini} 从 {@link ZombieDropBodyEntity#isMini()}
- * 填充（掉落时快照），<b>不</b>用 {@code ZombieEntity.isMiniZombie()}。
+ * 填充（掉落时快照），<b>不</b>用 {@code PVZZombieEntity.isMiniZombie()}。
  */
 public class ZombieBodyRender extends EntityRenderer<ZombieDropBodyEntity, ZombieDropBodyRenderState> {
 

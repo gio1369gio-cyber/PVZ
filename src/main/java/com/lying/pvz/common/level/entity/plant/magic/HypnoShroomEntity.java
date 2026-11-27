@@ -10,7 +10,7 @@ import com.lying.pvz.common.init.PvZSoundRegister;
 import com.lying.pvz.common.level.entity.ai.goal.misc.PlantAttractGoal;
 import com.lying.pvz.common.impl.plant.PVZPlants;
 import com.lying.pvz.common.level.entity.plant.PlantEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.common.level.entity.zombie.roof.GargantuarEntity;
 import com.lying.pvz.utils.EntityUtil;
 import net.minecraft.world.damagesource.DamageSource;
@@ -85,7 +85,7 @@ public class HypnoShroomEntity extends PlantEntity implements ICanAttract {
                     return;
                 }
                 EntityUtil.onEntitySpawn(this.level(), gar, source.getEntity().blockPosition());
-                gar.setZombieType(ZombieEntity.VariantType.NORMAL);
+                gar.setZombieType(PVZZombieEntity.VariantType.NORMAL);
                 gar.setHealth(gar.getMaxHealth() * this.getSummonHealth());
                 gar.setCharmed(!this.isCharmed());
             }

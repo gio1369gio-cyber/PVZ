@@ -1,7 +1,7 @@
 package com.lying.pvz.client.render.renderer.entity.zombie.boss;
 
 import com.lying.pvz.client.render.state.entity.misc.PvZEntityBlockRenderState;
-import com.lying.pvz.common.level.entity.zombie.boss.SphinxMissileEntity;
+import com.lying.pvz.common.level.entity.zombie.boss.ZombotMissileEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.SubmitNodeCollector;
@@ -15,10 +15,10 @@ import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.level.block.Blocks;
 
-/** 狮身终结者导弹渲染：画一个 TNT 方块。 */
-public class SphinxMissileRender extends EntityRenderer<SphinxMissileEntity, PvZEntityBlockRenderState> {
+/** 四足机甲共享导弹渲染：画一个 TNT 方块。 */
+public class ZombotMissileRender extends EntityRenderer<ZombotMissileEntity, PvZEntityBlockRenderState> {
 
-    public SphinxMissileRender(EntityRendererProvider.Context context) {
+    public ZombotMissileRender(EntityRendererProvider.Context context) {
         super(context);
     }
 
@@ -28,7 +28,7 @@ public class SphinxMissileRender extends EntityRenderer<SphinxMissileEntity, PvZ
     }
 
     @Override
-    public void extractRenderState(SphinxMissileEntity entity, PvZEntityBlockRenderState state, float partialTicks) {
+    public void extractRenderState(ZombotMissileEntity entity, PvZEntityBlockRenderState state, float partialTicks) {
         super.extractRenderState(entity, state, partialTicks);
         state.scale = 0.6F;
         state.blockState = Blocks.TNT.defaultBlockState();

@@ -6,7 +6,6 @@ import com.lying.pvz.common.init.PvZSoundRegister;
 import com.lying.pvz.data.bootstrap.worldgen.feature.PvZPlaceFeature;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
-import net.minecraft.data.worldgen.Carvers;
 import net.minecraft.util.ARGB;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.attribute.AmbientMoodSettings;
@@ -41,7 +40,6 @@ public class PvZBiomeData {
                .addSpawn(PvZEntityRegister.SUN.get(), 100, new ConstantInt(1));
 
        BiomeGenerationSettings.Builder gen = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers)
-               .addCarver(Carvers.CAVE)
                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PvZPlaceFeature.PATCH_CHOMPER_PLANT);
 
       return new Biome.BiomeBuilder()
@@ -78,7 +76,6 @@ public class PvZBiomeData {
                .addSpawn(PvZEntityRegister.TOMB_STONE.get(), 4, new ConstantInt(1));
 
        BiomeGenerationSettings.Builder gen = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
-       BiomeDefaultFeatures.addDefaultCarversAndLakes(gen);
        BiomeDefaultFeatures.addDefaultOres(gen);
        BiomeDefaultFeatures.addDefaultSoftDisks(gen);
        BiomeDefaultFeatures.addDesertVegetation(gen);
@@ -119,7 +116,6 @@ public class PvZBiomeData {
        BiomeDefaultFeatures.farmAnimals(mob);
 
        BiomeGenerationSettings.Builder gen = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
-       BiomeDefaultFeatures.addDefaultCarversAndLakes(gen);
        BiomeDefaultFeatures.addDefaultOres(gen);
        BiomeDefaultFeatures.addDefaultSoftDisks(gen);
        BiomeDefaultFeatures.addNearWaterVegetation(gen);
@@ -158,7 +154,6 @@ public class PvZBiomeData {
                .addSpawn(PvZEntityRegister.GARGANTUAR.get(), 2, new ConstantInt(1));
 
        BiomeGenerationSettings.Builder gen = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
-       BiomeDefaultFeatures.addDefaultCarversAndLakes(gen);
        BiomeDefaultFeatures.addDefaultOres(gen);
        BiomeDefaultFeatures.addDefaultSoftDisks(gen);
        BiomeDefaultFeatures.addDesertVegetation(gen);
@@ -182,38 +177,36 @@ public class PvZBiomeData {
    }
 
    /**
-    * 功夫世界：温带竹林与山地，青绿薄雾与孢子。
+    * 未来世界：科技蓝紫天幕、霓虹青雾、电弧粒子。
     */
-   public static Biome kungFuWorld(HolderGetter<PlacedFeature> placedFeatures,HolderGetter<WorldCarver> worldCarvers) {
+   public static Biome futureWorld(HolderGetter<PlacedFeature> placedFeatures,HolderGetter<WorldCarver> worldCarvers) {
 
        BiomeSpecialEffects.Builder effects = new BiomeSpecialEffects.Builder()
-               .waterColor(0x3A6B5A)
-               .foliageColorOverride(0x4E8B4A)
-               .dryFoliageColorOverride(0x6A8F52)
-               .grassColorOverride(0x5FA052);
+               .waterColor(0x2C5F8A)
+               .foliageColorOverride(0x4A7FA8)
+               .dryFoliageColorOverride(0x5E7BA0)
+               .grassColorOverride(0x4E7C93);
 
        MobSpawnSettings.Builder mob = new MobSpawnSettings.Builder()
-               .addSpawn(PvZEntityRegister.MJ_ZOMBIE.get(), 5, new ConstantInt(1))
-               .addSpawn(PvZEntityRegister.RED_EDGE_ZOMBIE.get(), 5, new ConstantInt(1));
+               .addSpawn(PvZEntityRegister.TARGET_ARROW_ZOMBIE.get(), 5, new ConstantInt(1))
+               .addSpawn(PvZEntityRegister.MC_ZOMBIE.get(), 4, new ConstantInt(1));
        BiomeDefaultFeatures.farmAnimals(mob);
 
        BiomeGenerationSettings.Builder gen = new BiomeGenerationSettings.Builder(placedFeatures, worldCarvers);
-       BiomeDefaultFeatures.addDefaultCarversAndLakes(gen);
-       BiomeDefaultFeatures.addDefaultOres(gen);
-       BiomeDefaultFeatures.addBambooVegetation(gen);
-       BiomeDefaultFeatures.addMountainTrees(gen);
+       BiomeDefaultFeatures.addDefaultOres(gen, true);
+       BiomeDefaultFeatures.addFossilDecoration(gen);
        BiomeDefaultFeatures.addDefaultGrass(gen);
 
       return new Biome.BiomeBuilder()
-               .hasPrecipitation(true)
-               .temperature(0.75F)
-               .downfall(0.85F)
-               .setAttribute(EnvironmentAttributes.SKY_COLOR, ARGB.vector3fFromRGB24(0xA8C4B8))
-               .setAttribute(EnvironmentAttributes.FOG_COLOR, ARGB.vector3fFromRGB24(0x8FAFA0))
-               .setAttribute(EnvironmentAttributes.FOG_START_DISTANCE, 30.0F)
-               .setAttribute(EnvironmentAttributes.FOG_END_DISTANCE, 160.0F)
-               .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(0x4A6B5C))
-               .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(PvZParticleRegister.SPORE.get(), 0.0025F))
+               .hasPrecipitation(false)
+               .temperature(0.65F)
+               .downfall(0.35F)
+               .setAttribute(EnvironmentAttributes.SKY_COLOR, ARGB.vector3fFromRGB24(0x3B3A7A))
+               .setAttribute(EnvironmentAttributes.FOG_COLOR, ARGB.vector3fFromRGB24(0x4A9CB8))
+               .setAttribute(EnvironmentAttributes.FOG_START_DISTANCE, 20.0F)
+               .setAttribute(EnvironmentAttributes.FOG_END_DISTANCE, 140.0F)
+               .setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(0x2C5F8A))
+               .setAttribute(EnvironmentAttributes.AMBIENT_PARTICLES, AmbientParticle.of(PvZParticleRegister.BLUE_FLAME.get(), 0.002F))
                .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, BackgroundMusic.OVERWORLD)
                .specialEffects(effects.build())
                .mobSpawnSettings(mob.build())

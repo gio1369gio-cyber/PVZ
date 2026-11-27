@@ -29,6 +29,12 @@ public class PvZTemplatePools {
     public static final ResourceKey<StructureTemplatePool> DAVE_VILLA_3 = register("dave_villa/part3");
     public static final ResourceKey<StructureTemplatePool> DAVE_VILLA_4 = register("dave_villa/part4");
 
+    // 四主题岛心建筑模板池
+    public static final ResourceKey<StructureTemplatePool> EGYPT = register("egypt");
+    public static final ResourceKey<StructureTemplatePool> FUTURE = register("future");
+    public static final ResourceKey<StructureTemplatePool> HARBOR = register("harbor");
+    public static final ResourceKey<StructureTemplatePool> WILD = register("wild");
+
     private static final ResourceKey<StructureProcessorList> EMPTY_PROCESSORS =
             ResourceKey.create(Registries.PROCESSOR_LIST, Identifier.withDefaultNamespace("empty"));
 
@@ -50,6 +56,12 @@ public class PvZTemplatePools {
         createPool(context, DAVE_VILLA_2, "pvz:dave_villa/davevilla2", emptyProcessors, "dave_villa");
         createPool(context, DAVE_VILLA_3, "pvz:dave_villa/davevilla3", emptyProcessors, "dave_villa");
         createPool(context, DAVE_VILLA_4, "pvz:dave_villa/davevilla4", emptyProcessors, "dave_villa");
+
+        // 四主题岛心建筑：structure_name 用于战利品表分派
+        createPool(context, EGYPT, "pvz:pvz2/egypt", emptyProcessors, "egypt");
+        createPool(context, FUTURE, "pvz:pvz2/future", emptyProcessors, "future");
+        createPool(context, HARBOR, "pvz:pvz2/harbor", emptyProcessors, "harbor");
+        createPool(context, WILD, "pvz:pvz2/wild", emptyProcessors, "wild");
     }
 
     private static void createPool(BootstrapContext<StructureTemplatePool> context, ResourceKey<StructureTemplatePool> key,

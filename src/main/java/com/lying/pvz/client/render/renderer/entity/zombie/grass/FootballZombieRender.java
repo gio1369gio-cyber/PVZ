@@ -2,7 +2,6 @@ package com.lying.pvz.client.render.renderer.entity.zombie.grass;
 
 import com.lying.pvz.client.model.entity.zombie.grass.FootballZombieModel;
 import com.lying.pvz.client.render.renderer.entity.zombie.PvZZombieRender;
-import com.lying.pvz.client.render.state.entity.zombie.PvZZombieRenderState;
 import com.lying.pvz.common.level.entity.zombie.grass.FootballZombieEntity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 

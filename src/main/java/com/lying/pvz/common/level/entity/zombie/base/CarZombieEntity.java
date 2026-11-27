@@ -2,7 +2,7 @@ package com.lying.pvz.common.level.entity.zombie.base;
 
 import com.lying.pvz.common.damage.PvZEntityDamageSource;
 import com.lying.pvz.common.init.PvZSoundRegister;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.utils.EntityUtil;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.entity.Entity;
@@ -10,9 +10,9 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 
-public abstract class CarZombieEntity extends ZombieEntity {
+public abstract class CarZombieEntity extends PVZZombieEntity {
 
-	public CarZombieEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public CarZombieEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 		this.setIsWholeBody();
 		this.canBeFrozen = false;

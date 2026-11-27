@@ -4,7 +4,7 @@ import com.lying.pvz.api.content.paz.IZombieType;
 import com.lying.pvz.api.entity.ability.IHasMultiPart;
 import com.lying.pvz.common.impl.zombie.PoolZombies;
 import com.lying.pvz.common.init.PvZEntityRegister;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.common.level.entity.zombie.body.ZombieDropBodyEntity;
 import com.lying.pvz.common.level.entity.zombie.part.PVZZombiePartEntity;
 import com.lying.pvz.utils.EntityUtil;
@@ -36,14 +36,14 @@ import net.minecraft.world.phys.Vec3;
  * <p>死亡时（{@link #onRemoveWhenDeath()}）生成 4 只 {@link BobsleZombieEntity}。
  * 掉落部件使用高摩擦系数 {@code 0.95}，避免部件滑出视野。迷你化被禁用。
  */
-public class BobsleTeamEntity extends ZombieEntity implements IHasMultiPart {
+public class BobsleTeamEntityPVZ extends PVZZombieEntity implements IHasMultiPart {
 
 	public static final int PART_NUM = 2;
 	private static final int MAX_OUT_SNOW_TICK = 100;
 	private final PVZZombiePartEntity[] parts = new PVZZombiePartEntity[PART_NUM];
 	private int outSnowTick;
 
-	public BobsleTeamEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public BobsleTeamEntityPVZ(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 		this.setIsWholeBody();
 		this.resetParts();

@@ -7,7 +7,7 @@ import com.lying.pvz.client.ClientUtil;
 import com.lying.pvz.client.gui.screen.PvZMainMenuScreen;
 import com.lying.pvz.common.init.PvZEffectRegister;
 import com.lying.pvz.common.level.entity.plant.PlantEntity;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.common.level.entity.zombie.roof.BungeeZombieEntity;
 import com.lying.pvz.event.client.handler.PvZEntityRenderHandler;
 import com.lying.pvz.utils.ConfigUtil;
@@ -20,14 +20,10 @@ import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
 import net.minecraft.util.context.ContextKey;
 import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RenderLivingEvent;
 import net.neoforged.neoforge.client.event.ScreenEvent;
-import net.neoforged.neoforge.client.gui.ConfigurationScreen;
-import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.client.renderstate.RegisterRenderStateModifiersEvent;
 
 /**
@@ -67,7 +63,7 @@ public class PVZClientEvents {
 						}
 					}
 					// 3) 蹦极僵尸倒立（替代旧的 checkBungeeHandStand）
-					if (entity instanceof PlantEntity || entity instanceof ZombieEntity) return;
+					if (entity instanceof PlantEntity || entity instanceof PVZZombieEntity) return;
 					if (entity.getVehicle() instanceof BungeeZombieEntity && !rs.isUpsideDown) {
 						rs.isUpsideDown = true;
 						rs.xRot *= -1.0F;

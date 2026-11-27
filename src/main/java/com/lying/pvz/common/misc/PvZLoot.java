@@ -39,6 +39,11 @@ public class PvZLoot {
 	public static final ResourceKey<LootTable> GIGA_GARGANTUAR = getEntityLootTable("giga_gargantuar");
 	public static final ResourceKey<LootTable> EDGAR_090505 = getEntityLootTable("edgar_090505");
 	public static final ResourceKey<LootTable> EDGAR_090517 = getEntityLootTable("edgar_090517");
+	// PvZ2 四足机甲 BOSS（实体注册名 == 战利品表名，自动绑定）
+	public static final ResourceKey<LootTable> SPHINX_INATOR = getEntityLootTable("sphinx_inator");
+	public static final ResourceKey<LootTable> PLANK_WALKER = getEntityLootTable("plank_walker");
+	public static final ResourceKey<LootTable> WAR_WAGON = getEntityLootTable("war_wagon");
+	public static final ResourceKey<LootTable> TOMORROW_TRON = getEntityLootTable("tomorrow_tron");
 	public static final ResourceKey<LootTable> PEASHOOTER_ZOMBIE = getEntityLootTable("peashooter_zombie");
 	public static final ResourceKey<LootTable> WALLNUT_ZOMBIE = getEntityLootTable("wallnut_zombie");
 	public static final ResourceKey<LootTable> GATLINGPEA_ZOMBIE = getEntityLootTable("gatlingpea_zombie");

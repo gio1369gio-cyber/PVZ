@@ -1,6 +1,6 @@
 package com.lying.pvz.common.level.entity.zombie.base;
 
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Pose;
@@ -21,11 +21,11 @@ import net.minecraft.world.level.pathfinder.PathType;
  * <p>水中减速 0.94（略高于陆地），路径成本 {@link PathType#WATER} 置 0，避免游泳僵尸绕开水路。
  * 具体僵尸（海豚骑士、浮潜、潜水、海豚等）继承本类决定攀爬/攻击等细节。
  */
-public abstract class SwimmerZombieEntity extends ZombieEntity {
+public abstract class SwimmerZombieEntity extends PVZZombieEntity {
 
 	private static final float UP_DISTANCE = 10;
 
-	public SwimmerZombieEntity(EntityType<? extends ZombieEntity> type, Level worldIn) {
+	public SwimmerZombieEntity(EntityType<? extends PVZZombieEntity> type, Level worldIn) {
 		super(type, worldIn);
 		this.setPathfindingMalus(PathType.WATER, 0);
 	}

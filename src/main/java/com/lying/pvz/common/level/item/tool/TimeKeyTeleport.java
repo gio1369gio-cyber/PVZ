@@ -4,6 +4,7 @@ import com.lying.pvz.PvZMod;
 import com.lying.pvz.common.attachment.player.PlayerDataManager;
 import com.lying.pvz.common.init.PvZItemRegister;
 import com.lying.pvz.common.worldgen.BiomeProgression;
+import com.lying.pvz.common.worldgen.biome.PvZIslandBiomeSource;
 import com.lying.pvz.data.bootstrap.worldgen.dimension.PvZDimension;
 import com.lying.pvz.utils.PlayerUtil;
 import net.minecraft.ChatFormatting;
@@ -20,7 +21,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.portal.TeleportTransition;
 
@@ -35,19 +35,14 @@ import javax.annotation.Nullable;
  *   <li><b>pvz_2 维度内</b>：在已解锁群系链中循环切到下一个，地表非水。</li>
  * </ul>
  *
- * <p>落点用 {@code findBiomeHorizontal} 定位群系后，再在附近找非水地表，避免落在海里。
+ * <p><b>落点固定化</b>：每个群系的落点只在「首次到达」时用 {@code findBiomeHorizontal} 定位一次，
+ * 随即记入玩家数据（{@link PlayerDataManager#setBiomeAnchor}）。之后再次传送到该群系直接复用记忆坐标，
+ * 不再随机找落点——避免误触 TimeKey 时被乱传到群系的另一处。
  */
 public final class TimeKeyTeleport {
 
-    private static final int SEARCH_RADIUS = 6400;
-    /** 与 GardenCompassItem 一致：findClosest 模式逐圈采样边缘，step 太小会卡主线程。 */
-    private static final int SEARCH_STEP = 8;
-    /** 群系噪声采样的 Y（用维度海平面附近，而非玩家当前 Y，避免高度噪声偏差）。 */
+    /** 岛心采样 Y（末地剖面：岛体在 y≈32~56 最厚，64 在岛面上方附近）。 */
     private static final int SAMPLE_Y = 64;
-    /** 落点周围找非水地表的搜索半径。 */
-    private static final int LAND_SEARCH_RADIUS = 192;
-    /** 最多强制生成多少个区块，防止主线程卡顿。 */
-    private static final int MAX_CHUNKS_TO_GENERATE = 64;
 
     private TimeKeyTeleport() {}
 
@@ -78,7 +73,7 @@ public final class TimeKeyTeleport {
             return;
         }
 
-        BlockPos landPos = findLandInBiome(pvzLevel, player.blockPosition(), target);
+        BlockPos landPos = resolveLandingPos(player, pvzLevel, target, mgr);
         if (landPos == null) {
             PlayerUtil.sendMsgTo(player, Component.translatable("msg.pvz.time_key.locate_fail")
                     .withStyle(ChatFormatting.RED));
@@ -130,13 +125,31 @@ public final class TimeKeyTeleport {
                     .withStyle(ChatFormatting.RED));
             return;
         }
-        BlockPos landPos = findLandInBiome(pvzLevel, player.blockPosition(), target);
+        BlockPos landPos = resolveLandingPos(player, pvzLevel, target, mgr);
         if (landPos == null) {
             PlayerUtil.sendMsgTo(player, Component.translatable("msg.pvz.time_key.locate_fail")
                     .withStyle(ChatFormatting.RED));
             return;
         }
         doTeleport(player, pvzLevel, landPos);
+    }
+
+    /**
+     * 解析目标群系的固定落点：优先复用已记忆坐标；首次到达才定位一次并记录。
+     *
+     * <p>这样反复使用 TimeKey 时落点恒定，避免误触被随机传送到群系另一处。
+     */
+    @Nullable
+    private static BlockPos resolveLandingPos(ServerPlayer player, ServerLevel pvzLevel,
+                                              ResourceKey<Biome> target, PlayerDataManager mgr) {
+        final BlockPos remembered = mgr.getBiomeAnchor(target);
+        if (remembered != null) return remembered;
+
+        final BlockPos land = findIslandSurface(pvzLevel, target);
+        if (land != null) {
+            mgr.setBiomeAnchor(target, land); // 首次到达：记住该岛心落点
+        }
+        return land;
     }
 
     private static void doTeleport(ServerPlayer player, ServerLevel level, BlockPos landPos) {
@@ -187,71 +200,33 @@ public final class TimeKeyTeleport {
         return null;
     }
 
-    /** 定位目标群系并在附近找非水地表；找不到返回 null。 */
+    /**
+     * 取目标群系所在浮岛的固定岛心地表：强制生成岛心那一个区块后读高度图。
+     *
+     * <p>新维度是末地式四浮岛（岛心固定，见 {@link PvZIslandBiomeSource#centerOf}），
+     * 不再需要 findBiomeHorizontal + 半径搜索 + 群系放宽那套脆弱逻辑。
+     * 岛心一定在岛内（密度最大），只需生成一个区块即可拿到真实地表。
+     */
     @Nullable
-    private static BlockPos findLandInBiome(ServerLevel level, BlockPos origin, ResourceKey<Biome> target) {
-        RandomState randomState = level.getChunkSource().randomState();
-        // 用固定采样 Y（维度海平面附近），避免玩家当前 Y 影响 3D 噪声采样
-        var result = level.getChunkSource().getGenerator().getBiomeSource().findBiomeHorizontal(
-                origin.getX(), SAMPLE_Y, origin.getZ(),
-                SEARCH_RADIUS, SEARCH_STEP,
-                holder -> holder.is(target), level.getRandom(), true, randomState);
-        if (result == null) {
-            PvZMod.LOGGER.warn("[TimeKey] findBiomeHorizontal returned null for {} near {}",
-                    target.identifier(), origin);
-            return null;
+    private static BlockPos findIslandSurface(ServerLevel level, ResourceKey<Biome> target) {
+        BlockPos center = PvZIslandBiomeSource.centerOf(target);
+        int cx = center.getX();
+        int cz = center.getZ();
+
+        // 目标区块通常未生成：先强制生成岛心区块，高度图才有效（否则返回维度底部）
+        level.getChunk(SectionPos.blockToSectionCoord(cx), SectionPos.blockToSectionCoord(cz));
+
+        BlockPos probe = new BlockPos(cx, SAMPLE_Y, cz);
+        BlockPos surface = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, probe);
+        BlockState ground = level.getBlockState(surface.below());
+        if (!ground.isAir() && !ground.liquid()) {
+            PvZMod.LOGGER.info("[TimeKey] island surface for {} at {} (ground {})",
+                    target.identifier(), surface, ground.getBlock());
+            return surface;
         }
 
-        BlockPos center = result.getFirst();
-        PvZMod.LOGGER.info("[TimeKey] found {} at {}, searching land...", target.identifier(), center);
-
-        // 阶段1：目标群系内找非水地表（地表方块非空气、非液体）
-        BlockPos land = searchLandNear(level, center, target, LAND_SEARCH_RADIUS);
-        if (land != null) return land;
-
-        // 阶段2：该群系整片是海时，放宽群系限制，在更大范围找任意陆地
-        PvZMod.LOGGER.warn("[TimeKey] no land within {} biome, widening search (ignoring biome)", target.identifier());
-        land = searchLandNear(level, center, null, LAND_SEARCH_RADIUS * 3);
-        if (land != null) {
-            PvZMod.LOGGER.info("[TimeKey] widened land at {} (biome {}) for target {}",
-                    land, level.getBiome(land).unwrapKey().map(k -> k.identifier().toString()).orElse("?"),
-                    target.identifier());
-            return land;
-        }
-
-        PvZMod.LOGGER.warn("[TimeKey] no land found at all around {}", center);
-        return null;
-    }
-
-    /** 在 center 附近找非水地表。requiredBiome 为 null 时不限制群系。 */
-    @Nullable
-    private static BlockPos searchLandNear(ServerLevel level, BlockPos center,
-                                           @Nullable ResourceKey<Biome> requiredBiome, int radius) {
-        // 目标区块通常尚未生成：getBlockState 对未生成区块返回空气、heightmap 返回维度底部，
-        // 必须先强制生成区块才能真正判定地表。按区块步进，限制生成数量避免卡顿。
-        final int STEP = 16;
-        int generated = 0;
-        for (int dx = -radius; dx <= radius; dx += STEP) {
-            for (int dz = -radius; dz <= radius; dz += STEP) {
-                BlockPos candidate = new BlockPos(center.getX() + dx, SAMPLE_Y, center.getZ() + dz);
-                if (requiredBiome != null && !level.getBiome(candidate).is(requiredBiome)) continue;
-                if (generated++ >= MAX_CHUNKS_TO_GENERATE) return null;
-
-                // 强制生成候选所在区块（FULL），之后高度图/地表方块才有效
-                level.getChunk(SectionPos.blockToSectionCoord(candidate.getX()),
-                        SectionPos.blockToSectionCoord(candidate.getZ()));
-
-                BlockPos surface = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, candidate);
-                // surface 是最高阻挡方块上方一格；脚下地表方块必须非空气、非液体
-                BlockState ground = level.getBlockState(surface.below());
-                if (!ground.isAir() && !ground.liquid()) {
-                    PvZMod.LOGGER.info("[TimeKey] land at {} (generated {} chunks)", surface, generated);
-                    return surface;
-                }
-            }
-        }
-        PvZMod.LOGGER.info("[TimeKey] searched {} chunks, no land (biome {})",
-                generated, requiredBiome == null ? "any" : requiredBiome.identifier().toString());
-        return null;
+        // 兜底：岛心正上方直接用采样 Y（末地剖面中心岛体在 y≈32~64，64 通常落在岛面上）
+        PvZMod.LOGGER.warn("[TimeKey] island surface empty at {}, falling back to Y={}", center, SAMPLE_Y);
+        return probe;
     }
 }

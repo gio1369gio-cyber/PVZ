@@ -2,7 +2,7 @@ package com.lying.pvz.utils;
 
 
 import com.lying.pvz.api.content.paz.IZombieType;
-import com.lying.pvz.common.level.entity.zombie.ZombieEntity;
+import com.lying.pvz.common.level.entity.zombie.PVZZombieEntity;
 import com.lying.pvz.common.impl.zombie.GrassZombies;
 import net.minecraft.core.BlockPos;
 
@@ -55,12 +55,12 @@ public class ZombieUtil {
 	public static final float LITTLE_HIGH_TARGET_HEIGHT = 40;
 	public static final float HIGH_TARGET_HEIGHT = 50;
 
-	public static void copySummonZombieData(ZombieEntity old, ZombieEntity now) {
+	public static void copySummonZombieData(PVZZombieEntity old, PVZZombieEntity now) {
 		now.setCharmed(old.isCharmed());
 		now.setMiniZombie(old.isMiniZombie());
 	}
 
-	public static void onZombieSpawn(ZombieEntity old, ZombieEntity now, BlockPos pos) {
+	public static void onZombieSpawn(PVZZombieEntity old, PVZZombieEntity now, BlockPos pos) {
 		ZombieUtil.copySummonZombieData(old, now);
 		EntityUtil.onEntitySpawn(old.level(), now, pos);
 	}

@@ -182,6 +182,23 @@ public final class PlayerDataManager {
         return changed;
     }
 
+    /** 读取群系的记忆传送落点；从未到达过返回 null。 */
+    @javax.annotation.Nullable
+    public net.minecraft.core.BlockPos getBiomeAnchor(ResourceKey<Biome> biome) {
+        return biomeUnlock().getAnchor(biome);
+    }
+
+    /** 是否已记忆该群系落点。 */
+    public boolean hasBiomeAnchor(ResourceKey<Biome> biome) {
+        return biomeUnlock().hasAnchor(biome);
+    }
+
+    /** 记录群系落点并同步（首次到达该群系时调用，之后固定复用）。 */
+    public void setBiomeAnchor(ResourceKey<Biome> biome, net.minecraft.core.BlockPos pos) {
+        biomeUnlock().setAnchor(biome, pos);
+        syncBiomeUnlock();
+    }
+
     /* ============================================================ */
     /* ========================== PAZ CD ============================ */
     /* ============================================================ */
